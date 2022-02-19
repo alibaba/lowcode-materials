@@ -1,0 +1,21 @@
+{
+  "library": "AlilcLowcodeMaterials",
+  "libraryTarget": "umd",
+  "sourceMap": false,
+  "alias": {
+    "@": "./src",
+    "@components": "./src/components"
+  },
+  "plugins": [
+    "build-plugin-component-multiple",
+    [
+      "build-plugin-fusion",
+      {
+        "uniteBaseComponent": "@alifd/next",
+        "importOptions": {
+          "libraryDirectory": "lib"
+        }
+      }
+    ]
+  ]
+}

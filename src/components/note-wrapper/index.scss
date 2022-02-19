@@ -1,0 +1,72 @@
+/* write style here */
+.done-note-wrapper.render-wrapper-root {
+  // display: none !important;
+  display: block !important;
+  position: absolute !important;
+  z-index: 1 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  line-height: 0 !important;
+  color: #000 !important;
+  border: 1px dashed rgba(9, 195, 182, 0.5) !important;
+  border-radius: 0 !important;
+  pointer-events: none !important;
+  text-align: left !important;
+  margin: 0;
+  padding: 0;
+
+  .render-wrapper-note {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin: -1px 0 0 -1px;
+    line-height: 18px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    background: #09c3b6;
+    border-radius: 0 0 60% 0;
+    opacity: 0.5;
+    pointer-events: auto;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+      box-shadow: 1px 1px 4px rgba(68, 215, 182, 0.5);
+    }
+  }
+
+  &.hover {
+    border-color: #09c3b6 !important;
+    .render-wrapper-note {
+      opacity: 1;
+      background: #09c3b6;
+    }
+  }
+}
+
+.render-wrapper-target:hover > .render-wrapper-root,
+.render-wrapper-root.hover {
+  display: block !important;
+}
+
+// 全局禁用批注
+.preview-shell-note-0 {
+  .render-wrapper-root {
+    display: none !important;
+  }
+  .render-wrapper-target:hover > .render-wrapper-root,
+  .render-wrapper-root.hover {
+    display: none !important;
+  }
+}
+// 全局开启批注
+.preview-shell-note-1 {
+}
+// 全局批注全部显示
+.preview-shell-note-2 {
+  .render-wrapper-root {
+    display: block !important;
+  }
+}
