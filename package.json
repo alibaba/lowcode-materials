@@ -1,0 +1,86 @@
+{
+  "name": "@alilc/lowcode-materials",
+  "version": "1.0.0",
+  "description": "Fusion Next for LowCode",
+  "scripts": {
+    "start": "build-scripts start --type=dev",
+    "compile": "build-scripts build",
+    "preview": "build-scripts start --type=preview",
+    "build": "npm run compile",
+    "dev": "start-storybook -p 9001",
+    "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
+    "lowcode:build": "build-scripts build --config ./build.lowcode.js",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "f2elint-scan": "f2elint scan",
+    "f2elint-fix": "f2elint fix",
+    "prepublishOnly": "npm run build && npm run lowcode:build"
+  },
+  "files": [
+    "es/",
+    "lib/",
+    "dist/",
+    "build/",
+    "lowcode/"
+  ],
+  "lint-staged": {
+    "*.ts?(x)": [
+      "prettier --parser=typescript --write"
+    ],
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@alib/build-scripts": "^0.1.23",
+    "@alifd/build-plugin-lowcode": "^0.1.15",
+    "@alifd/next": "^1.20.0",
+    "build-plugin-component": "^1.3.3",
+    "build-plugin-component-multiple": "^1.0.0-beta.45",
+    "build-plugin-fusion": "^0.1.3",
+    "build-plugin-moment-locales": "^0.1.0",
+    "f2elint": "^2.2.0",
+    "lint-staged": "^10.5.3",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "react-dom": "^17.0.1",
+    "tsconfig-paths-webpack-plugin": "^3.3.0",
+    "typescript": "^3.9.3",
+    "yorkie": "^2.0.0"
+  },
+  "authors": [
+    {
+      "name": "金禅"
+    },
+    {
+      "name": "荣彬"
+    },
+    {
+      "name": "屹凡"
+    },
+    {
+      "name": "启剑"
+    },
+    {
+      "name": "春希"
+    },
+    {
+      "name": "度城"
+    },
+    {
+      "name": "梧忌"
+    }
+  ],
+  "dependencies": {
+    "@alifd/next": "^1.24.14",
+    "@types/react": "^17.0.39"
+  },
+  "componentConfig": {
+    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.0/build/lowcode/assets-prod.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "f2elint commit-file-scan",
+      "commit-msg": "f2elint commit-msg-scan"
+    }
+  }
+}
