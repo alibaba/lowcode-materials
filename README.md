@@ -2,7 +2,7 @@
 
 ## 体验地址/Demo
 
-<https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.0/build/lowcode/index.html>
+<https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.1/build/lowcode/index.html>
 
 ## 使用/Usage
 
