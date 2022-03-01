@@ -81,6 +81,7 @@
   "componentConfig": {
     "materialSchema": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.1/build/lowcode/assets-prod.json"
   },
+  "license": "MIT",
   "husky": {
     "hooks": {
       "pre-commit": "f2elint commit-file-scan",
