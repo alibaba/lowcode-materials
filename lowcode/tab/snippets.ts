@@ -1,7 +1,3 @@
-import { getDataFromPlainText } from './adaptor';
-const plainData = 'Tab 1\nTab 2\nTab 3';
-const { children } = getDataFromPlainText(plainData);
-
 export default [
   {
     title: '普通型',
@@ -12,9 +8,27 @@ export default [
         shape: 'pure',
         size: 'medium',
         excessMode: 'slide',
-        plainData,
       },
-      children,
+      children: [
+        {
+          componentName: 'Tab.Item',
+          props: {
+            title: 'Tab1',
+          },
+        },
+        {
+          componentName: 'Tab.Item',
+          props: {
+            title: 'Tab2',
+          },
+        },
+        {
+          componentName: 'Tab.Item',
+          props: {
+            title: 'Tab3',
+          },
+        },
+      ],
     },
   },
 ];

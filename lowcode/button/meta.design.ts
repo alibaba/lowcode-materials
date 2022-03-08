@@ -195,7 +195,7 @@ export default [
           setter: 'IconSetter',
           supportVariable: false,
           setValue: (target, value) => {
-            target.nodes[0].children.import(
+            target.node.children.importSchema(
               value && {
                 componentName: 'Icon',
                 props: { type: value, style: { marginRight: 5 } },

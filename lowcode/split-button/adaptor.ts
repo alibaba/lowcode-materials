@@ -69,9 +69,8 @@ export const createDataSource = (
           type: 'divider',
           key: `${prefix || level}-${index++}`,
         });
-        return;
+
       default:
-        return;
     }
   });
 
@@ -173,7 +172,6 @@ export const createContents = (array = []) => {
 };
 
 function getButtonLabel(buttonItem) {
-  console.log('buttonItem: ', buttonItem);
   if (buttonItem.type !== 'node') return {};
   // return buttonItem.value.find(item => item.type === 'text').value;
   // FIXME: 渲染时 JSSlot 有问题，暂时不要 icon

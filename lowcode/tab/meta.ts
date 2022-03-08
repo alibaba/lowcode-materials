@@ -152,6 +152,7 @@ export default {
                       title: '名称',
                       initialValue: '标签项',
                       setter: 'StringSetter',
+                      important: true,
                       supportVariable: true,
                     },
                     {
@@ -169,6 +170,7 @@ export default {
                       name: 'closeable',
                       title: '可关闭',
                       initialValue: false,
+                      important: true,
                       setter: 'BoolSetter',
                       supportVariable: true,
                     },
@@ -176,6 +178,7 @@ export default {
                       name: 'disabled',
                       title: '是否禁用',
                       initialValue: false,
+                      important: true,
                       setter: 'BoolSetter',
                       supportVariable: true,
                     },
@@ -202,7 +205,7 @@ export default {
                 ? String(child.getPropValue('primaryKey'))
                 : child.id;
               return {
-                primaryKey: primaryKey,
+                primaryKey,
                 title: child.getPropValue('title'),
                 closeable: child.getPropValue('closeable'),
                 disabled: child.getPropValue('disabled'),
@@ -211,7 +214,7 @@ export default {
             return map;
           },
           setValue(target, value) {
-            const node = target.node;
+            const { node } = target;
             const map = {};
             if (!Array.isArray(value)) {
               value = [];
@@ -263,7 +266,7 @@ export default {
         title: '形态',
         defaultValue: 'pure',
         setter: {
-          componentName: 'RadioGroupSetter',
+          componentName: 'SelectSetter',
           props: {
             options: [
               { title: '普通型', value: 'pure' },
@@ -290,14 +293,18 @@ export default {
       },
       {
         name: 'excessMode',
-        title: '选项卡过多时的滑动模式',
+        title: {
+          label: '模式',
+          tip: '选项卡过多时的查看模式',
+        },
+        condition: () => false,
         defaultValue: 'slide',
         setter: {
           componentName: 'RadioGroupSetter',
           props: {
             options: [
-              { title: '小', value: 'slide' },
-              { title: '中', value: 'dropdown' },
+              { title: '滑动', value: 'slide' },
+              { title: '下拉', value: 'dropdown' },
             ],
           },
         },

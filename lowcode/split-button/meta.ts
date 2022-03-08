@@ -1,4 +1,6 @@
-module.exports = {
+import { getDataFromPlainText } from './adaptor';
+
+export default {
   group: '原子组件',
   componentName: 'SplitButton',
   title: '分隔按钮',
@@ -191,69 +193,189 @@ module.exports = {
   configure: {
     component: {
       isContainer: true,
+      isMinimalRenderUnit: true,
     },
-    props: {
-      isExtends: true,
-      override: [
-        {
-          name: 'prefix',
-          condition: () => false,
+    props: [
+      {
+        name: '!type',
+        title: {
+          type: 'i18n',
+          zh_CN: '类型',
+          en_US: 'type',
         },
-        {
-          name: 'defaultSelectedKeys',
-          condition: () => false,
+        getValue: (target) => {
+          const parentTarget = target.parent;
+          const ghostConfig = parentTarget.getPropValue('ghost');
+          if (ghostConfig) {
+            return 'ghost';
+          } else {
+            return 'normal';
+          }
         },
-        {
-          name: 'selectedKeys',
-          condition: () => false,
+        setValue: (target, value) => {
+          const parentTarget = target.parent;
+          parentTarget.setPropValue('ghost', false);
+          switch (value) {
+            case 'normal':
+              break;
+            case 'ghost':
+              parentTarget.setPropValue('ghost', 'light');
+              break;
+            default:
+              break;
+          }
         },
-        {
-          name: 'triggerProps',
-          condition: () => false,
-        },
-        {
-          name: 'leftButtonProps',
-          condition: () => false,
-        },
-        {
-          name: 'menuProps',
-          condition: () => false,
-        },
-        {
-          name: 'popupStyle',
-          condition: () => false,
-        },
-        {
-          name: 'popupClassName',
-          condition: () => false,
-        },
-        {
-          name: 'popupProps',
-          condition: () => false,
-        },
-        {
-          name: 'visible',
-          condition: () => false,
-        },
-        {
-          name: 'label',
-          title: '按钮文案',
-          setter: 'StringSetter',
-          supportVariable: true,
-        },
-        {
-          name: 'ghost',
-          title: '幽灵按钮',
-          setter: {
-            componentName: 'RadioGroupSetter',
-            props: {
-              options: ['light', 'dark', false, true],
-            },
+        setter: {
+          componentName: 'RadioGroupSetter',
+          props: {
+            options: [
+              {
+                title: '普通按钮',
+                value: 'normal',
+              },
+              {
+                title: '幽灵按钮',
+                value: 'ghost',
+              },
+            ],
           },
-          defaultValue: false,
         },
-      ],
-    },
+        defaultValue: 'normal',
+      },
+      {
+        name: 'ghost',
+        title: {
+          label: {
+            type: 'i18n',
+            zh_CN: '形式',
+            en_US: 'Button Type',
+          },
+          tip: {
+            type: 'i18n',
+            zh_CN: '属性: type | 说明: 按钮类型',
+            en_US: 'prop: type | description: button type',
+          },
+        },
+        defaultValue: 'light',
+        condition: (target) => target?.parent?.getPropValue('!type') === 'ghost',
+        setter: {
+          componentName: 'RadioGroupSetter',
+          props: {
+            options: [
+              {
+                label: 'Light',
+                value: 'light',
+              },
+              {
+                label: 'Dark',
+                value: 'dark',
+              },
+            ],
+          },
+        },
+      },
+      {
+        name: 'type',
+        title: {
+          label: {
+            type: 'i18n',
+            zh_CN: '形式',
+            en_US: 'Button Type',
+          },
+          tip: {
+            type: 'i18n',
+            zh_CN: '属性: type | 说明: 按钮类型',
+            en_US: 'prop: type | description: button type',
+          },
+        },
+        condition: (target) => target?.parent?.getPropValue('!type') !== 'ghost',
+        setter: {
+          componentName: 'RadioGroupSetter',
+          props: {
+            options: [
+              {
+                value: 'normal',
+                label: '普通',
+              },
+              {
+                value: 'primary',
+                label: '主要',
+              },
+              {
+                value: 'secondary',
+                label: '次要',
+              },
+            ],
+          },
+        },
+        defaultValue: 'normal',
+      },
+      {
+        name: 'size',
+        title: {
+          label: {
+            type: 'i18n',
+            zh_CN: '尺寸',
+            en_US: 'Button Size',
+          },
+          tip: {
+            type: 'i18n',
+            zh_CN: '属性: size | 说明: 按钮尺寸',
+            en_US: 'prop: size | description: button size',
+          },
+        },
+        setter: {
+          componentName: 'RadioGroupSetter',
+          props: {
+            options: [
+              {
+                label: '小',
+                value: 'small',
+              },
+              {
+                label: '中',
+                value: 'medium',
+              },
+              {
+                label: '大',
+                value: 'large',
+              },
+            ],
+          },
+        },
+        defaultValue: 'medium',
+      },
+      {
+        name: 'plainData',
+        display: 'block',
+        title: '选项',
+        tip: {
+          title: '数据格式',
+          url: '',
+        },
+        setValue: (target, value) => {
+          const { label, disabled, children, selectedKeys } = getDataFromPlainText(value);
+          if (label) {
+            target.parent.setPropValue('label', label);
+          }
+          if (typeof disabled !== 'undefined') {
+            target.parent.setPropValue('disabled', disabled);
+          }
+          if (children) {
+            target.node.children.importSchema(children);
+          }
+          if (selectedKeys) {
+            target.parent.setPropValue('selectedKeys', selectedKeys);
+          }
+        },
+        setter: {
+          componentName: 'MagicEditorSetter',
+          props: {
+            toolbar: ['normal', 'disable', 'group'],
+          },
+        },
+      },
+    ],
   },
   icon: '',
   category: '常用',

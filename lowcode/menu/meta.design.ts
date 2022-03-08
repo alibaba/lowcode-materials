@@ -156,7 +156,7 @@ export default {
         setValue: (target, value) => {
           const { children, selectedKeys } = getDataFromPlainText(value);
           if (children) {
-            target.nodes[0].children.import(children);
+            target.node.children.importSchema(children);
           }
           if (selectedKeys) {
             target.parent.setPropValue('selectedKeys', selectedKeys);

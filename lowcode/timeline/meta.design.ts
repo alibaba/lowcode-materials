@@ -232,14 +232,14 @@ module.exports = {
         },
         extraProps: {
           getValue: (target, fieldValue) => {
-            // const node = target.nodes[0];
+            // const node = target.node;
             // const children = node.getChildren();
             const map = target.getNode().children.map((child) => {
               const primaryKey = child.getPropValue('primaryKey')
                 ? String(child.getPropValue('primaryKey'))
                 : child.id;
               return {
-                primaryKey: primaryKey,
+                primaryKey,
                 icon: child.getPropValue('icon'),
                 title: child.getPropValue('title'),
                 state: child.getPropValue('state'),

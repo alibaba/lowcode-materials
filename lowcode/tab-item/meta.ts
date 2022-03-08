@@ -50,6 +50,14 @@ module.exports = {
         parentWhitelist: ['Tab'],
       },
     },
+    advanced: {
+      callbacks: {
+        onHoverHook: () => false,
+        onMouseDownHook: () => false,
+        onClickHook: () => false,
+        onMove: () => false,
+      },
+    },
   },
   icon: '',
   category: 'null',
