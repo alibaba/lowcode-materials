@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import ReactDom from 'react-dom';
 import { Balloon } from '@alifd/next';
-import PropTypes from 'prop-types';
 
 const targetClass = 'render-wrapper-target';
 const rootClass = 'render-wrapper-root done-note-wrapper';
@@ -22,13 +21,13 @@ interface NoteProps {
 }
 
 const NoteWrapper: React.ForwardRefRenderFunction<HTMLElement, NoteProps> = (props, ref) => {
-  let el = document.createElement('div');
+  const el = document.createElement('div');
   let innerRef = null;
   el.className = rootClass;
   el.id = props.id;
   el.ref = ref;
 
-  const _renderLayer = function () {
+  const _renderLayer = function() {
     const { note } = props;
     const defaultTrigger = <div className="render-wrapper-note">N</div>;
     const node = (
@@ -63,16 +62,11 @@ const NoteWrapper: React.ForwardRefRenderFunction<HTMLElement, NoteProps> = (pro
     if (typeof child === 'string') c = <span>{child}</span>;
     return React.cloneElement(c, { ref: (ref) => (innerRef = ref) });
   });
-  console.log('_children: ', _children);
   return _children || <></>;
 };
 
 const RefNoteWrapper = React.forwardRef(NoteWrapper);
 
 RefNoteWrapper.displayName = 'Wrapper';
-
-RefNoteWrapper.propTypes = {
-  note: PropTypes.string,
-};
 
 export default RefNoteWrapper;

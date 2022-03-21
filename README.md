@@ -10,7 +10,7 @@
 
 ```
 const { material } from '@alilc/lowcode-engine';
-const assets = require('@ali/ali-lowcode-materials/dist/assets.json');
+const assets = require('@alilc/lowcode-materials/dist/assets.json');
 
 // in GeneralWorkbench init
 material.setAssets(assets);

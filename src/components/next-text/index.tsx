@@ -8,22 +8,9 @@ export const createTitle = (Tag) => {
    * @order 1
    */
   class Title extends React.Component {
-    static propTypes = {
-      prefix: PropTypes.string,
-    };
-
     static defaultProps = {
       prefix: 'next-',
     };
-
-    constructor() {
-      super();
-      if (!isProduction()) {
-        console.error(
-          `Warning: Text.${Tag.toUpperCase()} is depracted, use <P type="${Tag}"> instead`,
-        );
-      }
-    }
 
     render() {
       const { prefix, className, ...others } = this.props;
@@ -190,18 +177,13 @@ RefText.defaultProps = {
   prefix: 'next-',
 };
 
-interface ParagraphProps {
-  prefix?: string;
-  component?: React.ElementType;
-}
-
-const Paragraph: React.FC<TextProps> = (props, ref) => {
+const Paragraph: React.FC<TextProps> = (props) => {
   const { prefix, className, component, ...others } = props;
 
   const cls = classNames(`${prefix}text-paragraph`, className);
 
   if (!isProduction()) {
-    console.error(`Warning: Text.Paragraph is depracted, use P instead`);
+    console.warn('Warning: Text.Paragraph is deprecated, use P instead');
   }
   return <Text {...others} className={cls} component={component} />;
 };
