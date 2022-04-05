@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.23",
-    "@alifd/build-plugin-lowcode": "^0.1.17-beta.4",
+    "@alifd/build-plugin-lowcode": "^0.2.0",
     "@alifd/next": "^1.20.0",
     "@alifd/theme-2": "^0.4.4",
     "@storybook/addon-docs": "^6.3.12",
