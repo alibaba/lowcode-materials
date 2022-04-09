@@ -192,7 +192,7 @@ module.exports = {
           },
           setValue: (target, value) => {
             console.log('setValue: ', target, value);
-            const node = target.node;
+            const { node } = target;
             const map = {};
             if (!Array.isArray(value)) {
               value = [];
@@ -204,7 +204,7 @@ module.exports = {
             node.children.mergeChildren(
               (child) => {
                 const primaryKey = String(child.getPropValue('primaryKey'));
-                console.log(child.id + '----' + primaryKey);
+                console.log(`${child.id}----${primaryKey}`);
                 if (Object.hasOwnProperty.call(map, primaryKey)) {
                   child.setPropValue('children', map[primaryKey].children);
                   child.setPropValue('link', map[primaryKey].link);

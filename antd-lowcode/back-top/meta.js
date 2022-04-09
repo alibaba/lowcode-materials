@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'BackTop',
   title: '回到顶部',
   category: '其他',
@@ -36,8 +39,7 @@ export default {
       events: [
         {
           name: 'onClick',
-          template:
-            "onClick(${extParams}){\n// 点击按钮的回调函数\nconsole.log('onClick');}",
+          template: "onClick(${extParams}){\n// 点击按钮的回调函数\nconsole.log('onClick');}",
         },
       ],
     },

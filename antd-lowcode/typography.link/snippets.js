@@ -1,7 +1,7 @@
 export default [
   {
     title: '链接',
-    screenshot: 'typography-link-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/typography-link-1.png',
     schema: {
       componentName: 'Typography.Link',
       props: {

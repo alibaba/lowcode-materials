@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Dropdown',
   title: '下拉菜单',
   category: '导航',
@@ -29,7 +32,7 @@ export default {
       },
       extraProps: {
         getValue(target, fieldValue) {
-          const node = target.getNode();
+          const { node } = target;
           let value = node.getPropValue('visible');
           if (value === undefined) {
             value = '-';
@@ -37,7 +40,7 @@ export default {
           return value;
         },
         setValue(target, value) {
-          const node = target.getNode();
+          const { node } = target;
           if (value === '-') {
             setTimeout(() => {
               node.clearPropValue('visible');
@@ -90,14 +93,7 @@ export default {
       },
       propType: {
         type: 'oneOf',
-        value: [
-          'bottomLeft',
-          'bottomCenter',
-          'bottomRight',
-          'topLeft',
-          'topCenter',
-          'topRight',
-        ],
+        value: ['bottomLeft', 'bottomCenter', 'bottomRight', 'topLeft', 'topCenter', 'topRight'],
       },
     },
     {

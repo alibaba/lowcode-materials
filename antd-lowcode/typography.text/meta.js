@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Typography.Text',
   title: '文本',
   category: '基础',
@@ -149,13 +152,11 @@ export default {
       events: [
         {
           name: 'copyable.onCopy',
-          template:
-            "onCopy(${extParams}){\n// 拷贝成功的回调函数\nconsole.log('onCopy');}",
+          template: "onCopy(${extParams}){\n// 拷贝成功的回调函数\nconsole.log('onCopy');}",
         },
         {
           name: 'editable.onStart',
-          template:
-            "onStart(${extParams}){\n// 进入编辑中状态时触发\nconsole.log('onStart');}",
+          template: "onStart(${extParams}){\n// 进入编辑中状态时触发\nconsole.log('onStart');}",
         },
         {
           name: 'editable.onChange',
@@ -164,8 +165,7 @@ export default {
         },
         {
           name: 'editable.onEnd',
-          template:
-            "onEnd(${extParams}){\n// 按 ENTER 结束编辑状态时触发\nconsole.log('onEnd');}",
+          template: "onEnd(${extParams}){\n// 按 ENTER 结束编辑状态时触发\nconsole.log('onEnd');}",
         },
         {
           name: 'editable.onCancel',

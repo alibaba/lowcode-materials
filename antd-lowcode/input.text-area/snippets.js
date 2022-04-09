@@ -1,7 +1,7 @@
 export default [
   {
     title: '长文本',
-    screenshot: 'input-text-area-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/input-text-area-1.png',
     schema: {
       componentName: 'Input.TextArea',
       props: {

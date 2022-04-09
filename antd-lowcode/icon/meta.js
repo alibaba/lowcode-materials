@@ -1,4 +1,8 @@
+import snippets from './snippets';
+import { AntdIconSetter } from '../_setters';
+
 export default {
+  snippets,
   componentName: 'Icon',
   title: '图标',
   category: '通用',
@@ -20,7 +24,7 @@ export default {
       name: 'type',
       description: '图标',
       propType: 'string',
-      setter: 'AntdIconSetter',
+      setter: AntdIconSetter,
     },
     {
       name: 'size',

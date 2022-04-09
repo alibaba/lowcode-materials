@@ -1,7 +1,7 @@
 export default [
   {
     title: '进度条',
-    screenshot: 'progress-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/progress-1.png',
     schema: {
       componentName: 'Progress',
       props: {
@@ -12,7 +12,7 @@ export default [
   },
   {
     title: '进度圈',
-    screenshot: 'progress-2.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/progress-2.png',
     schema: {
       componentName: 'Progress',
       props: {

@@ -1,6 +1,9 @@
 import { uuid } from '../_utils/utils';
 
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Select',
   title: '选择器',
   category: '表单',
@@ -281,8 +284,7 @@ export default {
       name: 'onDeselect',
       title: {
         label: '取消选中时回调',
-        tip:
-          '取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效',
+        tip: '取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效',
       },
       propType: 'func',
     },
@@ -336,8 +338,7 @@ export default {
       events: [
         {
           name: 'onBlur',
-          template:
-            "onBlur(${extParams}){\n// 失去焦点时回调\nconsole.log('onBlur');}",
+          template: "onBlur(${extParams}){\n// 失去焦点时回调\nconsole.log('onBlur');}",
         },
         {
           name: 'onChange',
@@ -351,8 +352,7 @@ export default {
         },
         {
           name: 'onFocus',
-          template:
-            "onFocus(${extParams}){\n// 获得焦点时回调\nconsole.log('onFocus');}",
+          template: "onFocus(${extParams}){\n// 获得焦点时回调\nconsole.log('onFocus');}",
         },
         {
           name: 'onInputKeyDown',
@@ -361,13 +361,11 @@ export default {
         },
         {
           name: 'onMouseEnter',
-          template:
-            "onMouseEnter(${extParams}){\n// 鼠标移入时回调\nconsole.log('onMouseEnter');}",
+          template: "onMouseEnter(${extParams}){\n// 鼠标移入时回调\nconsole.log('onMouseEnter');}",
         },
         {
           name: 'onMouseLeave',
-          template:
-            "onMouseLeave(${extParams}){\n// 鼠标移出时回调\nconsole.log('onMouseLeave');}",
+          template: "onMouseLeave(${extParams}){\n// 鼠标移出时回调\nconsole.log('onMouseLeave');}",
         },
         {
           name: 'onPopupScroll',

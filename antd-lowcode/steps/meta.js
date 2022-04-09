@@ -1,6 +1,9 @@
 import { uuid } from '../_utils/utils';
 
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Steps',
   title: '步骤条',
   category: '导航',
@@ -20,7 +23,7 @@ export default {
                     name: 'key',
                     title: 'key',
                     setter: 'StringSetter',
-                    initialValue: val => val || uuid(),
+                    initialValue: (val) => val || uuid(),
                   },
                   {
                     name: 'title',
@@ -80,7 +83,7 @@ export default {
             },
             initialValue: () => {
               return {
-                key: 'Steps' + uuid(),
+                key: `Steps${uuid()}`,
                 title: '步骤',
                 disabled: false,
               };
@@ -90,10 +93,8 @@ export default {
       },
       extraProps: {
         getValue(target, fieldValue) {
-          const map = target.getNode().children.map(child => {
-            const key = child.getPropValue('key')
-              ? String(child.getPropValue('key'))
-              : child.id;
+          const map = target.node.children.map((child) => {
+            const key = child.getPropValue('key') ? String(child.getPropValue('key')) : child.id;
             return {
               key,
               title: child.getPropValue('title'),
@@ -106,19 +107,19 @@ export default {
           return map;
         },
         setValue(target, value) {
-          const node = target.getNode();
+          const { node } = target;
           const map = {};
 
           if (!Array.isArray(value)) {
             value = [];
           }
-          value.forEach(item => {
+          value.forEach((item) => {
             const tabItem = Object.assign({}, item);
             map[item.key] = tabItem;
           });
 
-          node.mergeChildren(
-            child => {
+          node.children.mergeChildren(
+            (child) => {
               const key = String(child.getPropValue('key'));
               if (Object.hasOwnProperty.call(map, key)) {
                 child.setPropValue('title', map[key].title);
@@ -147,10 +148,10 @@ export default {
 
             (child1, child2) => {
               const a = value.findIndex(
-                item => String(item.key) === String(child1.getPropValue('key')),
+                (item) => String(item.key) === String(child1.getPropValue('key')),
               );
               const b = value.findIndex(
-                item => String(item.key) === String(child2.getPropValue('key')),
+                (item) => String(item.key) === String(child2.getPropValue('key')),
               );
               return a - b;
             },
@@ -176,8 +177,7 @@ export default {
       name: 'current',
       title: {
         label: '当前步骤',
-        tip:
-          '指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态',
+        tip: '指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态',
       },
       propType: 'number',
     },
@@ -185,8 +185,7 @@ export default {
       name: 'direction',
       title: {
         label: '步骤条方向',
-        tip:
-          '指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向',
+        tip: '指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向',
       },
       propType: {
         type: 'oneOf',

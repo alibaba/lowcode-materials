@@ -1,7 +1,7 @@
 export default [
   {
     title: '辅助提示输入框',
-    screenshot: 'auto-complete-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/auto-complete-1.png',
     schema: {
       componentName: 'AutoComplete',
       props: {

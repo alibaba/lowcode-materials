@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Tag',
   title: '标签',
   category: '数据展示',
@@ -47,8 +50,7 @@ export default {
       events: [
         {
           name: 'onClose',
-          template:
-            "onClose(event,${extParams}){\n// 关闭时的回调\nconsole.log('onClose',event);}",
+          template: "onClose(event,${extParams}){\n// 关闭时的回调\nconsole.log('onClose',event);}",
         },
       ],
     },

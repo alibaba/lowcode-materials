@@ -1,7 +1,7 @@
 export default [
   {
     title: '数字输入框',
-    screenshot: 'input-number-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/input-number-1.png',
     schema: {
       componentName: 'InputNumber',
       props: {

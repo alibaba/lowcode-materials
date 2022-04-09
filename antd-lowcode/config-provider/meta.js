@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'ConfigProvider',
   title: '全局化配置',
   category: '其他',

@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Tooltip',
   title: '文字提示',
   category: '数据展示',

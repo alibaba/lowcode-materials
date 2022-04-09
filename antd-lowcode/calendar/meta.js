@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Calendar',
   title: '日历',
   category: '数据展示',

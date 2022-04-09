@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Mentions',
   title: '提及',
   category: '表单',
@@ -107,8 +110,7 @@ export default {
       name: 'autoSize',
       title: {
         label: '内容高度',
-        tip:
-          '自适应内容高度，可设置为 true | false 或对象：{ minRows: 2, maxRows: 6 }',
+        tip: '自适应内容高度，可设置为 true | false 或对象：{ minRows: 2, maxRows: 6 }',
       },
       propType: { type: 'oneOfType', value: ['bool', 'object'] },
     },
@@ -124,8 +126,7 @@ export default {
       events: [
         {
           name: 'onChange',
-          template:
-            "onChange(text,${extParams}){\n// 值改变时触发\nconsole.log('onChange',text);}",
+          template: "onChange(text,${extParams}){\n// 值改变时触发\nconsole.log('onChange',text);}",
         },
         {
           name: 'onSelect',
@@ -139,13 +140,11 @@ export default {
         },
         {
           name: 'onFocus',
-          template:
-            "onFocus(${extParams}){\n// 获得焦点时触发\nconsole.log('onFocus');}",
+          template: "onFocus(${extParams}){\n// 获得焦点时触发\nconsole.log('onFocus');}",
         },
         {
           name: 'onBlur',
-          template:
-            "onBlur(${extParams}){\n// 失去焦点时触发\nconsole.log('onBlur');}",
+          template: "onBlur(${extParams}){\n// 失去焦点时触发\nconsole.log('onBlur');}",
         },
         {
           name: 'onResize',

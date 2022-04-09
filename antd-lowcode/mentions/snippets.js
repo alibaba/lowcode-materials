@@ -1,7 +1,7 @@
 export default [
   {
     title: '提及',
-    screenshot: 'mentions-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/mentions-1.png',
     schema: {
       componentName: 'Mentions',
       props: {},

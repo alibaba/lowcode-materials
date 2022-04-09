@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'DatePicker',
   title: '日期选择框',
   category: '表单',

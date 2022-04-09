@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Form',
   title: '表单容器',
   category: '表单',
@@ -99,8 +102,7 @@ export default {
               },
             },
           },
-          description:
-            '需要为输入控件设置布局样式时，使用该属性，用法同 labelCol',
+          description: '需要为输入控件设置布局样式时，使用该属性，用法同 labelCol',
         },
       ],
     },
@@ -316,9 +318,8 @@ export default {
           !dragment.componentMeta ||
           !dragment.componentMeta.npm ||
           !dragment.componentMeta.npm.package ||
-          dragment.componentMeta.npm.package.indexOf('@ali/antd-lowcode') ===
-            -1 ||
-          comps.every(comp => dragment.componentName.indexOf(comp) === -1)
+          dragment.componentMeta.npm.package.indexOf('@ali/antd-lowcode') === -1 ||
+          comps.every((comp) => dragment.componentName.indexOf(comp) === -1)
         ) {
           return;
         }

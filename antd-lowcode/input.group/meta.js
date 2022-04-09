@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Input.Group',
   title: '输入框组合',
   category: '表单',

@@ -1,7 +1,7 @@
 export default [
   {
     title: '图片',
-    screenshot: 'image-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/image-1.png',
     schema: {
       componentName: 'Image',
       props: {

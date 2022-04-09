@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Popconfirm',
   title: '气泡确认框',
   category: '反馈',
@@ -95,8 +98,7 @@ export default {
       events: [
         {
           name: 'onConfirm',
-          template:
-            "onConfirm(${extParams}){\n// 点击确认的回调\nconsole.log('onConfirm');}",
+          template: "onConfirm(${extParams}){\n// 点击确认的回调\nconsole.log('onConfirm');}",
         },
       ],
     },

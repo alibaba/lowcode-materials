@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Row',
   title: '栅格-行',
   category: '布局',
@@ -24,7 +27,7 @@ export default {
       defaultValue: 0,
       extraProps: {
         getValue(target) {
-          const node = target.getNode();
+          const { node } = target;
           const gutter = node.getPropValue('gutter');
           if (typeof gutter === 'number') {
             return gutter;
@@ -34,7 +37,7 @@ export default {
           return 0;
         },
         setValue(target, value) {
-          const node = target.getNode();
+          const { node } = target;
           const gutter = node.getPropValue('gutter');
           if (Array.isArray(gutter)) {
             gutter[0] = value;
@@ -61,7 +64,7 @@ export default {
       defaultValue: 0,
       extraProps: {
         getValue(target) {
-          const node = target.getNode();
+          const { node } = target;
           const gutter = node.getPropValue('gutter');
           if (typeof gutter === 'number') {
             return 0;
@@ -71,7 +74,7 @@ export default {
           return 0;
         },
         setValue(target, value) {
-          const node = target.getNode();
+          const { node } = target;
           const gutter = node.getPropValue('gutter');
           if (Array.isArray(gutter)) {
             gutter[1] = value;

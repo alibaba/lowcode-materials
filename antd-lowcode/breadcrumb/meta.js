@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Breadcrumb',
   title: '面包屑',
   category: '导航',

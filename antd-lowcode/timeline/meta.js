@@ -1,6 +1,9 @@
 import { uuid } from '../_utils/utils';
 
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Timeline',
   title: '时间轴',
   category: '数据展示',
@@ -20,7 +23,7 @@ export default {
                     name: 'key',
                     title: 'key',
                     setter: 'StringSetter',
-                    initialValue: val => val || uuid(),
+                    initialValue: (val) => val || uuid(),
                   },
                   {
                     name: 'color',
@@ -71,7 +74,7 @@ export default {
             },
             initialValue: () => {
               return {
-                key: 'timeLine' + uuid(),
+                key: `timeLine${uuid()}`,
                 label: '时间轴',
               };
             },
@@ -80,12 +83,10 @@ export default {
       },
       extraProps: {
         getValue(target, fieldValue, a, b, c) {
-          const map = target.getNode().children.map(child => {
-            const key = child.getPropValue('key')
-              ? String(child.getPropValue('key'))
-              : child.id;
+          const map = target.node.children.map((child) => {
+            const key = child.getPropValue('key') ? String(child.getPropValue('key')) : child.id;
             const result = { key };
-            ['color', 'dot', 'label', 'position'].forEach(propKey => {
+            ['color', 'dot', 'label', 'position'].forEach((propKey) => {
               result[propKey] = child.getPropValue(propKey);
             });
             return result;
@@ -93,22 +94,22 @@ export default {
           return map.length === 0 ? fieldValue : map;
         },
         setValue(target, value) {
-          const node = target.getNode();
+          const { node } = target;
           const map = {};
 
           if (!Array.isArray(value)) {
             value = [];
           }
-          value.forEach(item => {
+          value.forEach((item) => {
             const tabItem = Object.assign({}, item);
             map[item.key] = tabItem;
           });
 
-          node.mergeChildren(
-            child => {
+          node.children.mergeChildren(
+            (child) => {
               const key = String(child.getPropValue('key'));
               if (Object.hasOwnProperty.call(map, key)) {
-                ['color', 'dot', 'label', 'position'].forEach(propKey => {
+                ['color', 'dot', 'label', 'position'].forEach((propKey) => {
                   child.setPropValue(propKey, map[key][propKey]);
                 });
                 delete map[key];
@@ -131,10 +132,10 @@ export default {
 
             (child1, child2) => {
               const a = value.findIndex(
-                item => String(item.key) === String(child1.getPropValue('key')),
+                (item) => String(item.key) === String(child1.getPropValue('key')),
               );
               const b = value.findIndex(
-                item => String(item.key) === String(child2.getPropValue('key')),
+                (item) => String(item.key) === String(child2.getPropValue('key')),
               );
               return a - b;
             },

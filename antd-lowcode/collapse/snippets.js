@@ -1,7 +1,7 @@
 export default [
   {
     title: '折叠面板',
-    screenshot: 'collapse-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/collapse-1.png',
     schema: {
       componentName: 'Collapse',
       props: {

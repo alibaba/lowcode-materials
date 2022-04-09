@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Checkbox',
   title: '多选框',
   category: '基础',

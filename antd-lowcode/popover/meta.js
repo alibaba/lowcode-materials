@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Popover',
   title: '气泡卡片',
   category: '数据展示',
@@ -18,12 +21,7 @@ export default {
             type: 'oneOfType',
             value: ['string', 'node', 'func'],
           },
-          setter: [
-            'StringSetter',
-            'SlotSetter',
-            'FunctionSetter',
-            'VariableSetter',
-          ],
+          setter: ['StringSetter', 'SlotSetter', 'FunctionSetter', 'VariableSetter'],
         },
         {
           name: 'content',
@@ -35,12 +33,7 @@ export default {
             type: 'oneOfType',
             value: ['string', 'node', 'func'],
           },
-          setter: [
-            'StringSetter',
-            'SlotSetter',
-            'FunctionSetter',
-            'VariableSetter',
-          ],
+          setter: ['StringSetter', 'SlotSetter', 'FunctionSetter', 'VariableSetter'],
         },
       ],
     },

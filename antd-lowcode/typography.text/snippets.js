@@ -1,7 +1,7 @@
 export default [
   {
     title: '文本',
-    screenshot: 'typography-text-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/typography-text-1.png',
     schema: {
       componentName: 'Typography.Text',
       props: {
@@ -11,7 +11,7 @@ export default [
   },
   {
     title: '可复制文本',
-    screenshot: 'typography-text-2.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/typography-text-2.png',
     schema: {
       componentName: 'Typography.Text',
       props: {
@@ -22,7 +22,7 @@ export default [
   },
   {
     title: '可编辑文本',
-    screenshot: 'typography-text-3.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/typography-text-3.png',
     schema: {
       componentName: 'Typography.Text',
       props: {

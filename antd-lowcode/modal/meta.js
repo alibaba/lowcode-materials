@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Modal',
   title: '对话框',
   category: '反馈',
@@ -216,8 +219,7 @@ export default {
       events: [
         {
           name: 'afterClose',
-          templete:
-            "onCancel(${extParams}){\n// 完全关闭后的回调\nconsole.log('afterClose');}",
+          templete: "onCancel(${extParams}){\n// 完全关闭后的回调\nconsole.log('afterClose');}",
         },
         {
           name: 'onCancel',
@@ -226,8 +228,7 @@ export default {
         },
         {
           name: 'onOk',
-          template:
-            "onOk(${extParams}){\n// 点击确定回调\nconsole.log('onOk');}",
+          template: "onOk(${extParams}){\n// 点击确定回调\nconsole.log('onOk');}",
         },
       ],
     },

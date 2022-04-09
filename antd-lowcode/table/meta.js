@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Table',
   title: '表格',
   category: '数据展示',
@@ -118,8 +121,7 @@ export default {
                   {
                     name: 'fixed',
                     title: { label: '列是否固定', tip: 'fixed | 列是否固定' },
-                    description:
-                      '（IE 下无效）列是否固定，可选 true (等效于 left) left right',
+                    description: '（IE 下无效）列是否固定，可选 true (等效于 left) left right',
                     defaultValue: '',
                     propType: {
                       type: 'oneOf',
@@ -170,8 +172,7 @@ export default {
                     name: 'sorter',
                     title: {
                       label: '排序规则',
-                      tip:
-                        'sorter | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true',
+                      tip: 'sorter | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true',
                     },
                     propType: { type: 'oneOfType', value: ['bool', 'func'] },
                     setter: ['BoolSetter', 'FunctionSetter', 'VariableSetter'],
@@ -539,8 +540,7 @@ export default {
           name: 'scroll.y',
           title: {
             label: '纵向滚动',
-            tip:
-              'scroll.y | 	设置纵向滚动，也可用于指定滚动区域的高，可以设置为像素值',
+            tip: 'scroll.y | 	设置纵向滚动，也可用于指定滚动区域的高，可以设置为像素值',
           },
           propType: 'number',
           setter: ['NumberSetter', 'VariableSetter'],
@@ -691,8 +691,7 @@ export default {
             {
               componentName: 'FunctionSetter',
               props: {
-                template:
-                  'rowExpandable(record,${extParams}){\n// 行是否可展开\nreturn true;\n}',
+                template: 'rowExpandable(record,${extParams}){\n// 行是否可展开\nreturn true;\n}',
               },
             },
             'VariableSetter',

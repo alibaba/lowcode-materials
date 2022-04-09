@@ -1,7 +1,7 @@
 export default [
   {
     title: '两栏',
-    screenshot: '1-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/1-1.png',
     schema: {
       componentName: 'Row',
       props: {},
@@ -23,7 +23,7 @@ export default [
   },
   {
     title: '三栏',
-    screenshot: '1-1-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/1-1-1.png',
     schema: {
       componentName: 'Row',
       props: {},
@@ -51,7 +51,7 @@ export default [
   },
   {
     title: '四栏',
-    screenshot: '1-1-1-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/1-1-1-1.png',
     schema: {
       componentName: 'Row',
       props: {},
@@ -85,7 +85,7 @@ export default [
   },
   {
     title: '1:3',
-    screenshot: '1-3.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/1-3.png',
     schema: {
       componentName: 'Row',
       props: {},

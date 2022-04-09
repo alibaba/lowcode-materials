@@ -162,7 +162,7 @@ export default {
                 ? String(child.getPropValue('primaryKey'))
                 : child.id;
               return {
-                primaryKey: primaryKey,
+                primaryKey,
                 icon: child.getPropValue('icon'),
                 title: child.getPropValue('title'),
                 status: child.getPropValue('status'),
@@ -174,7 +174,7 @@ export default {
             return map;
           },
           setValue(target, value) {
-            const node = target.node;
+            const { node } = target;
             const map = {};
             if (!Array.isArray(value)) {
               value = [];

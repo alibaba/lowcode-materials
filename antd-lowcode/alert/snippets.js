@@ -1,7 +1,7 @@
 export default [
   {
     title: '成功提示',
-    screenshot: 'alert-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/alert-1.png',
     schema: {
       componentName: 'Alert',
       props: {
@@ -14,7 +14,7 @@ export default [
   },
   {
     title: '信息提示',
-    screenshot: 'alert-2.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/alert-2.png',
     schema: {
       componentName: 'Alert',
       props: {
@@ -27,7 +27,7 @@ export default [
   },
   {
     title: '警告提示',
-    screenshot: 'alert-3.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/alert-3.png',
     schema: {
       componentName: 'Alert',
       props: {
@@ -40,7 +40,7 @@ export default [
   },
   {
     title: '错误提示',
-    screenshot: 'alert-4.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/alert-4.png',
     schema: {
       componentName: 'Alert',
       props: {

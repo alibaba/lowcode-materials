@@ -1,6 +1,9 @@
 import { uuid } from '../_utils/utils';
 
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Transfer',
   title: '穿梭框',
   category: '表单',
@@ -9,8 +12,7 @@ export default {
       name: 'dataSource',
       title: {
         label: '数据源',
-        tip:
-          '数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外',
+        tip: '数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外',
       },
       propType: { type: 'arrayOf', value: 'object' },
       setter: {
@@ -30,7 +32,7 @@ export default {
                     name: 'key',
                     title: 'key',
                     setter: 'StringSetter',
-                    initialValue: val => val || uuid(),
+                    initialValue: (val) => val || uuid(),
                   },
                   {
                     name: 'title',
@@ -163,8 +165,7 @@ export default {
             {
               componentName: 'FunctionSetter',
               props: {
-                template:
-                  'renderItem(item,${extParams}){\n// 自定义渲染列表项\nreturn `item`;\n}',
+                template: 'renderItem(item,${extParams}){\n// 自定义渲染列表项\nreturn `item`;\n}',
               },
             },
             {

@@ -1,7 +1,7 @@
 export default [
   {
     title: '表格',
-    screenshot: 'table-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/table-1.png',
     schema: {
       componentName: 'Table',
       props: {

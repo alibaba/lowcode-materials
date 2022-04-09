@@ -13,8 +13,7 @@ export default {
       name: 'initialValue',
       title: {
         label: '默认值',
-        tip:
-          '设置子元素默认值，如果与 Form 的 initialValues 冲突则以 Form 为准',
+        tip: '设置子元素默认值，如果与 Form 的 initialValues 冲突则以 Form 为准',
       },
       propType: 'object',
       setter: 'JsonSetter',

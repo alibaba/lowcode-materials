@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Anchor.Link',
   title: '锚点链接',
   category: '其他',

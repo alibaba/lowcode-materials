@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'DatePicker.RangePicker',
   title: '日期区间选择',
   category: '表单',
@@ -46,8 +49,7 @@ export default {
           name: 'size',
           title: {
             label: '尺寸',
-            tip:
-              'size | 输入框大小，large 高度为 40px，small 为 24px，默认是 32px',
+            tip: 'size | 输入框大小，large 高度为 40px，small 为 24px，默认是 32px',
           },
           propType: {
             type: 'oneOf',
@@ -232,8 +234,7 @@ export default {
           name: 'inputReadOnly',
           title: {
             label: '输入框只读',
-            tip:
-              'inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘）',
+            tip: 'inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘）',
           },
           propType: 'bool',
           defaultValue: false,

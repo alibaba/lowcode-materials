@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Rate',
   title: '评分',
   category: '表单',
@@ -86,8 +89,7 @@ export default {
       events: [
         {
           name: 'onBlur',
-          template:
-            "onBlur(${extParams}){\n// 失去焦点时的回调\nconsole.log('onBlur');}",
+          template: "onBlur(${extParams}){\n// 失去焦点时的回调\nconsole.log('onBlur');}",
         },
         {
           name: 'onChange',
@@ -96,8 +98,7 @@ export default {
         },
         {
           name: 'onFocus',
-          template:
-            "onFocus(${extParams}){\n// 获取焦点时的回调\nconsole.log('onFocus');}",
+          template: "onFocus(${extParams}){\n// 获取焦点时的回调\nconsole.log('onFocus');}",
         },
         {
           name: 'onHoverChange',
@@ -106,8 +107,7 @@ export default {
         },
         {
           name: 'onKeyDown',
-          template:
-            "onKeyDown(event,${extParams}){\n// 按键回调\nconsole.log('onKeyDown',event);}",
+          template: "onKeyDown(event,${extParams}){\n// 按键回调\nconsole.log('onKeyDown',event);}",
         },
       ],
     },

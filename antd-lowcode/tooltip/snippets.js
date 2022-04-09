@@ -1,7 +1,7 @@
 export default [
   {
     title: '文字提示',
-    screenshot: 'tooltip-1.jpg',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/tooltip-1.jpg',
     schema: {
       componentName: 'Tooltip',
       props: {

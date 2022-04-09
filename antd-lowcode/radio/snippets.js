@@ -1,7 +1,7 @@
 export default [
   {
     title: '单选框',
-    screenshot: 'radio-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/radio-1.png',
     schema: {
       componentName: 'Radio',
       props: {
@@ -11,7 +11,7 @@ export default [
   },
   {
     title: '单选框组',
-    screenshot: 'radio-group-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/radio-group-1.png',
     schema: {
       componentName: 'Radio.Group',
       props: {

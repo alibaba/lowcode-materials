@@ -70,7 +70,7 @@ module.exports = {
             if (flag) {
               return;
             }
-            const node = target.node;
+            const { node } = target;
             node.children.mergeChildren(
               (child, index) => {
                 child.setPropValue('colSpan', arrValue[index]);

@@ -1,7 +1,7 @@
 export default [
   {
     title: '选择日期',
-    screenshot: 'date-picker-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/date-picker-1.png',
     schema: {
       componentName: 'DatePicker',
       props: {},
@@ -9,7 +9,7 @@ export default [
   },
   {
     title: '选择周',
-    screenshot: 'date-picker-2.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/date-picker-2.png',
     schema: {
       componentName: 'DatePicker',
       props: {
@@ -19,7 +19,7 @@ export default [
   },
   {
     title: '选择月份',
-    screenshot: 'date-picker-3.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/date-picker-3.png',
     schema: {
       componentName: 'DatePicker',
       props: {
@@ -29,7 +29,7 @@ export default [
   },
   {
     title: '选择季度',
-    screenshot: 'date-picker-4.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/date-picker-4.png',
     schema: {
       componentName: 'DatePicker',
       props: {
@@ -39,7 +39,7 @@ export default [
   },
   {
     title: '选择年份',
-    screenshot: 'date-picker-5.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/date-picker-5.png',
     schema: {
       componentName: 'DatePicker',
       props: {

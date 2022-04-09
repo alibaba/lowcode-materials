@@ -1,6 +1,9 @@
 import { uuid } from '../_utils/utils';
 
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Collapse',
   title: '折叠面板',
   category: '数据展示',
@@ -62,7 +65,7 @@ export default {
                     name: 'key',
                     title: 'key',
                     setter: 'StringSetter',
-                    initialValue: val => val || uuid(),
+                    initialValue: (val) => val || uuid(),
                   },
                   {
                     name: 'header',
@@ -87,11 +90,9 @@ export default {
       },
       extraProps: {
         getValue(target, fieldValue) {
-          console.log('getValue', target.getNode().children.length);
-          const map = target.getNode().children.map(child => {
-            const key = child.getPropValue('key')
-              ? String(child.getPropValue('key'))
-              : child.id;
+          console.log('getValue', target.node.children.length);
+          const map = target.node.children.map((child) => {
+            const key = child.getPropValue('key') ? String(child.getPropValue('key')) : child.id;
             return {
               key,
               header: child.getPropValue('header'),
@@ -103,7 +104,7 @@ export default {
           return map;
         },
         setValue(target, value) {
-          const node = target.getNode();
+          const { node } = target;
           const map = {};
 
           // console.log('setValue',value);
@@ -111,13 +112,13 @@ export default {
           if (!Array.isArray(value)) {
             value = [];
           }
-          value.forEach(item => {
+          value.forEach((item) => {
             const tabItem = Object.assign({}, item);
             map[item.key] = tabItem;
           });
 
-          node.mergeChildren(
-            child => {
+          node.children.mergeChildren(
+            (child) => {
               const key = String(child.getPropValue('key'));
               if (Object.hasOwnProperty.call(map, key)) {
                 child.setPropValue('header', map[key].header);
@@ -143,10 +144,10 @@ export default {
             },
             (child1, child2) => {
               const a = value.findIndex(
-                item => String(item.key) === String(child1.getPropValue('key')),
+                (item) => String(item.key) === String(child1.getPropValue('key')),
               );
               const b = value.findIndex(
-                item => String(item.key) === String(child2.getPropValue('key')),
+                (item) => String(item.key) === String(child2.getPropValue('key')),
               );
               return a - b;
             },
@@ -190,8 +191,7 @@ export default {
       events: [
         {
           name: 'onChange',
-          template:
-            "onChange(${extParams}){\n// 切换面板的回调\nconsole.log('onChange');}",
+          template: "onChange(${extParams}){\n// 切换面板的回调\nconsole.log('onChange');}",
         },
       ],
     },

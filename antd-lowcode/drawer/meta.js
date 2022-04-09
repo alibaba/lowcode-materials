@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Drawer',
   title: '抽屉',
   category: '反馈',
@@ -282,8 +285,7 @@ export default {
               name: 'contentWrapperStyle',
               title: {
                 label: '样式设置',
-                tip:
-                  'contentWrapperStyle | 可用于设置 Drawer 包裹内容部分的样式',
+                tip: 'contentWrapperStyle | 可用于设置 Drawer 包裹内容部分的样式',
               },
               setter: 'StyleSetter',
               extraProps: {

@@ -1,6 +1,7 @@
 import snippets from './snippets';
 
 export default {
+  snippets,
   componentName: 'Affix',
   title: '固钉',
   category: '导航',

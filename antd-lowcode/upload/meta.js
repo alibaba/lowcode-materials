@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Upload',
   title: '上传',
   category: '表单',
@@ -40,7 +43,7 @@ export default {
                               'done',
                               'uploading',
                               'removed',
-                            ].map(v => ({ label: v, value: v })),
+                            ].map((v) => ({ label: v, value: v })),
                           },
                         },
                       },
@@ -98,7 +101,7 @@ export default {
                               'done',
                               'uploading',
                               'removed',
-                            ].map(v => ({ label: v, value: v })),
+                            ].map((v) => ({ label: v, value: v })),
                           },
                         },
                       },
@@ -128,8 +131,7 @@ export default {
           name: 'multiple',
           title: {
             label: '支持多选文件',
-            tip:
-              'multiple | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件',
+            tip: 'multiple | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件',
           },
           propType: 'bool',
           defaultValue: false,
@@ -139,8 +141,7 @@ export default {
           name: 'maxCount',
           title: {
             label: '上传数量限制',
-            tip:
-              'maxCount | 限制上传数量。当为 1 时，始终用最新上传的文件代替当前文件',
+            tip: 'maxCount | 限制上传数量。当为 1 时，始终用最新上传的文件代替当前文件',
           },
           propType: 'number',
           setter: 'NumberSetter',
@@ -149,8 +150,7 @@ export default {
           name: 'accept',
           title: {
             label: '上传文件类型',
-            tip:
-              'accept | 接受上传的文件类型, 例如 .doc,.docx,application/msword',
+            tip: 'accept | 接受上传的文件类型, 例如 .doc,.docx,application/msword',
           },
           propType: 'string',
           setter: 'StringSetter',
@@ -334,8 +334,7 @@ export default {
             {
               componentName: 'FunctionSetter',
               props: {
-                template:
-                  'onData(file,${extParams}){\n// 上传所需额外参数\nreturn {};\n}',
+                template: 'onData(file,${extParams}){\n// 上传所需额外参数\nreturn {};\n}',
               },
             },
             'VariableSetter',
@@ -367,8 +366,7 @@ export default {
           name: 'customRequest',
           title: {
             label: '自定义上传',
-            tip:
-              'customRequest | 通过覆盖默认的上传行为，可以自定义自己的上传实现',
+            tip: 'customRequest | 通过覆盖默认的上传行为，可以自定义自己的上传实现',
           },
           propType: 'func',
           setter: 'FunctionSetter',
@@ -383,8 +381,7 @@ export default {
           setter: {
             componentName: 'FunctionSetter',
             props: {
-              template:
-                'isImageUrl(file,${extParams}){\n// 判断是否为图片\nreturn true;\n}',
+              template: 'isImageUrl(file,${extParams}){\n// 判断是否为图片\nreturn true;\n}',
             },
           },
         },

@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Alert',
   title: '警告提示',
   category: '反馈',

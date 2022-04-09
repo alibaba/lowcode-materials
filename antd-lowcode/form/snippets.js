@@ -1,7 +1,7 @@
 export default [
   {
     title: '表单容器',
-    screenshot: 'form-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/form-1.png',
     schema: {
       componentName: 'Form',
       props: {

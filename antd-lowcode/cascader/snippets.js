@@ -1,7 +1,7 @@
 export default [
   {
     title: '级联选择',
-    screenshot: 'cascader-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/cascader-1.png',
     schema: {
       componentName: 'Cascader',
       props: {

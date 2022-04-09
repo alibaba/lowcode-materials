@@ -1,7 +1,7 @@
 export default [
   {
     title: '一级标题',
-    screenshot: 'typography-title-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/typography-title-1.png',
     schema: {
       componentName: 'Typography.Title',
       props: {
@@ -12,7 +12,7 @@ export default [
   },
   {
     title: '二级标题',
-    screenshot: 'typography-title-2.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/typography-title-2.png',
     schema: {
       componentName: 'Typography.Title',
       props: {
@@ -23,7 +23,7 @@ export default [
   },
   {
     title: '三级标题',
-    screenshot: 'typography-title-3.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/typography-title-3.png',
     schema: {
       componentName: 'Typography.Title',
       props: {
@@ -34,7 +34,7 @@ export default [
   },
   {
     title: '四级标题',
-    screenshot: 'typography-title-4.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/typography-title-4.png',
     schema: {
       componentName: 'Typography.Title',
       props: {

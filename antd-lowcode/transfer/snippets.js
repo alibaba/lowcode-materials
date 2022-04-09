@@ -3,7 +3,7 @@ import { uuid } from '../_utils/utils';
 export default [
   {
     title: '穿梭框',
-    screenshot: 'transfer-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/transfer-1.png',
     schema: {
       componentName: 'Transfer',
       props: {

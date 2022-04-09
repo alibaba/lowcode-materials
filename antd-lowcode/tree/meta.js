@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Tree',
   title: '树形控件',
   category: '数据展示',
@@ -7,8 +10,7 @@ export default {
       name: 'treeData',
       title: {
         label: '数据',
-        tip:
-          'treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一）',
+        tip: 'treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一）',
       },
       propType: { type: 'arrayOf', value: 'object' },
       setter: 'JsonSetter',

@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Avatar',
   title: '头像',
   category: '数据展示',
@@ -18,10 +21,7 @@ export default {
       title: { label: '尺寸', tip: '设置头像的大小' },
       propType: {
         type: 'oneOfType',
-        value: [
-          'number',
-          { type: 'oneOf', value: ['large', 'small', 'default'] },
-        ],
+        value: ['number', { type: 'oneOf', value: ['large', 'small', 'default'] }],
       },
       defaultValue: 'default',
     },
@@ -61,8 +61,7 @@ export default {
       events: [
         {
           name: 'onError',
-          template:
-            "onError(${extParams}){\n// 图片加载失败的事件\nconsole.log('onError');}",
+          template: "onError(${extParams}){\n// 图片加载失败的事件\nconsole.log('onError');}",
         },
       ],
     },

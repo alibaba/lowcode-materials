@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Steps.Step',
   title: '步骤项',
   props: [

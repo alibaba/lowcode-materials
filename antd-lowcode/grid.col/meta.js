@@ -1,8 +1,11 @@
+import snippets from './snippets';
+
 function clamp(value, min, max) {
   return Math.max(min, Math.min(max, value));
 }
 
 export default {
+  snippets,
   componentName: 'Col',
   title: '栅格-列',
   props: [
@@ -79,19 +82,13 @@ export default {
         }
         width = clamp(width, 0, currentNode.parentRect.width);
         const allowMoveX = Math.round(width - startWidth); // 实际被允许的x轴移动
-        currentNode.moveColumn = Math.round(
-          allowMoveX / (currentNode.parentRect.width / 24),
-        ); // 计算移动距离所占的列
+        currentNode.moveColumn = Math.round(allowMoveX / (currentNode.parentRect.width / 24)); // 计算移动距离所占的列
         if (allowMoveX > 0) {
           currentNode.moveColumn++;
         } else {
           currentNode.moveColumn--;
         }
-        currentNode.targetColumn = clamp(
-          currentNode.beforeSpan + currentNode.moveColumn,
-          1,
-          24,
-        );
+        currentNode.targetColumn = clamp(currentNode.beforeSpan + currentNode.moveColumn, 1, 24);
         // currentNode.setPropValue('span', currentNode.targetColumn);
         const dom = currentNode.getDOMNode();
         dom.style.width = `${Math.round(width)}px`;

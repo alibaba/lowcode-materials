@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Slider',
   title: '滑动输入条',
   category: '表单',
@@ -7,8 +10,7 @@ export default {
       name: 'defaultValue',
       title: {
         label: '默认值',
-        tip:
-          '设置初始取值。当 `range` 为 false 时，使用 number，否则用 \\[number, number]',
+        tip: '设置初始取值。当 `range` 为 false 时，使用 number，否则用 \\[number, number]',
       },
       propType: {
         type: 'oneOfType',
@@ -21,17 +23,15 @@ export default {
       propType: 'bool',
       defaultValue: false,
       setValue(target, range) {
-        let defaultValue = target.getNode().getPropValue('defaultValue');
+        let defaultValue = target.node.getPropValue('defaultValue');
         if (range) {
-          defaultValue = Array.isArray(defaultValue)
-            ? defaultValue
-            : [0, defaultValue];
+          defaultValue = Array.isArray(defaultValue) ? defaultValue : [0, defaultValue];
         } else {
           defaultValue = Array.isArray(defaultValue)
             ? defaultValue[1] || defaultValue[0]
             : defaultValue;
         }
-        target.getNode().setPropValue('defaultValue', defaultValue);
+        target.node.setPropValue('defaultValue', defaultValue);
       },
     },
     // {
@@ -146,10 +146,8 @@ export default {
     {
       name: 'onChange',
       title: {
-        label:
-          '当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入',
-        tip:
-          '当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入',
+        label: '当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入',
+        tip: '当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入',
       },
       propType: 'func',
     },

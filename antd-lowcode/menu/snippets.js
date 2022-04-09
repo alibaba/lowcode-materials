@@ -1,7 +1,7 @@
 export default [
   {
     title: '导航菜单',
-    screenshot: 'menu-1.jpg',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/menu-1.jpg',
     schema: {
       componentName: 'Menu',
       props: {

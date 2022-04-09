@@ -174,7 +174,7 @@ export default {
           virtual: () => true,
           getValue: (target, value) => {
             console.log('getValue: ', target, value);
-            return target.getNode().children.map((child) => {
+            return target.node.children.map((child) => {
               return {
                 primaryKey: String(child.getPropValue('primaryKey')),
                 children: child.getPropValue('children'),
@@ -185,7 +185,7 @@ export default {
           },
           setValue: (target, value) => {
             console.log('setValue: ', target, value);
-            const node = target.getNode();
+            const { node } = target;
             const map = {};
             if (!Array.isArray(value)) {
               value = [];
@@ -194,10 +194,10 @@ export default {
               const BreadcrumbItem = Object.assign({}, item);
               map[item.primaryKey] = BreadcrumbItem;
             });
-            node.mergeChildren(
+            node.children.mergeChildren(
               (child) => {
                 const primaryKey = String(child.getPropValue('primaryKey'));
-                console.log(child.id + '----' + primaryKey);
+                console.log(`${child.id}----${primaryKey}`);
                 if (Object.hasOwnProperty.call(map, primaryKey)) {
                   child.setPropValue('children', map[primaryKey].children);
                   child.setPropValue('link', map[primaryKey].link);

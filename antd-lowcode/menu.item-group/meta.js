@@ -1,7 +1,10 @@
 import { uuid } from '../_utils/utils';
 import { itemsExtraProps } from '../menu/utils';
 
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Menu.ItemGroup',
   title: '菜单组',
   props: [
@@ -20,7 +23,7 @@ export default {
                     name: 'key',
                     title: 'key',
                     setter: 'StringSetter',
-                    initialValue: val => val || uuid(),
+                    initialValue: (val) => val || uuid(),
                   },
                   {
                     name: 'children',

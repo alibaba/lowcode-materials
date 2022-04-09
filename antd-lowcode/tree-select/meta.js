@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'TreeSelect',
   title: '树选择',
   category: '表单',
@@ -76,8 +79,7 @@ export default {
       name: 'filterTreeNode',
       title: {
         label: '筛选节点',
-        tip:
-          '是否根据输入项进行筛选，默认用 treeNodeFilterProp 的值作为要筛选的 TreeNode 的属性值',
+        tip: '是否根据输入项进行筛选，默认用 treeNodeFilterProp 的值作为要筛选的 TreeNode 的属性值',
       },
       propType: 'bool',
     },

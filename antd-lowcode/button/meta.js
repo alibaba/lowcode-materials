@@ -1,6 +1,7 @@
 import snippets from './snippets';
 
 export default {
+  snippets,
   componentName: 'Button',
   title: '按钮',
   category: '通用',

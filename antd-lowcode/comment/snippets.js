@@ -1,7 +1,7 @@
 export default [
   {
     title: '评论',
-    screenshot: 'comment-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/comment-1.png',
     schema: {
       componentName: 'Comment',
       props: {},

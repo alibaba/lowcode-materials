@@ -1,6 +1,9 @@
 import { uuid } from '../_utils/utils';
 
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'AutoComplete',
   title: '辅助提示输入框',
   category: '表单',
@@ -150,8 +153,7 @@ export default {
       events: [
         {
           name: 'onBlur',
-          template:
-            "onBlur(${extParams}){\n// 失去焦点时的回调\nconsole.log('onBlur');}",
+          template: "onBlur(${extParams}){\n// 失去焦点时的回调\nconsole.log('onBlur');}",
         },
         {
           name: 'onChange',

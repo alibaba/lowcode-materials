@@ -1,7 +1,7 @@
 export default [
   {
     title: '间距',
-    screenshot: 'space-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/space-1.png',
     schema: {
       componentName: 'Space',
       props: {},

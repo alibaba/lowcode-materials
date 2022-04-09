@@ -1,7 +1,7 @@
 export default [
   {
     title: '评分',
-    screenshot: 'rate-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/rate-1.png',
     schema: {
       componentName: 'Rate',
       props: {

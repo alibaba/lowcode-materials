@@ -1,7 +1,7 @@
 export default [
   {
     title: '树选择',
-    screenshot: 'tree-select-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/tree-select-1.png',
     schema: {
       componentName: 'TreeSelect',
       props: {

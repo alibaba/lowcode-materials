@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'List',
   title: '列表',
   category: '数据展示',
@@ -18,8 +21,7 @@ export default {
           name: 'loading',
           title: {
             label: '是否加载中',
-            tip:
-              'loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位',
+            tip: 'loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位',
           },
           propType: 'bool',
           defaultValue: false,
@@ -29,8 +31,7 @@ export default {
           name: 'rowKey',
           title: {
             label: '行Key',
-            tip:
-              'rowKey | 当 renderItem 自定义渲染列表项有效时，自定义每一行的 key 的获取方式',
+            tip: 'rowKey | 当 renderItem 自定义渲染列表项有效时，自定义每一行的 key 的获取方式',
           },
           propType: {
             type: 'oneOfType',
@@ -60,8 +61,7 @@ export default {
           name: 'itemLayout',
           title: {
             label: '尺寸',
-            tip:
-              'itemLayout  | 设置 List.Item 布局, 设置成 vertical 则竖直样式显示, 默认横排',
+            tip: 'itemLayout  | 设置 List.Item 布局, 设置成 vertical 则竖直样式显示, 默认横排',
           },
           propType: { type: 'oneOf', value: ['horizontal', 'vertical'] },
           defaultValue: 'horizontal',
@@ -141,7 +141,7 @@ export default {
           extraProps: {
             setValue(target, value) {
               if (value === false) {
-                const node = target.getNode();
+                const { node } = target;
                 node.setPropValue('grid', false);
               }
             },
@@ -369,8 +369,7 @@ export default {
           name: 'renderItem',
           title: {
             label: '渲染函数',
-            tip:
-              'renderItem | 当使用 dataSource 时，可以用 `renderItem` 自定义渲染列表项',
+            tip: 'renderItem | 当使用 dataSource 时，可以用 `renderItem` 自定义渲染列表项',
           },
           propType: 'func',
           setter: [
@@ -400,8 +399,7 @@ export default {
             {
               componentName: 'FunctionSetter',
               props: {
-                template:
-                  'renderItem(item,${extParams}){\n// 自定义渲染列表项\nreturn `item`;\n}',
+                template: 'renderItem(item,${extParams}){\n// 自定义渲染列表项\nreturn `item`;\n}',
               },
             },
             'VariableSetter',
@@ -482,8 +480,7 @@ export default {
       events: [
         {
           name: 'pagination.onChange',
-          template:
-            'onChange(page,pageSize,${extParams}){\n// 页码或 pageSize 改变的回调\n}',
+          template: 'onChange(page,pageSize,${extParams}){\n// 页码或 pageSize 改变的回调\n}',
         },
       ],
     },

@@ -1,7 +1,7 @@
 export default [
   {
     title: '树形控件',
-    screenshot: 'tree-1.jpg',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/tree-1.jpg',
     schema: {
       componentName: 'Tree',
       props: {

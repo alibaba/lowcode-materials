@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Empty',
   title: '空状态',
   category: '数据展示',

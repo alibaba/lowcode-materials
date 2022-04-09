@@ -1,7 +1,10 @@
 import { uuid } from '../_utils/utils';
 import { itemsExtraProps } from './utils';
 
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Menu',
   title: '导航菜单',
   category: '导航',
@@ -21,7 +24,7 @@ export default {
                     name: 'key',
                     title: 'key',
                     setter: 'StringSetter',
-                    initialValue: val => val || uuid(),
+                    initialValue: (val) => val || uuid(),
                   },
                   {
                     name: 'children',

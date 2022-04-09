@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'PageHeader',
   title: '页头',
   category: '导航',
@@ -135,8 +138,7 @@ export default {
       events: [
         {
           name: 'onBack',
-          template:
-            "onBack(${extParams}){\n// 返回按钮的点击事件\nconsole.log('onBack');}",
+          template: "onBack(${extParams}){\n// 返回按钮的点击事件\nconsole.log('onBack');}",
         },
       ],
     },

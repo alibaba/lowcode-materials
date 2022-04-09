@@ -2,15 +2,13 @@ import { uuid } from '../_utils/utils';
 
 export const itemsExtraProps = {
   getValue(target, fieldValue) {
-    const map = target.getNode().children.map(child => {
-      const key = child.getPropValue('key')
-        ? String(child.getPropValue('key'))
-        : child.id;
+    const map = target.node.children.map((child) => {
+      const key = child.getPropValue('key') ? String(child.getPropValue('key')) : child.id;
       const result = {
         key,
         category: child.componentName,
       };
-      ['children', 'items', 'title'].forEach(propKey => {
+      ['children', 'items', 'title'].forEach((propKey) => {
         if (child.getPropValue(propKey)) {
           result[propKey] = child.getPropValue(propKey);
         }
@@ -20,18 +18,18 @@ export const itemsExtraProps = {
     return map.length === 0 ? fieldValue : map;
   },
   setValue(target, value) {
-    const node = target.getNode();
+    const { node } = target;
     const map = {};
 
     if (!Array.isArray(value)) {
       value = [];
     }
-    value.forEach(item => {
+    value.forEach((item) => {
       const tabItem = Object.assign({}, item);
       map[item.key] = tabItem;
     });
-    node.mergeChildren(
-      child => {
+    node.children.mergeChildren(
+      (child) => {
         const key = String(child.getPropValue('key'));
 
         if (
@@ -39,12 +37,9 @@ export const itemsExtraProps = {
           child.componentName.includes(map[key].category)
         ) {
           if (map[key].category === 'Menu.Item') {
-            child.setPropValue('children', map[key]['children']);
+            child.setPropValue('children', map[key].children);
           } else {
-            child.setPropValue(
-              'title',
-              map[key]['title'] || map[key]['children'],
-            );
+            child.setPropValue('title', map[key].title || map[key].children);
           }
           delete map[key];
           return false;
@@ -90,10 +85,10 @@ export const itemsExtraProps = {
       },
       (child1, child2) => {
         const a = value.findIndex(
-          item => String(item.key) === String(child1.getPropValue('key')),
+          (item) => String(item.key) === String(child1.getPropValue('key')),
         );
         const b = value.findIndex(
-          item => String(item.key) === String(child2.getPropValue('key')),
+          (item) => String(item.key) === String(child2.getPropValue('key')),
         );
         return a - b;
       },

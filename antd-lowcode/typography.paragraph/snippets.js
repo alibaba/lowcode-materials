@@ -1,7 +1,7 @@
 export default [
   {
     title: '段落',
-    screenshot: 'typography-paragraph-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/typography-paragraph-1.png',
     schema: {
       componentName: 'Typography.Paragraph',
       props: {

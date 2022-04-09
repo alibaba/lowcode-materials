@@ -1,7 +1,7 @@
 export default [
   {
     title: '固钉',
-    screenshot: 'affix-1.jpg',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/affix-1.jpg',
     schema: {
       componentName: 'Affix',
       props: {

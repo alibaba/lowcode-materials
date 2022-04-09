@@ -1,7 +1,7 @@
 export default [
   {
     title: '侧边抽屉',
-    screenshot: 'drawer-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/drawer-1.png',
     schema: {
       componentName: 'Drawer',
       props: {
@@ -20,7 +20,7 @@ export default [
   },
   {
     title: '底部抽屉',
-    screenshot: 'drawer-2.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/drawer-2.png',
     schema: {
       componentName: 'Drawer',
       props: {

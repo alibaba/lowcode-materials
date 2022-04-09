@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Statistic',
   title: '统计数值',
   category: '数据展示',

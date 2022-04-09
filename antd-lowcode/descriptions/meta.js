@@ -1,6 +1,9 @@
 import { uuid } from '../_utils/utils';
 
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Descriptions',
   title: '描述列表',
   category: '数据展示',
@@ -34,7 +37,7 @@ export default {
                     name: 'key',
                     title: 'key',
                     setter: 'StringSetter',
-                    initialValue: val => val || uuid(),
+                    initialValue: (val) => val || uuid(),
                     condition: () => false,
                   },
                   {
@@ -73,10 +76,8 @@ export default {
       },
       extraProps: {
         getValue(target, fieldValue) {
-          const map = target.getNode().children.map(child => {
-            const key = child.getPropValue('key')
-              ? String(child.getPropValue('key'))
-              : child.id;
+          const map = target.node.children.map((child) => {
+            const key = child.getPropValue('key') ? String(child.getPropValue('key')) : child.id;
             return {
               key,
               label: child.getPropValue('label'),
@@ -87,19 +88,19 @@ export default {
           return map;
         },
         setValue(target, value) {
-          const node = target.getNode();
+          const { node } = target;
           const map = {};
 
           if (!Array.isArray(value)) {
             value = [];
           }
-          value.forEach(item => {
+          value.forEach((item) => {
             const tabItem = Object.assign({}, item);
             map[item.key] = tabItem;
           });
 
-          node.mergeChildren(
-            child => {
+          node.children.mergeChildren(
+            (child) => {
               const key = String(child.getPropValue('key'));
               if (Object.hasOwnProperty.call(map, key)) {
                 child.setPropValue('label', map[key].label);
@@ -124,10 +125,10 @@ export default {
             },
             (child1, child2) => {
               const a = value.findIndex(
-                item => String(item.key) === String(child1.getPropValue('key')),
+                (item) => String(item.key) === String(child1.getPropValue('key')),
               );
               const b = value.findIndex(
-                item => String(item.key) === String(child2.getPropValue('key')),
+                (item) => String(item.key) === String(child2.getPropValue('key')),
               );
               return a - b;
             },
@@ -136,7 +137,7 @@ export default {
         // getValue(target, fieldValue) {
         //   // const node = target.nodes[0];
         //   // const children = node.getChildren();
-        //   const map = target.getNode().children.map(child => {
+        //   const map = target.node.children.map(child => {
         //     return {
         //       key: child.getPropValue('key') || uuid(),
         //       label: child.getPropValue('label'),
@@ -147,13 +148,13 @@ export default {
         //   return map;
         // },
         // setValue(target, value) {
-        //   const node = target.getNode();
+        //   const node = target.node;
 
         //   if (!Array.isArray(value)) {
         //     value = [];
         //   }
 
-        //   node.mergeChildren(
+        //   node.children.mergeChildren(
         //     () => true,
         //     () => {
         //       return value.map(item => ({

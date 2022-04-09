@@ -215,12 +215,12 @@ export default {
           if (children) {
             const map = {};
             children.forEach((item) => {
-              const props = item.props;
+              const { props } = item;
               map[props.key] = props;
             });
             // target.parent.setPropValue('children', children);
-            const _children = target.getNode().export().children;
-            target.getNode().mergeChildren(
+            const _children = target.node.export().children;
+            target.node.children.mergeChildren(
               (child) => {
                 const primaryKey = String(child.getPropValue('key'));
                 return Object.hasOwnProperty.call(map, primaryKey);

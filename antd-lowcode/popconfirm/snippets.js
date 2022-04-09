@@ -1,7 +1,7 @@
 export default [
   {
     title: '气泡确认框',
-    screenshot: 'popconfirm-1.jpg',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/popconfirm-1.jpg',
     schema: {
       componentName: 'Popconfirm',
       props: {

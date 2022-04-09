@@ -1,7 +1,7 @@
 export default [
   {
     title: '描述列表',
-    screenshot: 'descriptions-1.jpg',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/descriptions-1.jpg',
     schema: {
       componentName: 'Descriptions',
       props: {

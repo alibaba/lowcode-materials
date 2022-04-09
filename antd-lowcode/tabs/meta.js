@@ -1,6 +1,9 @@
 import { uuid } from '../_utils/utils';
 
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Tabs',
   title: '标签页',
   category: '数据展示',
@@ -20,7 +23,7 @@ export default {
                     name: 'key',
                     title: 'key',
                     setter: 'StringSetter',
-                    initialValue: val => val || uuid(),
+                    initialValue: (val) => val || uuid(),
                   },
                   {
                     name: 'tab',
@@ -67,10 +70,8 @@ export default {
       },
       extraProps: {
         getValue(target, fieldValue) {
-          const map = target.getNode().children.map(child => {
-            const key = child.getPropValue('key')
-              ? String(child.getPropValue('key'))
-              : child.id;
+          const map = target.node.children.map((child) => {
+            const key = child.getPropValue('key') ? String(child.getPropValue('key')) : child.id;
             return {
               key,
               tab: child.getPropValue('tab'),
@@ -82,19 +83,19 @@ export default {
           return map;
         },
         setValue(target, value) {
-          const node = target.getNode();
+          const { node } = target;
           const map = {};
 
           if (!Array.isArray(value)) {
             value = [];
           }
-          value.forEach(item => {
+          value.forEach((item) => {
             const tabItem = Object.assign({}, item);
             map[item.key] = tabItem;
           });
 
-          node.mergeChildren(
-            child => {
+          node.children.mergeChildren(
+            (child) => {
               const key = String(child.getPropValue('key'));
               if (Object.hasOwnProperty.call(map, key)) {
                 child.setPropValue('tab', map[key].tab);
@@ -120,10 +121,10 @@ export default {
             },
             (child1, child2) => {
               const a = value.findIndex(
-                item => String(item.key) === String(child1.getPropValue('key')),
+                (item) => String(item.key) === String(child1.getPropValue('key')),
               );
               const b = value.findIndex(
-                item => String(item.key) === String(child2.getPropValue('key')),
+                (item) => String(item.key) === String(child2.getPropValue('key')),
               );
               return a - b;
             },

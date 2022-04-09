@@ -1,5 +1,5 @@
 const updateChildren = (target, value) => {
-  const node = target.getNode();
+  const { node } = target;
   const map = {};
   if (!Array.isArray(value)) {
     value = [];
@@ -9,7 +9,7 @@ const updateChildren = (target, value) => {
     map[item.primaryKey] = tabitem;
   });
 
-  node.mergeChildren(
+  node.children.mergeChildren(
     (child) => {
       const primaryKey = String(child.getPropValue('primaryKey'));
       if (Object.hasOwnProperty.call(map, primaryKey)) {
@@ -234,7 +234,7 @@ module.exports = {
           getValue: (target, fieldValue) => {
             // const node = target.node;
             // const children = node.getChildren();
-            const map = target.getNode().children.map((child) => {
+            const map = target.node.children.map((child) => {
               const primaryKey = child.getPropValue('primaryKey')
                 ? String(child.getPropValue('primaryKey'))
                 : child.id;

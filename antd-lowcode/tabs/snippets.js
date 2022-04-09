@@ -1,7 +1,7 @@
 export default [
   {
     title: '普通型',
-    screenshot: 'tabs-1.jpg',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/tabs-1.jpg',
     schema: {
       componentName: 'Tabs',
       props: {
@@ -27,7 +27,7 @@ export default [
   },
   {
     title: '卡片型',
-    screenshot: 'tabs-2.jpg',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/tabs-2.jpg',
     schema: {
       componentName: 'Tabs',
       props: {
@@ -53,7 +53,7 @@ export default [
   },
   {
     title: '可编辑卡片',
-    screenshot: 'tabs-3.jpg',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/tabs-3.jpg',
     schema: {
       componentName: 'Tabs',
       props: {

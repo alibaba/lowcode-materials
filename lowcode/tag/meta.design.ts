@@ -125,12 +125,12 @@ export default {
         },
         setter: 'StringSetter',
         getValue: (target) => {
-          const node = target.getNode();
+          const { node } = target;
           const children = node.propsData.children || [];
           return children.filter((item) => typeof item === 'string').join('');
         },
         setValue: (target, value) => {
-          const node = target.getNode();
+          const { node } = target;
           let children = node.propsData.children || [];
           const hasTextChild = children.find((item) => typeof item === 'string');
           if (hasTextChild) {
@@ -163,13 +163,13 @@ export default {
         setter: 'IconSetter',
         supportVariable: false,
         getValue: (target) => {
-          const node = target.getNode();
+          const { node } = target;
           const children = node.propsData.children || [];
           const iconObject = children.find((item) => typeof item === 'object');
           return iconObject && iconObject.props.type;
         },
         setValue: (target, value) => {
-          const node = target.getNode();
+          const { node } = target;
           let children = node.propsData.children || [];
           const hasIconChild = children.find((item) => typeof item === 'object');
           if (hasIconChild) {

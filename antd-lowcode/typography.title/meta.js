@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Typography.Title',
   title: '标题',
   category: '基础',

@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'InputNumber',
   title: '数字输入框',
   category: '表单',
@@ -155,8 +158,7 @@ export default {
       events: [
         {
           name: 'onChange',
-          template:
-            "onChange(value,${extParams}){\n// 变化回调\nconsole.log('onChange',value);}",
+          template: "onChange(value,${extParams}){\n// 变化回调\nconsole.log('onChange',value);}",
         },
         {
           name: 'onPressEnter',
@@ -165,8 +167,7 @@ export default {
         },
         {
           name: 'onFocus',
-          template:
-            "onFocus(event,${extParams}){\n// 获取焦点回调\nconsole.log('onFocus',event);}",
+          template: "onFocus(event,${extParams}){\n// 获取焦点回调\nconsole.log('onFocus',event);}",
         },
         {
           name: 'onKeyDown',
@@ -180,13 +181,11 @@ export default {
         },
         {
           name: 'onKeyUp',
-          template:
-            "onKeyUp(event,${extParams}){\n// 按键释放回调\nconsole.log('onKeyUp',event);}",
+          template: "onKeyUp(event,${extParams}){\n// 按键释放回调\nconsole.log('onKeyUp',event);}",
         },
         {
           name: 'onBlur',
-          template:
-            "onBlur(event,${extParams}){\n// 按键释放回调\nconsole.log('onBlur',event);}",
+          template: "onBlur(event,${extParams}){\n// 按键释放回调\nconsole.log('onBlur',event);}",
         },
       ],
     },

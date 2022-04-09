@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Form.Item',
   title: '表单项',
   category: '表单',
@@ -48,8 +51,7 @@ export default {
       name: 'extra',
       title: {
         label: '提示信息',
-        tip:
-          '额外的提示信息，和 help 类似，当需要错误信息和提示文案同时出现时，可以使用这个。',
+        tip: '额外的提示信息，和 help 类似，当需要错误信息和提示文案同时出现时，可以使用这个。',
       },
       propType: { type: 'oneOfType', value: ['string', 'node'] },
     },
@@ -76,8 +78,7 @@ export default {
       name: 'initialValue',
       title: {
         label: '默认值',
-        tip:
-          '设置子元素默认值，如果与 Form 的 initialValues 冲突则以 Form 为准',
+        tip: '设置子元素默认值，如果与 Form 的 initialValues 冲突则以 Form 为准',
       },
       propType: 'string',
     },
@@ -185,8 +186,7 @@ export default {
               },
             },
           },
-          description:
-            '需要为输入控件设置布局样式时，使用该属性，用法同 labelCol',
+          description: '需要为输入控件设置布局样式时，使用该属性，用法同 labelCol',
         },
       ],
     },

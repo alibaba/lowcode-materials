@@ -1,7 +1,7 @@
 export default [
   {
     title: '简单列表',
-    screenshot: 'list-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/list-1.png',
     schema: {
       componentName: 'List',
       props: {
@@ -82,7 +82,7 @@ export default [
   },
   {
     title: '基础列表',
-    screenshot: 'list-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/list-1.png',
     schema: {
       componentName: 'List',
       props: {

@@ -1,7 +1,7 @@
 export default [
   {
     title: '分页',
-    screenshot: 'pagination-1.jpg',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/pagination-1.jpg',
     schema: {
       componentName: 'Pagination',
       props: {

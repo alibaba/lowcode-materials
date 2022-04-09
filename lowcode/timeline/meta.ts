@@ -131,7 +131,7 @@ module.exports = {
                 ? String(child.getPropValue('primaryKey'))
                 : child.id;
               return {
-                primaryKey: primaryKey,
+                primaryKey,
                 icon: child.getPropValue('icon'),
                 title: child.getPropValue('title'),
                 state: child.getPropValue('state'),
@@ -144,7 +144,7 @@ module.exports = {
             return map;
           },
           setValue(target, value) {
-            const node = target.node;
+            const { node } = target;
             const map = {};
             if (!Array.isArray(value)) {
               value = [];

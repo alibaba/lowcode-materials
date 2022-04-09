@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Spin',
   title: '加载中',
   category: '反馈',

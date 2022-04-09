@@ -1,7 +1,7 @@
 export default [
   {
     title: '下拉菜单',
-    screenshot: 'dropdown-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/dropdown-1.png',
     schema: {
       componentName: 'Dropdown',
       props: {

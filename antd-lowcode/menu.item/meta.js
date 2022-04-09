@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Menu.Item',
   title: '菜单项',
   props: [

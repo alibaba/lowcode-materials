@@ -1,7 +1,7 @@
 export default [
   {
     title: '锚点',
-    screenshot: 'anchor-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/anchor-1.png',
     schema: {
       componentName: 'Anchor',
       props: {},

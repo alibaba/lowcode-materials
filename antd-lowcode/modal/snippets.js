@@ -1,7 +1,7 @@
 export default [
   {
     title: '普通型',
-    screenshot: 'modal-1.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/modal-1.png',
     schema: {
       componentName: 'Modal',
       props: {
@@ -16,7 +16,7 @@ export default [
   },
   {
     title: '隐藏底部',
-    screenshot: 'modal-2.png',
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/modal-2.png',
     schema: {
       componentName: 'Modal',
       props: {

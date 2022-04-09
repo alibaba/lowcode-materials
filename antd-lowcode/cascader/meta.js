@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Cascader',
   title: '级联选择',
   category: '表单',

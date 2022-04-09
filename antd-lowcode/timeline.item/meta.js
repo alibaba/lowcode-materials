@@ -1,4 +1,7 @@
+import snippets from './snippets';
+
 export default {
+  snippets,
   componentName: 'Timeline.Item',
   title: '时间轴项',
   category: '',
