@@ -1,3 +1,5 @@
+import snippets from './snippets';
+
 export default {
   componentName: 'Affix',
   title: '固钉',
@@ -17,8 +19,7 @@ export default {
       name: 'target',
       title: {
         label: '获取触发元素',
-        tip:
-          '设置 `Affix` 需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数',
+        tip: '设置 `Affix` 需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数',
       },
       propType: 'func',
     },
@@ -40,4 +41,5 @@ export default {
       ],
     },
   },
+  snippets,
 };

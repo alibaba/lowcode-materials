@@ -10,10 +10,12 @@
     "dev": "start-storybook -p 9001",
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
     "lowcode:build": "build-scripts build --config ./build.lowcode.js",
+    "lowcode:antd:dev": "build-scripts start --config ./build.lowcode.antd.js",
+    "lowcode:antd:build": "build-scripts build --config ./build.lowcode.antd.js",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "f2elint-scan": "f2elint scan",
     "f2elint-fix": "f2elint fix",
-    "prepublishOnly": "npm run build && npm run lowcode:build"
+    "prepublishOnly": "npm run build && npm run lowcode:build && npm run lowcode:antd:build"
   },
   "files": [
     "es/",
@@ -35,6 +37,7 @@
     "@alifd/build-plugin-lowcode": "^0.2.0",
     "@alifd/next": "^1.20.0",
     "@alifd/theme-2": "^0.4.4",
+    "@ant-design/icons": "^4.7.0",
     "@storybook/addon-docs": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/react": "^6.3.5",
@@ -79,7 +82,7 @@
     "@types/react": "^17.0.39"
   },
   "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.2/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.2/build/antd-lowcode/assets-prod.json"
   },
   "license": "MIT",
   "husky": {

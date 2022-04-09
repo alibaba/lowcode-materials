@@ -6,8 +6,7 @@ export default [
       componentName: 'Alert',
       props: {
         message: 'Success Tips',
-        description:
-          'Detailed description and advice about successful copywriting.',
+        description: 'Detailed description and advice about successful copywriting.',
         type: 'success',
         showIcon: true,
       },
@@ -20,8 +19,7 @@ export default [
       componentName: 'Alert',
       props: {
         message: 'Informational Notes',
-        description:
-          'Additional description and information about copywriting.',
+        description: 'Additional description and information about copywriting.',
         type: 'info',
         showIcon: true,
       },

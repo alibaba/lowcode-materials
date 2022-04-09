@@ -1,9 +1,6 @@
 const { name, version } = require('./package.json');
 
-const baseRenderUrl =
-  process && process.argv && process.argv.includes('start')
-    ? '.'
-    : `https://alifd.alicdn.com/npm/${name}@${version}`;
+const library = 'AntdLowcode';
 
 module.exports = {
   sourceMap: false,
@@ -17,6 +14,19 @@ module.exports = {
       '@alifd/build-plugin-lowcode',
       {
         noParse: true,
+        lowcodeDir: 'antd-lowcode',
+        engineScope: '@alilc',
+        library,
+        npmInfo: {
+          package: name,
+          version,
+        },
+        entryPath: 'antd-lowcode/comps.index.ts',
+        categories: ['通用', '导航', '信息输入', '信息展示', '信息反馈'],
+        baseUrl: {
+          prod: `https://alifd.alicdn.com/npm/${name}@${version}`,
+          daily: `https://alifd.alicdn.com/npm/${name}@${version}`,
+        },
         builtinAssets: [
           {
             packages: [
@@ -54,23 +64,7 @@ module.exports = {
             components: [],
           },
         ],
-        baseUrl: {
-          prod: `https://alifd.alicdn.com/npm/${name}@${version}`,
-          daily: `https://alifd.alicdn.com/npm/${name}@${version}`,
-        },
-        categories: ['通用', '导航', '信息输入', '信息展示', '信息反馈'],
-        engineScope: '@alilc',
       },
     ],
-    [
-      'build-plugin-fusion',
-      {
-        uniteBaseComponent: '@alifd/next',
-        importOptions: {
-          libraryDirectory: 'lib',
-        },
-      },
-    ],
-    './plugin/compatible.build.js',
   ],
 };

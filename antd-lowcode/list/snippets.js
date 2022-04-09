@@ -90,40 +90,35 @@ export default [
           {
             id: 1,
             title: 'Ant Design Title 1',
-            avatar:
-              'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
+            avatar: 'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
             description:
               'Ant Design, a design language for background applications, is refined by Ant UED Team',
           },
           {
             id: 2,
             title: 'Ant Design Title 2',
-            avatar:
-              'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
+            avatar: 'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
             description:
               'Ant Design, a design language for background applications, is refined by Ant UED Team',
           },
           {
             id: 3,
             title: 'Ant Design Title 3',
-            avatar:
-              'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
+            avatar: 'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
             description:
               'Ant Design, a design language for background applications, is refined by Ant UED Team',
           },
           {
             id: 4,
             title: 'Ant Design Title 4',
-            avatar:
-              'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
+            avatar: 'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
             description:
               'Ant Design, a design language for background applications, is refined by Ant UED Team',
           },
           {
             id: 5,
             title: 'Ant Design Title 5',
-            avatar:
-              'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
+            avatar: 'https://gw.alipayobjects.com/zos/rmsportal/dURIMkkrRFpPgTuzkwnB.png',
             description:
               'Ant Design, a design language for background applications, is refined by Ant UED Team',
           },

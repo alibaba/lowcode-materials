@@ -5,8 +5,7 @@ export default [
     schema: {
       componentName: 'Image',
       props: {
-        src:
-          'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        src: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
         height: 120,
         width: 120,
       },

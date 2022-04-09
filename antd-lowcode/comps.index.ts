@@ -94,7 +94,7 @@ export { Transfer } from 'antd';
 
 export { Tree } from 'antd';
 
-//export { TreeSelect } from 'antd';
+// export { TreeSelect } from 'antd';
 
 // export { Tabs } from 'antd';
 
@@ -139,3 +139,4 @@ export { default as Modal } from './modal';
 export { default as Drawer } from './drawer';
 
 export { default as TreeSelect } from './tree-select';
+export { default as Slot } from './slot';

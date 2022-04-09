@@ -1,3 +1,5 @@
+import snippets from './snippets';
+
 export default {
   componentName: 'Button',
   title: '按钮',
@@ -293,4 +295,5 @@ export default {
       style: true,
     },
   },
+  snippets,
 };

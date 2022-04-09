@@ -1,7 +1,7 @@
 export default [
   {
     title: '主按钮',
-    screenshot: 'button-1.png',
+    screenshot: require('./__screenshots__/button-1.png'),
     schema: {
       componentName: 'Button',
       props: {
@@ -12,7 +12,7 @@ export default [
   },
   {
     title: '次按钮',
-    screenshot: 'button-2.png',
+    screenshot: require('./__screenshots__/button-2.png'),
     schema: {
       componentName: 'Button',
       props: {
@@ -23,7 +23,7 @@ export default [
   },
   {
     title: '危险按钮',
-    screenshot: 'button-3.png',
+    screenshot: require('./__screenshots__/button-3.png'),
     schema: {
       componentName: 'Button',
       props: {
@@ -34,7 +34,7 @@ export default [
   },
   {
     title: '文字按钮',
-    screenshot: 'button-4.png',
+    screenshot: require('./__screenshots__/button-4.png'),
     schema: {
       componentName: 'Button',
       props: {
@@ -45,7 +45,7 @@ export default [
   },
   {
     title: '虚框按钮',
-    screenshot: 'button-5.png',
+    screenshot: require('./__screenshots__/button-5.png'),
     schema: {
       componentName: 'Button',
       props: {
@@ -56,7 +56,7 @@ export default [
   },
   {
     title: '链接按钮',
-    screenshot: 'button-6.png',
+    screenshot: require('./__screenshots__/button-6.png'),
     schema: {
       componentName: 'Button',
       props: {
