@@ -30,25 +30,29 @@ material.setAssets(assets);
 ### 目录结构/Structure
 
 ```
-|-lowcode // 组件低代码描述文件
-    |-{component-name}
-        |-meta.ts // 组件低代码描述协议
-        |-meta.design.ts // 【可选】面向设计者的组件低代码描述，移除面向研发的高级配置能力，可做静态搭建和简单的交互
-|-src
-    |-index.tsx // 组件库导出文件
-    |-components // 组件库源码
-        |-{component-name}
-        |-index.tsx
-        |-index.scss
-|-build.lowcode.js // 低代码调试和构建使用的配置文件
-|-build.json // 源码调试和构建使用的配置文件
+|-packages
+    |-{package-name} // fusion 或 antd 低代码组件包
+        |-lowcode // 组件低代码描述文件
+            |-{component-name}
+                |-meta.ts // 组件低代码描述协议
+                |-meta.design.ts // 【可选】面向设计者的组件低代码描述，移除面向研发的高级配置能力，可做静态搭建和简单的交互
+        |-src
+            |-index.tsx // 组件库导出文件
+            |-components // 组件库源码
+                |-{component-name}
+                |-index.tsx
+                |-index.scss
+    |-build.lowcode.js // 低代码调试和构建使用的配置文件
+    |-build.json // 源码调试和构建使用的配置文件
 ```
 
 ### 常用命令/Commands
 
 #### 低代码/LowCode
 
-```
+```bash
+cd packages/fusion-lowcode-materilas
+# OR `cd packages/antd-lowcode-materilas`
 npm run lowcode:dev
 npm run lowcode:build
 ```
