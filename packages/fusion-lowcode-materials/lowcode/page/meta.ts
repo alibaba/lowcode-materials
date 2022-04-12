@@ -52,21 +52,6 @@ export default [
     category: '基础',
   },
   {
-    componentName: 'Slot',
-    configure: {
-      component: {
-        disableBehaviors: '*',
-      },
-      advanced: {
-        callbacks: {
-          onHoverHook: () => false,
-          onMouseDownHook: () => false,
-          onClickHook: () => false,
-        },
-      },
-    },
-  },
-  {
     componentName: 'Leaf',
     npm: {
       package: '@alifd/next',

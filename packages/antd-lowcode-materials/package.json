@@ -1,10 +1,11 @@
 {
   "name": "@alilc/antd-lowcode-materials",
-  "version": "0.0.1",
+  "version": "1.0.2",
   "description": "Antd for LowCode",
   "scripts": {
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
-    "lowcode:build": "build-scripts build --config ./build.lowcode.js"
+    "lowcode:build": "build-scripts build --config ./build.lowcode.js",
+    "prepublishOnly": "npm run lowcode:build"
   },
   "files": [
     "es/",
@@ -47,7 +48,7 @@
     "react-dom": "^16.0.0"
   },
   "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@0.0.1/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.2/build/lowcode/assets-prod.json"
   },
   "license": "MIT"
 }

@@ -1,7 +1,7 @@
 module.exports = {
   componentName: 'Slot',
   npm: {
-    package: '@alilc/antd-lowcode-materials',
+    package: '@alilc/lowcode-materials',
     version: 'latest',
     exportName: 'Slot',
     main: '',

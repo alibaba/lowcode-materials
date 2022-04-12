@@ -72,6 +72,10 @@ export default {
             'StringSetter',
             {
               componentName: 'SlotSetter',
+              initialValue: {
+                type: 'JSSlot',
+                value: [],
+              },
             },
             'VariableSetter',
           ],

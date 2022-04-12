@@ -32,6 +32,10 @@ module.exports = {
           name: 'cell',
           setter: {
             componentName: 'SlotSetter',
+            initialValue: {
+              type: 'JSSlot',
+              value: [],
+            },
             props: {
               supportParams: true,
             },

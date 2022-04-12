@@ -55,7 +55,13 @@ export default {
                   {
                     name: 'children',
                     title: '内容',
-                    setter: 'SlotSetter',
+                    setter: {
+                      componentName: 'SlotSetter',
+                      initialValue: {
+                        type: 'JSSlot',
+                        value: [],
+                      },
+                    },
                   },
                 ],
               },
