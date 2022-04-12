@@ -74,13 +74,13 @@ module.exports = {
         supportVariable: true,
       },
     ],
-  },
-  experimental: {
-    callbacks: {
-      onHoverHook: () => false,
-      onMouseDownHook: () => false,
-      onClickHook: () => false,
-      onMove: () => false,
+    advanced: {
+      callbacks: {
+        onHoverHook: () => false,
+        onMouseDownHook: () => false,
+        onClickHook: () => false,
+        onMove: () => false,
+      },
     },
   },
   category: '基础',

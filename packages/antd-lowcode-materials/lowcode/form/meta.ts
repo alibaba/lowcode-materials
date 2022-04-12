@@ -295,52 +295,50 @@ export default {
         },
       ],
     },
-  },
-  experimental: {
-    callbacks: {
-      onNodeAdd: (dragment, currentNode) => {
-        // 拖入的内容为LayoutP时,不做包裹动作
+    advanced: {
+      callbacks: {
+        onNodeAdd: (dragment, currentNode) => {
+          const comps = [
+            'Input',
+            'Select',
+            'Radio',
+            'Checkbox',
+            'Switch',
+            'Upload',
+            'Datepicker',
+            'Rate',
+            'Transfer',
+          ];
 
-        const comps = [
-          'Input',
-          'Select',
-          'Radio',
-          'Checkbox',
-          'Switch',
-          'Upload',
-          'Datepicker',
-          'Rate',
-          'Transfer',
-        ];
+          if (
+            !dragment ||
+            !dragment.componentMeta ||
+            !dragment.componentMeta.npm ||
+            !dragment.componentMeta.npm.package ||
+            dragment.componentMeta.npm.package.indexOf('@alilc/antd-lowcode-materials') === -1 ||
+            comps.every((comp) => dragment.componentName.indexOf(comp) === -1)
+          ) {
+            return;
+          }
 
-        if (
-          !dragment ||
-          !dragment.componentMeta ||
-          !dragment.componentMeta.npm ||
-          !dragment.componentMeta.npm.package ||
-          dragment.componentMeta.npm.package.indexOf('@ali/antd-lowcode') === -1 ||
-          comps.every((comp) => dragment.componentName.indexOf(comp) === -1)
-        ) {
-          return;
-        }
-
-        // 为目标元素包裹一层P
-        const layoutPNode = currentNode.document.createNode({
-          componentName: 'Form.Item',
-          props: {
-            label: '表单项: ',
-          },
-          children: [dragment.schema],
-        });
-        // 当前dragment还未添加入node子节点,需要setTimeout处理
-        setTimeout(() => {
-          currentNode.replaceChild(
-            dragment,
-            layoutPNode.schema,
-            // 避免生成新的 nodeId
-            { reserveSchemaNodeId: true },
-          );
-        }, 1);
+          // 为目标元素包裹一层P
+          const layoutPNode = currentNode.document.createNode({
+            componentName: 'Form.Item',
+            props: {
+              label: '表单项: ',
+            },
+            children: [dragment.exportSchema()],
+          });
+          // 当前dragment还未添加入node子节点,需要setTimeout处理
+          setTimeout(() => {
+            currentNode.replaceChild(
+              dragment,
+              layoutPNode.exportSchema(),
+              // 避免生成新的 nodeId
+              { reserveSchemaNodeId: true },
+            );
+          }, 1);
+        },
       },
     },
   },

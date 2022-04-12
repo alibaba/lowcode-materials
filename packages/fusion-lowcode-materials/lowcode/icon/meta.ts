@@ -7,7 +7,8 @@ export default {
   docUrl: '',
   screenshot:
     'https://img.alicdn.com/imgextra/i1/O1CN01yR8vcY1M504YbHxzo_!!6000000001382-55-tps-56-56.svg',
-  icon: 'https://img.alicdn.com/imgextra/i1/O1CN01yR8vcY1M504YbHxzo_!!6000000001382-55-tps-56-56.svg',
+  icon:
+    'https://img.alicdn.com/imgextra/i1/O1CN01yR8vcY1M504YbHxzo_!!6000000001382-55-tps-56-56.svg',
   npm: {
     package: '@alifd/next',
     version: '{{version}}',
@@ -85,20 +86,20 @@ export default {
         },
       ],
     },
-  },
-  experimental: {
-    callbacks: {
-      onHoverHook: (target) => {
-        return !target?.schema?.props?.disabled;
-      },
-      onMouseDownHook: (target) => {
-        return !target?.schema?.props?.disabled;
-      },
-      onClickHook: (target) => {
-        return !target?.schema?.props?.disabled;
-      },
-      onMove: (target) => {
-        return !target?.schema?.props?.disabled;
+    advanced: {
+      callbacks: {
+        onHoverHook: (target) => {
+          return !target?.exportSchema()?.props?.disabled;
+        },
+        onMouseDownHook: (target) => {
+          return !target?.exportSchema()?.props?.disabled;
+        },
+        onClickHook: (target) => {
+          return !target?.exportSchema()?.props?.disabled;
+        },
+        onMove: (target) => {
+          return !target?.exportSchema()?.props?.disabled;
+        },
       },
     },
   },

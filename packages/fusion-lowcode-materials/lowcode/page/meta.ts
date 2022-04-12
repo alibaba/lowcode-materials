@@ -57,12 +57,12 @@ export default [
       component: {
         disableBehaviors: '*',
       },
-    },
-    experimental: {
-      callbacks: {
-        onHoverHook: () => false,
-        onMouseDownHook: () => false,
-        onClickHook: () => false,
+      advanced: {
+        callbacks: {
+          onHoverHook: () => false,
+          onMouseDownHook: () => false,
+          onClickHook: () => false,
+        },
       },
     },
   },
@@ -80,12 +80,12 @@ export default [
       component: {
         disableBehaviors: '*',
       },
-    },
-    experimental: {
-      callbacks: {
-        onHoverHook: () => false,
-        onMouseDownHook: () => false,
-        onClickHook: () => false,
+      advanced: {
+        callbacks: {
+          onHoverHook: () => false,
+          onMouseDownHook: () => false,
+          onClickHook: () => false,
+        },
       },
     },
   },

@@ -294,17 +294,17 @@ export default {
         },
       ],
     },
-  },
-  experimental: {
-    initialChildren: [
-      {
-        componentName: 'Tabs.TabPane',
-        props: { key: 'item1', tab: 'Item 1' },
-      },
-      {
-        componentName: 'Tabs.TabPane',
-        props: { key: 'item2', tab: 'Item 2' },
-      },
-    ],
+    advanced: {
+      initialChildren: [
+        {
+          componentName: 'Tabs.TabPane',
+          props: { key: 'item1', tab: 'Item 1' },
+        },
+        {
+          componentName: 'Tabs.TabPane',
+          props: { key: 'item2', tab: 'Item 2' },
+        },
+      ],
+    },
   },
 };

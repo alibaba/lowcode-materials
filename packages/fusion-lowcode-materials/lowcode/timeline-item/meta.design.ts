@@ -127,13 +127,13 @@ export default {
         defaultValue: true,
       },
     ],
-  },
-  experimental: {
-    callbacks: {
-      onHoverHook: () => false,
-      onMouseDownHook: () => false,
-      onClickHook: () => false,
-      onMove: () => false,
+    advanced: {
+      callbacks: {
+        onHoverHook: () => false,
+        onMouseDownHook: () => false,
+        onClickHook: () => false,
+        onMove: () => false,
+      },
     },
   },
   icon: '',

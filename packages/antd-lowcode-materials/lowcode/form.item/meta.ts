@@ -285,18 +285,18 @@ export default {
       nestingRule: { childWhitelist: [], parentWhitelist: [] },
     },
     supports: { style: true },
-  },
-  experimental: {
-    callbacks: {
-      onNodeRemove: (removedNode, currentNode) => {
-        if (!removedNode || !currentNode) {
-          return;
-        }
-        const children = currentNode.children;
-        // 若无children,则说明当前P组件内已为空,需要删除P组件本身
-        if (children && children.length === 0) {
-          currentNode.remove();
-        }
+    advanced: {
+      callbacks: {
+        onNodeRemove: (removedNode, currentNode) => {
+          if (!removedNode || !currentNode) {
+            return;
+          }
+          const { children } = currentNode;
+          // 若无children,则说明当前P组件内已为空,需要删除P组件本身
+          if (children && children.length === 0) {
+            currentNode.remove();
+          }
+        },
       },
     },
   },

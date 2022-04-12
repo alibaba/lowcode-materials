@@ -54,51 +54,51 @@ export default {
   configure: {
     component: { isContainer: true, nestingRule: { parentWhitelist: ['Row'] } },
     supports: { style: true },
-  },
-  experimental: {
-    getResizingHandlers: () => {
-      return ['e'];
-    },
-    callbacks: {
-      onResizeStart: (e, currentNode) => {
-        const parent = currentNode.getParent();
-        if (parent) {
-          const parentNode = parent.getDOMNode();
-          if (parentNode) {
-            currentNode.parentRect = parentNode.getBoundingClientRect();
+    advanced: {
+      getResizingHandlers: () => {
+        return ['e'];
+      },
+      callbacks: {
+        onResizeStart: (e, currentNode) => {
+          const parent = currentNode.getParent();
+          if (parent) {
+            const parentNode = parent.getDOMNode();
+            if (parentNode) {
+              currentNode.parentRect = parentNode.getBoundingClientRect();
+            }
           }
-        }
-        currentNode.beforeSpan = currentNode.getPropValue('span') || 24;
-        currentNode.startRect = currentNode.getRect();
-      },
-      onResize: (e, currentNode) => {
-        const { deltaX } = e;
-        const startWidth = currentNode.startRect
-          ? currentNode.startRect.width
-          : currentNode.beforeSpan * (currentNode.parentRect.width / 24);
-        let width = startWidth + deltaX;
-        if (!currentNode.startRect) {
-          currentNode.startRect = { width };
-        }
-        width = clamp(width, 0, currentNode.parentRect.width);
-        const allowMoveX = Math.round(width - startWidth); // 实际被允许的x轴移动
-        currentNode.moveColumn = Math.round(allowMoveX / (currentNode.parentRect.width / 24)); // 计算移动距离所占的列
-        if (allowMoveX > 0) {
-          currentNode.moveColumn++;
-        } else {
-          currentNode.moveColumn--;
-        }
-        currentNode.targetColumn = clamp(currentNode.beforeSpan + currentNode.moveColumn, 1, 24);
-        // currentNode.setPropValue('span', currentNode.targetColumn);
-        const dom = currentNode.getDOMNode();
-        dom.style.width = `${Math.round(width)}px`;
-        dom.style.flex = 'none';
-        dom.style.maxWidth = '100%';
-      },
-      onResizeEnd: (e, currentNode) => {
-        currentNode.getDOMNode().style.cssText = '';
-        currentNode.targetColumn = clamp(currentNode.targetColumn, 1, 24);
-        currentNode.setPropValue('span', currentNode.targetColumn);
+          currentNode.beforeSpan = currentNode.getPropValue('span') || 24;
+          currentNode.startRect = currentNode.getRect();
+        },
+        onResize: (e, currentNode) => {
+          const { deltaX } = e;
+          const startWidth = currentNode.startRect
+            ? currentNode.startRect.width
+            : currentNode.beforeSpan * (currentNode.parentRect.width / 24);
+          let width = startWidth + deltaX;
+          if (!currentNode.startRect) {
+            currentNode.startRect = { width };
+          }
+          width = clamp(width, 0, currentNode.parentRect.width);
+          const allowMoveX = Math.round(width - startWidth); // 实际被允许的x轴移动
+          currentNode.moveColumn = Math.round(allowMoveX / (currentNode.parentRect.width / 24)); // 计算移动距离所占的列
+          if (allowMoveX > 0) {
+            currentNode.moveColumn++;
+          } else {
+            currentNode.moveColumn--;
+          }
+          currentNode.targetColumn = clamp(currentNode.beforeSpan + currentNode.moveColumn, 1, 24);
+          // currentNode.setPropValue('span', currentNode.targetColumn);
+          const dom = currentNode.getDOMNode();
+          dom.style.width = `${Math.round(width)}px`;
+          dom.style.flex = 'none';
+          dom.style.maxWidth = '100%';
+        },
+        onResizeEnd: (e, currentNode) => {
+          currentNode.getDOMNode().style.cssText = '';
+          currentNode.targetColumn = clamp(currentNode.targetColumn, 1, 24);
+          currentNode.setPropValue('span', currentNode.targetColumn);
+        },
       },
     },
   },

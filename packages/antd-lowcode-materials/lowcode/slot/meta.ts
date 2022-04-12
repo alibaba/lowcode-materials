@@ -50,12 +50,12 @@ module.exports = {
     },
     // events/className/style/general/directives
     supports: false,
-  },
-  experimental: {
-    callbacks: {
-      onHoverHook: () => false,
-      onMouseDownHook: () => false,
-      onClickHook: () => false,
+    advanced: {
+      callbacks: {
+        onHoverHook: () => false,
+        onMouseDownHook: () => false,
+        onClickHook: () => false,
+      },
     },
   },
 };

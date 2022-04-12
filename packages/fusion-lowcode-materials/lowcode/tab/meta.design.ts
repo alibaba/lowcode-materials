@@ -271,18 +271,18 @@ export default {
     supports: {
       events: ['onClick', 'onChange', 'onClose'],
     },
-  },
-  experimental: {
-    initialChildren: [
-      {
-        componentName: 'Tab.Item',
-        props: { primaryKey: 'item1' },
-      },
-      {
-        componentName: 'Tab.Item',
-        props: { primaryKey: 'item2' },
-      },
-    ],
+    advanced: {
+      initialChildren: [
+        {
+          componentName: 'Tab.Item',
+          props: { primaryKey: 'item1' },
+        },
+        {
+          componentName: 'Tab.Item',
+          props: { primaryKey: 'item2' },
+        },
+      ],
+    },
   },
   icon: '',
   category: '导航',

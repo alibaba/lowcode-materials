@@ -42,7 +42,8 @@ module.exports = {
       name: 'status',
       title: {
         label: '状态',
-        tip: 'status|步骤的状态，如不传，会根据外层的 Step 的 current 属性生成，可选值为 `wait`, `process`, `finish`',
+        tip:
+          'status|步骤的状态，如不传，会根据外层的 Step 的 current 属性生成，可选值为 `wait`, `process`, `finish`',
       },
       propType: {
         type: 'oneOf',
@@ -137,13 +138,13 @@ module.exports = {
         },
       ],
     },
-  },
-  experimental: {
-    callbacks: {
-      onHoverHook: () => false,
-      onMouseDownHook: () => false,
-      onClickHook: () => false,
-      onMove: () => false,
+    advanced: {
+      callbacks: {
+        onHoverHook: () => false,
+        onMouseDownHook: () => false,
+        onClickHook: () => false,
+        onMove: () => false,
+      },
     },
   },
   category: 'null',
