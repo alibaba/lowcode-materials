@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Antd for LowCode",
   "scripts": {
-    "dev": "build-scripts start --config ./build.lowcode.js",
-    "build": "build-scripts build --config ./build.lowcode.js"
+    "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
+    "lowcode:build": "build-scripts build --config ./build.lowcode.js"
   },
   "files": [
     "es/",
