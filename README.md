@@ -1,15 +1,19 @@
-# [Fusion Materials](https://github.com/alibaba-fusion/next) for LowCode
+<h1 align="center">Lowcode Materials</h1>
 
-## 体验地址/Demo
+<div align="center">
 
-- Fusion: <https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.3/build/lowcode/index.html>
-- Antd: <https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.3/build/lowcode/index.html>
+基于 [Fusion Design](https://fusion.design) 和 [Ant Design](https://ant.design) 设计规范的低代码基础物料
+</div>
 
-## 使用/Usage
+<h2><img width="50" src="https://img.alicdn.com/tfs/TB1YsoiHVzqK1RjSZFCXXbbxVXa-159-99.svg"> Fusion Design For Lowcode</h2>
 
-### 引用 npm 包/npm
+[![NPM version][npm-image-antd]][npm-url-antd]
 
-```
+### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.3/build/lowcode/index.html)
+
+### 使用 / Usage
+#### NPM
+```js
 const { material } from '@alilc/lowcode-engine';
 const assets = require('@alilc/lowcode-materials/dist/assets.json');
 
@@ -17,17 +21,45 @@ const assets = require('@alilc/lowcode-materials/dist/assets.json');
 material.setAssets(assets);
 ```
 
-### 直接引用 cdn 文件/CDN
-
-```
+#### CDN
+```js
 // in GeneralWorkbench init
-const assets = await (await fetch(`https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.0/dist/assets.json`)).json();
+const assets = await (await fetch(`https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.3/dist/assets.json`)).json();
 material.setAssets(assets);
 ```
 
-## 如何贡献/How-to-contribute
+[npm-image-fusion]: https://img.shields.io/npm/v/@alilc/lowcode-materials.svg?style=flat-square
+[npm-url-fusion]: http://npmjs.org/package/@alilc/lowcode-materials
 
-### 目录结构/Structure
+<h2><img width="30" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"> Ant Design For Lowcode</h2>
+
+[![NPM version][npm-image-antd]][npm-url-antd]
+
+### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.3/build/lowcode/index.html)
+
+### 使用 / Usage
+#### NPM
+```js
+const { material } from '@alilc/lowcode-engine';
+const assets = require('@alilc/antd-lowcode-materials/build/lowcode/assets-prod.json');
+
+// in GeneralWorkbench init
+material.setAssets(assets);
+```
+
+#### CDN
+```js
+// in GeneralWorkbench init
+const assets = await (await fetch(`https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.3/build/lowcode/assets-prod.json`)).json();
+material.setAssets(assets);
+```
+
+[npm-image-antd]: https://img.shields.io/npm/v/@alilc/antd-lowcode-materials.svg?style=flat-square
+[npm-url-antd]: http://npmjs.org/package/@alilc/antd-lowcode-engine
+
+## 如何贡献 / How-to-contribute
+
+### 目录结构 / Structure
 
 ```
 |-packages
@@ -46,9 +78,9 @@ material.setAssets(assets);
     |-build.json // 源码调试和构建使用的配置文件
 ```
 
-### 常用命令/Commands
+### 常用命令 / Commands
 
-#### 低代码/LowCode
+#### 低代码 / LowCode
 
 ```bash
 cd packages/fusion-lowcode-materilas
@@ -57,14 +89,14 @@ npm run lowcode:dev
 npm run lowcode:build
 ```
 
-#### 源码/ProCode
+#### 源码 / ProCode
 
 ```
 npm start
 npm run build
 ```
 
-### 贡献者/Contributors
+### 贡献者 / Contributors
 
 - @荣彬
 - @度城
