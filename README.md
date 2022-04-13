@@ -24,7 +24,7 @@ material.setAssets(assets);
 #### CDN
 ```js
 // in GeneralWorkbench init
-const assets = await (await fetch(`https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.3/dist/assets.json`)).json();
+const assets = await fetch(`https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.3/dist/assets.json`).then(res => res.json());
 material.setAssets(assets);
 ```
 
@@ -50,7 +50,7 @@ material.setAssets(assets);
 #### CDN
 ```js
 // in GeneralWorkbench init
-const assets = await (await fetch(`https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.3/build/lowcode/assets-prod.json`)).json();
+const assets = await fetch(`https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.3/build/lowcode/assets-prod.json`).then(res => res.json());
 material.setAssets(assets);
 ```
 
