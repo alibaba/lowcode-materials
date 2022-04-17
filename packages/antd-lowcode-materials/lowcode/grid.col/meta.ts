@@ -60,7 +60,7 @@ export default {
       },
       callbacks: {
         onResizeStart: (e, currentNode) => {
-          const parent = currentNode.getParent();
+          const parent = currentNode.parent;
           if (parent) {
             const parentNode = parent.getDOMNode();
             if (parentNode) {
