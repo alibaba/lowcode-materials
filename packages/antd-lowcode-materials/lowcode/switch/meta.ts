@@ -11,34 +11,40 @@ export default {
       title: { label: '默认选中', tip: '默认是否选中' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'autoFocus',
       title: { label: '自动聚焦', tip: '组件自动获取焦点' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'checkedChildren',
       title: { label: '选中时内容', tip: '选中时的内容' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'unCheckedChildren',
       title: { label: '非选中时内容', tip: '非选中时的内容' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'disabled',
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'loading',
       title: { label: '加载中', tip: '加载中' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'size',

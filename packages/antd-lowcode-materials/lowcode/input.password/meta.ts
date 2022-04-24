@@ -22,30 +22,35 @@ export default {
       name: 'allowClear',
       title: { label: '支持清除', tip: '是否允许清除' },
       propType: 'bool',
+      setter: 'BoolSetter',
     },
     {
       name: 'bordered',
       title: { label: '显示边框', tip: '是否有边框' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'disabled',
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'visibilityToggle',
       title: { label: '切换按钮', tip: '是否显示切换按钮' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'placeholder',
       title: { label: '占位提示', tip: '占位提示' },
       propType: 'string',
       defaultValue: '请输入',
+      setter: 'StringSetter'
     },
     // {
     //   name: 'id',
@@ -56,6 +61,7 @@ export default {
       name: 'maxLength',
       title: { label: '最大长度', tip: '最大长度' },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     {
       name: 'size',
@@ -134,47 +140,6 @@ export default {
     },
   ],
   configure: {
-    props: {
-      isExtends: true,
-      override: [
-        {
-          name: 'bordered',
-          title: {
-            label: {
-              type: 'i18n',
-              zh_CN: '显示边框',
-              en_US: 'ShowBorder',
-            },
-            tip: {
-              type: 'i18n',
-              zh_CN: '属性: bordered | 说明: 是否有边框',
-              en_US: 'prop: bordered | description: have border',
-            },
-          },
-          setter: 'BoolSetter',
-          supportVariable: true,
-          defaultValue: true
-        },
-        {
-          name: 'maxLength',
-          title: {
-            label: {
-              type: 'i18n',
-              zh_CN: '最大长度',
-              en_US: 'MaxLength',
-            },
-            tip: {
-              type: 'i18n',
-              zh_CN: '属性: maxLength | 说明: 最大长度',
-              en_US: 'prop: maxLength | description: max length',
-            },
-          },
-          setter: 'NumberSetter',
-          supportVariable: true,
-          description: '最大长度',
-        }
-      ]
-    },
     supports: {
       style: true,
       events: [

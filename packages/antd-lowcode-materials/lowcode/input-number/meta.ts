@@ -23,30 +23,35 @@ export default {
       title: { label: '自动聚焦', tip: '自动获取焦点' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'disabled',
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'placeholder',
       title: { label: '占位提示', tip: '占位提示' },
       propType: 'string',
       defaultValue: '请输入',
+      setter: 'StringSetter'
     },
     {
       name: 'controls',
       title: { label: '是否显示增减按钮', tip: '是否显示增减按钮' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'bordered',
       title: { label: '显示边框', tip: '是否有边框' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'addonAfter',
@@ -70,16 +75,19 @@ export default {
       name: 'max',
       title: { label: '最大值', tip: '最大值' },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     {
       name: 'min',
       title: { label: '最小值', tip: '最小值' },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     {
       name: 'precision',
       title: { label: '数值精度', tip: '数值精度' },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     // {
     //   name: 'decimalSeparator',
@@ -115,6 +123,7 @@ export default {
       name: 'step',
       title: { label: '单步长', tip: '每次改变步数' },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     {
       name: 'onChange',
@@ -153,29 +162,6 @@ export default {
     },
   ],
   configure: {
-    props: {
-      isExtends: true,
-      override: [
-        {
-          name: 'bordered',
-          title: {
-            label: {
-              type: 'i18n',
-              zh_CN: '显示边框',
-              en_US: 'ShowBorder',
-            },
-            tip: {
-              type: 'i18n',
-              zh_CN: '属性: bordered | 说明: 是否有边框',
-              en_US: 'prop: bordered | description: have border',
-            },
-          },
-          setter: 'BoolSetter',
-          supportVariable: true,
-          defaultValue: true
-        }
-      ]
-    },
     supports: {
       style: true,
       events: [

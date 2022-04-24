@@ -32,18 +32,21 @@ export default {
       title: { label: '支持清除', tip: '是否允许清除' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'autoFocus',
       title: { label: '自动聚焦', tip: '自动获取焦点' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'bordered',
       title: { label: '显示边框', tip: '是否有边框' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'changeOnSelect',
@@ -53,17 +56,20 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'className',
       title: { label: '自定义类名', tip: '自定义类名' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'disabled',
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'expandTrigger',
@@ -74,16 +80,19 @@ export default {
       name: 'notFoundContent',
       title: { label: '无数据展示', tip: '无数据' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'placeholder',
       title: { label: '输入框占位文本', tip: '输入框占位文本' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'popupClassName',
       title: { label: '自定义浮层类名', tip: '自定义浮层类名' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'popupPlacement',
@@ -97,12 +106,14 @@ export default {
       name: 'popupVisible',
       title: { label: '控制浮层显隐', tip: '控制浮层显隐' },
       propType: 'bool',
+      setter: 'BoolSetter'
     },
     {
       name: 'showSearch',
       title: { label: '支持搜索', tip: '在选择框中显示搜索框' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'size',
@@ -127,81 +138,6 @@ export default {
     },
   ],
   configure: {
-    props: {
-      isExtends: true,
-      override: [
-        {
-          name: 'allowClear',
-          title: {
-            label: {
-              type: 'i18n',
-              zh_CN: '支持清除',
-              en_US: 'Allow Clear',
-            },
-            tip: {
-              type: 'i18n',
-              zh_CN: '属性: allowClear | 说明: 是否允许清除',
-              en_US: 'prop: allowClear | description: Allow clear',
-            },
-          },
-          setter: 'BoolSetter',
-          supportVariable: true,
-          defaultValue: true,
-        },
-        {
-          name: 'bordered',
-          title: {
-            label: {
-              type: 'i18n',
-              zh_CN: '显示边框',
-              en_US: 'ShowBorder',
-            },
-            tip: {
-              type: 'i18n',
-              zh_CN: '属性: bordered | 说明: 是否有边框',
-              en_US: 'prop: bordered | description: have border',
-            },
-          },
-          setter: 'BoolSetter',
-          supportVariable: true,
-          defaultValue: true
-        },
-        {
-          name: 'popupVisible',
-          title: {
-            label: {
-              type: 'i18n',
-              zh_CN: '控制浮层显隐',
-              en_US: 'Popup Visible',
-            },
-            tip: {
-              type: 'i18n',
-              zh_CN: '属性: popupVisible | 说明: 控制浮层显隐',
-              en_US: 'prop: popupVisible | description: Popup Visible',
-            },
-          },
-          setter: 'BoolSetter',
-          supportVariable: true
-        },
-        {
-          name: 'value',
-          title: {
-            label: {
-              type: 'i18n',
-              zh_CN: '当前选中项',
-              en_US: 'Value',
-            },
-            tip: {
-              type: 'i18n',
-              zh_CN: '属性: value | 说明: 当前选中项',
-              en_US: 'prop: value | description: Value',
-            },
-          },
-          setter: 'ArraySetter',
-          supportVariable: true
-        }
-      ]
-    },
     supports: {
       style: true,
       events: [

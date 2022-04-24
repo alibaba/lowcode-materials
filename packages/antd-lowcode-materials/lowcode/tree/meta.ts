@@ -20,12 +20,14 @@ export default {
       title: { label: '是否自动展开父节点', tip: '是否自动展开父节点' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'blockNode',
       title: { label: '是否节点占据一行', tip: '是否节点占据一行' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'checkable',
@@ -35,6 +37,7 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'checkedKeys',
@@ -56,45 +59,74 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'defaultCheckedKeys',
       title: { label: '默认选中值', tip: '默认选中值' },
       propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'ArraySetter',
+        props: {
+          itemSetter: {
+            componentName: 'StringSetter',
+          }
+        }
+      },
     },
     {
       name: 'defaultExpandAll',
       title: { label: '默认展开所有树节点', tip: '默认展开所有树节点' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'defaultExpandedKeys',
       title: { label: '默认展开指定的树节点', tip: '默认展开指定的树节点' },
       propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'ArraySetter',
+        props: {
+          itemSetter: {
+            componentName: 'StringSetter',
+          }
+        }
+      },
     },
     {
       name: 'defaultExpandParent',
       title: { label: '默认展开父节点', tip: '默认展开父节点' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'defaultSelectedKeys',
       title: { label: '默认选中值', tip: '默认选中值' },
       propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'ArraySetter',
+        props: {
+          itemSetter: {
+            componentName: 'StringSetter',
+          }
+        }
+      },
     },
     {
       name: 'disabled',
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'draggable',
       title: { label: '节点可拖拽', tip: '设置节点可拖拽（IE>8）' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'expandedKeys',
@@ -103,6 +135,14 @@ export default {
         tip: '（受控）展开指定的树节点',
       },
       propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'ArraySetter',
+        props: {
+          itemSetter: {
+            componentName: 'StringSetter',
+          }
+        }
+      },
     },
     {
       name: 'filterTreeNode',
@@ -124,6 +164,14 @@ export default {
         tip: '（受控）已经加载的节点，需要配合 `loadData` 使用',
       },
       propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'ArraySetter',
+        props: {
+          itemSetter: {
+            componentName: 'StringSetter',
+          }
+        }
+      },
     },
     {
       name: 'multiple',
@@ -133,12 +181,14 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'selectable',
       title: { label: '是否可选中', tip: '是否可选中' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'selectedKeys',
@@ -147,6 +197,14 @@ export default {
         tip: '（受控）设置选中的树节点',
       },
       propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'ArraySetter',
+        props: {
+          itemSetter: {
+            componentName: 'StringSetter',
+          }
+        }
+      },
     },
     {
       name: 'showIcon',
@@ -157,6 +215,7 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     // {
     //   name: 'switcherIcon',
@@ -179,6 +238,7 @@ export default {
       },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'onCheck',

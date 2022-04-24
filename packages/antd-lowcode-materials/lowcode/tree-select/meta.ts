@@ -32,6 +32,7 @@ export default {
       title: { label: '支持清除', tip: '是否允许清除' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'autoClearSearchValue',
@@ -41,18 +42,21 @@ export default {
       },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'bordered',
       title: { label: '显示边框', tip: '是否显示边框' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'disabled',
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     // {
     //   name: 'dropdownClassName',
@@ -69,6 +73,7 @@ export default {
         tip: '下拉菜单和选择器同宽',
       },
       propType: 'bool',
+      setter: 'BoolSetter'
     },
     // {
     //   name: 'dropdownStyle',
@@ -82,6 +87,7 @@ export default {
         tip: '是否根据输入项进行筛选，默认用 treeNodeFilterProp 的值作为要筛选的 TreeNode 的属性值',
       },
       propType: 'bool',
+      setter: 'BoolSetter'
     },
     {
       name: 'labelInValue',
@@ -92,11 +98,13 @@ export default {
       },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'listHeight',
       title: { label: '设置弹窗滚动高度', tip: '设置弹窗滚动高度' },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     {
       name: 'loadData',
@@ -107,6 +115,7 @@ export default {
       name: 'maxTagCount',
       title: { label: '最多显示多少个 tag', tip: '最多显示多少个 tag' },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     {
       name: 'maxTagPlaceholder',
@@ -121,11 +130,13 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'placeholder',
       title: { label: '选择框默认文字', tip: '选择框默认文字' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'showCheckedStrategy',
@@ -143,6 +154,7 @@ export default {
       name: 'showSearch',
       title: { label: '是否支持搜索框', tip: '是否支持搜索框' },
       propType: 'bool',
+      setter: 'BoolSetter'
     },
     {
       name: 'size',
@@ -157,6 +169,7 @@ export default {
         tip: '是否显示下拉图标，单选模式下默认 `true`',
       },
       propType: 'bool',
+      setter: 'BoolSetter'
     },
     // {
     //   name: 'suffixIcon',
@@ -173,22 +186,40 @@ export default {
       title: { label: '显示勾选框', tip: '显示勾选框' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'treeDefaultExpandAll',
       title: { label: '默认展开所有树节点', tip: '默认展开所有树节点' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'treeDefaultExpandedKeys',
       title: { label: '默认展开的树节点', tip: '默认展开的树节点' },
       propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'ArraySetter',
+        props: {
+          itemSetter: {
+            componentName: 'StringSetter',
+          }
+        }
+      }
     },
     {
       name: 'treeExpandedKeys',
       title: { label: '设置展开的树节点', tip: '设置展开的树节点' },
       propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'ArraySetter',
+        props: {
+          itemSetter: {
+            componentName: 'StringSetter',
+          }
+        }
+      }
     },
     {
       name: 'virtual',
@@ -198,6 +229,7 @@ export default {
       },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'onChange',

@@ -23,34 +23,40 @@ export default {
       title: { label: '支持清除', tip: '是否允许清除' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'autoFocus',
       title: { label: '自动聚焦', tip: '自动获取焦点' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'bordered',
       title: { label: '显示边框', tip: '是否有边框' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'className',
       title: { label: '选择器类名', tip: '选择器类名' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'clearText',
       title: { label: '清除按钮的提示文案', tip: '清除按钮的提示文案' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'disabled',
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'disabledHours',
@@ -71,6 +77,7 @@ export default {
       name: 'format',
       title: { label: '展示的时间格式', tip: '展示的时间格式' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'getPopupContainer',
@@ -85,11 +92,13 @@ export default {
       title: { label: '隐藏禁止选择的选项', tip: '隐藏禁止选择的选项' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'hourStep',
       title: { label: '小时选项间隔', tip: '小时选项间隔' },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     {
       name: 'inputReadOnly',
@@ -99,17 +108,20 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'minuteStep',
       title: { label: '分钟选项间隔', tip: '分钟选项间隔' },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     {
       name: 'open',
       title: { label: '面板是否打开', tip: '面板是否打开' },
       propType: 'bool',
-      defaultValue: false,
+      // defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'placeholder',
@@ -123,6 +135,7 @@ export default {
       name: 'popupClassName',
       title: { label: '弹出层类名', tip: '弹出层类名' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     // {
     //   name: 'popupStyle',
@@ -133,6 +146,7 @@ export default {
       name: 'secondStep',
       title: { label: '秒选项间隔', tip: '秒选项间隔' },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     // {
     //   name: 'suffixIcon',
@@ -160,6 +174,7 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'onChange',
@@ -175,6 +190,7 @@ export default {
       name: 'showNow',
       title: { label: '“此刻”按钮', tip: '面板是否显示“此刻”按钮' },
       propType: 'bool',
+      setter: 'BoolSetter'
     },
   ],
   configure: {

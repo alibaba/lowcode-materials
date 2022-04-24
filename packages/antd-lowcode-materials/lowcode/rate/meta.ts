@@ -10,24 +10,28 @@ export default {
       name: 'defaultValue',
       title: { label: '默认值', tip: '默认值' },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     {
       name: 'allowClear',
       title: { label: '支持清除', tip: '是否允许清除' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'allowHalf',
       title: { label: '支持半选', tip: '支持半选' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'autoFocus',
       title: { label: '自动聚焦', tip: '自动获取焦点' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'character',
@@ -39,6 +43,7 @@ export default {
       title: { label: '总数', tip: 'star 总数' },
       propType: 'number',
       defaultValue: 5,
+      setter: 'NumberSetter'
     },
     // {
     //   name: 'value',
@@ -51,6 +56,7 @@ export default {
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'tooltips',
