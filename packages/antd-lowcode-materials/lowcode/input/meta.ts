@@ -133,6 +133,47 @@ export default {
     },
   ],
   configure: {
+    props: {
+      isExtends: true,
+      override: [
+        {
+          name: 'bordered',
+          title: {
+            label: {
+              type: 'i18n',
+              zh_CN: '显示边框',
+              en_US: 'ShowBorder',
+            },
+            tip: {
+              type: 'i18n',
+              zh_CN: '属性: bordered | 说明: 是否有边框',
+              en_US: 'prop: bordered | description: have border',
+            },
+          },
+          setter: 'BoolSetter',
+          supportVariable: true,
+          defaultValue: true
+        },
+        {
+          name: 'maxLength',
+          title: {
+            label: {
+              type: 'i18n',
+              zh_CN: '最大长度',
+              en_US: 'MaxLength',
+            },
+            tip: {
+              type: 'i18n',
+              zh_CN: '属性: maxLength | 说明: 最大长度',
+              en_US: 'prop: maxLength | description: max length',
+            },
+          },
+          setter: 'NumberSetter',
+          supportVariable: true,
+          description: '最大长度',
+        }
+      ]
+    },
     supports: {
       style: true,
       events: [

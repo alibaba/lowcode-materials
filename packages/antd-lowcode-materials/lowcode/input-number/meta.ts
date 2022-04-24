@@ -153,6 +153,29 @@ export default {
     },
   ],
   configure: {
+    props: {
+      isExtends: true,
+      override: [
+        {
+          name: 'bordered',
+          title: {
+            label: {
+              type: 'i18n',
+              zh_CN: '显示边框',
+              en_US: 'ShowBorder',
+            },
+            tip: {
+              type: 'i18n',
+              zh_CN: '属性: bordered | 说明: 是否有边框',
+              en_US: 'prop: bordered | description: have border',
+            },
+          },
+          setter: 'BoolSetter',
+          supportVariable: true,
+          defaultValue: true
+        }
+      ]
+    },
     supports: {
       style: true,
       events: [
