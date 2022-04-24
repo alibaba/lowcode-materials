@@ -4,7 +4,7 @@ export default {
   snippets,
   componentName: 'Timeline.Item',
   title: '时间轴项',
-  category: '',
+  category: '其他',
   props: [
     {
       name: 'color',
