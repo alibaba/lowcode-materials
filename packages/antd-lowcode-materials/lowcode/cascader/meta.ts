@@ -127,6 +127,81 @@ export default {
     },
   ],
   configure: {
+    props: {
+      isExtends: true,
+      override: [
+        {
+          name: 'allowClear',
+          title: {
+            label: {
+              type: 'i18n',
+              zh_CN: '支持清除',
+              en_US: 'Allow Clear',
+            },
+            tip: {
+              type: 'i18n',
+              zh_CN: '属性: allowClear | 说明: 是否允许清除',
+              en_US: 'prop: allowClear | description: Allow clear',
+            },
+          },
+          setter: 'BoolSetter',
+          supportVariable: true,
+          defaultValue: true,
+        },
+        {
+          name: 'bordered',
+          title: {
+            label: {
+              type: 'i18n',
+              zh_CN: '显示边框',
+              en_US: 'ShowBorder',
+            },
+            tip: {
+              type: 'i18n',
+              zh_CN: '属性: bordered | 说明: 是否有边框',
+              en_US: 'prop: bordered | description: have border',
+            },
+          },
+          setter: 'BoolSetter',
+          supportVariable: true,
+          defaultValue: true
+        },
+        {
+          name: 'popupVisible',
+          title: {
+            label: {
+              type: 'i18n',
+              zh_CN: '控制浮层显隐',
+              en_US: 'Popup Visible',
+            },
+            tip: {
+              type: 'i18n',
+              zh_CN: '属性: popupVisible | 说明: 控制浮层显隐',
+              en_US: 'prop: popupVisible | description: Popup Visible',
+            },
+          },
+          setter: 'BoolSetter',
+          supportVariable: true
+        },
+        {
+          name: 'value',
+          title: {
+            label: {
+              type: 'i18n',
+              zh_CN: '当前选中项',
+              en_US: 'Value',
+            },
+            tip: {
+              type: 'i18n',
+              zh_CN: '属性: value | 说明: 当前选中项',
+              en_US: 'prop: value | description: Value',
+            },
+          },
+          setter: 'ArraySetter',
+          supportVariable: true
+        }
+      ]
+    },
     supports: {
       style: true,
       events: [
