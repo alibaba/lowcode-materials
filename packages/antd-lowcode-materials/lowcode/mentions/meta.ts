@@ -10,12 +10,14 @@ export default {
       name: 'defaultValue',
       title: { label: '默认值', tip: '默认值' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'autoFocus',
       title: { label: '自动聚焦', tip: '自动获得焦点' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'filterOption',

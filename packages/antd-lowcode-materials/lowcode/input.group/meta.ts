@@ -10,6 +10,7 @@ export default {
       name: 'compact',
       title: { label: '紧凑模式', tip: '是否用紧凑模式' },
       propType: 'bool',
+      setter: 'BoolSetter'
     },
     {
       name: 'size',

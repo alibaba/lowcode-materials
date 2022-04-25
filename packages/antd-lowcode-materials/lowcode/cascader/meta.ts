@@ -32,18 +32,21 @@ export default {
       title: { label: '支持清除', tip: '是否允许清除' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'autoFocus',
       title: { label: '自动聚焦', tip: '自动获取焦点' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'bordered',
       title: { label: '显示边框', tip: '是否有边框' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'changeOnSelect',
@@ -53,17 +56,20 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'className',
       title: { label: '自定义类名', tip: '自定义类名' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'disabled',
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'expandTrigger',
@@ -74,16 +80,19 @@ export default {
       name: 'notFoundContent',
       title: { label: '无数据展示', tip: '无数据' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'placeholder',
       title: { label: '输入框占位文本', tip: '输入框占位文本' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'popupClassName',
       title: { label: '自定义浮层类名', tip: '自定义浮层类名' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'popupPlacement',
@@ -97,12 +106,14 @@ export default {
       name: 'popupVisible',
       title: { label: '控制浮层显隐', tip: '控制浮层显隐' },
       propType: 'bool',
+      setter: 'BoolSetter'
     },
     {
       name: 'showSearch',
       title: { label: '支持搜索', tip: '在选择框中显示搜索框' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'size',

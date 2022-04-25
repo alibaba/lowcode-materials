@@ -22,6 +22,7 @@ export default {
       title: { label: '双滑块模式', tip: '双滑块模式' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter',
       setValue(target, range) {
         let defaultValue = target.node.getPropValue('defaultValue');
         if (range) {
@@ -54,6 +55,7 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'disabled',
@@ -63,12 +65,14 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'dots',
       title: { label: '对齐刻度', tip: '是否只能拖拽到刻度上' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     // {
     //   name: 'included',
@@ -95,17 +99,20 @@ export default {
       name: 'max',
       title: { label: '最大值', tip: '最大值' },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     {
       name: 'min',
       title: { label: '最小值', tip: '最小值' },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     {
       name: 'reverse',
       title: { label: '反向坐标轴', tip: '反向坐标轴' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'step',
@@ -115,6 +122,7 @@ export default {
           '步长，取值必须大于 0，并且可被 (max - min) 整除。当 `marks` 不为空对象时，可以设置 `step` 为 null，此时 Slider 的可选值仅有 marks 标出来的部分',
       },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     // {
     //   name: 'tipFormatter',
@@ -134,6 +142,7 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'onAfterChange',

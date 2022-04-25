@@ -23,34 +23,40 @@ export default {
       title: { label: '显示边框', tip: '是否有边框' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'disabled',
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'placeholder',
       title: { label: '占位提示', tip: '占位提示' },
       propType: 'string',
       defaultValue: '请输入',
+      setter: 'StringSetter'
     },
     {
       name: 'showCount',
       title: { label: '展示字数', tip: '是否展示字数' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'id',
       title: { label: '输入框ID', tip: '输入框的ID' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'maxLength',
       title: { label: '最大长度', tip: '最大长度' },
       propType: 'number',
+      setter: 'NumberSetter'
     },
     {
       name: 'size',

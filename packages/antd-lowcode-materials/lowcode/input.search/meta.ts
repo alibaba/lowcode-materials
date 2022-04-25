@@ -10,34 +10,40 @@ export default {
       name: 'defaultValue',
       title: { label: '默认值', tip: '默认值' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'value',
       title: { label: '当前值', tip: '当前值' },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'bordered',
       title: { label: '显示边框', tip: '是否有边框' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'loading',
       title: { label: '加载状态', tip: 'loading' },
       propType: 'bool',
+      setter: 'BoolSetter'
     },
     {
       name: 'disabled',
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'placeholder',
       title: { label: '占位提示', tip: '占位提示' },
       propType: 'string',
       defaultValue: '请输入',
+      setter: 'StringSetter'
     },
     // {
     //   name: 'id',
