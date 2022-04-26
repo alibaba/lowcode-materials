@@ -50,6 +50,7 @@ class Form extends Component<any, any> {
 
 (Form as any).Item = (props: any) => {
   const { name, requiredobj, typeobj, patternobj, lenobj, validator } = props;
+
   const rules = [];
   if (requiredobj && requiredobj.required) {
     rules.push(requiredobj);
@@ -72,12 +73,22 @@ class Form extends Component<any, any> {
   const namePath =
     typeof name === 'string' && name.indexOf('.') > 0 ? name.split('.') : name;
 
+  // https://ant.design/components/form-cn/#components-form-demo-complex-form-control
+  // <Form.Item name="field" /> 只会对它的直接子元素绑定表单功能
+  const { children, ...other } = props
+  let node = children
+  if (Array.isArray(children) && children.length === 1) { // 如果 children.length > 1， 说明 Form.Item 只充当布局的作用
+    node = children[0]
+  }
+
   return (
     <OriginalForm.Item
-      {...props}
+      {...other}
       name={namePath}
       rules={rules}
-    ></OriginalForm.Item>
+    >
+      { node }
+    </OriginalForm.Item>
   );
 };
 
