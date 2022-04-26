@@ -11,6 +11,7 @@ export default {
       title: { label: '字段名', tip: '字段名' },
       isRequired: true,
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'label',
@@ -46,6 +47,7 @@ export default {
       },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter'
     },
     {
       name: 'extra',
@@ -63,6 +65,7 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     // {
     //   name: 'hasFeedback',
@@ -81,6 +84,7 @@ export default {
         tip: '设置子元素默认值，如果与 Form 的 initialValues 冲突则以 Form 为准',
       },
       propType: 'string',
+      setter: 'StringSetter'
     },
     {
       name: 'noStyle',
@@ -90,6 +94,7 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'valuePropName',
@@ -99,6 +104,7 @@ export default {
       },
       propType: 'string',
       defaultValue: 'value',
+      setter: 'StringSetter'
     },
     {
       name: 'getValueFromEvent',
