@@ -18,7 +18,7 @@
 
 [![NPM version][npm-image-antd]][npm-url-antd]
 
-### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.3/build/lowcode/index.html)
+### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.3/build/lowcode/index.html)
 
 ### 使用 / Usage
 #### NPM
