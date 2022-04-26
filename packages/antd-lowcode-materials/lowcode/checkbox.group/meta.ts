@@ -17,7 +17,8 @@ export default {
             componentName: 'StringSetter',
           }
         }
-      }
+      },
+      supportVariable: true
     },
     {
       name: 'value',
@@ -30,20 +31,23 @@ export default {
             componentName: 'StringSetter',
           }
         }
-      }
+      },
+      supportVariable: true
     },
     {
       name: 'disabled',
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
       defaultValue: false,
-      setter: 'BoolSetter'
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'name',
       title: { label: 'name属性', tip: 'name属性' },
       propType: 'string',
-      setter: 'BoolSetter'
+      setter: 'StringSetter',
+      supportVariable: true
     },
     {
       name: 'options',
@@ -110,6 +114,7 @@ export default {
           },
         },
       },
+      supportVariable: true
     },
     {
       name: 'onChange',

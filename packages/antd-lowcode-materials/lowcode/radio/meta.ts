@@ -10,35 +10,40 @@ export default {
       name: 'children',
       title: { label: '内容', tip: '内容' },
       propType: 'string',
-      setter: 'StringSetter'
+      setter: 'StringSetter',
+      supportVariable: true
     },
     {
       name: 'autoFocus',
       title: { label: '自动聚焦', tip: '自动获取焦点' },
       propType: 'bool',
       defaultValue: false,
-      setter: 'BoolSetter'
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'defaultChecked',
       title: { label: '默认选中', tip: '初始是否选中' },
       propType: 'bool',
       defaultValue: false,
-      setter: 'BoolSetter'
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'checked',
       title: { label: '是否选中', tip: '指定当前是否选中' },
       propType: 'bool',
       defaultValue: false,
-      setter: 'BoolSetter'
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'disabled',
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
       defaultValue: false,
-      setter: 'BoolSetter'
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     // {
     //   name: 'value',

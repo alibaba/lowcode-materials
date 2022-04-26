@@ -9,20 +9,23 @@ export default {
       name: 'defaultValue',
       title: { label: '默认值', tip: '默认选中值' },
       propType: 'string',
-      setter: 'StringSetter'
+      setter: 'StringSetter',
+      supportVariable: true
     },
     {
       name: 'value',
       title: { label: '当前值', tip: '指定选中的选项' },
       propType: 'string',
-      setter: 'StringSetter'
+      setter: 'StringSetter',
+      supportVariable: true
     },
     {
       name: 'disabled',
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
       defaultValue: false,
-      setter: 'BoolSetter'
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'name',
@@ -31,7 +34,8 @@ export default {
         tip: 'RadioGroup 下所有 input[type="radio"] 的 name 属性',
       },
       propType: 'string',
-      setter: 'StringSetter'
+      setter: 'StringSetter',
+      supportVariable: true
     },
     {
       name: 'options',
