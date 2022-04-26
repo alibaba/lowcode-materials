@@ -11,18 +11,23 @@ export default {
       title: { label: '表单数据源', tip: '表单数据源' },
       propType: 'object',
       setter: 'JsonSetter',
+      supportVariable: true
     },
     {
       name: 'colon',
       title: { label: '展示冒号', tip: '' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'hideRequiredMark',
       title: { label: '隐藏必填标记', tip: '隐藏必填标记' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       type: 'group',
@@ -162,6 +167,8 @@ export default {
         tip: '表单名称，会作为表单字段 `id` 前缀使用',
       },
       propType: 'string',
+      setter: 'StringSetter',
+      supportVariable: true
     },
     {
       name: 'preserve',
@@ -171,6 +178,8 @@ export default {
       },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'scrollToFirstError',
@@ -180,6 +189,8 @@ export default {
       },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'size',
