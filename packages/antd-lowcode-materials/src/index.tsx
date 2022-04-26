@@ -40,7 +40,7 @@ export { Empty } from 'antd';
 
 export { Grid } from 'antd';
 
-export { Input } from 'antd';
+// export { Input } from 'antd';
 
 export { Image } from 'antd';
 
@@ -94,7 +94,7 @@ export { Transfer } from 'antd';
 
 export { Tree } from 'antd';
 
-//export { TreeSelect } from 'antd';
+// export { TreeSelect } from 'antd';
 
 // export { Tabs } from 'antd';
 
@@ -139,3 +139,5 @@ export { default as Modal } from './components/modal';
 export { default as Drawer } from './components/drawer';
 
 export { default as TreeSelect } from './components/tree-select';
+
+export { default as Input } from './components/input';
