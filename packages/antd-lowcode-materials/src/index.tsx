@@ -78,8 +78,6 @@ export { Result } from 'antd';
 
 export { Row } from 'antd';
 
-export { Select } from 'antd';
-
 export { Skeleton } from 'antd';
 
 export { Space } from 'antd';
@@ -141,3 +139,5 @@ export { default as Drawer } from './components/drawer';
 export { default as TreeSelect } from './components/tree-select';
 
 export { default as Input } from './components/input';
+
+export { default as Select } from './components/select'
