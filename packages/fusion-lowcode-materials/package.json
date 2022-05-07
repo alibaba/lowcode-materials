@@ -10,7 +10,7 @@
     "dev": "start-storybook -p 9001",
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
     "lowcode:build": "build-scripts build --config ./build.lowcode.js",
-    "prepublishOnly": "npm run build && npm run lowcode:build && npm run lowcode:antd:build"
+    "prepublishOnly": "npm run build && npm run lowcode:build"
   },
   "files": [
     "es/",
