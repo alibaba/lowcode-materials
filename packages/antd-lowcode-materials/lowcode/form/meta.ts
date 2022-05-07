@@ -1,4 +1,5 @@
 import snippets from './snippets';
+import { uuid } from '../_utils/utils'
 
 export default {
   snippets,
@@ -6,6 +7,18 @@ export default {
   title: '表单容器',
   category: '表单',
   props: [
+    {
+      name: 'ref',
+      title: {
+        label: 'ref',
+        tip: 'ref | 通过 this.$(\'xxx\') 获取到组件实例',
+      },
+      defaultValue: () => {
+        return `form_${uuid()}`
+      },
+      setter: 'StringSetter',
+      supportVariable: true
+    },
     {
       name: 'values',
       title: { label: '表单数据源', tip: '表单数据源' },
