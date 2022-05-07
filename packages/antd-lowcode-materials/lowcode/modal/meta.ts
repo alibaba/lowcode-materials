@@ -25,18 +25,24 @@ export default {
       name: 'visible',
       title: { label: '是否可见', tip: '对话框是否可见' },
       propType: 'bool',
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'centered',
       title: { label: '垂直居中', tip: '垂直居中展示 Modal' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'closable',
       title: { label: '显示关闭按钮', tip: '是否显示右上角的关闭按钮' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'closeIcon',
@@ -48,41 +54,55 @@ export default {
       title: { label: '确定按钮loading', tip: '确定按钮loading' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'destroyOnClose',
       title: { label: '销毁子元素', tip: '关闭时销毁 Modal 里的子元素' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'forceRender',
       title: { label: '强制渲染Modal', tip: '强制渲染Modal' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'keyboard',
       title: { label: 'esc关闭', tip: '是否支持键盘 esc 关闭' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'mask',
       title: { label: '是否展示遮罩', tip: '是否展示遮罩' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'maskClosable',
       title: { label: '点击蒙层关闭', tip: '点击蒙层是否允许关闭' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'zIndex',
       title: { label: 'z-index', tip: '设置 Modal 的 `z-index`' },
       propType: 'number',
+      setter: 'NumberSetter',
+      supportVariable: true
     },
     {
       name: 'width',
@@ -183,6 +203,8 @@ export default {
       name: 'wrapClassName',
       title: { label: '外层容器类名', tip: '对话框外层容器的类名' },
       propType: 'string',
+      setter: 'StringSetter',
+      supportVariable: true
     },
     {
       name: 'getContainer',
