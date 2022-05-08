@@ -1,4 +1,4 @@
-module.exports = [
+export default [
   {
     title: '表单容器',
     screenshot: 'https://img.alicdn.com/tfs/TB1oH02u2b2gK0jSZK9XXaEgFXa-112-64.png',

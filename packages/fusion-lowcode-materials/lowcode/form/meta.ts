@@ -1,4 +1,7 @@
-module.exports = {
+import snippets from './snippets';
+import { uuid } from '../utils';
+
+export default {
   group: '原子组件',
   componentName: 'Form',
   title: '表单容器',
@@ -22,7 +25,8 @@ module.exports = {
       name: 'size',
       title: {
         label: 'Size',
-        tip: '单个 Item 的 size 自定义，优先级高于 Form 的 size, 并且当组件与 Item 一起使用时，组件自身设置 size 属性无效。\n@enumdesc 大, 中, 小',
+        tip:
+          '单个 Item 的 size 自定义，优先级高于 Form 的 size, 并且当组件与 Item 一起使用时，组件自身设置 size 属性无效。\n@enumdesc 大, 中, 小',
       },
       propType: {
         type: 'oneOf',
@@ -121,6 +125,18 @@ module.exports = {
       isContainer: true,
     },
     props: [
+      {
+        name: 'ref',
+        title: {
+          label: 'ref',
+          tip: "ref | 通过 this.$('xxx') 获取到组件实例",
+        },
+        defaultValue: () => {
+          return `form_${uuid()}`;
+        },
+        setter: 'StringSetter',
+        supportVariable: true,
+      },
       {
         name: 'inline',
         title: {
@@ -419,5 +435,5 @@ module.exports = {
 
   icon: 'https://img.alicdn.com/tfs/TB1oH02u2b2gK0jSZK9XXaEgFXa-112-64.png',
   category: '信息输入',
-  snippets: require('./snippets'),
+  snippets,
 };
