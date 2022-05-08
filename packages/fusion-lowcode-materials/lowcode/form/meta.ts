@@ -1,3 +1,4 @@
+import { uuid } from '../utils';
 module.exports = {
   group: '原子组件',
   componentName: 'Form',
@@ -22,7 +23,8 @@ module.exports = {
       name: 'size',
       title: {
         label: 'Size',
-        tip: '单个 Item 的 size 自定义，优先级高于 Form 的 size, 并且当组件与 Item 一起使用时，组件自身设置 size 属性无效。\n@enumdesc 大, 中, 小',
+        tip:
+          '单个 Item 的 size 自定义，优先级高于 Form 的 size, 并且当组件与 Item 一起使用时，组件自身设置 size 属性无效。\n@enumdesc 大, 中, 小',
       },
       propType: {
         type: 'oneOf',
@@ -121,6 +123,18 @@ module.exports = {
       isContainer: true,
     },
     props: [
+      {
+        name: 'ref',
+        title: {
+          label: 'ref',
+          tip: "ref | 通过 this.$('xxx') 获取到组件实例",
+        },
+        defaultValue: () => {
+          return `form_${uuid()}`;
+        },
+        setter: 'BoolSetter',
+        supportVariable: true,
+      },
       {
         name: 'inline',
         title: {
