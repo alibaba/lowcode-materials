@@ -60,6 +60,14 @@ export default {
       propType: { type: 'oneOfType', value: ['string', 'node'] },
     },
     {
+      name: 'tooltip',
+      title: {
+        label: '标签提示信息',
+        tip: '标签提示信息，当需要对标签进行解释时，可以使用这个。',
+      },
+      propType: { type: 'oneOfType', value: ['string', 'node'] },
+    },
+    {
       name: 'required',
       title: {
         label: '必填标记',
