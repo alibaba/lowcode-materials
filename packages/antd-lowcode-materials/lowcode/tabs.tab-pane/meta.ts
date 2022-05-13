@@ -12,6 +12,8 @@ export default {
         tip: 'key',
       },
       propType: 'string',
+      setter: 'StringSetter',
+      supportVariable: true
     },
     {
       name: 'tab',
@@ -20,6 +22,8 @@ export default {
         tip: '标题',
       },
       propType: 'string',
+      setter: 'StringSetter',
+      supportVariable: true
     },
     // {
     //   name: 'closeable',
@@ -38,6 +42,8 @@ export default {
       },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'forceRender',
@@ -46,6 +52,8 @@ export default {
         tip: '被隐藏时是否渲染 DOM 结构',
       },
       propType: 'bool',
+      setter: 'BoolSetter',
+      supportVariable: true
     },
   ],
   configure: {
