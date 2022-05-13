@@ -24,12 +24,14 @@ export default {
                     title: 'key',
                     setter: 'StringSetter',
                     initialValue: (val) => val || uuid(),
+                    supportVariable: true
                   },
                   {
                     name: 'tab',
                     title: '标题',
                     setter: 'StringSetter',
                     initialValue: '标签项',
+                    supportVariable: true
                   },
                   // {
                   //   name: 'closeable',
@@ -45,6 +47,7 @@ export default {
                     title: '禁用',
                     setter: 'BoolSetter',
                     initialValue: false,
+                    supportVariable: true
                   },
                   {
                     name: 'forceRender',
@@ -52,6 +55,7 @@ export default {
                     propType: 'bool',
                     setter: 'BoolSetter',
                     initialValue: false,
+                    supportVariable: true
                   },
                 ],
               },
@@ -133,6 +137,7 @@ export default {
       },
     },
     // {
+
     //   name: 'addIcon',
     //   title: { label: '自定义添加按钮', tip: '自定义添加按钮' },
     //   propType: 'node',
@@ -144,6 +149,8 @@ export default {
         tip: '是否使用动画切换Tabs',
       },
       propType: 'bool',
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     // {
     //   name: 'renderTabBar',
@@ -157,6 +164,8 @@ export default {
         tip: '初始化选中面板的key，如果没有设置activeKey',
       },
       propType: 'string',
+      setter: 'StringSetter',
+      supportVariable: true
     },
     // {
     //   name: 'activeKey',
@@ -173,7 +182,9 @@ export default {
         return target.getProps().getPropValue('type') === 'editable-card';
       },
       propType: 'bool',
+      setter: 'BoolSetter',
       defaultValue: false,
+      supportVariable: true
     },
     {
       name: 'size',
@@ -192,6 +203,8 @@ export default {
       title: { label: '标签居中', tip: '标签居中展示' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'tabBarExtraContent',
@@ -202,6 +215,8 @@ export default {
       name: 'tabBarGutter',
       title: { label: '标签间隙', tip: 'tabs之间的间隙' },
       propType: 'number',
+      setter: 'NumberSetter',
+      supportVariable: true
     },
     // {
     //   name: 'tabBarStyle',

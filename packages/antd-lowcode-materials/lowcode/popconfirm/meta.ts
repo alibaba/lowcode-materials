@@ -15,11 +15,15 @@ export default {
       name: 'okText',
       title: { label: '确认按钮文字', tip: '确认按钮文字' },
       propType: 'string',
+      setter: 'StringSetter',
+      supportVariable: true
     },
     {
       name: 'cancelText',
       title: { label: '取消按钮文字', tip: '取消按钮文字' },
       propType: 'string',
+      setter: 'StringSetter',
+      supportVariable: true
     },
     {
       name: 'onConfirm',
