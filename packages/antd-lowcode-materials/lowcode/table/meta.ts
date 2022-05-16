@@ -570,7 +570,7 @@ export default {
         },
         {
           name: 'rowSelection.type',
-          title: { label: '行选择类型', tip: 'type | 多选/单选' },
+          title: { label: '行选择类型', tip: 'rowSelection.type | 多选/单选' },
           propType: {
             type: 'oneOf',
             value: ['checkbox', 'radio'],
@@ -619,6 +619,16 @@ export default {
           },
           propType: 'object',
           setter: 'JsonSetter',
+          condition: {
+            type: 'JSFunction',
+            value: 'target => !!target.getProps().getPropValue("rowSelection")',
+          },
+        },
+        {
+          name: 'rowSelection.preserveSelectedRowKeys',
+          title: { label: '保留选项', tip: 'rowSelection.preserveSelectedRowKeys | 当数据被删除时仍然保留选项' },
+          propType: 'bool',
+          setter: 'BoolSetter',
           condition: {
             type: 'JSFunction',
             value: 'target => !!target.getProps().getPropValue("rowSelection")',
