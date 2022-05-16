@@ -216,11 +216,25 @@ export default {
       propType: {
         type: 'shape',
         value: [
-          { name: 'required', title: '是否必填', propType: 'bool' },
+          {
+            name: 'required',
+            title: '是否必填',
+            propType: 'bool',
+            setter: 'BoolSetter',
+            supportVariable: true,
+            extraProps: {
+              setValue(target: any, value: boolean) {
+                // 同步 必填标记
+                target.parent.parent.setPropValue('required', value);
+              }
+            }
+          },
           {
             name: 'message',
             title: '错误信息提示',
             propType: 'string',
+            setter: 'StringSetter',
+            supportVariable: true
           },
         ],
       },
