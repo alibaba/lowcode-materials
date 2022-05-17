@@ -13,12 +13,16 @@ export default {
       title: { label: '显示边框', tip: '带边框风格的折叠面板' },
       propType: 'bool',
       defaultValue: true,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'accordion',
       title: { label: '手风琴模式', tip: '手风琴模式' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'collapsible',
@@ -43,12 +47,16 @@ export default {
       title: { label: '隐藏时销毁', tip: '销毁折叠隐藏的面板' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'ghost',
       title: { label: '透明无边框', tip: '使折叠面板透明且无边框' },
       propType: 'bool',
       defaultValue: false,
+      setter: 'BoolSetter',
+      supportVariable: true
     },
     {
       name: 'collapses',
@@ -65,13 +73,13 @@ export default {
                     name: 'key',
                     title: 'key',
                     setter: 'StringSetter',
-                    initialValue: (val) => val || uuid(),
+                    initialValue: (val) => val || uuid()
                   },
                   {
                     name: 'header',
                     title: '面板头内容',
                     setter: 'StringSetter',
-                    initialValue: '折叠项',
+                    initialValue: '折叠项'
                   },
                 ],
               },

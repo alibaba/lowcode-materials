@@ -13,7 +13,12 @@ export default {
       title: { label: '默认值', tip: '默认选中值' },
       propType: {
         type: 'oneOfType',
-        value: ['string', { type: 'arrayOf', value: 'string' }],
+        value: [
+          'string',
+          { type: 'arrayOf', value: 'string' },
+          'number',
+          { type: 'arrayOf', value: 'number' },
+        ],
       },
     },
     {
@@ -21,7 +26,12 @@ export default {
       title: { label: '当前值', tip: '当前值' },
       propType: {
         type: 'oneOfType',
-        value: ['string', { type: 'arrayOf', value: 'string' }],
+        value: [
+          'string',
+          { type: 'arrayOf', value: 'string' },
+          'number',
+          { type: 'arrayOf', value: 'number' },
+        ],
       },
     },
     {
@@ -40,7 +50,7 @@ export default {
             },
             {
               name: 'value',
-              propType: 'string',
+              propType: ['string', 'number'],
               description: '选项值',
               defaultValue: '选项值',
             },
@@ -64,17 +74,17 @@ export default {
                   {
                     name: 'label',
                     title: '选项名',
-                    setter: 'StringSetter',
+                    setter: ['StringSetter', 'VariableSetter']
                   },
                   {
                     name: 'value',
                     title: '选项值',
-                    setter: 'StringSetter',
+                    setter: ['StringSetter', 'NumberSetter', 'VariableSetter'],
                   },
                   {
                     name: 'disabled',
                     title: '是否禁用',
-                    setter: 'BoolSetter',
+                    setter: ['BoolSetter', 'VariableSetter']
                   },
                 ],
               },
