@@ -1,13 +1,13 @@
 {
   "name": "@alilc/antd-lowcode-materials",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "Antd for LowCode",
   "main": "lib/index.js",
   "scripts": {
     "build": "build-scripts build",
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
     "lowcode:build": "build-scripts build --config ./build.lowcode.js",
-    "prepublishOnly": "npm run build && npm run lowcode:build"
+    "prepublishOnly": "npm run lowcode:build"
   },
   "files": [
     "es/",
@@ -18,11 +18,12 @@
   ],
   "devDependencies": {
     "@alib/build-scripts": "^0.1.23",
-    "@alifd/build-plugin-lowcode": "^0.2.0",
+    "@alifd/build-plugin-lowcode": "^0.3.0",
     "@ant-design/icons": "^4.7.0",
     "@types/lodash": "^4.14.181",
     "@types/react": "^18.0.1",
     "@types/react-dom": "^18.0.0",
+    "build-plugin-component": "^1.10.0",
     "build-plugin-moment-locales": "^0.1.0",
     "lodash": "^4.17.21",
     "react": "^17.0.1",
@@ -50,8 +51,8 @@
     "react-dom": "^16.0.0"
   },
   "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.3/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.6/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/@alilc/antd-lowcode-materials@1.0.3/build/index.html"
+  "homepage": "https://unpkg.com/@alilc/antd-lowcode-materials@1.0.6/build/lowcode/index.html"
 }
