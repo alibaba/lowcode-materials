@@ -74,6 +74,15 @@ export default {
       defaultValue: 'round',
     },
     {
+      name: 'width',
+      title: { label: '宽度', tip: '画布宽度' },
+      propType: 'number',
+      condition(target) {
+        // 条形进度条样式无效
+        return target.getProps().getPropValue('type') !== 'line';
+      },
+    },
+    {
       name: 'strokeWidth',
       title: { label: '线宽度', tip: '线宽度' },
       propType: 'number',
