@@ -1,6 +1,6 @@
 <h2><img width="50" src="https://img.alicdn.com/tfs/TB1YsoiHVzqK1RjSZFCXXbbxVXa-159-99.svg"> Fusion Design For Lowcode</h2>
 
-[![NPM version][npm-image-antd]][npm-url-antd]
+[![NPM version][npm-image-fusion]][npm-url-fusion]
 
 ### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.3/build/lowcode/index.html)
 
