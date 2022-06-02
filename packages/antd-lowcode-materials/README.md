@@ -22,4 +22,4 @@ material.setAssets(assets);
 ```
 
 [npm-image-antd]: https://img.shields.io/npm/v/@alilc/antd-lowcode-materials.svg?style=flat-square
-[npm-url-antd]: http://npmjs.org/package/@alilc/antd-lowcode-engine
+[npm-url-antd]: http://npmjs.org/package/@alilc/antd-lowcode-materials

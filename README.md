@@ -16,7 +16,7 @@
 
 <h2><img width="50" src="https://img.alicdn.com/tfs/TB1YsoiHVzqK1RjSZFCXXbbxVXa-159-99.svg"> Fusion Design For Lowcode</h2>
 
-[![NPM version][npm-image-antd]][npm-url-antd]
+[![NPM version][npm-image-fusion]][npm-url-fusion]
 
 ### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.3/build/lowcode/index.html)
 
@@ -44,7 +44,7 @@ material.setAssets(assets);
 
 [![NPM version][npm-image-antd]][npm-url-antd]
 
-### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.5/build/lowcode/index.html)
+### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.6/build/lowcode/index.html)
 
 ### 使用 / Usage
 #### NPM
@@ -59,12 +59,12 @@ material.setAssets(assets);
 #### CDN
 ```js
 // in GeneralWorkbench init
-const assets = await fetch(`https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.5/build/lowcode/assets-prod.json`).then(res => res.json());
+const assets = await fetch(`https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.6/build/lowcode/assets-prod.json`).then(res => res.json());
 material.setAssets(assets);
 ```
 
 [npm-image-antd]: https://img.shields.io/npm/v/@alilc/antd-lowcode-materials.svg?style=flat-square
-[npm-url-antd]: http://npmjs.org/package/@alilc/antd-lowcode-engine
+[npm-url-antd]: http://npmjs.org/package/@alilc/antd-lowcode-materials
 
 ## 如何贡献 / How-to-contribute
 
