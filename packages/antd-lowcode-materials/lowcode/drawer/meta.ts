@@ -207,6 +207,7 @@ export default {
                   componentName: 'Icon',
                   props: {
                     type: 'CloseOutlined',
+                    size: 16
                   },
                 },
               ],

@@ -232,6 +232,7 @@ export default {
     component: {
       isContainer: true,
       isModal: true,
+      rootSelector: '.ant-modal-content',
       nestingRule: {
         parentWhitelist: ['Page', 'Component'],
       },
