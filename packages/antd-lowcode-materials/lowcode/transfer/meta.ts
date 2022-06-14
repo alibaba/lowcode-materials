@@ -62,8 +62,14 @@ export default {
       name: 'selectedKeys',
       title: { label: '选中项', tip: '设置哪些项应该被选中' },
       propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'ArraySetter',
+        props: {
+          itemSetter: 'StringSetter'
+        }
+      },
+      supportVariable: true,
     },
-
     {
       name: 'targetKeys',
       title: {
@@ -71,6 +77,13 @@ export default {
         tip: '显示在右侧框数据的 key 集合',
       },
       propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'ArraySetter',
+        props: {
+          itemSetter: 'StringSetter'
+        }
+      },
+      supportVariable: true,
     },
 
     {
