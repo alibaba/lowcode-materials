@@ -8,7 +8,7 @@ export default [
         treeData: [
           {
             title: 'parent 0',
-            key: '0-0',
+            value: '0-0',
             children: [
               { title: 'leaf 0-0', value: '0-0-0', isLeaf: true },
               { title: 'leaf 0-1', value: '0-0-1', isLeaf: true },
@@ -16,7 +16,7 @@ export default [
           },
           {
             title: 'parent 1',
-            key: '0-1',
+            value: '0-1',
             children: [
               { title: 'leaf 1-0', value: '0-1-0', isLeaf: true },
               { title: 'leaf 1-1', value: '0-1-1', isLeaf: true },
@@ -24,6 +24,7 @@ export default [
           },
         ],
         treeDefaultExpandAll: true,
+        placeholder: '请选择',
         style: {
           width: '300px',
         },

@@ -160,6 +160,25 @@ export default {
       name: 'size',
       title: { label: '尺寸', tip: '选择框大小' },
       propType: { type: 'oneOf', value: ['large', 'middle', 'small'] },
+      setter: {
+        componentName: 'SelectSetter',
+        props: {
+          options: [
+            {
+              title: '大',
+              value: 'large',
+            },
+            {
+              title: '中',
+              value: 'middle',
+            },
+            {
+              title: '小',
+              value: 'small',
+            },
+          ],
+        },
+      },
       defaultValue: 'middle',
     },
     {
