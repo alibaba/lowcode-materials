@@ -1,6 +1,6 @@
 {
   "name": "@alilc/antd-lowcode-materials",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Antd for LowCode",
   "main": "lib/index.js",
   "scripts": {
@@ -54,5 +54,5 @@
     "materialSchema": "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.7/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/@alilc/antd-lowcode-materials@1.0.6/build/index.html"
+  "homepage": "https://unpkg.com/@alilc/antd-lowcode-materials@1.0.7/build/index.html"
 }
