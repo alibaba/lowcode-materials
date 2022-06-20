@@ -89,24 +89,12 @@ export default {
       setter: 'StringSetter'
     },
     {
-      name: 'popupClassName',
-      title: { label: '自定义浮层类名', tip: '自定义浮层类名' },
-      propType: 'string',
-      setter: 'StringSetter'
-    },
-    {
-      name: 'popupPlacement',
+      name: 'placement',
       title: { label: '浮层预设位置', tip: '浮层预设位置' },
       propType: {
         type: 'oneOf',
         value: ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'],
       },
-    },
-    {
-      name: 'popupVisible',
-      title: { label: '控制浮层显隐', tip: '控制浮层显隐' },
-      propType: 'bool',
-      setter: 'BoolSetter'
     },
     {
       name: 'showSearch',
@@ -119,6 +107,25 @@ export default {
       name: 'size',
       title: { label: '尺寸', tip: '输入框大小' },
       propType: { type: 'oneOf', value: ['large', 'middle', 'small'] },
+      setter: {
+        componentName: 'SelectSetter',
+        props: {
+          options: [
+            {
+              title: '大',
+              value: 'large',
+            },
+            {
+              title: '中',
+              value: 'middle',
+            },
+            {
+              title: '小',
+              value: 'small',
+            },
+          ],
+        },
+      },
       defaultValue: 'middle',
     },
     {
