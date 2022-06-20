@@ -44,7 +44,7 @@ material.setAssets(assets);
 
 [![NPM version][npm-image-antd]][npm-url-antd]
 
-### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.6/build/lowcode/index.html)
+### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.8/build/lowcode/index.html)
 
 ### 使用 / Usage
 #### NPM
@@ -59,7 +59,7 @@ material.setAssets(assets);
 #### CDN
 ```js
 // in GeneralWorkbench init
-const assets = await fetch(`https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.6/build/lowcode/assets-prod.json`).then(res => res.json());
+const assets = await fetch(`https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.8/build/lowcode/assets-prod.json`).then(res => res.json());
 material.setAssets(assets);
 ```
 
