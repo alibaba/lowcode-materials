@@ -217,6 +217,7 @@ export default {
               initialValue: {
                 type: 'JSSlot',
                 value: [],
+                params: ['props', 'info']
               },
             },
             'VariableSetter',
@@ -258,7 +259,7 @@ export default {
       },
       propType: {
         type: 'arrayOf',
-        value: { type: 'oneOfType', value: ['(node', 'func'] },
+        value: { type: 'oneOfType', value: ['node', 'func'] },
       },
     },
   ],
