@@ -86,8 +86,10 @@ export default {
         label: '筛选节点',
         tip: '是否根据输入项进行筛选，默认用 treeNodeFilterProp 的值作为要筛选的 TreeNode 的属性值',
       },
-      propType: 'bool',
-      setter: 'BoolSetter'
+      propType: {
+        type: 'oneOfType',
+        value: ['bool', 'func']
+      },
     },
     {
       name: 'labelInValue',
