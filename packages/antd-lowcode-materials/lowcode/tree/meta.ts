@@ -297,7 +297,7 @@ export default {
     },
     {
       name: 'icon',
-      title: { label: '自定义树节点图标。', tip: '自定义树节点图标。' },
+      title: { label: '自定义树节点图标', tip: '自定义树节点图标' },
       propType: { type: 'oneOfType', value: ['node', 'func'] },
     },
   ],

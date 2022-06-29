@@ -131,11 +131,11 @@ export default {
       title: { label: '默认展开菜单', tip: '是否默认展开下拉菜单' },
       propType: 'bool',
     },
-    {
-      name: 'open',
-      title: { label: '展开下拉菜单', tip: '是否展开下拉菜单' },
-      propType: 'bool',
-    },
+    // {
+    //   name: 'open',
+    //   title: { label: '展开下拉菜单', tip: '是否展开下拉菜单' },
+    //   propType: 'bool',
+    // },
     {
       name: 'onDropdownVisibleChange',
       title: { label: '展开下拉菜单的回调', tip: '展开下拉菜单的回调' },
@@ -366,23 +366,23 @@ export default {
         setter: 'BoolSetter',
         supportVariable: true,
       },
-      {
-        name: 'open',
-        title: {
-          label: {
-            type: 'i18n',
-            zh_CN: '展开下拉菜单',
-            en_US: 'Open',
-          },
-          tip: {
-            type: 'i18n',
-            zh_CN: '属性: open | 说明：是否展开下拉菜单',
-            en_US: 'prop: open | description: Expand drop-down menu',
-          }
-        },
-        setter: 'BoolSetter',
-        supportVariable: true,
-      },
+      // {
+      //   name: 'open',
+      //   title: {
+      //     label: {
+      //       type: 'i18n',
+      //       zh_CN: '展开下拉菜单',
+      //       en_US: 'Open',
+      //     },
+      //     tip: {
+      //       type: 'i18n',
+      //       zh_CN: '属性: open | 说明：是否展开下拉菜单',
+      //       en_US: 'prop: open | description: Expand drop-down menu',
+      //     }
+      //   },
+      //   setter: 'BoolSetter',
+      //   supportVariable: true,
+      // },
       {
         name: 'notFoundContent',
         title: {

@@ -211,15 +211,15 @@ export default {
           defaultValue: false,
           setter: 'BoolSetter',
         },
-        {
-          name: 'open',
-          title: {
-            label: '弹层是否展开',
-            tip: 'open | 控制弹层是否展开',
-          },
-          propType: 'bool',
-          setter: 'BoolSetter',
-        },
+        // {
+        //   name: 'open',
+        //   title: {
+        //     label: '弹层是否展开',
+        //     tip: 'open | 控制弹层是否展开',
+        //   },
+        //   propType: 'bool',
+        //   setter: 'BoolSetter',
+        // },
         {
           name: 'showTime',
           title: {

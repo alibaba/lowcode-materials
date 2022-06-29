@@ -2,7 +2,7 @@ export { Affix } from 'antd';
 
 export { Anchor } from 'antd';
 
-export { AutoComplete } from 'antd';
+// export { AutoComplete } from 'antd';
 
 export { Alert } from 'antd';
 
@@ -22,7 +22,7 @@ export { Collapse } from 'antd';
 
 export { Carousel } from 'antd';
 
-export { Cascader } from 'antd';
+// export { Cascader } from 'antd';
 
 // export { Checkbox } from 'antd';
 
@@ -141,3 +141,7 @@ export { default as TreeSelect } from './components/tree-select';
 export { default as Input } from './components/input';
 
 export { default as Select } from './components/select'
+
+export { default as Cascader } from './components/cascader';
+
+export { default as AutoComplete } from './components/auto-complete';

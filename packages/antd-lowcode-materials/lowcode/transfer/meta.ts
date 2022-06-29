@@ -32,7 +32,7 @@ export default {
                     name: 'key',
                     title: 'key',
                     setter: 'StringSetter',
-                    initialValue: (val) => val || uuid(),
+                    initialValue: (val: any) => val || uuid(),
                   },
                   {
                     name: 'title',
@@ -62,8 +62,14 @@ export default {
       name: 'selectedKeys',
       title: { label: '选中项', tip: '设置哪些项应该被选中' },
       propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'ArraySetter',
+        props: {
+          itemSetter: 'StringSetter'
+        }
+      },
+      supportVariable: true,
     },
-
     {
       name: 'targetKeys',
       title: {
@@ -71,6 +77,13 @@ export default {
         tip: '显示在右侧框数据的 key 集合',
       },
       propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'ArraySetter',
+        props: {
+          itemSetter: 'StringSetter'
+        }
+      },
+      supportVariable: true,
     },
 
     {
@@ -110,11 +123,41 @@ export default {
         {
           name: 'pagination',
           title: {
-            label: '分页样式设置',
+            label: '分页设置',
             tip: '使用分页样式，自定义渲染列表下无效',
           },
-          setter: 'BoolSetter',
-          propType: 'bool',
+          setter: [
+            'BoolSetter',
+            {
+              componentName: 'ObjectSetter',
+              props: {
+                config: {
+                  items: [
+                    {
+                      name: 'pageSize',
+                      title: '单页条数',
+                      setter: 'NumberSetter',
+                    },
+                    {
+                      name: 'simple',
+                      title: '简单模式',
+                      setter: 'BoolSetter',
+                    },
+                    {
+                      name: 'showSizeChanger',
+                      title: '展示条数切换器',
+                      setter: 'BoolSetter',
+                    },
+                  ],
+                },
+              },
+            }
+          ],
+          propType: {
+            type: 'oneOfType',
+            value: ['bool', 'object']
+          },
+          defaultValue: false,
         },
         {
           name: 'render',
@@ -174,6 +217,7 @@ export default {
               initialValue: {
                 type: 'JSSlot',
                 value: [],
+                params: ['props', 'info']
               },
             },
             'VariableSetter',
@@ -215,7 +259,7 @@ export default {
       },
       propType: {
         type: 'arrayOf',
-        value: { type: 'oneOfType', value: ['(node', 'func'] },
+        value: { type: 'oneOfType', value: ['node', 'func'] },
       },
     },
   ],

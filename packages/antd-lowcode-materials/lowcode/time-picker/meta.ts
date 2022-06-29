@@ -116,13 +116,13 @@ export default {
       propType: 'number',
       setter: 'NumberSetter'
     },
-    {
-      name: 'open',
-      title: { label: '面板是否打开', tip: '面板是否打开' },
-      propType: 'bool',
-      // defaultValue: false,
-      setter: 'BoolSetter'
-    },
+    // {
+    //   name: 'open',
+    //   title: { label: '面板是否打开', tip: '面板是否打开' },
+    //   propType: 'bool',
+    //   // defaultValue: false,
+    //   setter: 'BoolSetter'
+    // },
     {
       name: 'placeholder',
       title: { label: '空值提示', tip: '没有值的时候显示的内容' },

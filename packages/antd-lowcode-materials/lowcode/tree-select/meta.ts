@@ -86,8 +86,10 @@ export default {
         label: '筛选节点',
         tip: '是否根据输入项进行筛选，默认用 treeNodeFilterProp 的值作为要筛选的 TreeNode 的属性值',
       },
-      propType: 'bool',
-      setter: 'BoolSetter'
+      propType: {
+        type: 'oneOfType',
+        value: ['bool', 'func']
+      },
     },
     {
       name: 'labelInValue',
@@ -160,6 +162,25 @@ export default {
       name: 'size',
       title: { label: '尺寸', tip: '选择框大小' },
       propType: { type: 'oneOf', value: ['large', 'middle', 'small'] },
+      setter: {
+        componentName: 'SelectSetter',
+        props: {
+          options: [
+            {
+              title: '大',
+              value: 'large',
+            },
+            {
+              title: '中',
+              value: 'middle',
+            },
+            {
+              title: '小',
+              value: 'small',
+            },
+          ],
+        },
+      },
       defaultValue: 'middle',
     },
     {
