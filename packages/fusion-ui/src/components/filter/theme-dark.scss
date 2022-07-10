@@ -1,0 +1,14 @@
+.dark {
+  .fusion-ui-filter-configurator {
+    background-color: var(--color-fill1-1, $color-fill1-1);
+    .fusion-ui-filter-configurator-item.dragging {
+      background-color: var(--color-fill1-4 !important, $color-fill1-4 !important);
+    }
+    .fusion-ui-icon-close {
+      color: var(--color-text1-2, $color-text1-2);
+    }
+    &-title {
+      border-bottom-color: var(--color-line1-4, $color-line1-4);
+    }
+  }
+}

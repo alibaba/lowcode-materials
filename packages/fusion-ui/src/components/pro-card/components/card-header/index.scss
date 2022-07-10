@@ -1,0 +1,96 @@
+@import '../../../../variables.scss';
+
+$fusion-ui-card-header-padding: var(--s-4 $s-5, $s-4 $s-5);
+
+.fusion-ui-card-header-padding {
+  padding-bottom: var(--s-4, $s-4);
+}
+
+.fusion-ui-card-header {
+  &__content {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    padding: var(--fusion-ui-card-header-padding, $fusion-ui-card-header-padding);
+    padding-bottom: 0;
+    // border-left: var(--s-1 transparent solid, $size-base transparent solid);
+    border-radius: var(--corner-2, $corner-2);
+  }
+
+  &--collapsed {
+    cursor: pointer;
+    border-color: var(--color-brand1-1, $color-brand1-1);
+    &:hover {
+      background-color: var(--color-fill1-2, $color-fill1-2);
+    }
+    .fusion-ui-card-header__action-bar {
+      display: none;
+    }
+  }
+
+  &__hd {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    gap: var(--s-2, $s-2);
+  }
+
+  &__ft {
+    flex: 1;
+    display: flex;
+    gap: var(--s-2, $s-2);
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__desc {
+    padding: 0 $fusion-ui-card-header-padding $s-4 $fusion-ui-card-header-padding;
+  }
+
+  &__title {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+
+    font-size: var(--font-size-subhead, $font-size-subhead);
+    font-weight: var(--font-weight-semi-bold, $font-weight-semi-bold);
+    color: var(--color-text1-4, $color-text1-4);
+  }
+  &__tooltip {
+    color: var(--color-text1-1, $color-text1-1);
+  }
+
+  &__action-bar {
+    display: flex;
+    gap: var(--s-2, $s-2);
+    justify-content: flex-end;
+  }
+  &__collapse-btn {
+    user-select: none;
+    & > .fusion-ui-icon {
+      transition: transform 0.1s ease-in-out;
+      color: var(--color-line1-4 !important, $color-line1-4 !important);
+    }
+    &--collapsed {
+      & > .fusion-ui-icon {
+        color: var(--color-brand1-6 !important, $color-brand1-6 !important);
+        transform-origin: center;
+        transform: rotate(-180deg) !important;
+      }
+    }
+    &:hover {
+      & > .fusion-ui-icon {
+        color: var(--color-brand1-6 !important, $color-brand1-6 !important);
+      }
+    }
+  }
+}
+
+.fusion-ui-card-header__divider {
+  height: 1px;
+  border-bottom: 1px solid $color-line1-1;
+  margin-top: var(--s-4, $s-4);
+}

@@ -1,0 +1,114 @@
+@import './theme-dark.scss';
+
+#{$biz-css-prefix}filter {
+  display: grid;
+  &-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-top: var(--s-4, $s-4);
+    #{$biz-css-prefix}common-operations.operation-container {
+      padding-top: 0;
+    }
+    .btns {
+      display: inline-flex;
+      button {
+        margin-right: var(--s-2, $s-2);
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    &.left {
+      padding-top: 0;
+      justify-content: flex-start;
+    }
+    .inside-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 0;
+      i:before {
+        transform: scale(0.84);
+      }
+    }
+  }
+  &-configurator {
+    background-color: var(--color-white, $color-white);
+    box-shadow: var(--shadow-2, $shadow-2);
+    margin-top: 4px;
+    min-width: 200px;
+    max-width: 300px;
+    border-radius: 4px;
+    &-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-bottom: 1px solid $color-line1-1;
+      span {
+        font-size: 14px;
+        font-weight: bold;
+      }
+      i {
+        color: var(--color-line1-3, $color-line1-3);
+        font-weight: 200;
+        padding: 0 1px;
+        border-radius: 2px;
+        transition: background-color 0.3s;
+        &:hover {
+          cursor: pointer;
+          color: var(--color-line1-4, $color-line1-4);
+        }
+      }
+    }
+    &-body {
+      padding: 4px;
+      max-height: 400px;
+      overflow: auto;
+      &.dragover {
+        #{$biz-css-prefix}icon-drag {
+          display: none !important;
+        }
+        #{$biz-css-prefix}filter-configurator-item:not(.dragging) {
+          background-color: transparent !important;
+        }
+      }
+    }
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 4px;
+      padding: 0 8px 0 12px;
+      height: 32px;
+      user-select: none;
+      &.dragging {
+        background-color: #f4f5f8;
+      }
+      &:hover {
+        background-color: var(--color-fill1-1 !important, $color-fill1-1 !important);
+        #{$biz-css-prefix}icon-drag {
+          display: block;
+        }
+      }
+      #{$biz-css-prefix}icon-drag {
+        color: var(--color-line1-4, $color-line1-4);
+        display: none;
+        &:hover {
+          padding: 2px 0;
+          background-color: var(--color-fill1-3, $color-fill1-3);
+          border-radius: 2px;
+        }
+        // padding: 1px;
+        // background-color: var(--color-fill1-1, $color-fill1-1);
+      }
+      #{$biz-css-prefix}checkbox-label {
+        margin-left: 8px;
+      }
+    }
+  }
+  #{$biz-css-prefix}form-item {
+    margin-bottom: 0;
+  }
+}

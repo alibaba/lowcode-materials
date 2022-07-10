@@ -1,0 +1,127 @@
+#{$biz-css-prefix}page-header {
+  position: relative;
+  padding: 0;
+
+  .next-breadcrumb .next-breadcrumb-text {
+    font-size: 14px;
+  }
+
+  &-ghost {
+  }
+
+  &.has-breadcrumb {
+    padding-top: 0;
+  }
+
+  &.has-footer {
+    padding-bottom: 0;
+  }
+
+  &-back {
+    margin-right: 16px;
+    font-size: 16px;
+    line-height: 1;
+
+    &-button {
+      border: none !important;
+      cursor: pointer;
+    }
+  }
+
+  .fusion-ui-divider-vertical {
+    height: 14px;
+    vertical-align: middle;
+  }
+
+  .fusion-ui-breadcrumb + &-heading {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #000000d9;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: 'tnum';
+    color: #00000073;
+    font-size: 14px;
+  }
+
+  @mixin text-overflow-ellipsis() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+
+    &-left {
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    &-title {
+      margin-right: 12px;
+      margin-bottom: 0;
+      color: #000000d9;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 32px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &-avatar {
+      margin-right: 12px;
+    }
+
+    &-sub-title {
+      margin-right: 12px;
+      color: #00000073;
+      font-size: 14px;
+      line-height: 1.5715;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &-extra {
+      white-space: nowrap;
+
+      > * {
+        white-space: unset;
+      }
+      > *:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &-content {
+    padding-top: 16px;
+  }
+  &-actions {
+    float: right;
+  }
+  &-footer {
+    .fusion-ui-tabs {
+      > .fusion-ui-tabs-nav {
+        margin: 0;
+        &::before {
+          border: none;
+        }
+      }
+
+      .fusion-ui-tabs-tab {
+      }
+    }
+  }
+
+  &-compact &-heading {
+    flex-wrap: wrap;
+  }
+}

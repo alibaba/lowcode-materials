@@ -1,0 +1,19 @@
+body.dark {
+  #{$biz-css-prefix}anchor {
+    &-hoz,
+    &-ver-button,
+    &-ver-menu,
+    &-ver-mask {
+      background-color: var(--color-fill1-1, $color-fill1-1);
+    }
+    &-ver-button {
+      color: inherit;
+      &:hover {
+        color: var(--color-brand1-6, $color-brand1-6);
+        a {
+          color: var(--color-brand1-6, $color-brand1-6);
+        }
+      }
+    }
+  }
+}

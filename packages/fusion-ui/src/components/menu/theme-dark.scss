@@ -1,0 +1,19 @@
+body.dark {
+  /* 这里写暗色覆盖主题 */
+  .fusion-ui-menu {
+    .fusion-ui-menu-item.fusion-ui-menu-item {
+      &.fusion-ui-selected {
+        background-color: var(--color-brand1-6, $color-brand1-6);
+        &:not(.fusion-ui-disabled) {
+          &:hover,
+          &.fusion-ui-focused {
+            background-color: var(--color-brand1-6, $color-brand1-6);
+          }
+        }
+      }
+    }
+    .fusion-ui-error-content {
+      color: var(--color-text1-3);
+    }
+  }
+}
