@@ -50,13 +50,21 @@ export const formatFormItems: Function = (
     let index = i;
     let sum = 0;
     while (index < childrenLength) {
-      sum +=
+      const currentColumnSpan =
         _children[index].props.columnSpan || _children[index].props.formItemProps?.columnSpan || 1;
-      if (sum > gridColumns) {
-        index--;
-        break;
+      if (currentColumnSpan > gridColumns) {
+        subRows.push(_children[index++].key);
+      } else {
+        sum +=
+          _children[index].props.columnSpan ||
+          _children[index].props.formItemProps?.columnSpan ||
+          1;
+        if (sum > gridColumns) {
+          index--;
+          break;
+        }
+        subRows.push(_children[index++].key);
       }
-      subRows.push(_children[index++].key);
     }
     i = ++index;
     rows.push(subRows);
