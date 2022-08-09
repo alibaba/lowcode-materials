@@ -11,6 +11,7 @@ export default {
       title: { label: '内容', tip: '内容' },
       propType: 'string',
       defaultValue: '',
+      supportVariable: true,
     },
     {
       name: 'level',
