@@ -16,6 +16,7 @@ export default {
           title: { label: '表格数据', tip: 'dataSource | 表格数据' },
           propType: 'object',
           setter: 'JsonSetter',
+          supportVariable: true,
         },
         {
           name: 'loading',
@@ -23,6 +24,7 @@ export default {
           propType: 'bool',
           setter: 'BoolSetter',
           defaultValue: false,
+          supportVariable: true,
         },
         {
           name: 'rowKey',
