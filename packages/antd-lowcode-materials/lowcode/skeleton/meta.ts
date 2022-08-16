@@ -45,5 +45,8 @@ export default {
       defaultValue: false,
     },
   ],
-  configure: { supports: { style: true } },
+  configure: { 
+    component: { isContainer: true },
+    supports: { style: true } 
+  },
 };

@@ -78,7 +78,7 @@ export { Result } from 'antd';
 
 export { Row } from 'antd';
 
-export { Skeleton } from 'antd';
+// export { Skeleton } from 'antd';
 
 export { Space } from 'antd';
 
@@ -105,6 +105,8 @@ export { Tooltip } from 'antd';
 export { Typography } from 'antd';
 
 export { version } from 'antd';
+
+export { default as Skeleton } from './components/skeleton';
 
 export { default as Checkbox } from './components/checkbox';
 
