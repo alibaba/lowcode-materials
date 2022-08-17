@@ -71,6 +71,7 @@ module.exports = {
       },
       description: '是否为幽灵按钮',
       defaultValue: false,
+      initialValue: false,
     },
     {
       name: 'toDefault',
