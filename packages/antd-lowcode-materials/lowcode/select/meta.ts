@@ -74,17 +74,19 @@ export default {
                   {
                     name: 'label',
                     title: '选项名',
-                    setter: ['StringSetter', 'VariableSetter']
+                    setter: ['StringSetter', 'VariableSetter'],
+                    isRequired: true
                   },
                   {
                     name: 'value',
                     title: '选项值',
                     setter: ['StringSetter', 'NumberSetter', 'VariableSetter'],
+                    isRequired: true
                   },
                   {
                     name: 'disabled',
                     title: '是否禁用',
-                    setter: ['BoolSetter', 'VariableSetter']
+                    setter: ['BoolSetter', 'VariableSetter'],
                   },
                 ],
               },
