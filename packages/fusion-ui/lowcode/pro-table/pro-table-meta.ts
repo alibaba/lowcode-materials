@@ -38,15 +38,19 @@ export const ProTableProps = [
     display: 'accordion',
     setter: (target) => {
       const columns = target.getProps().getPropValue('columns');
+      let columnsValue
       if (!columns || isJSExpression(columns)) {
-        return {
-          componentName: 'ExpressionSetter',
-        };
+        columnsValue = columns.value.replace(/^this./g, '')
+        columnsValue = columnsValue.split('.')
+        columnsValue = columnsValue.reduce((res, item) => {
+          return res[item]
+        }, target.getNode().document?.exportSchema?.('render'))
+        columnsValue = eval(columnsValue.value)
       }
       const mockRow = mockProTableRow(columns);
       const primaryKey = target.getProps().getPropValue('primaryKey') || 'id';
 
-      const items = columns.map((column, index) => {
+      const items = (columns && isJSExpression(columns) ? columnsValue : columns || []).map((column, index) => {
         return {
           title: {
             label: {
