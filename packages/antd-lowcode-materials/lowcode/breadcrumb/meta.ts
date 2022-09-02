@@ -37,6 +37,7 @@ export default {
                         title: { label: '路由路径', tip: 'path | 路由路径' },
                         propType: 'string',
                         setter: 'StringSetter',
+                        isRequired: true
                       },
                       {
                         name: 'breadcrumbName',
@@ -46,6 +47,7 @@ export default {
                         },
                         propType: 'string',
                         setter: 'StringSetter',
+                        isRequired: true
                       },
                     ],
                   },
