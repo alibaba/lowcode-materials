@@ -104,7 +104,7 @@ export default {
           ],
           condition: {
             type: 'JSFunction',
-            value: 'target => !!target.getProps().getPropValue("href")',
+            value: 'target => !!target.getProps().getPropValue("href")?.trim()',
           },
         },
       ],
