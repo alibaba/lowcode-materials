@@ -6,7 +6,6 @@ module.exports = {
         value: String(value),
       };
     }
-
     return value;
   },
   isAsyncFunction: (fn) => {
