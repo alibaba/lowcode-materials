@@ -14,8 +14,6 @@ export { Badge } from 'antd';
 
 export { Breadcrumb } from 'antd';
 
-export { Button } from 'antd';
-
 export { Card } from 'antd';
 
 export { Collapse } from 'antd';
@@ -78,7 +76,7 @@ export { Result } from 'antd';
 
 export { Row } from 'antd';
 
-export { Skeleton } from 'antd';
+// export { Skeleton } from 'antd';
 
 export { Space } from 'antd';
 
@@ -106,7 +104,11 @@ export { Typography } from 'antd';
 
 export { version } from 'antd';
 
+export { default as Skeleton } from './components/skeleton';
+
 export { default as Checkbox } from './components/checkbox';
+
+export { default as Button } from './components/button';
 
 export { default as Radio } from './components/radio';
 

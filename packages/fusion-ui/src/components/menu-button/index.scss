@@ -1,0 +1,145 @@
+@import '~@alifd/next/lib/core/style/_global.scss';
+@import '~@alifd/next/lib/core/style/_motion.scss';
+@import 'scss/variable';
+
+#{$menu-btn-prefix} {
+  display: inline-block;
+  box-shadow: none;
+
+  &-spacing-tb {
+    margin: var(--popup-spacing-tb 0, $popup-spacing-tb 0);
+  }
+
+  &-popup {
+    box-shadow: 0 $s-1 $s-4 0 rgba(0, 0, 0, 0.1);
+    border-radius: var(--corner-1, $corner-1);
+
+    .fusion-ui-menu.fusion-ui-ver {
+      border: none;
+      max-height: 272px;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        width: var(--s-2, $s-2);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border: 2px solid transparent;
+        background-clip: padding-box;
+        border-radius: 9999px;
+        background-color: var(--color-fill1-1, $color-fill1-1);
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+    }
+  }
+
+  .fusion-ui-icon {
+    transition: transform $motion-duration-immediately $motion-linear;
+  }
+
+  .fusion-ui-menu-btn-arrow::before {
+    content: var(--menu-btn-fold-icon-content, $menu-btn-fold-icon-content);
+  }
+
+  &.fusion-ui-expand .fusion-ui-btn-icon.fusion-ui-menu-btn-arrow {
+    transform: rotate(180deg);
+  }
+  // --------- this is for config platform
+  &-symbol-unfold::before {
+    content: var(--menu-btn-unfold-icon-content, $menu-btn-unfold-icon-content);
+  }
+  // --------- this is for config platform
+
+  &.fusion-ui-btn-normal {
+    .fusion-ui-menu-btn-arrow {
+      color: var(--menu-btn-pure-text-normal-icon-color, $menu-btn-pure-text-normal-icon-color);
+    }
+    &:hover .fusion-ui-menu-btn-arrow {
+      color: var(--btn-pure-normal-color-hover, $btn-pure-normal-color-hover);
+    }
+  }
+
+  &.fusion-ui-btn-secondary {
+    .fusion-ui-menu-btn-arrow {
+      color: var(
+        --menu-btn-pure-text-secondary-icon-color,
+        $menu-btn-pure-text-secondary-icon-color
+      );
+    }
+    &:hover .fusion-ui-menu-btn-arrow {
+      color: var(--btn-pure-secondary-color-hover, $btn-pure-secondary-color-hover);
+    }
+    &.fusion-ui-btn-text:hover .fusion-ui-menu-btn-arrow {
+      color: var(--btn-text-secondary-color-hover, $btn-text-secondary-color-hover);
+    }
+  }
+
+  &.fusion-ui-btn-primary {
+    .fusion-ui-menu-btn-arrow {
+      color: var(--menu-btn-pure-text-primary-icon-color, $menu-btn-pure-text-primary-icon-color);
+    }
+    &:hover .fusion-ui-menu-btn-arrow {
+      color: var(--btn-pure-primary-color-hover, $btn-pure-primary-color-hover);
+    }
+  }
+
+  &.fusion-ui-btn-text.fusion-ui-btn-normal {
+    .fusion-ui-menu-btn-arrow {
+      color: var(--menu-btn-text-text-normal-icon-color, $menu-btn-text-text-normal-icon-color);
+    }
+    &:hover .fusion-ui-menu-btn-arrow {
+      color: var(--btn-text-normal-color-hover, $btn-text-normal-color-hover);
+    }
+  }
+
+  &.fusion-ui-btn-text.fusion-ui-btn-primary {
+    .fusion-ui-menu-btn-arrow {
+      color: var(--menu-btn-text-text-primary-icon-color, $menu-btn-text-text-primary-icon-color);
+    }
+    &:hover .fusion-ui-menu-btn-arrow {
+      color: var(--btn-text-primary-color-hover, $btn-text-primary-color-hover);
+    }
+  }
+
+  &.fusion-ui-btn-ghost.fusion-ui-btn-light {
+    .fusion-ui-menu-btn-arrow {
+      color: var(--menu-btn-ghost-light-icon-color, $menu-btn-ghost-light-icon-color);
+    }
+    &:hover .fusion-ui-menu-btn-arrow {
+      color: var(--btn-ghost-light-color-hover, $btn-ghost-light-color-hover);
+    }
+  }
+
+  &.fusion-ui-btn-ghost.fusion-ui-btn-dark {
+    .fusion-ui-menu-btn-arrow {
+      color: var(--menu-btn-ghost-dark-icon-color, $menu-btn-ghost-dark-icon-color);
+    }
+    &:hover .fusion-ui-menu-btn-arrow {
+      color: var(--btn-ghost-dark-color-hover, $btn-ghost-dark-color-hover);
+    }
+  }
+
+  &.disabled .fusion-ui-menu-btn-arrow,
+  &[disabled] .fusion-ui-menu-btn-arrow {
+    color: var(--menu-btn-disabled-icon-color, $menu-btn-disabled-icon-color);
+  }
+
+  &.fusion-ui-btn-text.disabled .fusion-ui-menu-btn-arrow,
+  &.fusion-ui-btn-text[disabled] .fusion-ui-menu-btn-arrow {
+    color: var(--menu-btn-disabled-icon-color, $menu-btn-disabled-icon-color);
+  }
+
+  &[disabled].fusion-ui-btn-ghost.fusion-ui-btn-dark .fusion-ui-menu-btn-arrow {
+    color: var(--menu-btn-ghost-dark-disabled-icon-color, $menu-btn-ghost-dark-disabled-icon-color);
+  }
+
+  &[disabled].fusion-ui-btn-ghost.fusion-ui-btn-light .fusion-ui-menu-btn-arrow {
+    color: var(
+      --menu-btn-ghost-light-disabled-icon-color,
+      $menu-btn-ghost-light-disabled-icon-color
+    );
+  }
+}

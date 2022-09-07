@@ -1,0 +1,27 @@
+{
+  "library": "AlifdFusionUi",
+  "libraryTarget": "umd",
+  "sourceMap": false,
+  "alias": {
+    "@": "./src",
+    "@components": "./src/components"
+  },
+  "plugins": [
+    [
+      "build-plugin-component-multiple",
+      {
+        "themePackage": "@alifd/theme-2"
+      }
+    ],
+    [
+      "build-plugin-fusion",
+      {
+        "uniteBaseComponent": "@alifd/next",
+        "cssVariable": true,
+        "importOptions": {
+          "libraryDirectory": "lib"
+        }
+      }
+    ]
+  ]
+}

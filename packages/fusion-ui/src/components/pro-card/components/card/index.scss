@@ -1,0 +1,57 @@
+@import '../../../../variables.scss';
+
+$fusion-ui-card-padding: var(--s-5, $s-5);
+$fusion-ui-card-padding-s: var(--s-3, $s-3);
+
+.fusion-ui-card {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: var(--color-white, $color-white);
+  // border-radius: 0;
+  display: flex;
+  flex-direction: column;
+
+  &-body {
+    flex: 1 1 auto;
+    &__panel {
+      padding: var(--fusion-ui-card-padding, $fusion-ui-card-padding);
+      padding-bottom: 0;
+    }
+    &__nopadding {
+      padding: 0;
+    }
+
+    // .fusion-ui-card-header + & {
+    //   .fusion-ui-card-body__panel {
+    //     padding-top: 0;
+    //   }
+    // }
+  }
+
+  &--dialog {
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+.fusion-ui-card-footer-actions {
+  padding-bottom: var(--fusion-ui-card-padding, $fusion-ui-card-padding);
+}
+.fusion-ui-pro-card-operation-container {
+  padding: var(
+    --fusion-ui-card-padding $fusion-ui-card-padding 0,
+    $fusion-ui-card-padding $fusion-ui-card-padding 0
+  );
+}
+
+.fusion-ui-pro-card-operation-fixed {
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 -4px 10px 0 rgba(74, 91, 109, 0.1);
+  background-color: #fff;
+  bottom: 0;
+  left: 0;
+  padding-bottom: var(--fusion-ui-card-padding, $fusion-ui-card-padding);
+}

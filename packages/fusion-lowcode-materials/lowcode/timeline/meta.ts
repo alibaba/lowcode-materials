@@ -65,11 +65,13 @@ module.exports = {
                       name: 'title',
                       setter: 'StringSetter',
                       supportVariable: true,
+                      isRequired: true,
                       title: '标题',
                     },
                     {
                       name: 'icon',
                       title: '图标',
+                      isRequired: true,
                       setter: 'IconSetter',
                       supportVariable: true,
                       description: '图标',

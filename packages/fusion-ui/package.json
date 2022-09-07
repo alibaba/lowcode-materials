@@ -1,0 +1,103 @@
+{
+  "name": "@alifd/fusion-ui",
+  "version": "1.0.7",
+  "description": "A component library based on Fusion Next",
+  "files": [
+    "docs/",
+    "es/",
+    "lib/",
+    "build/",
+    "dist/"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "lowcodeEditMain": "build/lowcode/view.js",
+  "stylePath": "style.js",
+  "scripts": {
+    "start": "build-scripts start --type=dev",
+    "compile": "build-scripts build",
+    "preview": "build-scripts start --type=preview",
+    "build": "npm run compile",
+    "dev": "start-storybook -p 9001",
+    "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
+    "lowcode:build": "build-scripts build --config ./build.lowcode.js",
+    "test": "build-scripts test",
+    "prepublishOnly": "npm run build && npm run lowcode:build",
+    "lint": "f2elint scan",
+    "lint:fix": "f2elint fix"
+  },
+  "keywords": [
+    "react",
+    "component"
+  ],
+  "dependencies": {
+    "@alifd/build-plugin-lowcode": "^0.3.1",
+    "@alifd/next": "^1.25.18",
+    "@alifd/pro-layout": "^1.0.1-beta.4",
+    "@antv/data-set": "^0.11.8",
+    "@sindresorhus/is": "^4.0.1",
+    "ahooks": "^2.10.11",
+    "bizcharts": "^4.1.19",
+    "classnames": "^2.3.1",
+    "framer-motion": "^4.1.17",
+    "lodash": "^4.17.21",
+    "numeral": "^2.0.6",
+    "numvert": "^0.2.2",
+    "prop-types": "^15.5.8",
+    "qs": "^6.10.1",
+    "rc-resize-observer": "^1.0.0",
+    "react-beautiful-dnd": "^13.1.0",
+    "react-sortablejs": "6.0.0",
+    "sortablejs": "^1.14.0"
+  },
+  "devDependencies": {
+    "@alifd/theme-2": "^0.4.4",
+    "@alilc/lowcode-engine": "^1.0.0",
+    "@alib/build-scripts": "^0.1.3",
+    "@alifd/build-plugin-lowcode": "^0.3.0",
+    "@storybook/addon-docs": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/react": "^6.3.5",
+    "@types/lodash": "^4.14.177",
+    "@types/react": "^16.14.15",
+    "@types/react-dom": "^16.9.4",
+    "build-plugin-component-multiple": "^1.0.0-beta.24",
+    "build-plugin-fusion": "^0.1.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "eslint": "^6.0.1",
+    "f2elint": "^1.2.0",
+    "fs-extra": "^10.0.0",
+    "marked": "^2.1.3",
+    "prop-types": "^15.7.2"
+  },
+  "resolutions": {
+    "webpack": "4.x"
+  },
+  "peerDependencies": {
+    "@alifd/next": "1.x",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "license": "MIT",
+  "homepage": "https://unpkg.com/@alifd/fusion-ui@1.0.7/build/docs/index.html?path=/story/protable--page",
+  "componentConfig": {
+    "name": "FusionUI",
+    "category": "精品物料库",
+    "isComponentLibrary": true,
+    "materialSchema": "https://alifd.alicdn.com/npm/@alifd/fusion-ui@1.0.7/build/lowcode/assets-prod.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "f2elint commit-file-scan",
+      "commit-msg": "f2elint commit-msg-scan"
+    }
+  },
+  "materialConfig": {
+    "fusion-site": {
+      "id": 1,
+      "name": "PC 官网",
+      "url": "https://fusion.design/api/v1/sites/1/materials"
+    }
+  }
+}

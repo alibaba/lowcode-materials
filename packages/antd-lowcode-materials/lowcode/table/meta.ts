@@ -16,6 +16,7 @@ export default {
           title: { label: '表格数据', tip: 'dataSource | 表格数据' },
           propType: 'object',
           setter: 'JsonSetter',
+          supportVariable: true,
         },
         {
           name: 'loading',
@@ -23,6 +24,7 @@ export default {
           propType: 'bool',
           setter: 'BoolSetter',
           defaultValue: false,
+          supportVariable: true,
         },
         {
           name: 'rowKey',
@@ -823,6 +825,11 @@ export default {
           name: 'rowSelection.onChange',
           template:
             "onRowSelectionChange(selectedRowKeys,selectedRows,${extParams}){\n// 选中项发生变化时的回调\nconsole.log('onRowSelectionChange', selectedRowKeys, selectedRows);}",
+        },
+        {
+          name: 'expandable.onExpand',
+          template:
+            "onExpandableExpand(expanded,record){\n// 点击展开图标时触发\nconsole.log('onRowSelectionChange', expanded, record);}",
         },
       ],
     },

@@ -1,0 +1,20 @@
+.fusion-ui-dialog {
+  &-small {
+    width: calc(var(--s-1, 4) * 100) !important;
+  }
+  &-medium {
+    width: calc(var(--s-1, 4) * 175) !important;
+  }
+  &-large {
+    width: calc(var(--s-1, 4) * 250) !important;
+  }
+  &-autoLarge {
+    width: 90vw !important;
+    min-width: 900px;
+  }
+  &__tooltip {
+    color: var(--color-text1-1, $color-text1-1);
+    display: inline-block;
+    margin-left: 8px;
+  }
+}

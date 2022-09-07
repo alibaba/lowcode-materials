@@ -1,0 +1,124 @@
+.fusion-ui-pro-table-base {
+  position: relative;
+  .next-table-empty {
+    min-height: 224px;
+  }
+
+  .next-table-cell-wrapper:hover {
+    .next-table-resize-handler {
+      border-color: var(--color-line1-4, $color-line1-4);
+    }
+  }
+  .next-table-header-resizable .next-table-resize-handler {
+    width: var(--s-2, $s-2);
+    border-right: 2px solid transparent;
+  }
+  // 标题样式修改
+  .next-table-header .next-table-cell .next-table-cell-wrapper {
+    word-break: break-word;
+  }
+
+  // 内容样式修改
+  .next-table-body .next-table-cell .next-table-cell-wrapper {
+    word-break: break-word;
+  }
+
+  .only-bottom-border td {
+    border: 0;
+  }
+
+  .only-bottom-border .next-table-group .next-table-body table {
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 0;
+  }
+
+  // 统计列相关样式修改
+  .fusion-ui-pro-table-total-row {
+    background: var(--color-fill1-1, $color-fill1-1);
+    font-family: Roboto-Medium;
+    font-size: var(--font-size-body-2, $font-size-body-2);
+    line-height: 16px;
+    font-weight: var(--font-weight-medium, $font-weight-medium);
+  }
+
+  .cell-money {
+    white-space: nowrap;
+    overflow: visible;
+  }
+
+  .cell-nowrap {
+    white-space: nowrap;
+  }
+
+  .fusion-ui-table-sort {
+    .fusion-ui-pro-table-sort-icon {
+      left: 0;
+
+      &.fusion-ui-icon-triangle-down {
+        top: 6px;
+      }
+
+      &.fusion-ui-icon-triangle-up {
+        top: -2px;
+      }
+    }
+  }
+}
+
+// 在 selectedRowKeys.length > 0 时展示 "已选择 x 项" 的容器
+.fusion-ui-pro-table-selection {
+  position: absolute;
+  z-index: 50;
+  will-change: transform;
+  background-color: var(--color-white, $color-white);
+  border-radius: var(--s-1, $s-1);
+  padding: var(--s-1 $s-2, $s-1 $s-2);
+  text-align: center;
+  top: -16px;
+  left: var(--s-2, $s-2);
+  perspective: 800px;
+  box-shadow: var(--shadow-2, $shadow-2);
+  white-space: nowrap;
+  font-weight: normal;
+  font-size: var(--font-size-body-1, $font-size-body-1);
+
+  &-placeholder {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    left: -8px;
+    top: 0;
+  }
+  &-number {
+    color: var(--color-brand1-6, $color-brand1-6);
+    font-weight: var(--font-weight-medium, $font-weight-medium);
+    margin: 0 $s-1;
+  }
+}
+.fusion-ui-tablex-serial-number {
+  color: var(--color-white, $color-white);
+  text-align: center;
+  font-size: var(--font-size-body-1, $font-size-body-1);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--s-5, $s-5);
+  width: var(--s-5, $s-5);
+  border-radius: var(--corner-2, $corner-2);
+  background-color: var(--color-line1-4, $color-line1-4);
+}
+
+.fusion-ui-pro-table-selection-checkbox {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--s-1, $s-1);
+  .fusion-ui-menu-btn {
+    color: var(--color-text1-2, $color-text1-2);
+  }
+  .fusion-ui-menu-btn-arrow {
+    display: none !important;
+  }
+}

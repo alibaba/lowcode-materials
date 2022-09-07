@@ -1,0 +1,57 @@
+#{$biz-css-prefix}pro-drawer {
+  &-small {
+    width: calc(var(--s-1, 4) * 100);
+  }
+  &-medium {
+    width: calc(var(--s-1, 4) * 175);
+  }
+  &-large {
+    width: calc(var(--s-1, 4) * 250);
+  }
+  &-autoLarge {
+    width: 90vw;
+    min-width: 900px;
+  }
+  &-title {
+    font-size: var(--s-4, $s-4);
+    letter-spacing: 0;
+    line-height: var(--s-5, $s-5);
+  }
+  &.operation-container {
+    display: flex;
+    padding: 15px;
+    align-items: center;
+
+    & > * {
+      margin-left: 10px;
+    }
+
+    & > *:first-child {
+      margin-left: 0;
+    }
+
+    &-operation-item + &-operation-item {
+      margin-left: 10px;
+    }
+
+    &.operation-align-left {
+      justify-content: flex-start;
+    }
+
+    &.operation-align-center {
+      justify-content: center;
+    }
+
+    &.operation-align-right {
+      justify-content: flex-end;
+    }
+
+    &.operation-fixed {
+      width: 100%;
+      position: absolute;
+      background-color: #fff;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}

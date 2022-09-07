@@ -1,0 +1,84 @@
+import { Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { ProTable, ProTableSlot } from '@alifd/fusion-ui';
+import {
+  ProTableColumn,
+  ProTableRowSelection,
+  ProTableRowSelectionInstance,
+} from '@alifd/fusion-ui';
+
+<Meta
+  id="ProTable"
+  title="表格/ProTable"
+  component={ProTable}
+  subcomponents={{
+    ProTableColumn,
+    ProTableSlot,
+    ProTableRowSelection,
+    ProTableRowSelectionInstance,
+  }}
+/>
+
+# ProTable 表格
+
+基于 fusion 的高级表格。
+
+- 支持列格式化，内置多种常见类型
+- useProTable 查询分页列表 hooks
+- 集成表格紧凑模式/斑马线/全屏/列设置
+
+## 何时使用
+
+- 列表
+- 详情页中展示多行数据
+
+## 示例
+
+<Story id="protable--basic" />
+
+## API
+
+### useProTable
+
+`useProTable`基于[ahooks 的 useFusionTable](https://ahooks.js.org/zh-CN/hooks/table/use-fusion-table)实现，`useProTable`改造了`tableProps`和额外增加了`filterProps`，便捷的串联起`ProTable`和`Filter`组件。
+
+当然和`useFusionTable`一样，service 返回的数据结构必须为`{dataSource: Item[], total: number}` ，如果不满足，可以通过`options.formatResult`转换一次。
+
+```tsx
+export default () => {
+  const { tableProps, filterProps } = useProTable(
+    ({
+      current, // 请求页数
+      pageSize, // 每页条数
+      tableParams, // 表格筛选/排序/搜索参数
+      filterParams, // 筛选表单参数
+    }) =>
+      fetch(
+        `https://oneapi.alibaba-inc.com/mock/whalebase/pro-table/pagination-list?${qs.stringify({
+          current,
+          pageSize,
+          tableParams,
+          filterParams,
+        })}`,
+      ),
+  );
+  return (
+    <Card segmentLine>
+      <CardSection>
+        <Filter {...filterProps}>
+          <FilterItem label="花名">
+            <Input name="name" />
+          </FilterItem>
+          {/* 其它筛选字段 */}
+        </Filter>
+      </CardSection>
+      <CardSection>
+        <ProTable columns={columns} {...tableProps} />
+      </CardSection>
+    </Card>
+  );
+};
+```
+
+### 组件 API
+
+<ArgsTable of={ProTable} />

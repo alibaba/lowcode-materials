@@ -1,0 +1,31 @@
+@import './theme-dark.scss';
+@import './components/edit-table/index.scss';
+@import './components/pro-table/index.scss';
+@import './components/pro-table-base/index.scss';
+@import './components/pro-table-column-title/index.scss';
+@import './components/pro-table-setting-button/index.scss';
+
+.fusion-ui-pro-table-action-bar {
+  display: flex;
+  margin-bottom: var(--s-5, $s-5);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cell-label {
+  &-success {
+    color: var(--color-success-3, $color-success-3);
+  }
+  &-error {
+    color: var(--color-error-3, $color-error-3);
+  }
+  &-warning {
+    color: var(--color-warning-3, $color-warning-3);
+  }
+  &-notice {
+    color: var(--color-notice-3, $color-notice-3);
+  }
+  &-help {
+    color: var(--color-help-3, $color-help-3);
+  }
+}

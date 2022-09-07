@@ -226,11 +226,13 @@ export default {
                       name: 'label',
                       title: '选项名',
                       setter: 'StringSetter',
+                      isRequired: true
                     },
                     {
                       name: 'value',
                       title: '选项值',
                       setter: 'StringSetter',
+                      isRequired: true
                     },
                   ],
                 },
