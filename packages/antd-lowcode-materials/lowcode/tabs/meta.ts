@@ -9,7 +9,7 @@ export default {
   category: '数据展示',
   props: [
     {
-      name: 'tabs',
+      name: 'items',
       title: '标签项',
       setter: {
         componentName: 'ArraySetter',
@@ -27,7 +27,7 @@ export default {
                     supportVariable: true
                   },
                   {
-                    name: 'tab',
+                    name: 'label',
                     title: '标题',
                     setter: 'StringSetter',
                     initialValue: '标签项',
@@ -57,85 +57,164 @@ export default {
                     initialValue: false,
                     supportVariable: true
                   },
+                  {
+                    name: 'children',
+                    title: '内容',
+                    setter: {
+                      componentName: 'SlotSetter',
+                      initialValue: {
+                        type: 'JSSlot',
+                        value: [],
+                      },
+                    },
+                  },
                 ],
               },
             },
             initialValue: () => {
               return {
                 key: uuid(),
-                tab: '标签项',
-                closeable: true,
+                label: '标签项',
                 disabled: false,
                 forceRender: false,
+                children: {
+                  type: 'JSSlot',
+                  value: [],
+                },
               };
             },
           },
         },
-      },
-      extraProps: {
-        getValue(target, fieldValue) {
-          const map = target.node.children.map((child) => {
-            const key = child.getPropValue('key') ? String(child.getPropValue('key')) : child.id;
-            return {
-              key,
-              tab: child.getPropValue('tab'),
-              closeable: child.getPropValue('closeable'),
-              disabled: child.getPropValue('disabled'),
-              forceRender: child.getPropValue('forceRender'),
-            };
-          });
-          return map;
-        },
-        setValue(target, value) {
-          const { node } = target;
-          const map = {};
-
-          if (!Array.isArray(value)) {
-            value = [];
-          }
-          value.forEach((item) => {
-            const tabItem = Object.assign({}, item);
-            map[item.key] = tabItem;
-          });
-
-          node.children.mergeChildren(
-            (child) => {
-              const key = String(child.getPropValue('key'));
-              if (Object.hasOwnProperty.call(map, key)) {
-                child.setPropValue('tab', map[key].tab);
-                child.setPropValue('closeable', map[key].closeable);
-                child.setPropValue('disabled', map[key].disabled);
-                child.setPropValue('forceRender', map[key].forceRender);
-                delete map[key];
-                return false;
-              }
-              return true;
-            },
-            () => {
-              const items = [];
-              for (const key in map) {
-                if (Object.hasOwnProperty.call(map, key)) {
-                  items.push({
-                    componentName: 'Tabs.TabPane',
-                    props: map[key],
-                  });
-                }
-              }
-              return items;
-            },
-            (child1, child2) => {
-              const a = value.findIndex(
-                (item) => String(item.key) === String(child1.getPropValue('key')),
-              );
-              const b = value.findIndex(
-                (item) => String(item.key) === String(child2.getPropValue('key')),
-              );
-              return a - b;
-            },
-          );
-        },
-      },
+      }
     },
+    // {
+    //   name: 'tabs',
+    //   title: '标签项',
+    //   setter: {
+    //     componentName: 'ArraySetter',
+    //     props: {
+    //       itemSetter: {
+    //         componentName: 'ObjectSetter',
+    //         props: {
+    //           config: {
+    //             items: [
+    //               {
+    //                 name: 'key',
+    //                 title: 'key',
+    //                 setter: 'StringSetter',
+    //                 initialValue: (val) => val || uuid(),
+    //                 supportVariable: true
+    //               },
+    //               {
+    //                 name: 'tab',
+    //                 title: '标题',
+    //                 setter: 'StringSetter',
+    //                 initialValue: '标签项',
+    //                 supportVariable: true
+    //               },
+    //               // {
+    //               //   name: 'closeable',
+    //               //   title: '是否可删除',
+    //               //   condition(target) {
+    //               //     return target.getProps().getPropValue('type') === 'editable-card';
+    //               //   },
+    //               //   setter: 'BoolSetter',
+    //               //   initialValue: true,
+    //               // },
+    //               {
+    //                 name: 'disabled',
+    //                 title: '禁用',
+    //                 setter: 'BoolSetter',
+    //                 initialValue: false,
+    //                 supportVariable: true
+    //               },
+    //               {
+    //                 name: 'forceRender',
+    //                 title: '隐藏时保留',
+    //                 propType: 'bool',
+    //                 setter: 'BoolSetter',
+    //                 initialValue: false,
+    //                 supportVariable: true
+    //               },
+    //             ],
+    //           },
+    //         },
+    //         initialValue: () => {
+    //           return {
+    //             key: uuid(),
+    //             tab: '标签项',
+    //             closeable: true,
+    //             disabled: false,
+    //             forceRender: false,
+    //           };
+    //         },
+    //       },
+    //     },
+    //   },
+    //   extraProps: {
+    //     getValue(target, fieldValue) {
+    //       const map = target.node.children.map((child) => {
+    //         const key = child.getPropValue('key') ? String(child.getPropValue('key')) : child.id;
+    //         return {
+    //           key,
+    //           tab: child.getPropValue('tab'),
+    //           closeable: child.getPropValue('closeable'),
+    //           disabled: child.getPropValue('disabled'),
+    //           forceRender: child.getPropValue('forceRender'),
+    //         };
+    //       });
+    //       return map;
+    //     },
+    //     setValue(target, value) {
+    //       const { node } = target;
+    //       const map = {};
+
+    //       if (!Array.isArray(value)) {
+    //         value = [];
+    //       }
+    //       value.forEach((item) => {
+    //         const tabItem = Object.assign({}, item);
+    //         map[item.key] = tabItem;
+    //       });
+
+    //       node.children.mergeChildren(
+    //         (child) => {
+    //           const key = String(child.getPropValue('key'));
+    //           if (Object.hasOwnProperty.call(map, key)) {
+    //             child.setPropValue('tab', map[key].tab);
+    //             child.setPropValue('closeable', map[key].closeable);
+    //             child.setPropValue('disabled', map[key].disabled);
+    //             child.setPropValue('forceRender', map[key].forceRender);
+    //             delete map[key];
+    //             return false;
+    //           }
+    //           return true;
+    //         },
+    //         () => {
+    //           const items = [];
+    //           for (const key in map) {
+    //             if (Object.hasOwnProperty.call(map, key)) {
+    //               items.push({
+    //                 componentName: 'Tabs.TabPane',
+    //                 props: map[key],
+    //               });
+    //             }
+    //           }
+    //           return items;
+    //         },
+    //         (child1, child2) => {
+    //           const a = value.findIndex(
+    //             (item) => String(item.key) === String(child1.getPropValue('key')),
+    //           );
+    //           const b = value.findIndex(
+    //             (item) => String(item.key) === String(child2.getPropValue('key')),
+    //           );
+    //           return a - b;
+    //         },
+    //       );
+    //     },
+    //   },
+    // },
     // {
 
     //   name: 'addIcon',
@@ -310,16 +389,16 @@ export default {
       ],
     },
     advanced: {
-      initialChildren: [
-        {
-          componentName: 'Tabs.TabPane',
-          props: { key: 'item1', tab: 'Item 1' },
-        },
-        {
-          componentName: 'Tabs.TabPane',
-          props: { key: 'item2', tab: 'Item 2' },
-        },
-      ],
+      // initialChildren: [
+      //   {
+      //     componentName: 'Tabs.TabPane',
+      //     props: { key: 'item1', tab: 'Item 1' },
+      //   },
+      //   {
+      //     componentName: 'Tabs.TabPane',
+      //     props: { key: 'item2', tab: 'Item 2' },
+      //   },
+      // ],
     },
   },
 };

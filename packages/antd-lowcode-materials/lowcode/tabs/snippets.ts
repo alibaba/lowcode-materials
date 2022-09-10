@@ -6,23 +6,25 @@ export default [
       componentName: 'Tabs',
       props: {
         type: 'line',
-      },
-      children: [
-        {
-          componentName: 'Tabs.TabPane',
-          props: {
-            tab: '标签项1',
+        items: [
+          {
+            label: '标签项1',
             key: 'tab-item-1',
+            children: {
+              type: 'JSSlot',
+              value: [],
+            },
           },
-        },
-        {
-          componentName: 'Tabs.TabPane',
-          props: {
-            tab: '标签项2',
+          {
+            label: '标签项2',
             key: 'tab-item-2',
-          },
-        },
-      ],
+            children: {
+              type: 'JSSlot',
+              value: [],
+            },
+          }
+        ]
+      }
     },
   },
   {
@@ -32,23 +34,25 @@ export default [
       componentName: 'Tabs',
       props: {
         type: 'card',
-      },
-      children: [
-        {
-          componentName: 'Tabs.TabPane',
-          props: {
-            tab: '标签项1',
+        items: [
+          {
+            label: '标签项1',
             key: 'tab-item-1',
+            children: {
+              type: 'JSSlot',
+              value: [],
+            },
           },
-        },
-        {
-          componentName: 'Tabs.TabPane',
-          props: {
-            tab: '标签项2',
+          {
+            label: '标签项2',
             key: 'tab-item-2',
-          },
-        },
-      ],
+            children: {
+              type: 'JSSlot',
+              value: [],
+            },
+          }
+        ]
+      }
     },
   },
   {
@@ -58,23 +62,25 @@ export default [
       componentName: 'Tabs',
       props: {
         type: 'editable-card',
-      },
-      children: [
-        {
-          componentName: 'Tabs.TabPane',
-          props: {
-            tab: '标签项1',
+        items: [
+          {
+            label: '标签项1',
             key: 'tab-item-1',
+            children: {
+              type: 'JSSlot',
+              value: [],
+            },
           },
-        },
-        {
-          componentName: 'Tabs.TabPane',
-          props: {
-            tab: '标签项2',
+          {
+            label: '标签项2',
             key: 'tab-item-2',
-          },
-        },
-      ],
+            children: {
+              type: 'JSSlot',
+              value: [],
+            },
+          }
+        ]
+      }
     },
   },
 ];
