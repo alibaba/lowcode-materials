@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Tabs as OriginalTabs } from 'antd';
+import { TabPaneProps, Tabs as OriginalTabs } from 'antd';
+import { warning } from '../../utils/warning'
+import type { Tab } from 'rc-tabs/lib/interface';
 
 class Tabs extends Component<any> {
   state = {
@@ -26,9 +28,33 @@ class Tabs extends Component<any> {
     const { props } = this;
     const { activeKey } = this.state;
 
+    const { children } = props
+
+    let items = props.items
+
+    // props.items 存在，只认 props.items
+    // 兼容代码：props.childrens 反推 props.items
+    if (!props.items && Array.isArray(children) && children.length > 0) {
+      warning('Tabs.TabPane is deprecated. Please use `items` directly.')
+      items = children.map((node: React.ReactElement<TabPaneProps>) => {
+        if (React.isValidElement(node)) {
+          const { key, props } = node;
+          const { tab, ...restProps } = props || {};
+          const item: Tab = {
+            key: String(key),
+            ...restProps,
+            label: tab,
+          };
+          return item;
+        }
+        return null
+      }).filter(Boolean)
+    }
+
     return (
       <OriginalTabs
         {...props}
+        items={items}
         activeKey={activeKey}
         onChange={this._handleChange}
       />
