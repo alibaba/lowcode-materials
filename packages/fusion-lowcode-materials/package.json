@@ -1,7 +1,11 @@
 {
   "name": "@alilc/lowcode-materials",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Fusion Next for LowCode",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "lowcodeEditMain": "build/lowcode/view.js",
+  "stylePath": "style.js",
   "scripts": {
     "start": "build-scripts start --type=dev",
     "compile": "build-scripts build",
