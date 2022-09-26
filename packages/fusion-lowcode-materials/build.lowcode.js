@@ -1,10 +1,5 @@
 const { name, version } = require('./package.json');
 
-const baseRenderUrl =
-  process && process.argv && process.argv.includes('start')
-    ? '.'
-    : `https://alifd.alicdn.com/npm/${name}@${version}`;
-
 module.exports = {
   sourceMap: false,
   alias: {
@@ -58,10 +53,6 @@ module.exports = {
           prod: `https://alifd.alicdn.com/npm/${name}@${version}`,
           daily: `https://alifd.alicdn.com/npm/${name}@${version}`,
         },
-        renderUrls: [
-          `${baseRenderUrl}/dist/AlilcLowcodeMaterials.js`,
-          `${baseRenderUrl}/dist/AlilcLowcodeMaterials.css`,
-        ],
         categories: ['通用', '导航', '信息输入', '信息展示', '信息反馈'],
         engineScope: '@alilc',
       },

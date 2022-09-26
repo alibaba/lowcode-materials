@@ -1,20 +1,20 @@
 ---
-title: NoteWrapper
-order: 4
+title: Link
+order: 1
 ---
 
-备注容器组件
+超链接组件。
 
 ```jsx
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { NoteWrapper } from '@ali/ali-lowcode-materials';
+import { Link } from '@alilc/lowcode-materials';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <NoteWrapper note="这是一个备注">hello world</NoteWrapper>
+      <div className="mock-body">
+        <Link>这是一个超链接</Link>
       </div>
     );
   }

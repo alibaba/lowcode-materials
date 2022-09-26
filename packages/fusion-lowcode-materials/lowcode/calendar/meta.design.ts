@@ -8,7 +8,7 @@ export default {
   screenshot:
     'https://img.alicdn.com/imgextra/i3/O1CN01IAguy71sM0UGdpChd_!!6000000005751-55-tps-56-56.svg',
   npm: {
-    package: '@ali/ali-lowcode-materials',
+    package: '@alilc/lowcode-materials',
     version: 'latest',
     exportName: 'Calendar',
     main: '',
@@ -206,7 +206,8 @@ export default {
       },
     ],
   },
-  icon: 'https://img.alicdn.com/imgextra/i3/O1CN01IAguy71sM0UGdpChd_!!6000000005751-55-tps-56-56.svg',
+  icon:
+    'https://img.alicdn.com/imgextra/i3/O1CN01IAguy71sM0UGdpChd_!!6000000005751-55-tps-56-56.svg',
   category: '信息展示',
   snippets: require('./snippets'),
 };

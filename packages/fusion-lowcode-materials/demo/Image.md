@@ -1,20 +1,20 @@
 ---
-title: Link
-order: 1
+title: Image
+order: 2
 ---
 
-超链接组件。
+图片组件。
 
 ```jsx
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from '@ali/ali-lowcode-materials';
+import { Image } from '@alilc/lowcode-materials';
 
 class App extends Component {
   render() {
     return (
       <div className="mock-body">
-        <Link>这是一个超链接</Link>
+        <Image />
       </div>
     );
   }

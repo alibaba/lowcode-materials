@@ -1,20 +1,20 @@
 ---
-title: Image
-order: 2
+title: NoteWrapper
+order: 4
 ---
 
-图片组件。
+备注容器组件
 
 ```jsx
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Image } from '@ali/ali-lowcode-materials';
+import { NoteWrapper } from '@alilc/lowcode-materials';
 
 class App extends Component {
   render() {
     return (
-      <div className="mock-body">
-        <Image />
+      <div>
+        <NoteWrapper note="这是一个备注">hello world</NoteWrapper>
       </div>
     );
   }

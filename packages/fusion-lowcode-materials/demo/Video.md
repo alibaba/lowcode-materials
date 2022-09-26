@@ -8,7 +8,7 @@ order: 3
 ```jsx
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Video } from '@ali/ali-lowcode-materials';
+import { Video } from '@alilc/lowcode-materials';
 
 class App extends Component {
   render() {

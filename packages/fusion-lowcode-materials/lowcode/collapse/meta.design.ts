@@ -1,5 +1,5 @@
 import snippets from './snippets.design';
-import parseData from '../utils/parse-data';
+import { parseData } from '../utils/parse-data';
 
 export default {
   group: '原子组件',
@@ -8,7 +8,7 @@ export default {
   docUrl: '',
   screenshot: '',
   npm: {
-    package: '@ali/ali-lowcode-materials',
+    package: '@alilc/lowcode-materials',
     version: 'latest',
     exportName: 'Collapse',
     main: '',
@@ -110,7 +110,7 @@ export default {
           url: '',
         },
         setValue: (target, value) => {
-          const list = parseData(value).filter((node) => 'node' === node.type);
+          const list = parseData(value).filter((node) => node.type === 'node');
           const defaultExpandedKeys: any[] = [];
           const dataSource = list.map((item, index) => {
             if (item.state === 'active') {
@@ -119,7 +119,7 @@ export default {
             return {
               key: `panel_${index}`,
               title: item.value,
-              content: item.children.map(({ type, value }) => (type === 'node' ? value : '')),
+              content: item.children.map(({ type, value: v }) => (type === 'node' ? v : '')),
               disabled: item.state === 'disabled',
             };
           });

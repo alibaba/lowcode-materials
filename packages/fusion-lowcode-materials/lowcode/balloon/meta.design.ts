@@ -7,7 +7,7 @@ export default {
   docUrl: '',
   screenshot: '',
   npm: {
-    package: '@ali/ali-lowcode-materials',
+    package: '@alilc/lowcode-materials',
     version: 'latest',
     exportName: 'Balloon',
     main: '',
