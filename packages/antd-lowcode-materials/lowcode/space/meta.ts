@@ -11,7 +11,7 @@ export default {
       title: { label: '对齐方式', tip: '对齐方式' },
       propType: {
         type: 'oneOf',
-        value: ['start', 'end', 'center', 'baseline'],
+        value: ['', 'start', 'end', 'center', 'baseline'],
       },
     },
     {
