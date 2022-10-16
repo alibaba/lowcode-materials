@@ -15,6 +15,16 @@ module.exports = {
         noParse: true,
         engineScope: '@alilc',
         library,
+        staticResources: {
+          engineCoreCssUrl:
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@1.0.14/dist/css/engine-core.css',
+          engineExtCssUrl:
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine-ext@1.0.5-beta.10/dist/css/engine-ext.css',
+          engineCoreJsUrl:
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@1.0.14/dist/js/engine-core.js',
+          engineExtJsUrl:
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine-ext@1.0.5-beta.10/dist/js/engine-ext.js',
+        },
         npmInfo: {
           package: name,
           version,
