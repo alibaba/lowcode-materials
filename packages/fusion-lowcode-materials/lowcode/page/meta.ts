@@ -33,11 +33,6 @@ export default [
           },
         ],
       },
-      component: {
-        isContainer: true,
-      },
-    },
-    configure: {
       supports: {
         style: true,
       },
@@ -45,7 +40,7 @@ export default [
         isContainer: true,
         disableBehaviors: '*',
         nestingRule: {
-          childWhitelist: ['NextPage'],
+          childWhitelist: ['NextPage', 'ProDialog', 'Dialog', 'Drawer'],
         },
       },
     },
