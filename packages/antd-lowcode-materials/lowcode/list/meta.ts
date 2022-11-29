@@ -179,7 +179,7 @@ export default {
         {
           name: 'pagination',
           title: { label: '显示分页', tip: 'pagination | 显示分页' },
-          propType: 'bool',
+          propType: 'object',
           setter: 'BoolSetter',
           extraProps: {
             setValue: (target, value) => {
