@@ -1,6 +1,6 @@
 {
   "name": "@alilc/antd-lowcode-materials",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Antd for LowCode",
   "main": "lib/index.js",
   "scripts": {
