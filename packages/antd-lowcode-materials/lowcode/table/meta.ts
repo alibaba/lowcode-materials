@@ -319,7 +319,7 @@ export default {
         {
           name: 'pagination',
           title: { label: '显示分页', tip: 'pagination | 显示分页' },
-          propType: 'bool',
+          propType: 'object',
           setter: 'BoolSetter',
           extraProps: {
             setValue: (target, value) => {
@@ -557,9 +557,8 @@ export default {
         {
           name: 'rowSelection',
           title: { label: '行选择', tip: 'rowSelection | 行选择' },
-          propType: 'bool',
+          propType: 'object',
           setter: 'BoolSetter',
-          defaultValue: false,
           extraProps: {
             setValue: (target, value) => {
               if (value) {
