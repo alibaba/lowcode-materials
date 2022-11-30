@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '长文本',
@@ -13,4 +14,4 @@ export default [
       },
     },
   },
-];
+] as Snippet;

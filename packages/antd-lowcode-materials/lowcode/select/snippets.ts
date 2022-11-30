@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '选择器',
@@ -25,4 +26,4 @@ export default [
       },
     },
   },
-];
+] as Snippet;

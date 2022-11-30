@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '骨架屏',
@@ -6,8 +7,8 @@ export default [
       componentName: 'Skeleton',
       props: {
         active: true,
-        loading: true 
+        loading: true
       },
     },
   },
-];
+] as Snippet;

@@ -1,3 +1,5 @@
+import { ComponentMetadata } from "@alilc/lowcode-types";
+
 export default {
   componentName: 'Descriptions.Item',
   title: '描述列表项',
@@ -23,4 +25,4 @@ export default {
     component: { isContainer: true },
     supports: { style: true },
   },
-};
+} as ComponentMetadata | any;

@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '描述列表',
@@ -15,4 +16,4 @@ export default [
       },
     },
   },
-];
+] as Snippet;

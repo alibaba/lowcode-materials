@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '数字输入框',
@@ -9,4 +10,4 @@ export default [
       },
     },
   },
-];
+] as Snippet;

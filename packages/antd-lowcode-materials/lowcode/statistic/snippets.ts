@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '统计数值',
@@ -10,4 +11,4 @@ export default [
       },
     },
   },
-];
+] as Snippet;

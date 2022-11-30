@@ -1,3 +1,4 @@
+import {ComponentMetadata} from "@alilc/lowcode-types";
 import snippets from './snippets';
 
 export default {
@@ -45,8 +46,8 @@ export default {
       defaultValue: false,
     },
   ],
-  configure: { 
+  configure: {
     component: { isContainer: true },
-    supports: { style: true } 
+    supports: { style: true }
   },
-};
+} as ComponentMetadata | any;

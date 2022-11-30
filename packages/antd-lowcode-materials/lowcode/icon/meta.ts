@@ -1,3 +1,4 @@
+import {ComponentMetadata} from "@alilc/lowcode-types";
 import snippets from './snippets';
 import { AntdIconSetter } from '../_setters';
 
@@ -60,4 +61,4 @@ export default {
     },
   ],
   configure: { supports: { style: true } },
-};
+} as ComponentMetadata | any;

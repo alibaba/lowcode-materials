@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '折叠面板',
@@ -25,4 +26,4 @@ export default [
       ],
     },
   },
-];
+] as Snippet;

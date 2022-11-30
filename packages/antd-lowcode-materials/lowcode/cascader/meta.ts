@@ -1,3 +1,4 @@
+import {ComponentMetadata} from "@alilc/lowcode-types";
 import snippets from './snippets';
 
 export default {
@@ -161,4 +162,4 @@ export default {
       ],
     },
   },
-};
+} as ComponentMetadata | any;

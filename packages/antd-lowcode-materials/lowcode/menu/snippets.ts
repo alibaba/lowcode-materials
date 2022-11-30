@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '导航菜单',
@@ -19,4 +20,4 @@ export default [
       },
     },
   },
-];
+] as Snippet;

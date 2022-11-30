@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '主按钮',
@@ -65,4 +66,4 @@ export default [
       },
     },
   },
-];
+] as Snippet;

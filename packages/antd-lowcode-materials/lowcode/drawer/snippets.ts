@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '侧边抽屉',
@@ -37,4 +38,4 @@ export default [
       ],
     },
   },
-];
+] as Snippet;

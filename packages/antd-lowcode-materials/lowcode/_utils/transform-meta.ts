@@ -7,7 +7,8 @@ import {
   ObjectOf,
   ArrayOf,
   TransformedComponentMetadata,
-} from '@ali/lowcode-types';
+} from '@alilc/lowcode-types';
+import { TitleContent } from "@alilc/lowcode-types/lib/title";
 
 // http://gitlab.alibaba-inc.com/ali-lowcode/ali-lowcode-engine/merge_requests/1054678
 // 这个MR合并后可以去掉这个文件
@@ -17,7 +18,7 @@ function propConfigToFieldConfig(
   supportVariable: boolean,
 ): FieldConfig {
   const { name, description } = propConfig;
-  const title = {
+  const title: TitleContent = {
     label: {
       type: 'i18n',
       'en-US': name,
@@ -233,7 +234,7 @@ function propTypeToSetter(
 const NO_EVENTS = ['beforeUpload'];
 const EVENT_RE = /^on|after|before[A-Z][\w]*$/;
 
-export default function(
+export default function (
   metadata: TransformedComponentMetadata,
   supportVariable: boolean,
 ): TransformedComponentMetadata {

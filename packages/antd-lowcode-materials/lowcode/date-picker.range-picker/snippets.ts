@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '日期区间',
@@ -41,4 +42,4 @@ export default [
       },
     },
   },
-];
+] as Snippet;

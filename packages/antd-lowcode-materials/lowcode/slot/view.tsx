@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-class Slot extends Component {
+class Slot extends Component<any, any> {
   static displayName = 'Slot';
 
   static componentMetadata = {

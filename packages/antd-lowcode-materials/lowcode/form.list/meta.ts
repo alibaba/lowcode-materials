@@ -1,3 +1,5 @@
+import { ComponentMetadata } from "@alilc/lowcode-types";
+
 export default {
   componentName: 'Form.List',
   title: '表单列表',
@@ -25,4 +27,4 @@ export default {
     },
     supports: { className: true, style: true },
   },
-};
+} as ComponentMetadata | any;

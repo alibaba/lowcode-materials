@@ -1,3 +1,4 @@
+import {ComponentMetadata} from "@alilc/lowcode-types";
 import snippets from './snippets';
 import { uuid } from '../_utils/utils'
 
@@ -366,4 +367,4 @@ export default {
       },
     },
   },
-};
+} as ComponentMetadata | any;

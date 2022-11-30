@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '提及',
@@ -7,4 +8,4 @@ export default [
       props: {},
     },
   },
-];
+] as Snippet;

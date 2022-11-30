@@ -1,3 +1,4 @@
+import {ComponentMetadata} from "@alilc/lowcode-types";
 import snippets from './snippets';
 
 function clamp(value, min, max) {
@@ -102,4 +103,4 @@ export default {
       },
     },
   },
-};
+} as ComponentMetadata | any;

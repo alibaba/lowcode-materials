@@ -1,5 +1,7 @@
 // FIXME: 选中tabPane点复制，会出问题，因为复制的组件key一样
 
+import { ComponentMetadata } from "@alilc/lowcode-types";
+
 export default {
   componentName: 'Collapse.Panel',
   title: '折叠项',
@@ -70,4 +72,4 @@ export default {
       },
     },
   },
-};
+} as ComponentMetadata | any;

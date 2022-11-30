@@ -1,3 +1,6 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
+
+
 export default [
   {
     title: '一级标题',
@@ -43,4 +46,4 @@ export default [
       },
     },
   },
-];
+] as Snippet;

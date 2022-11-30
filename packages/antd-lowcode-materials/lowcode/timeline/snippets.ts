@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '时间轴',
@@ -18,4 +19,4 @@ export default [
       },
     },
   },
-];
+] as Snippet;

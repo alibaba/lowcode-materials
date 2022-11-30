@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '滑动输入条',
@@ -9,4 +10,4 @@ export default [
       },
     },
   },
-];
+] as Snippet;

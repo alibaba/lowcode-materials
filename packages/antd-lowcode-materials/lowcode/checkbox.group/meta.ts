@@ -1,4 +1,5 @@
 import { uuid } from '../_utils/utils';
+import { ComponentMetadata } from "@alilc/lowcode-types";
 
 export default {
   componentName: 'Checkbox.Group',
@@ -136,4 +137,4 @@ export default {
       ],
     },
   },
-};
+} as ComponentMetadata | any;

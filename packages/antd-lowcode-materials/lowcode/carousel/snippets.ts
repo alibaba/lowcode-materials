@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '走马灯',
@@ -20,4 +21,4 @@ export default [
       ],
     },
   },
-];
+] as Snippet;

@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '步骤条',
@@ -33,4 +34,4 @@ export default [
       ],
     },
   },
-];
+] as Snippet;

@@ -1,3 +1,4 @@
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '密码框',
@@ -9,4 +10,4 @@ export default [
       },
     },
   },
-];
+] as Snippet;

@@ -1,5 +1,6 @@
 import { uuid } from '../_utils/utils';
 
+import {Snippet} from "@alilc/lowcode-types/lib/metadata";
 export default [
   {
     title: '穿梭框',
@@ -39,4 +40,4 @@ export default [
       },
     },
   },
-];
+] as Snippet;
