@@ -1,8 +1,90 @@
 import { uuid } from '../_utils/utils';
-import { itemsExtraProps } from './utils';
 
 import snippets from './snippets';
+import { ComponentMetadata, Configure, DynamicSetter, FieldConfig, SettingTarget } from "@alilc/lowcode-types";
 
+//todo 这是不够完善
+let ItemsSetter: DynamicSetter = () => {
+  return {
+    componentName: 'ArraySetter',
+    props: {
+      itemSetter: {
+        componentName: 'ObjectSetter',
+        props: {
+          config: {
+            items: [
+              {
+                name: 'key',
+                description: "必须保存同节点下唯一",
+                isRequired: true,
+                title: 'key',
+                setter: 'StringSetter',
+                initialValue: (val: any) => val || uuid(),
+              },
+              {
+                name: 'label',
+                title: '菜单项标题',
+                isRequired: true,
+                setter: ['StringSetter', "node"],
+              },
+              {
+                name: 'danger',
+                title: '展示错误状态样式',
+                setter: 'BoolSetter',
+              },
+              {
+                name: 'title',
+                title: '设置收缩时展示的悬浮标题',
+                setter: 'StringSetter',
+              },
+              {
+                name: 'disabled',
+                title: '是否禁用',
+                setter: 'BoolSetter',
+              },
+              {
+                name: 'icon',
+                title: { label: '图标', tip: 'icon | 设置按钮的图标组件' },
+                propType: 'node',
+                setter: {
+                  componentName: 'SlotSetter',
+                  initialValue: {
+                    type: 'JSSlot',
+                    value: [
+                      {
+                        componentName: 'Icon',
+                        props: {
+                          type: 'SmileOutlined',
+                          size: 20,
+                          rotate: 0,
+                          spin: false,
+                        },
+                      },
+                    ],
+                  },
+                },
+              },
+              {
+                "name": "children",
+                setter: ItemsSetter,
+              }
+
+
+            ],
+          },
+        },
+        initialValue: () => {
+          return {
+            key: 'item-' + uuid(),
+            label: '菜单项标题',
+            children: [],
+          };
+        },
+      },
+
+    }
+  }
+}
 export default {
   snippets,
   componentName: 'Menu',
@@ -12,73 +94,8 @@ export default {
     {
       name: 'items',
       title: '菜单项',
-      setter: {
-        componentName: 'ArraySetter',
-        props: {
-          itemSetter: {
-            componentName: 'ObjectSetter',
-            props: {
-              config: {
-                items: [
-                  {
-                    name: 'key',
-                    title: 'key',
-                    setter: 'StringSetter',
-                    initialValue: (val) => val || uuid(),
-                  },
-                  {
-                    name: 'children',
-                    title: '菜单名称',
-                    setter: 'StringSetter',
-                  },
-                  {
-                    name: 'category',
-                    title: {
-                      label: '类型',
-                      tip: '菜单项类型',
-                    },
-                    propType: {
-                      type: 'oneOf',
-                      value: ['Menu.Item', 'Menu.SubMenu', 'Menu.ItemGroup'],
-                    },
-                    setter: [
-                      {
-                        componentName: 'RadioGroupSetter',
-                        props: {
-                          options: [
-                            {
-                              title: 'Item',
-                              value: 'Menu.Item',
-                            },
-                            {
-                              title: 'SubMenu',
-                              value: 'Menu.SubMenu',
-                            },
-                            {
-                              title: 'ItemGroup',
-                              value: 'Menu.ItemGroup',
-                            },
-                          ],
-                        },
-                      },
-                      'VariableSetter',
-                    ],
-                  },
-                ],
-              },
-            },
-            initialValue: () => {
-              return {
-                key: 'item-' + uuid(),
-                category: 'Menu.Item',
-                children: '菜单名',
-              };
-            },
-          },
-        },
-      },
-      extraProps: itemsExtraProps,
-    },
+      setter: ItemsSetter,
+    } as FieldConfig,
     {
       name: 'defaultOpenKeys',
       title: {
@@ -190,6 +207,7 @@ export default {
         tip: '展开/关闭的触发行为',
       },
       propType: { type: 'oneOf', value: ['hover', 'click'] },
+      defaultValue: "click"
     },
     {
       name: 'onOpenChange',
@@ -213,25 +231,21 @@ export default {
       events: [
         {
           name: 'onClick',
-          template:
-            "onClick({item,key,keyPath,domEvent},${extParams}){\n// 点击 MenuItem 调用此函数\nconsole.log('onClick',item,key,keyPath,domEvent);}",
+          template: "onClick({item,key,keyPath,domEvent},${extParams}){\n// 点击 MenuItem 调用此函数\nconsole.log('onClick',item,key,keyPath,domEvent);}",
         },
         {
           name: 'onDeselect',
-          template:
-            "onDeselect({item,key,keyPath,selectedKeys,domEvent},${extParams}){\n// 取消选中时调用，仅在 multiple 生效\nconsole.log('onDeselect',item,key,keyPath,selectedKeys,domEvent);}",
+          template: "onDeselect({item,key,keyPath,selectedKeys,domEvent},${extParams}){\n// 取消选中时调用，仅在 multiple 生效\nconsole.log('onDeselect',item,key,keyPath,selectedKeys,domEvent);}",
         },
         {
           name: 'onOpenChange',
-          template:
-            "onOpenChange(openKeys,${extParams}){\n// SubMenu 展开/关闭的回调\nconsole.log('onOpenChange',openKeys);}",
+          template: "onOpenChange(openKeys,${extParams}){\n// SubMenu 展开/关闭的回调\nconsole.log('onOpenChange',openKeys);}",
         },
         {
           name: 'onSelect',
-          template:
-            "onSelect({item,key,keyPath,selectedKeys,domEvent},${extParams}){\n// 被选中时调用\nconsole.log('onSelect',item,key,keyPath,selectedKeys,domEvent);}",
+          template: "onSelect({item,key,keyPath,selectedKeys,domEvent},${extParams}){\n// 被选中时调用\nconsole.log('onSelect',item,key,keyPath,selectedKeys,domEvent);}",
         },
       ],
     },
   },
-};
+} as unknown as (ComponentMetadata & Configure);

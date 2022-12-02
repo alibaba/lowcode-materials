@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "build-scripts build",
+    "dev": "npm run lowcode:dev",
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
     "lowcode:build": "build-scripts build --config ./build.lowcode.js",
     "prepublishOnly": "npm run lowcode:build"
@@ -42,6 +43,7 @@
     }
   ],
   "dependencies": {
+    "@alilc/lowcode-types": "^1.0.17",
     "@ant-design/icons": "^4.6.2",
     "antd": "^4.23.1",
     "moment": "^2.29.1"
