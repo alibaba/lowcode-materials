@@ -1,5 +1,5 @@
 const { name, version } = require("./package.json");
-
+const path  = require('path')
 const library = 'AntdLowcode';
 
 module.exports = {
@@ -65,5 +65,6 @@ module.exports = {
         ],
       },
     ],
+    [path.join(__dirname,'./command-plugins/fixTmpPlugin'),{}]
   ],
 };

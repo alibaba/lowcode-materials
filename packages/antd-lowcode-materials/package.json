@@ -4,6 +4,7 @@
   "description": "Antd for LowCode",
   "main": "lib/index.js",
   "scripts": {
+    "fix:tmpview": "node ./fixTmp.js",
     "build": "build-scripts build",
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
     "lowcode:build": "build-scripts build --config ./build.lowcode.js",

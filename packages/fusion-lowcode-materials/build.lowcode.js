@@ -1,5 +1,5 @@
 const { name, version } = require('./package.json');
-
+const path  = require('path')
 module.exports = {
   sourceMap: false,
   alias: {
@@ -66,6 +66,7 @@ module.exports = {
         },
       },
     ],
+    [path.join(__dirname,'./command-plugins/fixTmpPlugin'),{}],
     './plugins/compatible.build.js',
   ],
 };
