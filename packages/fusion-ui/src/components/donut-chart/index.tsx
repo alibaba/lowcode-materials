@@ -1,5 +1,5 @@
 import React from 'react';
-import DonutChart from 'bizcharts/lib/plots/DonutChart';
+import { DonutChart as MyChart } from 'bizcharts';
 import DataSet from '@antv/data-set';
 import numeral from 'numeral';
 
@@ -24,7 +24,10 @@ const processStatistic = (statistic: string | object) => {
     : statistic;
 };
 
-function MyDonut(props) {
+type Iprops = React.ComponentProps<typeof MyChart>;
+
+
+function DonutChart(props: Iprops) {
   const { data, statistic, ...others } = props || {};
 
   dv.source(data);
@@ -37,7 +40,7 @@ function MyDonut(props) {
   });
 
   return (
-    <DonutChart
+    <MyChart
       autoFit
       radius={0.8}
       innerRadius={0.5}
@@ -63,4 +66,4 @@ function MyDonut(props) {
   );
 }
 
-export default MyDonut;
+export default DonutChart;

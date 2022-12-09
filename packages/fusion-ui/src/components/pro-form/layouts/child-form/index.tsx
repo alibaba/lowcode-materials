@@ -7,11 +7,11 @@ export interface ChildFormProps extends ProFormProps {
   mode?: string;
 }
 
-const ChildForm = (props: ChildFormProps) => {
-  const { children, columns, mode, spacing = '0 16px', emptyContent, ...otherProps } = props;
+const ChildForm = (props: ChildFormProps, ref) => {
+  const { children, columns, mode, spacing = 16, emptyContent, ...otherProps } = props;
   const cssPrefix = `${bizCssPrefix}-${mode || 'subForm'}`;
   return (
-    <div className={`${cssPrefix}-child-form`}>
+    <div className={`${cssPrefix}-child-form`} ref={ref}>
       {children ? (
         <ResponsiveGrid style={otherProps.style} gap={spacing} columns={columns}>
           {formatFormItems(
@@ -30,6 +30,8 @@ const ChildForm = (props: ChildFormProps) => {
   );
 };
 
-ChildForm.displayName = 'ChildForm';
+const RefChildForm = React.forwardRef(ChildForm);
 
-export default ChildForm;
+RefChildForm.displayName = 'ChildForm';
+
+export default RefChildForm;

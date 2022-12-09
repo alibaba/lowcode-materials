@@ -1,0 +1,4013 @@
+{
+  "bar-chart": {
+    "BarChart": [
+      {
+        "identifier": "colorField",
+        "description": "请使用seriesField替代",
+        "type": "any"
+      },
+      {
+        "identifier": "legend",
+        "description": "图例",
+        "type": "LengendAPIOptions"
+      },
+      {
+        "identifier": "tooltip",
+        "description": "图表提示框",
+        "type": "TooltipAPIOptions"
+      },
+      {
+        "identifier": "label",
+        "description": "数据标注label",
+        "type": "LabelAPIOptions"
+      },
+      {
+        "identifier": "barSize",
+        "description": "条形的宽度，如设置该属性值，则宽度固定不自动调整",
+        "type": "number"
+      },
+      {
+        "identifier": "stackField",
+        "description": "旧版api，即将废弃 请使用seriesField替代",
+        "type": "string"
+      },
+      {
+        "identifier": "onGetG2Instance",
+        "description": "获取g2Plot实例的勾子函数",
+        "type": "(chart: Plot<any>) => void"
+      },
+      {
+        "identifier": "errorContent",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "events",
+        "description": "图表事件",
+        "type": "Record<string, Function>"
+      },
+      {
+        "identifier": "title",
+        "description": "图表标题。如需绑定事件请直接使用ReactNode。",
+        "type": "ReactNode | VisibleText"
+      },
+      {
+        "identifier": "description",
+        "description": "图表副标题。如需绑定事件请直接使用ReactNode。",
+        "type": "ReactNode | VisibleText"
+      },
+      {
+        "identifier": "forceFit",
+        "description": "请使用autoFit替代forceFit",
+        "type": "boolean"
+      },
+      {
+        "identifier": "isMaterial",
+        "description": "是否是物料组件，因搭建引擎消费ref和原来的组件吐的react实例不兼容。\n该属性会影响ref的消费，为ali-lowcode-engine消费而生。",
+        "type": "boolean"
+      }
+    ]
+  },
+  "column-chart": {
+    "ColumnChart": [
+      {
+        "identifier": "colorField",
+        "description": "请使用seriesField替代",
+        "type": "string"
+      },
+      {
+        "identifier": "legend",
+        "description": "图例",
+        "type": "LengendAPIOptions"
+      },
+      {
+        "identifier": "tooltip",
+        "description": "图表提示框",
+        "type": "TooltipAPIOptions"
+      },
+      {
+        "identifier": "label",
+        "description": "数据标注label",
+        "type": "LabelAPIOptions"
+      },
+      {
+        "identifier": "stackField",
+        "description": "旧版api，即将废弃 请使用seriesField替代",
+        "type": "string"
+      },
+      {
+        "identifier": "onGetG2Instance",
+        "description": "获取g2Plot实例的勾子函数",
+        "type": "(chart: Plot<any>) => void"
+      },
+      {
+        "identifier": "errorContent",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "events",
+        "description": "图表事件",
+        "type": "Record<string, Function>"
+      },
+      {
+        "identifier": "title",
+        "description": "图表标题。如需绑定事件请直接使用ReactNode。",
+        "type": "ReactNode | VisibleText"
+      },
+      {
+        "identifier": "description",
+        "description": "图表副标题。如需绑定事件请直接使用ReactNode。",
+        "type": "ReactNode | VisibleText"
+      },
+      {
+        "identifier": "forceFit",
+        "description": "请使用autoFit替代forceFit",
+        "type": "boolean"
+      },
+      {
+        "identifier": "isMaterial",
+        "description": "是否是物料组件，因搭建引擎消费ref和原来的组件吐的react实例不兼容。\n该属性会影响ref的消费，为ali-lowcode-engine消费而生。",
+        "type": "boolean"
+      }
+    ]
+  },
+  "donut-chart": {
+    "DonutChart": [
+      {
+        "identifier": "legend",
+        "description": "图例",
+        "type": "LengendAPIOptions"
+      },
+      {
+        "identifier": "tooltip",
+        "description": "图表提示框",
+        "type": "TooltipAPIOptions"
+      },
+      {
+        "identifier": "label",
+        "description": "数据标注label",
+        "type": "LabelAPIOptions"
+      },
+      {
+        "identifier": "onGetG2Instance",
+        "description": "获取g2Plot实例的勾子函数",
+        "type": "(chart: Plot<any>) => void"
+      },
+      {
+        "identifier": "errorContent",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "events",
+        "description": "图表事件",
+        "type": "Record<string, Function>"
+      },
+      {
+        "identifier": "title",
+        "description": "图表标题。如需绑定事件请直接使用ReactNode。",
+        "type": "ReactNode | VisibleText"
+      },
+      {
+        "identifier": "description",
+        "description": "图表副标题。如需绑定事件请直接使用ReactNode。",
+        "type": "ReactNode | VisibleText"
+      },
+      {
+        "identifier": "forceFit",
+        "description": "请使用autoFit替代forceFit",
+        "type": "boolean"
+      },
+      {
+        "identifier": "isMaterial",
+        "description": "是否是物料组件，因搭建引擎消费ref和原来的组件吐的react实例不兼容。\n该属性会影响ref的消费，为ali-lowcode-engine消费而生。",
+        "type": "boolean"
+      }
+    ]
+  },
+  "edit-table": {
+    "EditTable": [
+      {
+        "identifier": "addPosition",
+        "type": "\"end\" | \"start\""
+      },
+      {
+        "identifier": "onSave",
+        "type": "(rowIndex: number, record: Record<string, any>, dataSource: any[]) => void"
+      },
+      {
+        "identifier": "onRemove",
+        "type": "(rowIndex: number, record: Record<string, any>, dataSource: any[]) => void"
+      },
+      {
+        "identifier": "onCancel",
+        "type": "(rowIndex: number, record: Record<string, any>, dataSource: any[]) => void"
+      },
+      {
+        "identifier": "actionBarButtons",
+        "description": "表格操作栏按钮",
+        "type": "ProTableActionBarButtons"
+      },
+      {
+        "identifier": "settingButtons",
+        "description": "表格设置按钮",
+        "type": "boolean | ProTableSettingButtonType[]",
+        "default": "false"
+      },
+      {
+        "identifier": "columnsSetting",
+        "description": "列设置",
+        "type": "ProTableColumnsSetting"
+      },
+      {
+        "identifier": "defaultColumnsSetting",
+        "description": "默认列设置",
+        "type": "ProTableColumnsSetting"
+      },
+      {
+        "identifier": "onColumnsSettingChange",
+        "description": "设置改变时的回调",
+        "type": "(newSetting: ProTableColumnsSetting, actionType: ProTableSettingActionType) => void"
+      },
+      {
+        "identifier": "onFullscreenStateChange",
+        "description": "全屏状态变化回调",
+        "type": "(fullscreenState: boolean) => void"
+      },
+      {
+        "identifier": "isExpandedChild",
+        "description": "是否是子母表的子表",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "paginationProps",
+        "type": "Record<string, any>"
+      },
+      {
+        "identifier": "actionBarLeft",
+        "description": "操作条左侧槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "actionBarRight",
+        "description": "操作条右侧槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "actionBarBefore",
+        "description": "操作条前槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "actionBarAfter",
+        "description": "操作条后槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "table",
+        "description": "表格内槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "tableAfter",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "columns",
+        "description": "表格列设置",
+        "type": "ProTableColumnProps[]"
+      },
+      {
+        "identifier": "onSort",
+        "description": "点击列排序触发的事件",
+        "type": "(dataIndex: string, order: SortValue, sort: Record<string, SortValue>) => void"
+      },
+      {
+        "identifier": "rowSelection",
+        "description": "是否启用选择模式\nhttps://yuque.antfin-inc.com/docs/share/34ec077c-14d5-4408-bfd4-d2827bfd87ec",
+        "type": "{ ref?: MutableRefObject<ProTableRowSelectionInstance>; getProps?: (record: ProTableRowRecord, index: number) => CheckboxProps | RadioProps; ... 12 more ...; titleProps?: () => CheckboxProps; }"
+      },
+      {
+        "identifier": "onRowClick",
+        "description": "点击表格每一行触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "onRowMouseEnter",
+        "description": "悬浮在表格每一行的时候触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "onRowMouseLeave",
+        "description": "离开表格每一行的时候触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "onFilter",
+        "description": "点击列排序触发的事件",
+        "type": "(filterParams: Record<string, FilterParam>) => void"
+      },
+      {
+        "identifier": "onResizeChange",
+        "description": "重设列尺寸的时候触发的事件",
+        "type": "(dataIndex: string, value: number) => void"
+      },
+      {
+        "identifier": "getRowProps",
+        "description": "设置每一行的属性，如果返回值和其他针对行操作的属性冲突则无效。",
+        "type": "(record: any, index: number) => any"
+      },
+      {
+        "identifier": "rowProps",
+        "type": "(record: any, index: number) => any"
+      },
+      {
+        "identifier": "getCellProps",
+        "description": "设置单元格的属性，通过该属性可以进行合并单元格",
+        "type": "(rowIndex: number, colIndex: number, dataIndex: string, record: any) => any"
+      },
+      {
+        "identifier": "cellProps",
+        "type": "(rowIndex: number, colIndex: number, dataIndex: string, record: any) => any"
+      },
+      {
+        "identifier": "loadingComponent",
+        "description": "自定义 Loading 组件\n请务必传递 props, 使用方式： loadingComponent={props => <Loading {...props}/>}",
+        "type": "(props: LoadingProps) => ReactNode"
+      },
+      {
+        "identifier": "filterParams",
+        "description": "当前过滤的的keys,使用此属性可以控制表格的头部的过滤选项中哪个菜单被选中,格式为 {dataIndex: {selectedKeys:[]}}\n示例:\n假设要控制dataIndex为id的列的过滤菜单中key为one的菜单项选中\n`<Table filterParams={{id: {selectedKeys: ['one']}}}/>`",
+        "type": "Record<string, FilterParam>"
+      },
+      {
+        "identifier": "sort",
+        "description": "排序值",
+        "type": "Record<string, SortValue>"
+      },
+      {
+        "identifier": "sortIcons",
+        "description": "自定义排序按钮，例如上下排布的: `{desc: <Icon style={{top: '6px', left: '4px'}} type={'arrow-down'} size=\"small\" />, asc: <Icon style={{top: '-6px', left: '4px'}} type={'arrow-up'} size=\"small\" />}`",
+        "type": "{ desc?: ReactNode; asc?: ReactNode; }"
+      },
+      {
+        "identifier": "expandedRowRender",
+        "description": "额外渲染行的渲染函数",
+        "type": "(record: any, index: number) => ReactElement<any, string | JSXElementConstructor<any>>"
+      },
+      {
+        "identifier": "rowExpandable",
+        "type": "(record: any) => boolean"
+      },
+      {
+        "identifier": "expandedRowIndent",
+        "description": "额外渲染行的缩进，包含两个数字，第一个数字为左侧缩进，第二个数字为右侧缩进",
+        "type": "[number, number]"
+      },
+      {
+        "identifier": "openRowKeys",
+        "description": "默认情况下展开的渲染行或者Tree, 传入此属性为受控状态",
+        "type": "any[]"
+      },
+      {
+        "identifier": "hasExpandedRowCtrl",
+        "description": "是否显示点击展开额外渲染行的+号按钮",
+        "type": "boolean"
+      },
+      {
+        "identifier": "getExpandedColProps",
+        "description": "设置额外渲染行的属性",
+        "type": "<IRecord extends unknown = any>(record: IRecord, index: number) => object | Record<string | number, any>"
+      },
+      {
+        "identifier": "onRowOpen",
+        "description": "在额外渲染行或者Tree展开或者收起的时候触发的事件",
+        "type": "(openRowKeys: any[], currentRowKey: string, expanded: boolean, currentRecord: any) => void"
+      },
+      {
+        "identifier": "onExpandedRowClick",
+        "description": "点击额外渲染行触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "fixedHeader",
+        "description": "表头是否固定，该属性配合maxBodyHeight使用，当内容区域的高度超过maxBodyHeight的时候，在内容区域会出现滚动条",
+        "type": "boolean"
+      },
+      {
+        "identifier": "maxBodyHeight",
+        "description": "最大内容区域的高度,在`fixedHeader`为`true`的时候,超过这个高度会出现滚动条",
+        "type": "string | number"
+      },
+      {
+        "identifier": "stickyHeader",
+        "description": "表头是否是sticky",
+        "type": "boolean"
+      },
+      {
+        "identifier": "offsetTop",
+        "description": "距离窗口顶部达到指定偏移量后触发",
+        "type": "number"
+      },
+      {
+        "identifier": "affixProps",
+        "description": "affix组件的的属性",
+        "type": "AffixProps"
+      },
+      {
+        "identifier": "indent",
+        "description": "在tree模式下的缩进尺寸， 仅在isTree为true时候有效",
+        "type": "number"
+      },
+      {
+        "identifier": "isTree",
+        "description": "开启Table的tree模式, 接收的数据格式中包含children则渲染成tree table",
+        "type": "boolean"
+      },
+      {
+        "identifier": "useVirtual",
+        "description": "是否开启虚拟滚动",
+        "type": "boolean"
+      },
+      {
+        "identifier": "scrollToRow",
+        "description": "滚动到指定行",
+        "type": "number"
+      },
+      {
+        "identifier": "rowHeight",
+        "description": "设置行高",
+        "type": "number | (() => any)"
+      },
+      {
+        "identifier": "onBodyScroll",
+        "description": "在内容区域滚动的时候触发的函数",
+        "type": "(start: number) => void"
+      },
+      {
+        "identifier": "expandedIndexSimulate",
+        "description": "开启时，getExpandedColProps() / getRowProps() / expandedRowRender() 的第二个参数 index (该行所对应的序列) 将按照01,2,3,4...的顺序返回，否则返回真实index(0,2,4,6... / 1,3,5,7...)",
+        "type": "boolean"
+      },
+      {
+        "identifier": "crossline",
+        "description": "在 hover 时出现十字参考轴，适用于表头比较复杂，需要做表头分类的场景。",
+        "type": "boolean"
+      },
+      {
+        "identifier": "size",
+        "description": "尺寸 small为紧凑模式",
+        "type": "\"small\" | \"medium\""
+      },
+      {
+        "identifier": "tableLayout",
+        "description": "表格元素的 table-layout 属性，设为 fixed 表示内容不会影响列的布局",
+        "type": "\"fixed\" | \"auto\""
+      },
+      {
+        "identifier": "tableWidth",
+        "description": "表格的总长度，可以这么用：设置表格总长度 、设置部分列的宽度，这样表格会按照剩余空间大小，自动其他列分配宽度",
+        "type": "number"
+      },
+      {
+        "identifier": "dataSource",
+        "description": "表格展示的数据源",
+        "type": "any[]"
+      },
+      {
+        "identifier": "hasBorder",
+        "description": "表格是否具有边框",
+        "type": "boolean"
+      },
+      {
+        "identifier": "hasHeader",
+        "description": "表格是否具有头部",
+        "type": "boolean"
+      },
+      {
+        "identifier": "isZebra",
+        "description": "表格是否是斑马线",
+        "type": "boolean"
+      },
+      {
+        "identifier": "loading",
+        "description": "表格是否在加载中",
+        "type": "boolean"
+      },
+      {
+        "identifier": "locale",
+        "description": "自定义国际化文案对象",
+        "type": "{ ok: string; reset: string; empty: string; asc: string; desc: string; expanded: string; folded: string; filter: string; selectAll: string; }"
+      },
+      {
+        "identifier": "emptyContent",
+        "description": "设置数据为空的时候的表格内容展现",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "primaryKey",
+        "description": "dataSource当中数据的主键，如果给定的数据源中的属性不包含该主键，会造成选择状态全部选中",
+        "type": "string"
+      },
+      {
+        "identifier": "pure",
+        "description": "是否开启 Pure Render 模式，会提高性能，但是也会带来副作用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "warning",
+        "description": "是否在开发模式下显示组件属性被废弃的 warning 提示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "rtl",
+        "description": "是否开启 rtl 模式",
+        "type": "boolean"
+      },
+      {
+        "identifier": "columnKey",
+        "description": "指定列唯一的标识，一般不需要设置",
+        "type": "\"dataIndex\" | \"key\"",
+        "default": "key"
+      },
+      {
+        "identifier": "resizable",
+        "description": "可以调整大小",
+        "type": "boolean"
+      },
+      {
+        "identifier": "sortMode",
+        "description": "排序模式是单列还是多列",
+        "type": "\"single\" | \"multiple\"",
+        "default": "'multiple'"
+      },
+      {
+        "identifier": "searchParams",
+        "type": "Record<string, SearchParam>"
+      },
+      {
+        "identifier": "onSearch",
+        "description": "点击列搜索触发的事件",
+        "type": "(searchParams: Record<string, SearchParam>) => void"
+      },
+      {
+        "identifier": "columnFilters",
+        "type": "ProTableColumnsFilterValue"
+      },
+      {
+        "identifier": "onColumnsFilterChange",
+        "type": "(newValue: ProTableColumnsFilterValue, oldValue: ProTableColumnsFilterValue, changedColumnFilterValue?: ProTableColumnFilterValue, changedColumnDataIndex?: string) => void"
+      },
+      {
+        "identifier": "groupHeader",
+        "type": "ReactNode | GroupHeaderProps"
+      },
+      {
+        "identifier": "groupFooter",
+        "type": "ReactNode | GroupFooterProps"
+      },
+      {
+        "identifier": "stickyLock",
+        "description": "是否设置 Table 为 Table.stickyLock",
+        "type": "boolean"
+      },
+      {
+        "identifier": "indexColumn",
+        "description": "序号列",
+        "type": "boolean"
+      },
+      {
+        "identifier": "indexColumnProps",
+        "description": "序号列props",
+        "type": "Partial<ColumnProps>"
+      },
+      {
+        "identifier": "actionColumnProps",
+        "description": "操作列配置覆盖",
+        "type": "Partial<ColumnProps>"
+      },
+      {
+        "identifier": "actionColumnButtons",
+        "description": "操作列按钮组",
+        "type": "ProTableActionColumnButtons"
+      },
+      {
+        "identifier": "actionColumn",
+        "description": "操作列按钮配置列表\n@deprecated 使用 actionColumnButtons",
+        "type": "ActionColumnButton[]"
+      },
+      {
+        "identifier": "actionButtonGroupProps",
+        "description": "操作列按钮组的props\n@deprecated 使用 actionColumnButtons",
+        "type": "ButtonGroupProps"
+      },
+      {
+        "identifier": "actionColumnPredication",
+        "description": "自定义列操作\n@deprecated 使用 actionColumnButtons",
+        "type": "(payload: { actionColumn?: any[]; index: number; record: any; }) => ActionColumnButton[]"
+      },
+      {
+        "identifier": "onActionColumnClick",
+        "description": "操作列点击触发事件\n@deprecated 使用 actionColumnButtons",
+        "type": "(payload: { currentActionKey: string; selectedRowKey: string; record: any; }) => void"
+      },
+      {
+        "identifier": "totalDataSource",
+        "description": "总计数据源, 传入后显示总计行, 统计行需要",
+        "type": "Record<string, ReactNode>"
+      },
+      {
+        "identifier": "cellDefault",
+        "description": "单元格没值时缺省值\n设置优先级: 列配置 > 列类型提供值 > 表格",
+        "type": "ReactNode",
+        "default": "''"
+      },
+      {
+        "identifier": "cellTooltipMode",
+        "description": "单元格tooltip显示逻辑\n设置优先级: 列配置 > 列类型提供值 > 表格\n- ellipsis 在显示省略号时显示tooltip\n- none 不显示tooltip",
+        "type": "\"none\" | \"ellipsis\"",
+        "default": "'none'"
+      }
+    ]
+  },
+  "expand-table": {
+    "ExpandTable": [
+      {
+        "identifier": "dataSource",
+        "description": "表格数据源",
+        "type": "ExpandTableDataProps[]"
+      },
+      {
+        "identifier": "actionBarButtons",
+        "description": "表格操作栏按钮",
+        "type": "ProTableActionBarButtons"
+      },
+      {
+        "identifier": "settingButtons",
+        "description": "表格设置按钮",
+        "type": "boolean | ProTableSettingButtonType[]",
+        "default": "false"
+      },
+      {
+        "identifier": "columnsSetting",
+        "description": "列设置",
+        "type": "ProTableColumnsSetting"
+      },
+      {
+        "identifier": "defaultColumnsSetting",
+        "description": "默认列设置",
+        "type": "ProTableColumnsSetting"
+      },
+      {
+        "identifier": "onColumnsSettingChange",
+        "description": "设置改变时的回调",
+        "type": "(newSetting: ProTableColumnsSetting, actionType: ProTableSettingActionType) => void"
+      },
+      {
+        "identifier": "onFullscreenStateChange",
+        "description": "全屏状态变化回调",
+        "type": "(fullscreenState: boolean) => void"
+      },
+      {
+        "identifier": "isExpandedChild",
+        "description": "是否是子母表的子表",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "paginationProps",
+        "type": "Record<string, any>"
+      },
+      {
+        "identifier": "actionBarLeft",
+        "description": "操作条左侧槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "actionBarRight",
+        "description": "操作条右侧槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "actionBarBefore",
+        "description": "操作条前槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "actionBarAfter",
+        "description": "操作条后槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "table",
+        "description": "表格内槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "tableAfter",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "columns",
+        "description": "表格列设置",
+        "type": "ProTableColumnProps[]"
+      },
+      {
+        "identifier": "onSort",
+        "description": "点击列排序触发的事件",
+        "type": "(dataIndex: string, order: SortValue, sort: Record<string, SortValue>) => void"
+      },
+      {
+        "identifier": "rowSelection",
+        "description": "是否启用选择模式\nhttps://yuque.antfin-inc.com/docs/share/34ec077c-14d5-4408-bfd4-d2827bfd87ec",
+        "type": "{ ref?: MutableRefObject<ProTableRowSelectionInstance>; getProps?: (record: ProTableRowRecord, index: number) => CheckboxProps | RadioProps; ... 12 more ...; titleProps?: () => CheckboxProps; }"
+      },
+      {
+        "identifier": "onRowClick",
+        "description": "点击表格每一行触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "onRowMouseEnter",
+        "description": "悬浮在表格每一行的时候触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "onRowMouseLeave",
+        "description": "离开表格每一行的时候触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "onFilter",
+        "description": "点击列排序触发的事件",
+        "type": "(filterParams: Record<string, FilterParam>) => void"
+      },
+      {
+        "identifier": "onResizeChange",
+        "description": "重设列尺寸的时候触发的事件",
+        "type": "(dataIndex: string, value: number) => void"
+      },
+      {
+        "identifier": "getRowProps",
+        "description": "设置每一行的属性，如果返回值和其他针对行操作的属性冲突则无效。",
+        "type": "(record: any, index: number) => any"
+      },
+      {
+        "identifier": "rowProps",
+        "type": "(record: any, index: number) => any"
+      },
+      {
+        "identifier": "getCellProps",
+        "description": "设置单元格的属性，通过该属性可以进行合并单元格",
+        "type": "(rowIndex: number, colIndex: number, dataIndex: string, record: any) => any"
+      },
+      {
+        "identifier": "cellProps",
+        "type": "(rowIndex: number, colIndex: number, dataIndex: string, record: any) => any"
+      },
+      {
+        "identifier": "loadingComponent",
+        "description": "自定义 Loading 组件\n请务必传递 props, 使用方式： loadingComponent={props => <Loading {...props}/>}",
+        "type": "(props: LoadingProps) => ReactNode"
+      },
+      {
+        "identifier": "filterParams",
+        "description": "当前过滤的的keys,使用此属性可以控制表格的头部的过滤选项中哪个菜单被选中,格式为 {dataIndex: {selectedKeys:[]}}\n示例:\n假设要控制dataIndex为id的列的过滤菜单中key为one的菜单项选中\n`<Table filterParams={{id: {selectedKeys: ['one']}}}/>`",
+        "type": "Record<string, FilterParam>"
+      },
+      {
+        "identifier": "sort",
+        "description": "排序值",
+        "type": "Record<string, SortValue>"
+      },
+      {
+        "identifier": "sortIcons",
+        "description": "自定义排序按钮，例如上下排布的: `{desc: <Icon style={{top: '6px', left: '4px'}} type={'arrow-down'} size=\"small\" />, asc: <Icon style={{top: '-6px', left: '4px'}} type={'arrow-up'} size=\"small\" />}`",
+        "type": "{ desc?: ReactNode; asc?: ReactNode; }"
+      },
+      {
+        "identifier": "expandedRowRender",
+        "description": "额外渲染行的渲染函数",
+        "type": "(record: any, index: number) => ReactElement<any, string | JSXElementConstructor<any>>"
+      },
+      {
+        "identifier": "rowExpandable",
+        "type": "(record: any) => boolean"
+      },
+      {
+        "identifier": "expandedRowIndent",
+        "description": "额外渲染行的缩进，包含两个数字，第一个数字为左侧缩进，第二个数字为右侧缩进",
+        "type": "[number, number]"
+      },
+      {
+        "identifier": "openRowKeys",
+        "description": "默认情况下展开的渲染行或者Tree, 传入此属性为受控状态",
+        "type": "any[]"
+      },
+      {
+        "identifier": "hasExpandedRowCtrl",
+        "description": "是否显示点击展开额外渲染行的+号按钮",
+        "type": "boolean"
+      },
+      {
+        "identifier": "getExpandedColProps",
+        "description": "设置额外渲染行的属性",
+        "type": "<IRecord extends unknown = any>(record: IRecord, index: number) => object | Record<string | number, any>"
+      },
+      {
+        "identifier": "onRowOpen",
+        "description": "在额外渲染行或者Tree展开或者收起的时候触发的事件",
+        "type": "(openRowKeys: any[], currentRowKey: string, expanded: boolean, currentRecord: any) => void"
+      },
+      {
+        "identifier": "onExpandedRowClick",
+        "description": "点击额外渲染行触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "fixedHeader",
+        "description": "表头是否固定，该属性配合maxBodyHeight使用，当内容区域的高度超过maxBodyHeight的时候，在内容区域会出现滚动条",
+        "type": "boolean"
+      },
+      {
+        "identifier": "maxBodyHeight",
+        "description": "最大内容区域的高度,在`fixedHeader`为`true`的时候,超过这个高度会出现滚动条",
+        "type": "string | number"
+      },
+      {
+        "identifier": "stickyHeader",
+        "description": "表头是否是sticky",
+        "type": "boolean"
+      },
+      {
+        "identifier": "offsetTop",
+        "description": "距离窗口顶部达到指定偏移量后触发",
+        "type": "number"
+      },
+      {
+        "identifier": "affixProps",
+        "description": "affix组件的的属性",
+        "type": "AffixProps"
+      },
+      {
+        "identifier": "indent",
+        "description": "在tree模式下的缩进尺寸， 仅在isTree为true时候有效",
+        "type": "number"
+      },
+      {
+        "identifier": "isTree",
+        "description": "开启Table的tree模式, 接收的数据格式中包含children则渲染成tree table",
+        "type": "boolean"
+      },
+      {
+        "identifier": "useVirtual",
+        "description": "是否开启虚拟滚动",
+        "type": "boolean"
+      },
+      {
+        "identifier": "scrollToRow",
+        "description": "滚动到指定行",
+        "type": "number"
+      },
+      {
+        "identifier": "rowHeight",
+        "description": "设置行高",
+        "type": "number | (() => any)"
+      },
+      {
+        "identifier": "onBodyScroll",
+        "description": "在内容区域滚动的时候触发的函数",
+        "type": "(start: number) => void"
+      },
+      {
+        "identifier": "expandedIndexSimulate",
+        "description": "开启时，getExpandedColProps() / getRowProps() / expandedRowRender() 的第二个参数 index (该行所对应的序列) 将按照01,2,3,4...的顺序返回，否则返回真实index(0,2,4,6... / 1,3,5,7...)",
+        "type": "boolean"
+      },
+      {
+        "identifier": "crossline",
+        "description": "在 hover 时出现十字参考轴，适用于表头比较复杂，需要做表头分类的场景。",
+        "type": "boolean"
+      },
+      {
+        "identifier": "size",
+        "description": "尺寸 small为紧凑模式",
+        "type": "\"small\" | \"medium\""
+      },
+      {
+        "identifier": "tableLayout",
+        "description": "表格元素的 table-layout 属性，设为 fixed 表示内容不会影响列的布局",
+        "type": "\"fixed\" | \"auto\""
+      },
+      {
+        "identifier": "tableWidth",
+        "description": "表格的总长度，可以这么用：设置表格总长度 、设置部分列的宽度，这样表格会按照剩余空间大小，自动其他列分配宽度",
+        "type": "number"
+      },
+      {
+        "identifier": "hasBorder",
+        "description": "表格是否具有边框",
+        "type": "boolean"
+      },
+      {
+        "identifier": "hasHeader",
+        "description": "表格是否具有头部",
+        "type": "boolean"
+      },
+      {
+        "identifier": "isZebra",
+        "description": "表格是否是斑马线",
+        "type": "boolean"
+      },
+      {
+        "identifier": "loading",
+        "description": "表格是否在加载中",
+        "type": "boolean"
+      },
+      {
+        "identifier": "locale",
+        "description": "自定义国际化文案对象",
+        "type": "{ ok: string; reset: string; empty: string; asc: string; desc: string; expanded: string; folded: string; filter: string; selectAll: string; }"
+      },
+      {
+        "identifier": "emptyContent",
+        "description": "设置数据为空的时候的表格内容展现",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "primaryKey",
+        "description": "dataSource当中数据的主键，如果给定的数据源中的属性不包含该主键，会造成选择状态全部选中",
+        "type": "string"
+      },
+      {
+        "identifier": "pure",
+        "description": "是否开启 Pure Render 模式，会提高性能，但是也会带来副作用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "warning",
+        "description": "是否在开发模式下显示组件属性被废弃的 warning 提示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "rtl",
+        "description": "是否开启 rtl 模式",
+        "type": "boolean"
+      },
+      {
+        "identifier": "columnKey",
+        "description": "指定列唯一的标识，一般不需要设置",
+        "type": "\"dataIndex\" | \"key\"",
+        "default": "key"
+      },
+      {
+        "identifier": "resizable",
+        "description": "可以调整大小",
+        "type": "boolean"
+      },
+      {
+        "identifier": "sortMode",
+        "description": "排序模式是单列还是多列",
+        "type": "\"single\" | \"multiple\"",
+        "default": "'multiple'"
+      },
+      {
+        "identifier": "searchParams",
+        "type": "Record<string, SearchParam>"
+      },
+      {
+        "identifier": "onSearch",
+        "description": "点击列搜索触发的事件",
+        "type": "(searchParams: Record<string, SearchParam>) => void"
+      },
+      {
+        "identifier": "columnFilters",
+        "type": "ProTableColumnsFilterValue"
+      },
+      {
+        "identifier": "onColumnsFilterChange",
+        "type": "(newValue: ProTableColumnsFilterValue, oldValue: ProTableColumnsFilterValue, changedColumnFilterValue?: ProTableColumnFilterValue, changedColumnDataIndex?: string) => void"
+      },
+      {
+        "identifier": "groupHeader",
+        "type": "ReactNode | GroupHeaderProps"
+      },
+      {
+        "identifier": "groupFooter",
+        "type": "ReactNode | GroupFooterProps"
+      },
+      {
+        "identifier": "stickyLock",
+        "description": "是否设置 Table 为 Table.stickyLock",
+        "type": "boolean"
+      },
+      {
+        "identifier": "indexColumn",
+        "description": "序号列",
+        "type": "boolean"
+      },
+      {
+        "identifier": "indexColumnProps",
+        "description": "序号列props",
+        "type": "Partial<ColumnProps>"
+      },
+      {
+        "identifier": "actionColumnProps",
+        "description": "操作列配置覆盖",
+        "type": "Partial<ColumnProps>"
+      },
+      {
+        "identifier": "actionColumnButtons",
+        "description": "操作列按钮组",
+        "type": "ProTableActionColumnButtons"
+      },
+      {
+        "identifier": "actionColumn",
+        "description": "操作列按钮配置列表\n@deprecated 使用 actionColumnButtons",
+        "type": "ActionColumnButton[]"
+      },
+      {
+        "identifier": "actionButtonGroupProps",
+        "description": "操作列按钮组的props\n@deprecated 使用 actionColumnButtons",
+        "type": "ButtonGroupProps"
+      },
+      {
+        "identifier": "actionColumnPredication",
+        "description": "自定义列操作\n@deprecated 使用 actionColumnButtons",
+        "type": "(payload: { actionColumn?: any[]; index: number; record: any; }) => ActionColumnButton[]"
+      },
+      {
+        "identifier": "onActionColumnClick",
+        "description": "操作列点击触发事件\n@deprecated 使用 actionColumnButtons",
+        "type": "(payload: { currentActionKey: string; selectedRowKey: string; record: any; }) => void"
+      },
+      {
+        "identifier": "totalDataSource",
+        "description": "总计数据源, 传入后显示总计行, 统计行需要",
+        "type": "Record<string, ReactNode>"
+      },
+      {
+        "identifier": "cellDefault",
+        "description": "单元格没值时缺省值\n设置优先级: 列配置 > 列类型提供值 > 表格",
+        "type": "ReactNode",
+        "default": "''"
+      },
+      {
+        "identifier": "cellTooltipMode",
+        "description": "单元格tooltip显示逻辑\n设置优先级: 列配置 > 列类型提供值 > 表格\n- ellipsis 在显示省略号时显示tooltip\n- none 不显示tooltip",
+        "type": "\"none\" | \"ellipsis\"",
+        "default": "'none'"
+      }
+    ]
+  },
+  "filter": {
+    "default": [
+      {
+        "identifier": "expand",
+        "description": "是否展开，受控",
+        "type": "boolean",
+        "default": "undefined"
+      },
+      {
+        "identifier": "defaultExpand",
+        "description": "是否默认展开，非受控",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "visibleRowCount",
+        "description": "最多显示几行元素，超出部分将会提供「展开/收起」按钮",
+        "type": "number",
+        "default": "1"
+      },
+      {
+        "identifier": "enableFilterConfiguration",
+        "description": "是否开启配置筛选项",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "configStorageKey",
+        "description": "配置保存在本地 localStorage 中的 key，请确定为全局唯一\n建议命名方法为：业务域_产品_页面",
+        "type": "string",
+        "default": "window.location?.pathname"
+      },
+      {
+        "identifier": "onExpand",
+        "description": "展开收起回调",
+        "type": "(expand: boolean) => void",
+        "default": "() => {}"
+      },
+      {
+        "identifier": "hideExpandButton",
+        "description": "是否显示「展开/收起」按钮",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "hideDefaultButtons",
+        "description": "是否显示默认的「查询/重置」按钮",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "enableForm",
+        "description": "是否开启表单能力，开启后会使用 fusion Form 组件进行子元素管理",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "formProps",
+        "description": "fusion form 的 api\n@see {@link https://fusion.alibaba-inc.com/pc/component/form?themeid=2#API}",
+        "type": "FormProps",
+        "default": "{}"
+      },
+      {
+        "identifier": "buttons",
+        "description": "按钮漕位渲染",
+        "type": "{ onSearch?: (val: string) => void; onReset?: () => void; render?: () => ReactNode; }",
+        "default": "{}"
+      },
+      {
+        "identifier": "onSearch",
+        "description": "点击主按钮回调",
+        "type": "(val: string) => void"
+      },
+      {
+        "identifier": "onReset",
+        "description": "点击次按钮回调",
+        "type": "() => void"
+      },
+      {
+        "identifier": "buttonRender",
+        "description": "右下角操作区槽位自定义渲染",
+        "type": "() => ReactNode"
+      },
+      {
+        "identifier": "operations",
+        "type": "object[]"
+      },
+      {
+        "identifier": "operationConfig",
+        "type": "object"
+      }
+    ],
+    "FilterItem": [
+      {
+        "identifier": "name",
+        "description": "表单名",
+        "type": "string"
+      },
+      {
+        "identifier": "prefix",
+        "description": "样式前缀",
+        "type": "string"
+      },
+      {
+        "identifier": "label",
+        "description": "label 标签的文本",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "labelCol",
+        "description": "label 标签布局，通 `<Col>` 组件，设置 span offset 值，如 {span: 8, offset: 16}，该项仅在垂直表单有效",
+        "type": "SpanOffset"
+      },
+      {
+        "identifier": "wrapperCol",
+        "description": "需要为输入控件设置布局样式时，使用该属性，用法同 labelCol",
+        "type": "SpanOffset"
+      },
+      {
+        "identifier": "help",
+        "description": "自定义提示信息，如不设置，则会根据校验规则自动生成.",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "extra",
+        "description": "额外的提示信息，和 help 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 位于错误信息后面",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "validateState",
+        "description": "校验状态，如不设置，则会根据校验规则自动生成",
+        "type": "\"warning\" | \"error\" | \"success\" | \"loading\""
+      },
+      {
+        "identifier": "hasFeedback",
+        "description": "配合 validateState 属性使用，是否展示 success/loading 的校验状态图标, 目前只有Input支持",
+        "type": "boolean"
+      },
+      {
+        "identifier": "style",
+        "description": "自定义内联样式",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "children",
+        "description": "node 或者 function(values)",
+        "type": "(ReactNode | (() => void)) & ReactNode"
+      },
+      {
+        "identifier": "size",
+        "description": "单个 Item 的 size 自定义，优先级高于 Form 的 size, 并且当组件与 Item 一起使用时，组件自身设置 size 属性无效。",
+        "type": "\"large\" | \"small\" | \"medium\""
+      },
+      {
+        "identifier": "labelAlign",
+        "description": "标签的位置",
+        "type": "\"top\" | \"left\" | \"inset\""
+      },
+      {
+        "identifier": "labelTextAlign",
+        "description": "标签的左右对齐方式",
+        "type": "\"left\" | \"right\""
+      },
+      {
+        "identifier": "className",
+        "description": "扩展class",
+        "type": "string"
+      },
+      {
+        "identifier": "disabled",
+        "description": "是否禁用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "required",
+        "description": "[表单校验] 不能为空",
+        "type": "boolean"
+      },
+      {
+        "identifier": "asterisk",
+        "description": "required 的星号是否显示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "requiredMessage",
+        "description": "required 自定义错误信息",
+        "type": "string"
+      },
+      {
+        "identifier": "requiredTrigger",
+        "description": "required 自定义触发方式",
+        "type": "string | any[]"
+      },
+      {
+        "identifier": "min",
+        "description": "[表单校验] 最小值",
+        "type": "number"
+      },
+      {
+        "identifier": "max",
+        "description": "[表单校验] 最大值",
+        "type": "number"
+      },
+      {
+        "identifier": "minmaxMessage",
+        "description": "min/max 自定义错误信息",
+        "type": "string"
+      },
+      {
+        "identifier": "minmaxTrigger",
+        "description": "min/max 自定义触发方式",
+        "type": "string | any[]"
+      },
+      {
+        "identifier": "minLength",
+        "description": "[表单校验] 字符串最小长度 / 数组最小个数",
+        "type": "number"
+      },
+      {
+        "identifier": "maxLength",
+        "description": "[表单校验] 字符串最大长度 / 数组最大个数",
+        "type": "number"
+      },
+      {
+        "identifier": "minmaxLengthMessage",
+        "description": "minLength/maxLength 自定义错误信息",
+        "type": "string"
+      },
+      {
+        "identifier": "minmaxLengthTrigger",
+        "description": "minLength/maxLength 自定义触发方式",
+        "type": "string | any[]"
+      },
+      {
+        "identifier": "length",
+        "description": "[表单校验] 字符串精确长度 / 数组精确个数",
+        "type": "number"
+      },
+      {
+        "identifier": "lengthMessage",
+        "description": "length 自定义错误信息",
+        "type": "string"
+      },
+      {
+        "identifier": "lengthTrigger",
+        "description": "length 自定义触发方式",
+        "type": "string | any[]"
+      },
+      {
+        "identifier": "pattern",
+        "description": "正则校验",
+        "type": "any"
+      },
+      {
+        "identifier": "patternMessage",
+        "description": "pattern 自定义错误信息",
+        "type": "string"
+      },
+      {
+        "identifier": "patternTrigger",
+        "description": "pattern 自定义触发方式",
+        "type": "string | any[]"
+      },
+      {
+        "identifier": "format",
+        "description": "[表单校验] 四种常用的 pattern",
+        "type": "\"number\" | \"email\" | \"url\" | \"tel\""
+      },
+      {
+        "identifier": "formatMessage",
+        "description": "format 自定义错误信息",
+        "type": "string"
+      },
+      {
+        "identifier": "formatTrigger",
+        "description": "format 自定义触发方式",
+        "type": "string | any[]"
+      },
+      {
+        "identifier": "validator",
+        "description": "[表单校验] 自定义校验函数",
+        "type": "(rule: any, value: any, callback: any) => void"
+      },
+      {
+        "identifier": "validatorTrigger",
+        "description": "validator 自定义触发方式",
+        "type": "string | any[]"
+      },
+      {
+        "identifier": "autoValidate",
+        "description": "是否修改数据时自动触发校验",
+        "type": "boolean"
+      },
+      {
+        "identifier": "labelWidth",
+        "description": "在响应式布局下，且label在左边时，label的宽度是多少",
+        "type": "string | number"
+      },
+      {
+        "identifier": "colSpan",
+        "description": "在响应式布局模式下，表单项占多少列",
+        "type": "number"
+      },
+      {
+        "identifier": "isPreview",
+        "description": "是否开启预览态",
+        "type": "boolean"
+      },
+      {
+        "identifier": "renderPreview",
+        "description": "预览态模式下渲染的内容\n@param value 根据包裹的组件的 value 类型而决定",
+        "type": "(values: string | number | data | (string | number | data)[], props: any) => any"
+      },
+      {
+        "identifier": "useLabelForErrorMessage",
+        "description": "是否使用 label 替换校验信息的 name 字段",
+        "type": "boolean"
+      },
+      {
+        "identifier": "colon",
+        "description": "表示是否显示 label 后面的冒号",
+        "type": "boolean"
+      },
+      {
+        "identifier": "valueName",
+        "description": "子元素的 value 名称",
+        "type": "string"
+      },
+      {
+        "identifier": "fullWidth",
+        "description": "单个 Item 中表单类组件宽度是否是 100%",
+        "type": "boolean"
+      },
+      {
+        "identifier": "locale",
+        "description": "国际化文案对象，属性为组件的 displayName",
+        "type": "any"
+      },
+      {
+        "identifier": "pure",
+        "description": "是否开启 Pure Render 模式，会提高性能，但是也会带来副作用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "warning",
+        "description": "是否在开发模式下显示组件属性被废弃的 warning 提示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "rtl",
+        "description": "是否开启 rtl 模式",
+        "type": "boolean"
+      }
+    ]
+  },
+  "group-table": {
+    "GroupTable": [
+      {
+        "identifier": "actionBarButtons",
+        "description": "表格操作栏按钮",
+        "type": "ProTableActionBarButtons"
+      },
+      {
+        "identifier": "settingButtons",
+        "description": "表格设置按钮",
+        "type": "boolean | ProTableSettingButtonType[]",
+        "default": "false"
+      },
+      {
+        "identifier": "columnsSetting",
+        "description": "列设置",
+        "type": "ProTableColumnsSetting"
+      },
+      {
+        "identifier": "defaultColumnsSetting",
+        "description": "默认列设置",
+        "type": "ProTableColumnsSetting",
+        "default": "{}"
+      },
+      {
+        "identifier": "onColumnsSettingChange",
+        "description": "设置改变时的回调",
+        "type": "(newSetting: ProTableColumnsSetting, actionType: ProTableSettingActionType) => void"
+      },
+      {
+        "identifier": "onFullscreenStateChange",
+        "description": "全屏状态变化回调",
+        "type": "(fullscreenState: boolean) => void"
+      },
+      {
+        "identifier": "isExpandedChild",
+        "description": "是否是子母表的子表",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "paginationProps",
+        "type": "Record<string, any>"
+      },
+      {
+        "identifier": "actionBarLeft",
+        "description": "操作条左侧槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "actionBarRight",
+        "description": "操作条右侧槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "actionBarBefore",
+        "description": "操作条前槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "actionBarAfter",
+        "description": "操作条后槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "table",
+        "description": "表格内槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "tableAfter",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "columns",
+        "description": "表格列设置",
+        "type": "ProTableColumnProps[]"
+      },
+      {
+        "identifier": "onSort",
+        "description": "点击列排序触发的事件",
+        "type": "(dataIndex: string, order: SortValue, sort: Record<string, SortValue>) => void"
+      },
+      {
+        "identifier": "rowSelection",
+        "description": "是否启用选择模式\nhttps://yuque.antfin-inc.com/docs/share/34ec077c-14d5-4408-bfd4-d2827bfd87ec",
+        "type": "{ ref?: MutableRefObject<ProTableRowSelectionInstance>; getProps?: (record: ProTableRowRecord, index: number) => CheckboxProps | RadioProps; ... 12 more ...; titleProps?: () => CheckboxProps; }"
+      },
+      {
+        "identifier": "onRowClick",
+        "description": "点击表格每一行触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "onRowMouseEnter",
+        "description": "悬浮在表格每一行的时候触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "onRowMouseLeave",
+        "description": "离开表格每一行的时候触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "onFilter",
+        "description": "点击列排序触发的事件",
+        "type": "(filterParams: Record<string, FilterParam>) => void"
+      },
+      {
+        "identifier": "onResizeChange",
+        "description": "重设列尺寸的时候触发的事件",
+        "type": "(dataIndex: string, value: number) => void"
+      },
+      {
+        "identifier": "getRowProps",
+        "description": "设置每一行的属性，如果返回值和其他针对行操作的属性冲突则无效。",
+        "type": "(record: any, index: number) => any"
+      },
+      {
+        "identifier": "rowProps",
+        "type": "(record: any, index: number) => any"
+      },
+      {
+        "identifier": "getCellProps",
+        "description": "设置单元格的属性，通过该属性可以进行合并单元格",
+        "type": "(rowIndex: number, colIndex: number, dataIndex: string, record: any) => any"
+      },
+      {
+        "identifier": "cellProps",
+        "type": "(rowIndex: number, colIndex: number, dataIndex: string, record: any) => any"
+      },
+      {
+        "identifier": "loadingComponent",
+        "description": "自定义 Loading 组件\n请务必传递 props, 使用方式： loadingComponent={props => <Loading {...props}/>}",
+        "type": "(props: LoadingProps) => ReactNode"
+      },
+      {
+        "identifier": "filterParams",
+        "description": "当前过滤的的keys,使用此属性可以控制表格的头部的过滤选项中哪个菜单被选中,格式为 {dataIndex: {selectedKeys:[]}}\n示例:\n假设要控制dataIndex为id的列的过滤菜单中key为one的菜单项选中\n`<Table filterParams={{id: {selectedKeys: ['one']}}}/>`",
+        "type": "Record<string, FilterParam>"
+      },
+      {
+        "identifier": "sort",
+        "description": "排序值",
+        "type": "Record<string, SortValue>"
+      },
+      {
+        "identifier": "sortIcons",
+        "description": "自定义排序按钮，例如上下排布的: `{desc: <Icon style={{top: '6px', left: '4px'}} type={'arrow-down'} size=\"small\" />, asc: <Icon style={{top: '-6px', left: '4px'}} type={'arrow-up'} size=\"small\" />}`",
+        "type": "{ desc?: ReactNode; asc?: ReactNode; }"
+      },
+      {
+        "identifier": "expandedRowRender",
+        "description": "额外渲染行的渲染函数",
+        "type": "(record: any, index: number) => ReactElement<any, string | JSXElementConstructor<any>>"
+      },
+      {
+        "identifier": "rowExpandable",
+        "type": "(record: any) => boolean"
+      },
+      {
+        "identifier": "expandedRowIndent",
+        "description": "额外渲染行的缩进，包含两个数字，第一个数字为左侧缩进，第二个数字为右侧缩进",
+        "type": "[number, number]"
+      },
+      {
+        "identifier": "openRowKeys",
+        "description": "默认情况下展开的渲染行或者Tree, 传入此属性为受控状态",
+        "type": "any[]"
+      },
+      {
+        "identifier": "hasExpandedRowCtrl",
+        "description": "是否显示点击展开额外渲染行的+号按钮",
+        "type": "boolean"
+      },
+      {
+        "identifier": "getExpandedColProps",
+        "description": "设置额外渲染行的属性",
+        "type": "<IRecord extends unknown = any>(record: IRecord, index: number) => object | Record<string | number, any>"
+      },
+      {
+        "identifier": "onRowOpen",
+        "description": "在额外渲染行或者Tree展开或者收起的时候触发的事件",
+        "type": "(openRowKeys: any[], currentRowKey: string, expanded: boolean, currentRecord: any) => void"
+      },
+      {
+        "identifier": "onExpandedRowClick",
+        "description": "点击额外渲染行触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "fixedHeader",
+        "description": "表头是否固定，该属性配合maxBodyHeight使用，当内容区域的高度超过maxBodyHeight的时候，在内容区域会出现滚动条",
+        "type": "boolean"
+      },
+      {
+        "identifier": "maxBodyHeight",
+        "description": "最大内容区域的高度,在`fixedHeader`为`true`的时候,超过这个高度会出现滚动条",
+        "type": "string | number"
+      },
+      {
+        "identifier": "stickyHeader",
+        "description": "表头是否是sticky",
+        "type": "boolean"
+      },
+      {
+        "identifier": "offsetTop",
+        "description": "距离窗口顶部达到指定偏移量后触发",
+        "type": "number"
+      },
+      {
+        "identifier": "affixProps",
+        "description": "affix组件的的属性",
+        "type": "AffixProps"
+      },
+      {
+        "identifier": "indent",
+        "description": "在tree模式下的缩进尺寸， 仅在isTree为true时候有效",
+        "type": "number"
+      },
+      {
+        "identifier": "isTree",
+        "description": "开启Table的tree模式, 接收的数据格式中包含children则渲染成tree table",
+        "type": "boolean"
+      },
+      {
+        "identifier": "useVirtual",
+        "description": "是否开启虚拟滚动",
+        "type": "boolean"
+      },
+      {
+        "identifier": "scrollToRow",
+        "description": "滚动到指定行",
+        "type": "number"
+      },
+      {
+        "identifier": "rowHeight",
+        "description": "设置行高",
+        "type": "number | (() => any)"
+      },
+      {
+        "identifier": "onBodyScroll",
+        "description": "在内容区域滚动的时候触发的函数",
+        "type": "(start: number) => void"
+      },
+      {
+        "identifier": "expandedIndexSimulate",
+        "description": "开启时，getExpandedColProps() / getRowProps() / expandedRowRender() 的第二个参数 index (该行所对应的序列) 将按照01,2,3,4...的顺序返回，否则返回真实index(0,2,4,6... / 1,3,5,7...)",
+        "type": "boolean"
+      },
+      {
+        "identifier": "crossline",
+        "description": "在 hover 时出现十字参考轴，适用于表头比较复杂，需要做表头分类的场景。",
+        "type": "boolean"
+      },
+      {
+        "identifier": "size",
+        "description": "尺寸 small为紧凑模式",
+        "type": "\"small\" | \"medium\"",
+        "default": "medium"
+      },
+      {
+        "identifier": "tableLayout",
+        "description": "表格元素的 table-layout 属性，设为 fixed 表示内容不会影响列的布局",
+        "type": "\"fixed\" | \"auto\""
+      },
+      {
+        "identifier": "tableWidth",
+        "description": "表格的总长度，可以这么用：设置表格总长度 、设置部分列的宽度，这样表格会按照剩余空间大小，自动其他列分配宽度",
+        "type": "number"
+      },
+      {
+        "identifier": "dataSource",
+        "description": "表格展示的数据源",
+        "type": "any[]"
+      },
+      {
+        "identifier": "hasBorder",
+        "description": "表格是否具有边框",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "hasHeader",
+        "description": "表格是否具有头部",
+        "type": "boolean"
+      },
+      {
+        "identifier": "isZebra",
+        "description": "表格是否是斑马线",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "loading",
+        "description": "表格是否在加载中",
+        "type": "boolean"
+      },
+      {
+        "identifier": "locale",
+        "description": "自定义国际化文案对象",
+        "type": "{ ok: string; reset: string; empty: string; asc: string; desc: string; expanded: string; folded: string; filter: string; selectAll: string; }"
+      },
+      {
+        "identifier": "emptyContent",
+        "description": "设置数据为空的时候的表格内容展现",
+        "type": "ReactNode",
+        "default": "<div type=\"card\" status=\"DATA_EMPTY\" />"
+      },
+      {
+        "identifier": "primaryKey",
+        "description": "dataSource当中数据的主键，如果给定的数据源中的属性不包含该主键，会造成选择状态全部选中",
+        "type": "string",
+        "default": "id"
+      },
+      {
+        "identifier": "pure",
+        "description": "是否开启 Pure Render 模式，会提高性能，但是也会带来副作用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "warning",
+        "description": "是否在开发模式下显示组件属性被废弃的 warning 提示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "rtl",
+        "description": "是否开启 rtl 模式",
+        "type": "boolean"
+      },
+      {
+        "identifier": "columnKey",
+        "description": "指定列唯一的标识，一般不需要设置",
+        "type": "\"dataIndex\" | \"key\"",
+        "default": "key"
+      },
+      {
+        "identifier": "resizable",
+        "description": "可以调整大小",
+        "type": "boolean",
+        "default": "true"
+      },
+      {
+        "identifier": "sortMode",
+        "description": "排序模式是单列还是多列",
+        "type": "\"single\" | \"multiple\"",
+        "default": "'multiple'"
+      },
+      {
+        "identifier": "searchParams",
+        "type": "Record<string, SearchParam>"
+      },
+      {
+        "identifier": "onSearch",
+        "description": "点击列搜索触发的事件",
+        "type": "(searchParams: Record<string, SearchParam>) => void"
+      },
+      {
+        "identifier": "columnFilters",
+        "type": "ProTableColumnsFilterValue"
+      },
+      {
+        "identifier": "onColumnsFilterChange",
+        "type": "(newValue: ProTableColumnsFilterValue, oldValue: ProTableColumnsFilterValue, changedColumnFilterValue?: ProTableColumnFilterValue, changedColumnDataIndex?: string) => void"
+      },
+      {
+        "identifier": "groupHeader",
+        "type": "ReactNode | GroupHeaderProps"
+      },
+      {
+        "identifier": "groupFooter",
+        "type": "ReactNode | GroupFooterProps"
+      },
+      {
+        "identifier": "stickyLock",
+        "description": "是否设置 Table 为 Table.stickyLock",
+        "type": "boolean",
+        "default": "true"
+      },
+      {
+        "identifier": "indexColumn",
+        "description": "序号列",
+        "type": "boolean"
+      },
+      {
+        "identifier": "indexColumnProps",
+        "description": "序号列props",
+        "type": "Partial<ColumnProps>"
+      },
+      {
+        "identifier": "actionColumnProps",
+        "description": "操作列配置覆盖",
+        "type": "Partial<ColumnProps>"
+      },
+      {
+        "identifier": "actionColumnButtons",
+        "description": "操作列按钮组",
+        "type": "ProTableActionColumnButtons"
+      },
+      {
+        "identifier": "actionColumn",
+        "description": "操作列按钮配置列表\n@deprecated 使用 actionColumnButtons",
+        "type": "ActionColumnButton[]"
+      },
+      {
+        "identifier": "actionButtonGroupProps",
+        "description": "操作列按钮组的props\n@deprecated 使用 actionColumnButtons",
+        "type": "ButtonGroupProps"
+      },
+      {
+        "identifier": "actionColumnPredication",
+        "description": "自定义列操作\n@deprecated 使用 actionColumnButtons",
+        "type": "(payload: { actionColumn?: any[]; index: number; record: any; }) => ActionColumnButton[]"
+      },
+      {
+        "identifier": "onActionColumnClick",
+        "description": "操作列点击触发事件\n@deprecated 使用 actionColumnButtons",
+        "type": "(payload: { currentActionKey: string; selectedRowKey: string; record: any; }) => void"
+      },
+      {
+        "identifier": "totalDataSource",
+        "description": "总计数据源, 传入后显示总计行, 统计行需要",
+        "type": "Record<string, ReactNode>"
+      },
+      {
+        "identifier": "cellDefault",
+        "description": "单元格没值时缺省值\n设置优先级: 列配置 > 列类型提供值 > 表格",
+        "type": "ReactNode",
+        "default": ""
+      },
+      {
+        "identifier": "cellTooltipMode",
+        "description": "单元格tooltip显示逻辑\n设置优先级: 列配置 > 列类型提供值 > 表格\n- ellipsis 在显示省略号时显示tooltip\n- none 不显示tooltip",
+        "type": "\"none\" | \"ellipsis\"",
+        "default": "none"
+      }
+    ]
+  },
+  "line-chart": {
+    "LineChart": [
+      {
+        "identifier": "legend",
+        "description": "图例 legend 的配置项",
+        "type": "LengendAPIOptions"
+      },
+      {
+        "identifier": "tooltip",
+        "description": "tooltip 的配置项",
+        "type": "TooltipAPIOptions"
+      },
+      {
+        "identifier": "label",
+        "description": "数据标签的配置",
+        "type": "LabelAPIOptions"
+      },
+      {
+        "identifier": "point",
+        "type": "boolean | (MappingOptions & Pick<PointGeometryOptions, \"state\">)"
+      },
+      {
+        "identifier": "onGetG2Instance",
+        "description": "获取g2Plot实例的勾子函数",
+        "type": "(chart: Plot<any>) => void"
+      },
+      {
+        "identifier": "errorContent",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "events",
+        "description": "图表事件",
+        "type": "Record<string, Function>"
+      },
+      {
+        "identifier": "title",
+        "description": "图表标题。如需绑定事件请直接使用ReactNode。",
+        "type": "ReactNode | VisibleText"
+      },
+      {
+        "identifier": "description",
+        "description": "图表副标题。如需绑定事件请直接使用ReactNode。",
+        "type": "ReactNode | VisibleText"
+      },
+      {
+        "identifier": "forceFit",
+        "description": "请使用autoFit替代forceFit",
+        "type": "boolean"
+      },
+      {
+        "identifier": "isMaterial",
+        "description": "是否是物料组件，因搭建引擎消费ref和原来的组件吐的react实例不兼容。\n该属性会影响ref的消费，为ali-lowcode-engine消费而生。",
+        "type": "boolean"
+      }
+    ]
+  },
+  "page-header": {
+    "PageHeader": [
+      {
+        "identifier": "backIcon",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "prefixCls",
+        "type": "string"
+      },
+      {
+        "identifier": "title",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "subTitle",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "style",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "showBreadcrumb",
+        "type": "boolean",
+        "default": "true"
+      },
+      {
+        "identifier": "breadcrumb",
+        "type": "any[] | ReactElement<typeof Breadcrumb, string | JSXElementConstructor<any>>"
+      },
+      {
+        "identifier": "breadcrumbRender",
+        "type": "(props: PageHeaderProps, defaultDom: ReactNode) => ReactNode"
+      },
+      {
+        "identifier": "tags",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>> | ReactElement<any, string | JSXElementConstructor<any>>[]"
+      },
+      {
+        "identifier": "footer",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "extra",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "showAvatar",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "showActions",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "avatar",
+        "type": "object"
+      },
+      {
+        "identifier": "onBack",
+        "type": "(e?: MouseEvent<HTMLDivElement, MouseEvent>) => void"
+      },
+      {
+        "identifier": "className",
+        "type": "string"
+      },
+      {
+        "identifier": "ghost",
+        "type": "boolean"
+      },
+      {
+        "identifier": "direction",
+        "type": "string"
+      },
+      {
+        "identifier": "pageHeader",
+        "type": "any"
+      },
+      {
+        "identifier": "operations",
+        "type": "any[]"
+      },
+      {
+        "identifier": "operationConfig",
+        "type": "Record<string, any>"
+      }
+    ]
+  },
+  "pie-chart": {
+    "PieChart": [
+      {
+        "identifier": "tooltip",
+        "description": "tooltip 的配置项",
+        "type": "TooltipAPIOptions"
+      },
+      {
+        "identifier": "label",
+        "description": "饼图标签，type: 'inner' | 'outer' | 'spider'",
+        "type": "LabelAPIOptions"
+      },
+      {
+        "identifier": "legend",
+        "description": "图例 legend 的配置项",
+        "type": "LengendAPIOptions"
+      },
+      {
+        "identifier": "onGetG2Instance",
+        "description": "获取g2Plot实例的勾子函数",
+        "type": "(chart: Plot<any>) => void"
+      },
+      {
+        "identifier": "errorContent",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "events",
+        "description": "图表事件",
+        "type": "Record<string, Function>"
+      },
+      {
+        "identifier": "title",
+        "description": "图表标题。如需绑定事件请直接使用ReactNode。",
+        "type": "ReactNode | VisibleText"
+      },
+      {
+        "identifier": "description",
+        "description": "图表副标题。如需绑定事件请直接使用ReactNode。",
+        "type": "ReactNode | VisibleText"
+      },
+      {
+        "identifier": "forceFit",
+        "description": "请使用autoFit替代forceFit",
+        "type": "boolean"
+      },
+      {
+        "identifier": "isMaterial",
+        "description": "是否是物料组件，因搭建引擎消费ref和原来的组件吐的react实例不兼容。\n该属性会影响ref的消费，为ali-lowcode-engine消费而生。",
+        "type": "boolean"
+      }
+    ]
+  },
+  "pro-card": {
+    "default": [
+      {
+        "identifier": "title",
+        "description": "卡片标题",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "description",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "visibleButtonCount",
+        "type": "number"
+      },
+      {
+        "identifier": "explanation",
+        "description": "帮助信息，仅在 title 展示时生效",
+        "type": "string"
+      },
+      {
+        "identifier": "bodyPadding",
+        "type": "boolean"
+      },
+      {
+        "identifier": "explanationTooltipProps",
+        "description": "帮助信息气泡配置",
+        "type": "TooltipProps"
+      },
+      {
+        "identifier": "actionBar",
+        "description": "卡片顶部操作区域自定义渲染",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "actionButtons",
+        "type": "CardButtonGroupProps"
+      },
+      {
+        "identifier": "tagGroup",
+        "type": "CardTagProps[]"
+      },
+      {
+        "identifier": "segmentLine",
+        "description": "段落分割线; 如果为 true 时，默认最后一个段落没有分割线。",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "loading",
+        "description": "是否 loading",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "isCollapse",
+        "description": "受控控制 Card 展开收起状态",
+        "type": "boolean"
+      },
+      {
+        "identifier": "hasCollapse",
+        "description": "是否开启 Card 显示展开收起",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "defaultCollapse",
+        "description": "默认收起",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "setCollapse",
+        "description": "展开收起状态切换后的回调函数",
+        "type": "(collapseState: boolean) => void"
+      },
+      {
+        "identifier": "isDialogCard",
+        "description": "是否为弹窗卡片",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "hasDivider",
+        "type": "boolean"
+      },
+      {
+        "identifier": "operations",
+        "type": "IOperationItem[]"
+      },
+      {
+        "identifier": "operationConfig",
+        "type": "IOperationConfig"
+      },
+      {
+        "identifier": "lastSaveTime",
+        "type": "number"
+      },
+      {
+        "identifier": "text",
+        "type": "boolean"
+      }
+    ]
+  },
+  "pro-dialog": {
+    "InnerProDialog": [],
+    "ProDialog": []
+  },
+  "drawer": {
+    "InnerProDrawer": [
+      {
+        "identifier": "size",
+        "description": "弹窗大小",
+        "type": "\"small\" | \"medium\" | \"large\" | \"autoLarge\""
+      },
+      {
+        "identifier": "operations",
+        "type": "object[]"
+      },
+      {
+        "identifier": "operationConfig",
+        "type": "object"
+      },
+      {
+        "identifier": "onOk",
+        "type": "any"
+      },
+      {
+        "identifier": "onCancel",
+        "type": "any"
+      },
+      {
+        "identifier": "footer",
+        "type": "any"
+      },
+      {
+        "identifier": "titleTip",
+        "type": "any"
+      },
+      {
+        "identifier": "closeable",
+        "description": "[废弃]同closeMode, 控制对话框关闭的方式，值可以为字符串或者布尔值，其中字符串是由以下值组成：\n**mask** 表示点击遮罩区域可以关闭对话框\n**esc** 表示按下 esc 键可以关闭对话框\n如 'mask' 或 'esc,mask'\n如果设置为 true，则以上关闭方式全部生效\n如果设置为 false，则以上关闭方式全部失效\n@deprecated",
+        "type": "boolean | \"close\" | \"mask\" | \"esc\" | \"close,mask\" | \"close,esc\" | \"mask,esc\""
+      },
+      {
+        "identifier": "closeMode",
+        "description": "[推荐]控制对话框关闭的方式，值可以为字符串或者数组，其中字符串、数组均为以下值的枚举：\n**close** 表示点击关闭按钮可以关闭对话框\n**mask** 表示点击遮罩区域可以关闭对话框\n**esc** 表示按下 esc 键可以关闭对话框\n如 'close' 或 ['close','esc','mask'], []",
+        "type": "\"close\" | \"mask\" | \"esc\" | CloseMode[]"
+      },
+      {
+        "identifier": "cache",
+        "description": "隐藏时是否保留子节点，不销毁",
+        "type": "boolean"
+      },
+      {
+        "identifier": "title",
+        "description": "标题",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "bodyStyle",
+        "description": "body上的样式",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "headerStyle",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "animation",
+        "description": "显示隐藏时动画的播放方式\n@property {String} in 进场动画\n@property {String} out 出场动画",
+        "type": "boolean | { in: string; out: string; }"
+      },
+      {
+        "identifier": "visible",
+        "description": "弹层当前是否显示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "width",
+        "description": "宽度，仅在 placement是 left right 的时候生效",
+        "type": "string | number"
+      },
+      {
+        "identifier": "height",
+        "description": "高度，仅在 placement是 top bottom 的时候生效",
+        "type": "string | number"
+      },
+      {
+        "identifier": "onVisibleChange",
+        "description": "[v2 废弃] 受控模式下(没有 trigger 的时候)，只会在关闭时触发，相当于onClose\n@deprecated",
+        "type": "(visible: boolean, reason: string) => void"
+      },
+      {
+        "identifier": "afterClose",
+        "description": "[v2] 弹窗关闭后的回调",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onClose",
+        "description": "弹层关闭时触发事件的回调函数",
+        "type": "(reason: string, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "placement",
+        "description": "位于页面的位置",
+        "type": "\"top\" | \"right\" | \"bottom\" | \"left\""
+      },
+      {
+        "identifier": "v2",
+        "description": "开启v2版本",
+        "type": "boolean"
+      },
+      {
+        "identifier": "content",
+        "description": "内容",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "children",
+        "description": "弹层内容",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "autoFit",
+        "type": "boolean"
+      },
+      {
+        "identifier": "onRequestClose",
+        "description": "弹层请求关闭时触发事件的回调函数",
+        "type": "(type: string, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "target",
+        "description": "弹层定位的参照元素",
+        "type": "any"
+      },
+      {
+        "identifier": "align",
+        "description": "弹层相对于参照元素的定位, 详见开发指南的[定位部分](#定位)",
+        "type": "string | boolean"
+      },
+      {
+        "identifier": "offset",
+        "description": "弹层相对于参照元素定位的微调",
+        "type": "any[]"
+      },
+      {
+        "identifier": "container",
+        "description": "渲染组件的容器，如果是函数需要返回 ref，如果是字符串则是该 DOM 的 id，也可以直接传入 DOM 节点",
+        "type": "any"
+      },
+      {
+        "identifier": "hasMask",
+        "description": "是否显示遮罩",
+        "type": "boolean"
+      },
+      {
+        "identifier": "canCloseByEsc",
+        "description": "是否支持 esc 按键关闭弹层",
+        "type": "boolean"
+      },
+      {
+        "identifier": "canCloseByOutSideClick",
+        "description": "点击弹层外的区域是否关闭弹层，不显示遮罩时生效",
+        "type": "boolean"
+      },
+      {
+        "identifier": "canCloseByMask",
+        "description": "点击遮罩区域是否关闭弹层，显示遮罩时生效",
+        "type": "boolean"
+      },
+      {
+        "identifier": "beforeOpen",
+        "description": "弹层打开前触发事件的回调函数",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onOpen",
+        "description": "弹层打开时触发事件的回调函数",
+        "type": "() => void"
+      },
+      {
+        "identifier": "afterOpen",
+        "description": "弹层打开后触发事件的回调函数, 如果有动画，则在动画结束后触发",
+        "type": "() => void"
+      },
+      {
+        "identifier": "beforeClose",
+        "description": "弹层关闭前触发事件的回调函数",
+        "type": "() => void"
+      },
+      {
+        "identifier": "beforePosition",
+        "description": "弹层定位完成前触发的事件",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onPosition",
+        "description": "弹层定位完成时触发的事件",
+        "type": "(config: {}, node: {}) => void"
+      },
+      {
+        "identifier": "shouldUpdatePosition",
+        "description": "是否在每次弹层重新渲染后强制更新定位信息，一般用于弹层内容区域大小发生变化时，仍需保持原来的定位方式",
+        "type": "boolean"
+      },
+      {
+        "identifier": "autoFocus",
+        "description": "弹层打开时是否让其中的元素自动获取焦点",
+        "type": "boolean"
+      },
+      {
+        "identifier": "needAdjust",
+        "description": "当弹层由于页面滚动等情况不在可视区域时，是否自动调整定位以出现在可视区域",
+        "type": "boolean"
+      },
+      {
+        "identifier": "disableScroll",
+        "description": "是否禁用页面滚动",
+        "type": "boolean"
+      },
+      {
+        "identifier": "safeNode",
+        "description": "安全节点，当点击 document 的时候，如果包含该节点则不会关闭弹层，如果是函数需要返回 ref，如果是字符串则是该 DOM 的 id，也可以直接传入 DOM 节点，或者以上值组成的数组",
+        "type": "any"
+      },
+      {
+        "identifier": "wrapperClassName",
+        "description": "弹层的根节点的样式类",
+        "type": "string"
+      },
+      {
+        "identifier": "wrapperStyle",
+        "description": "弹层的根节点的内联样式",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "trigger",
+        "description": "触发弹层显示或隐藏的元素",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>"
+      },
+      {
+        "identifier": "triggerType",
+        "description": "触发弹层显示或隐藏的操作类型，可以是 'click'，'hover'，'focus'，或者它们组成的数组，如 ['hover', 'focus']",
+        "type": "string | any[]"
+      },
+      {
+        "identifier": "triggerClickKeycode",
+        "description": "当 triggerType 为 click 时才生效，可自定义触发弹层显示的键盘码",
+        "type": "number | any[]"
+      },
+      {
+        "identifier": "defaultVisible",
+        "description": "弹层默认是否显示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "disabled",
+        "description": "设置此属性，弹层无法显示或隐藏",
+        "type": "boolean"
+      },
+      {
+        "identifier": "delay",
+        "description": "弹层显示或隐藏的延时时间（以毫秒为单位），在 triggerType 被设置为 hover 时生效",
+        "type": "number"
+      },
+      {
+        "identifier": "canCloseByTrigger",
+        "description": "trigger 是否可以关闭弹层",
+        "type": "boolean"
+      },
+      {
+        "identifier": "followTrigger",
+        "description": "是否跟随trigger滚动",
+        "type": "boolean"
+      },
+      {
+        "identifier": "locale",
+        "description": "国际化文案对象，属性为组件的 displayName",
+        "type": "any"
+      },
+      {
+        "identifier": "pure",
+        "description": "是否开启 Pure Render 模式，会提高性能，但是也会带来副作用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "warning",
+        "description": "是否在开发模式下显示组件属性被废弃的 warning 提示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "rtl",
+        "description": "是否开启 rtl 模式",
+        "type": "boolean"
+      }
+    ],
+    "ProDrawer": [
+      {
+        "identifier": "size",
+        "description": "弹窗大小",
+        "type": "\"small\" | \"medium\" | \"large\" | \"autoLarge\""
+      },
+      {
+        "identifier": "operations",
+        "type": "object[]"
+      },
+      {
+        "identifier": "operationConfig",
+        "type": "object"
+      },
+      {
+        "identifier": "onOk",
+        "type": "any"
+      },
+      {
+        "identifier": "onCancel",
+        "type": "any"
+      },
+      {
+        "identifier": "footer",
+        "type": "any"
+      },
+      {
+        "identifier": "titleTip",
+        "type": "any"
+      },
+      {
+        "identifier": "closeable",
+        "description": "[废弃]同closeMode, 控制对话框关闭的方式，值可以为字符串或者布尔值，其中字符串是由以下值组成：\n**mask** 表示点击遮罩区域可以关闭对话框\n**esc** 表示按下 esc 键可以关闭对话框\n如 'mask' 或 'esc,mask'\n如果设置为 true，则以上关闭方式全部生效\n如果设置为 false，则以上关闭方式全部失效\n@deprecated",
+        "type": "boolean | \"close\" | \"mask\" | \"esc\" | \"close,mask\" | \"close,esc\" | \"mask,esc\""
+      },
+      {
+        "identifier": "closeMode",
+        "description": "[推荐]控制对话框关闭的方式，值可以为字符串或者数组，其中字符串、数组均为以下值的枚举：\n**close** 表示点击关闭按钮可以关闭对话框\n**mask** 表示点击遮罩区域可以关闭对话框\n**esc** 表示按下 esc 键可以关闭对话框\n如 'close' 或 ['close','esc','mask'], []",
+        "type": "\"close\" | \"mask\" | \"esc\" | CloseMode[]"
+      },
+      {
+        "identifier": "cache",
+        "description": "隐藏时是否保留子节点，不销毁",
+        "type": "boolean"
+      },
+      {
+        "identifier": "title",
+        "description": "标题",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "bodyStyle",
+        "description": "body上的样式",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "headerStyle",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "animation",
+        "description": "显示隐藏时动画的播放方式\n@property {String} in 进场动画\n@property {String} out 出场动画",
+        "type": "boolean | { in: string; out: string; }"
+      },
+      {
+        "identifier": "visible",
+        "description": "弹层当前是否显示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "width",
+        "description": "宽度，仅在 placement是 left right 的时候生效",
+        "type": "string | number"
+      },
+      {
+        "identifier": "height",
+        "description": "高度，仅在 placement是 top bottom 的时候生效",
+        "type": "string | number"
+      },
+      {
+        "identifier": "onVisibleChange",
+        "description": "[v2 废弃] 受控模式下(没有 trigger 的时候)，只会在关闭时触发，相当于onClose\n@deprecated",
+        "type": "(visible: boolean, reason: string) => void"
+      },
+      {
+        "identifier": "afterClose",
+        "description": "[v2] 弹窗关闭后的回调",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onClose",
+        "description": "弹层关闭时触发事件的回调函数",
+        "type": "(reason: string, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "placement",
+        "description": "位于页面的位置",
+        "type": "\"top\" | \"right\" | \"bottom\" | \"left\""
+      },
+      {
+        "identifier": "v2",
+        "description": "开启v2版本",
+        "type": "boolean"
+      },
+      {
+        "identifier": "content",
+        "description": "内容",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "children",
+        "description": "弹层内容",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "autoFit",
+        "type": "boolean"
+      },
+      {
+        "identifier": "onRequestClose",
+        "description": "弹层请求关闭时触发事件的回调函数",
+        "type": "(type: string, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "target",
+        "description": "弹层定位的参照元素",
+        "type": "any"
+      },
+      {
+        "identifier": "align",
+        "description": "弹层相对于参照元素的定位, 详见开发指南的[定位部分](#定位)",
+        "type": "string | boolean"
+      },
+      {
+        "identifier": "offset",
+        "description": "弹层相对于参照元素定位的微调",
+        "type": "any[]"
+      },
+      {
+        "identifier": "container",
+        "description": "渲染组件的容器，如果是函数需要返回 ref，如果是字符串则是该 DOM 的 id，也可以直接传入 DOM 节点",
+        "type": "any"
+      },
+      {
+        "identifier": "hasMask",
+        "description": "是否显示遮罩",
+        "type": "boolean"
+      },
+      {
+        "identifier": "canCloseByEsc",
+        "description": "是否支持 esc 按键关闭弹层",
+        "type": "boolean"
+      },
+      {
+        "identifier": "canCloseByOutSideClick",
+        "description": "点击弹层外的区域是否关闭弹层，不显示遮罩时生效",
+        "type": "boolean"
+      },
+      {
+        "identifier": "canCloseByMask",
+        "description": "点击遮罩区域是否关闭弹层，显示遮罩时生效",
+        "type": "boolean"
+      },
+      {
+        "identifier": "beforeOpen",
+        "description": "弹层打开前触发事件的回调函数",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onOpen",
+        "description": "弹层打开时触发事件的回调函数",
+        "type": "() => void"
+      },
+      {
+        "identifier": "afterOpen",
+        "description": "弹层打开后触发事件的回调函数, 如果有动画，则在动画结束后触发",
+        "type": "() => void"
+      },
+      {
+        "identifier": "beforeClose",
+        "description": "弹层关闭前触发事件的回调函数",
+        "type": "() => void"
+      },
+      {
+        "identifier": "beforePosition",
+        "description": "弹层定位完成前触发的事件",
+        "type": "() => void"
+      },
+      {
+        "identifier": "onPosition",
+        "description": "弹层定位完成时触发的事件",
+        "type": "(config: {}, node: {}) => void"
+      },
+      {
+        "identifier": "shouldUpdatePosition",
+        "description": "是否在每次弹层重新渲染后强制更新定位信息，一般用于弹层内容区域大小发生变化时，仍需保持原来的定位方式",
+        "type": "boolean"
+      },
+      {
+        "identifier": "autoFocus",
+        "description": "弹层打开时是否让其中的元素自动获取焦点",
+        "type": "boolean"
+      },
+      {
+        "identifier": "needAdjust",
+        "description": "当弹层由于页面滚动等情况不在可视区域时，是否自动调整定位以出现在可视区域",
+        "type": "boolean"
+      },
+      {
+        "identifier": "disableScroll",
+        "description": "是否禁用页面滚动",
+        "type": "boolean"
+      },
+      {
+        "identifier": "safeNode",
+        "description": "安全节点，当点击 document 的时候，如果包含该节点则不会关闭弹层，如果是函数需要返回 ref，如果是字符串则是该 DOM 的 id，也可以直接传入 DOM 节点，或者以上值组成的数组",
+        "type": "any"
+      },
+      {
+        "identifier": "wrapperClassName",
+        "description": "弹层的根节点的样式类",
+        "type": "string"
+      },
+      {
+        "identifier": "wrapperStyle",
+        "description": "弹层的根节点的内联样式",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "trigger",
+        "description": "触发弹层显示或隐藏的元素",
+        "type": "ReactElement<any, string | JSXElementConstructor<any>>"
+      },
+      {
+        "identifier": "triggerType",
+        "description": "触发弹层显示或隐藏的操作类型，可以是 'click'，'hover'，'focus'，或者它们组成的数组，如 ['hover', 'focus']",
+        "type": "string | any[]"
+      },
+      {
+        "identifier": "triggerClickKeycode",
+        "description": "当 triggerType 为 click 时才生效，可自定义触发弹层显示的键盘码",
+        "type": "number | any[]"
+      },
+      {
+        "identifier": "defaultVisible",
+        "description": "弹层默认是否显示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "disabled",
+        "description": "设置此属性，弹层无法显示或隐藏",
+        "type": "boolean"
+      },
+      {
+        "identifier": "delay",
+        "description": "弹层显示或隐藏的延时时间（以毫秒为单位），在 triggerType 被设置为 hover 时生效",
+        "type": "number"
+      },
+      {
+        "identifier": "canCloseByTrigger",
+        "description": "trigger 是否可以关闭弹层",
+        "type": "boolean"
+      },
+      {
+        "identifier": "followTrigger",
+        "description": "是否跟随trigger滚动",
+        "type": "boolean"
+      },
+      {
+        "identifier": "locale",
+        "description": "国际化文案对象，属性为组件的 displayName",
+        "type": "any"
+      },
+      {
+        "identifier": "pure",
+        "description": "是否开启 Pure Render 模式，会提高性能，但是也会带来副作用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "warning",
+        "description": "是否在开发模式下显示组件属性被废弃的 warning 提示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "rtl",
+        "description": "是否开启 rtl 模式",
+        "type": "boolean"
+      }
+    ]
+  },
+  "pro-form": {
+    "default": [
+      {
+        "identifier": "columns",
+        "type": "number",
+        "required": true
+      },
+      {
+        "identifier": "children",
+        "description": "子元素",
+        "type": "ReactChild",
+        "required": true
+      },
+      {
+        "identifier": "emptyContent",
+        "type": "ReactNode",
+        "required": true
+      },
+      {
+        "identifier": "spacing",
+        "type": "number",
+        "required": true
+      },
+      {
+        "identifier": "operations",
+        "type": "ReactNode | object[]"
+      },
+      {
+        "identifier": "operationConfig",
+        "type": "object"
+      },
+      {
+        "identifier": "lastSaveTime",
+        "type": "number"
+      },
+      {
+        "identifier": "device",
+        "type": "string"
+      },
+      {
+        "identifier": "prefix",
+        "description": "样式前缀",
+        "type": "string"
+      },
+      {
+        "identifier": "inline",
+        "description": "内联表单",
+        "type": "boolean"
+      },
+      {
+        "identifier": "fullWidth",
+        "type": "boolean"
+      },
+      {
+        "identifier": "colon",
+        "type": "boolean"
+      },
+      {
+        "identifier": "size",
+        "description": "单个 Item 的 size 自定义，优先级高于 Form 的 size, 并且当组件与 Item 一起使用时，组件自身设置 size 属性无效。",
+        "type": "\"large\" | \"medium\" | \"small\""
+      },
+      {
+        "identifier": "labelAlign",
+        "description": "标签的位置",
+        "type": "\"top\" | \"left\" | \"inset\""
+      },
+      {
+        "identifier": "labelTextAlign",
+        "description": "标签的左右对齐方式",
+        "type": "\"left\" | \"right\""
+      },
+      {
+        "identifier": "field",
+        "description": "经 `new Field(this)` 初始化后，直接传给 Form 即可 用到表单校验则不可忽略此项",
+        "type": "any"
+      },
+      {
+        "identifier": "saveField",
+        "description": "保存 Form 自动生成的 field 对象",
+        "type": "() => void"
+      },
+      {
+        "identifier": "labelCol",
+        "description": "控制第一级 Item 的 labelCol",
+        "type": "SpanOffset"
+      },
+      {
+        "identifier": "wrapperCol",
+        "description": "控制第一级 Item 的 wrapperCol",
+        "type": "SpanOffset"
+      },
+      {
+        "identifier": "onSubmit",
+        "description": "form内有 `htmlType=\"submit\"` 的元素的时候会触发",
+        "type": "FormEventHandler<HTMLFormElement>"
+      },
+      {
+        "identifier": "className",
+        "description": "扩展class",
+        "type": "string"
+      },
+      {
+        "identifier": "disabled",
+        "description": "是否禁用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "style",
+        "description": "自定义内联样式",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "value",
+        "description": "表单数值",
+        "type": "any"
+      },
+      {
+        "identifier": "onChange",
+        "description": "表单变化回调",
+        "type": "(values: any, item: any) => void"
+      },
+      {
+        "identifier": "component",
+        "description": "设置标签类型",
+        "type": "string | (() => void)"
+      },
+      {
+        "identifier": "responsive",
+        "description": "是否开启内置的响应式布局 （使用ResponsiveGrid）",
+        "type": "boolean"
+      },
+      {
+        "identifier": "gap",
+        "type": "number | number[]"
+      },
+      {
+        "identifier": "isPreview",
+        "description": "是否开启预览态",
+        "type": "boolean"
+      },
+      {
+        "identifier": "useLabelForErrorMessage",
+        "description": "是否使用 label 替换校验信息的 name 字段",
+        "type": "boolean"
+      },
+      {
+        "identifier": "onClick",
+        "type": "any"
+      },
+      {
+        "identifier": "type",
+        "description": "按钮的类型",
+        "type": "\"primary\" | \"secondary\" | \"normal\""
+      },
+      {
+        "identifier": "icons",
+        "description": "按钮中 Icon 的尺寸，用于替代 Icon 的默认大小",
+        "type": "{ loading?: ReactNode; }"
+      },
+      {
+        "identifier": "iconSize",
+        "description": "按钮中 Icon 的尺寸，用于替代 Icon 的默认大小",
+        "type": "number | \"large\" | \"medium\" | \"small\" | \"inherit\" | \"xxs\" | \"xs\" | \"xl\" | \"xxl\" | \"xxxl\""
+      },
+      {
+        "identifier": "htmlType",
+        "description": "当 component = 'button' 时，设置 button 标签的 type 值",
+        "type": "\"button\" | \"submit\" | \"reset\""
+      },
+      {
+        "identifier": "loading",
+        "description": "设置按钮的载入状态",
+        "type": "boolean"
+      },
+      {
+        "identifier": "ghost",
+        "description": "是否为幽灵按钮",
+        "type": "boolean | \"light\" | \"dark\""
+      },
+      {
+        "identifier": "text",
+        "description": "是否为文本按钮",
+        "type": "boolean"
+      },
+      {
+        "identifier": "warning",
+        "description": "是否为警告按钮",
+        "type": "boolean"
+      },
+      {
+        "identifier": "href",
+        "description": "在Button组件使用component属性值为a时有效，代表链接页面的URL",
+        "type": "string"
+      },
+      {
+        "identifier": "target",
+        "description": "在Button组件使用component属性值为a时有效，代表何处打开链接文档",
+        "type": "string"
+      },
+      {
+        "identifier": "locale",
+        "description": "国际化文案对象，属性为组件的 displayName",
+        "type": "any"
+      },
+      {
+        "identifier": "pure",
+        "description": "是否开启 Pure Render 模式，会提高性能，但是也会带来副作用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "rtl",
+        "description": "是否开启 rtl 模式",
+        "type": "boolean"
+      }
+    ]
+  },
+  "pro-table": {
+    "ProTable": [
+      {
+        "identifier": "actionBarButtons",
+        "description": "表格操作栏按钮",
+        "type": "ProTableActionBarButtons"
+      },
+      {
+        "identifier": "settingButtons",
+        "description": "表格设置按钮",
+        "type": "boolean | ProTableSettingButtonType[]",
+        "default": "false"
+      },
+      {
+        "identifier": "columnsSetting",
+        "description": "列设置",
+        "type": "ProTableColumnsSetting"
+      },
+      {
+        "identifier": "defaultColumnsSetting",
+        "description": "默认列设置",
+        "type": "ProTableColumnsSetting",
+        "default": "{}"
+      },
+      {
+        "identifier": "onColumnsSettingChange",
+        "description": "设置改变时的回调",
+        "type": "(newSetting: ProTableColumnsSetting, actionType: ProTableSettingActionType) => void"
+      },
+      {
+        "identifier": "onFullscreenStateChange",
+        "description": "全屏状态变化回调",
+        "type": "(fullscreenState: boolean) => void"
+      },
+      {
+        "identifier": "isExpandedChild",
+        "description": "是否是子母表的子表",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "paginationProps",
+        "type": "Record<string, any>"
+      },
+      {
+        "identifier": "actionBarLeft",
+        "description": "操作条左侧槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "actionBarRight",
+        "description": "操作条右侧槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "actionBarBefore",
+        "description": "操作条前槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "actionBarAfter",
+        "description": "操作条后槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "table",
+        "description": "表格内槽位",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "tableAfter",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "columns",
+        "description": "表格列设置",
+        "type": "ProTableColumnProps[]"
+      },
+      {
+        "identifier": "onSort",
+        "description": "点击列排序触发的事件",
+        "type": "(dataIndex: string, order: SortValue, sort: Record<string, SortValue>) => void"
+      },
+      {
+        "identifier": "rowSelection",
+        "description": "是否启用选择模式\nhttps://yuque.antfin-inc.com/docs/share/34ec077c-14d5-4408-bfd4-d2827bfd87ec",
+        "type": "{ ref?: MutableRefObject<ProTableRowSelectionInstance>; getProps?: (record: ProTableRowRecord, index: number) => CheckboxProps | RadioProps; ... 12 more ...; titleProps?: () => CheckboxProps; }"
+      },
+      {
+        "identifier": "onRowClick",
+        "description": "点击表格每一行触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "onRowMouseEnter",
+        "description": "悬浮在表格每一行的时候触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "onRowMouseLeave",
+        "description": "离开表格每一行的时候触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "onFilter",
+        "description": "点击列排序触发的事件",
+        "type": "(filterParams: Record<string, FilterParam>) => void"
+      },
+      {
+        "identifier": "onResizeChange",
+        "description": "重设列尺寸的时候触发的事件",
+        "type": "(dataIndex: string, value: number) => void"
+      },
+      {
+        "identifier": "getRowProps",
+        "description": "设置每一行的属性，如果返回值和其他针对行操作的属性冲突则无效。",
+        "type": "(record: any, index: number) => any"
+      },
+      {
+        "identifier": "rowProps",
+        "type": "(record: any, index: number) => any"
+      },
+      {
+        "identifier": "getCellProps",
+        "description": "设置单元格的属性，通过该属性可以进行合并单元格",
+        "type": "(rowIndex: number, colIndex: number, dataIndex: string, record: any) => any"
+      },
+      {
+        "identifier": "cellProps",
+        "type": "(rowIndex: number, colIndex: number, dataIndex: string, record: any) => any"
+      },
+      {
+        "identifier": "loadingComponent",
+        "description": "自定义 Loading 组件\n请务必传递 props, 使用方式： loadingComponent={props => <Loading {...props}/>}",
+        "type": "(props: LoadingProps) => ReactNode"
+      },
+      {
+        "identifier": "filterParams",
+        "description": "当前过滤的的keys,使用此属性可以控制表格的头部的过滤选项中哪个菜单被选中,格式为 {dataIndex: {selectedKeys:[]}}\n示例:\n假设要控制dataIndex为id的列的过滤菜单中key为one的菜单项选中\n`<Table filterParams={{id: {selectedKeys: ['one']}}}/>`",
+        "type": "Record<string, FilterParam>"
+      },
+      {
+        "identifier": "sort",
+        "description": "排序值",
+        "type": "Record<string, SortValue>"
+      },
+      {
+        "identifier": "sortIcons",
+        "description": "自定义排序按钮，例如上下排布的: `{desc: <Icon style={{top: '6px', left: '4px'}} type={'arrow-down'} size=\"small\" />, asc: <Icon style={{top: '-6px', left: '4px'}} type={'arrow-up'} size=\"small\" />}`",
+        "type": "{ desc?: ReactNode; asc?: ReactNode; }"
+      },
+      {
+        "identifier": "expandedRowRender",
+        "description": "额外渲染行的渲染函数",
+        "type": "(record: any, index: number) => ReactElement<any, string | JSXElementConstructor<any>>"
+      },
+      {
+        "identifier": "rowExpandable",
+        "type": "(record: any) => boolean"
+      },
+      {
+        "identifier": "expandedRowIndent",
+        "description": "额外渲染行的缩进，包含两个数字，第一个数字为左侧缩进，第二个数字为右侧缩进",
+        "type": "[number, number]"
+      },
+      {
+        "identifier": "openRowKeys",
+        "description": "默认情况下展开的渲染行或者Tree, 传入此属性为受控状态",
+        "type": "any[]"
+      },
+      {
+        "identifier": "hasExpandedRowCtrl",
+        "description": "是否显示点击展开额外渲染行的+号按钮",
+        "type": "boolean"
+      },
+      {
+        "identifier": "getExpandedColProps",
+        "description": "设置额外渲染行的属性",
+        "type": "<IRecord extends unknown = any>(record: IRecord, index: number) => object | Record<string | number, any>"
+      },
+      {
+        "identifier": "onRowOpen",
+        "description": "在额外渲染行或者Tree展开或者收起的时候触发的事件",
+        "type": "(openRowKeys: any[], currentRowKey: string, expanded: boolean, currentRecord: any) => void"
+      },
+      {
+        "identifier": "onExpandedRowClick",
+        "description": "点击额外渲染行触发的事件",
+        "type": "(record: any, index: number, e: MouseEvent<Element, MouseEvent>) => void"
+      },
+      {
+        "identifier": "fixedHeader",
+        "description": "表头是否固定，该属性配合maxBodyHeight使用，当内容区域的高度超过maxBodyHeight的时候，在内容区域会出现滚动条",
+        "type": "boolean"
+      },
+      {
+        "identifier": "maxBodyHeight",
+        "description": "最大内容区域的高度,在`fixedHeader`为`true`的时候,超过这个高度会出现滚动条",
+        "type": "string | number"
+      },
+      {
+        "identifier": "stickyHeader",
+        "description": "表头是否是sticky",
+        "type": "boolean"
+      },
+      {
+        "identifier": "offsetTop",
+        "description": "距离窗口顶部达到指定偏移量后触发",
+        "type": "number"
+      },
+      {
+        "identifier": "affixProps",
+        "description": "affix组件的的属性",
+        "type": "AffixProps"
+      },
+      {
+        "identifier": "indent",
+        "description": "在tree模式下的缩进尺寸， 仅在isTree为true时候有效",
+        "type": "number"
+      },
+      {
+        "identifier": "isTree",
+        "description": "开启Table的tree模式, 接收的数据格式中包含children则渲染成tree table",
+        "type": "boolean"
+      },
+      {
+        "identifier": "useVirtual",
+        "description": "是否开启虚拟滚动",
+        "type": "boolean"
+      },
+      {
+        "identifier": "scrollToRow",
+        "description": "滚动到指定行",
+        "type": "number"
+      },
+      {
+        "identifier": "rowHeight",
+        "description": "设置行高",
+        "type": "number | (() => any)"
+      },
+      {
+        "identifier": "onBodyScroll",
+        "description": "在内容区域滚动的时候触发的函数",
+        "type": "(start: number) => void"
+      },
+      {
+        "identifier": "expandedIndexSimulate",
+        "description": "开启时，getExpandedColProps() / getRowProps() / expandedRowRender() 的第二个参数 index (该行所对应的序列) 将按照01,2,3,4...的顺序返回，否则返回真实index(0,2,4,6... / 1,3,5,7...)",
+        "type": "boolean"
+      },
+      {
+        "identifier": "crossline",
+        "description": "在 hover 时出现十字参考轴，适用于表头比较复杂，需要做表头分类的场景。",
+        "type": "boolean"
+      },
+      {
+        "identifier": "size",
+        "description": "尺寸 small为紧凑模式",
+        "type": "\"small\" | \"medium\"",
+        "default": "medium"
+      },
+      {
+        "identifier": "tableLayout",
+        "description": "表格元素的 table-layout 属性，设为 fixed 表示内容不会影响列的布局",
+        "type": "\"fixed\" | \"auto\""
+      },
+      {
+        "identifier": "tableWidth",
+        "description": "表格的总长度，可以这么用：设置表格总长度 、设置部分列的宽度，这样表格会按照剩余空间大小，自动其他列分配宽度",
+        "type": "number"
+      },
+      {
+        "identifier": "dataSource",
+        "description": "表格展示的数据源",
+        "type": "any[]"
+      },
+      {
+        "identifier": "hasBorder",
+        "description": "表格是否具有边框",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "hasHeader",
+        "description": "表格是否具有头部",
+        "type": "boolean"
+      },
+      {
+        "identifier": "isZebra",
+        "description": "表格是否是斑马线",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "loading",
+        "description": "表格是否在加载中",
+        "type": "boolean"
+      },
+      {
+        "identifier": "locale",
+        "description": "自定义国际化文案对象",
+        "type": "{ ok: string; reset: string; empty: string; asc: string; desc: string; expanded: string; folded: string; filter: string; selectAll: string; }"
+      },
+      {
+        "identifier": "emptyContent",
+        "description": "设置数据为空的时候的表格内容展现",
+        "type": "ReactNode",
+        "default": "(\n    <Box direction=\"column\" align=\"center\" justify=\"center\">\n      <img\n        style={{ height: 100, width: 150 }}\n        src=\"https://img.alicdn.com/imgextra/i2/O1CN01rie9sh1CmpqL3fSKD_!!6000000000124-2-tps-300-206.png\"\n      />\n      暂无内容\n    </Box>\n  )"
+      },
+      {
+        "identifier": "primaryKey",
+        "description": "dataSource当中数据的主键，如果给定的数据源中的属性不包含该主键，会造成选择状态全部选中",
+        "type": "string",
+        "default": "id"
+      },
+      {
+        "identifier": "pure",
+        "description": "是否开启 Pure Render 模式，会提高性能，但是也会带来副作用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "warning",
+        "description": "是否在开发模式下显示组件属性被废弃的 warning 提示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "rtl",
+        "description": "是否开启 rtl 模式",
+        "type": "boolean"
+      },
+      {
+        "identifier": "columnKey",
+        "description": "指定列唯一的标识，一般不需要设置",
+        "type": "\"dataIndex\" | \"key\"",
+        "default": "key"
+      },
+      {
+        "identifier": "resizable",
+        "description": "可以调整大小",
+        "type": "boolean",
+        "default": "true"
+      },
+      {
+        "identifier": "sortMode",
+        "description": "排序模式是单列还是多列",
+        "type": "\"single\" | \"multiple\"",
+        "default": "'multiple'"
+      },
+      {
+        "identifier": "searchParams",
+        "type": "Record<string, SearchParam>"
+      },
+      {
+        "identifier": "onSearch",
+        "description": "点击列搜索触发的事件",
+        "type": "(searchParams: Record<string, SearchParam>) => void"
+      },
+      {
+        "identifier": "columnFilters",
+        "type": "ProTableColumnsFilterValue"
+      },
+      {
+        "identifier": "onColumnsFilterChange",
+        "type": "(newValue: ProTableColumnsFilterValue, oldValue: ProTableColumnsFilterValue, changedColumnFilterValue?: ProTableColumnFilterValue, changedColumnDataIndex?: string) => void"
+      },
+      {
+        "identifier": "groupHeader",
+        "type": "ReactNode | GroupHeaderProps"
+      },
+      {
+        "identifier": "groupFooter",
+        "type": "ReactNode | GroupFooterProps"
+      },
+      {
+        "identifier": "stickyLock",
+        "description": "是否设置 Table 为 Table.stickyLock",
+        "type": "boolean",
+        "default": "true"
+      },
+      {
+        "identifier": "indexColumn",
+        "description": "序号列",
+        "type": "boolean"
+      },
+      {
+        "identifier": "indexColumnProps",
+        "description": "序号列props",
+        "type": "Partial<ColumnProps>"
+      },
+      {
+        "identifier": "actionColumnProps",
+        "description": "操作列配置覆盖",
+        "type": "Partial<ColumnProps>"
+      },
+      {
+        "identifier": "actionColumnButtons",
+        "description": "操作列按钮组",
+        "type": "ProTableActionColumnButtons"
+      },
+      {
+        "identifier": "actionColumn",
+        "description": "操作列按钮配置列表\n@deprecated 使用 actionColumnButtons",
+        "type": "ActionColumnButton[]"
+      },
+      {
+        "identifier": "actionButtonGroupProps",
+        "description": "操作列按钮组的props\n@deprecated 使用 actionColumnButtons",
+        "type": "ButtonGroupProps"
+      },
+      {
+        "identifier": "actionColumnPredication",
+        "description": "自定义列操作\n@deprecated 使用 actionColumnButtons",
+        "type": "(payload: { actionColumn?: any[]; index: number; record: any; }) => ActionColumnButton[]"
+      },
+      {
+        "identifier": "onActionColumnClick",
+        "description": "操作列点击触发事件\n@deprecated 使用 actionColumnButtons",
+        "type": "(payload: { currentActionKey: string; selectedRowKey: string; record: any; }) => void"
+      },
+      {
+        "identifier": "totalDataSource",
+        "description": "总计数据源, 传入后显示总计行, 统计行需要",
+        "type": "Record<string, ReactNode>"
+      },
+      {
+        "identifier": "cellDefault",
+        "description": "单元格没值时缺省值\n设置优先级: 列配置 > 列类型提供值 > 表格",
+        "type": "ReactNode",
+        "default": ""
+      },
+      {
+        "identifier": "cellTooltipMode",
+        "description": "单元格tooltip显示逻辑\n设置优先级: 列配置 > 列类型提供值 > 表格\n- ellipsis 在显示省略号时显示tooltip\n- none 不显示tooltip",
+        "type": "\"none\" | \"ellipsis\"",
+        "default": "none"
+      }
+    ]
+  },
+  "step-form": {
+    "StepForm": [
+      {
+        "identifier": "onPrevious",
+        "type": "Function"
+      },
+      {
+        "identifier": "onNext",
+        "type": "Function"
+      },
+      {
+        "identifier": "formRef",
+        "type": "MutableRefObject<any>"
+      },
+      {
+        "identifier": "formMapRef",
+        "type": "MutableRefObject<any>"
+      },
+      {
+        "identifier": "operations",
+        "type": "any[]"
+      },
+      {
+        "identifier": "operationConfig",
+        "type": "Record<string, any>",
+        "default": "{}"
+      },
+      {
+        "identifier": "lastSaveTime",
+        "type": "Number"
+      },
+      {
+        "identifier": "current",
+        "description": "当前步骤",
+        "type": "number"
+      },
+      {
+        "identifier": "direction",
+        "description": "展示方向",
+        "type": "\"hoz\" | \"ver\""
+      },
+      {
+        "identifier": "stretch",
+        "description": "宽度是否横向拉伸",
+        "type": "boolean"
+      },
+      {
+        "identifier": "labelPlacement",
+        "description": "横向布局时的内容排列",
+        "type": "\"hoz\" | \"ver\""
+      },
+      {
+        "identifier": "shape",
+        "description": "类型",
+        "type": "\"circle\" | \"arrow\" | \"dot\""
+      },
+      {
+        "identifier": "readOnly",
+        "description": "是否只读模式",
+        "type": "boolean"
+      },
+      {
+        "identifier": "animation",
+        "description": "是否开启动效",
+        "type": "boolean"
+      },
+      {
+        "identifier": "className",
+        "description": "自定义样式名",
+        "type": "string"
+      },
+      {
+        "identifier": "itemRender",
+        "description": "StepItem 的自定义渲染",
+        "type": "(index: number, status: string) => ReactNode"
+      },
+      {
+        "identifier": "locale",
+        "description": "国际化文案对象，属性为组件的 displayName",
+        "type": "any"
+      },
+      {
+        "identifier": "pure",
+        "description": "是否开启 Pure Render 模式，会提高性能，但是也会带来副作用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "warning",
+        "description": "是否在开发模式下显示组件属性被废弃的 warning 提示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "rtl",
+        "description": "是否开启 rtl 模式",
+        "type": "boolean"
+      }
+    ]
+  },
+  "tab-container": {
+    "TabContainer": [
+      {
+        "identifier": "className",
+        "type": "string"
+      },
+      {
+        "identifier": "activeKey",
+        "description": "被激活的选项卡的 key, 赋值则tab为受控组件, 用户无法切换",
+        "type": "string"
+      },
+      {
+        "identifier": "defaultActiveKey",
+        "description": "初始化时被激活的选项卡的 key",
+        "type": "string"
+      },
+      {
+        "identifier": "shape",
+        "description": "外观形态",
+        "type": "\"pure\" | \"wrapped\" | \"text\" | \"capsule\""
+      },
+      {
+        "identifier": "animation",
+        "description": "是否开启动效",
+        "type": "boolean"
+      },
+      {
+        "identifier": "excessMode",
+        "description": "选项卡过多时的滑动模式",
+        "type": "\"slide\" | \"dropdown\""
+      },
+      {
+        "identifier": "tabPosition",
+        "description": "导航选项卡的位置，只适用于包裹型（wrapped）选项卡",
+        "type": "\"top\" | \"bottom\" | \"left\" | \"right\""
+      },
+      {
+        "identifier": "size",
+        "description": "尺寸",
+        "type": "\"small\" | \"medium\""
+      },
+      {
+        "identifier": "triggerType",
+        "description": "激活选项卡的触发方式",
+        "type": "\"hover\" | \"click\""
+      },
+      {
+        "identifier": "lazyLoad",
+        "description": "是否延迟加载 TabPane 的内容, 默认开启, 即不提前渲染",
+        "type": "boolean"
+      },
+      {
+        "identifier": "unmountInactiveTabs",
+        "description": "是否自动卸载未处于激活状态的选项卡",
+        "type": "boolean"
+      },
+      {
+        "identifier": "navStyle",
+        "description": "导航条的自定义样式",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "navClassName",
+        "description": "导航条的自定义样式类",
+        "type": "string"
+      },
+      {
+        "identifier": "contentStyle",
+        "description": "内容区容器的自定义样式",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "contentClassName",
+        "description": "内容区容器的自定义样式类",
+        "type": "string"
+      },
+      {
+        "identifier": "extra",
+        "description": "导航栏附加内容",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "disableKeyboard",
+        "description": "禁用键盘事件",
+        "type": "boolean"
+      },
+      {
+        "identifier": "onClick",
+        "description": "点击单个选项卡时触发的回调",
+        "type": "(key: string) => void"
+      },
+      {
+        "identifier": "onChange",
+        "description": "选项卡发生切换时的事件回调",
+        "type": "(key: string) => void"
+      },
+      {
+        "identifier": "onClose",
+        "description": "选项卡被关闭时的事件回调",
+        "type": "(key: string) => void"
+      },
+      {
+        "identifier": "tabRender",
+        "description": "自定义选项卡模板渲染函数",
+        "type": "(key: string, props: {}) => ReactNode"
+      },
+      {
+        "identifier": "popupProps",
+        "description": "弹层属性透传, 只有当 excessMode 为 dropdown 时生效",
+        "type": "PopupProps"
+      },
+      {
+        "identifier": "icons",
+        "description": "自定义 icon",
+        "type": "{ dropdown?: ReactNode; prev?: ReactNode; next?: ReactNode; }"
+      },
+      {
+        "identifier": "showAdd",
+        "description": "展示新增按钮",
+        "type": "boolean"
+      },
+      {
+        "identifier": "onAdd",
+        "description": "新增的事件回调",
+        "type": "() => void"
+      },
+      {
+        "identifier": "addIcon",
+        "description": "自定义添加按钮",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "title",
+        "type": "any"
+      },
+      {
+        "identifier": "locale",
+        "description": "国际化文案对象，属性为组件的 displayName",
+        "type": "any"
+      },
+      {
+        "identifier": "pure",
+        "description": "是否开启 Pure Render 模式，会提高性能，但是也会带来副作用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "warning",
+        "description": "是否在开发模式下显示组件属性被废弃的 warning 提示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "rtl",
+        "description": "是否开启 rtl 模式",
+        "type": "boolean"
+      }
+    ],
+    "TabContainer.Item": [
+      {
+        "identifier": "title",
+        "description": "选项卡标题",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "closeable",
+        "description": "单个选项卡是否可关闭",
+        "type": "boolean"
+      },
+      {
+        "identifier": "disabled",
+        "description": "选项卡是否被禁用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "onClick",
+        "type": "any"
+      },
+      {
+        "identifier": "onChange",
+        "type": "any"
+      },
+      {
+        "identifier": "locale",
+        "description": "国际化文案对象，属性为组件的 displayName",
+        "type": "any"
+      },
+      {
+        "identifier": "pure",
+        "description": "是否开启 Pure Render 模式，会提高性能，但是也会带来副作用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "warning",
+        "description": "是否在开发模式下显示组件属性被废弃的 warning 提示",
+        "type": "boolean"
+      },
+      {
+        "identifier": "rtl",
+        "description": "是否开启 rtl 模式",
+        "type": "boolean"
+      }
+    ]
+  },
+  "anchor-form": {
+    "AnchorForm": [
+      {
+        "identifier": "showAnchor",
+        "description": "是否展示锚点",
+        "description.zh-CN": "还支持不同的 locale 后缀来实现多语言描述，使用 description 兜底",
+        "type": "boolean",
+        "default": "false"
+      },
+      {
+        "identifier": "formMapRef",
+        "type": "any"
+      },
+      {
+        "identifier": "operations",
+        "type": "any"
+      },
+      {
+        "identifier": "operationConfig",
+        "type": "any"
+      },
+      {
+        "identifier": "lastSaveTime",
+        "type": "any"
+      },
+      {
+        "identifier": "anchorProps",
+        "type": "AnchorProps"
+      },
+      {
+        "identifier": "enableRandomHtmlId",
+        "type": "boolean"
+      }
+    ]
+  },
+  "area-chart": {
+    "AreaChart": [
+      {
+        "identifier": "legend",
+        "description": "图例 legend 的配置项",
+        "type": "LengendAPIOptions"
+      },
+      {
+        "identifier": "tooltip",
+        "description": "tooltip 的配置项",
+        "type": "TooltipAPIOptions"
+      },
+      {
+        "identifier": "label",
+        "description": "数据标签的配置",
+        "type": "LabelAPIOptions"
+      },
+      {
+        "identifier": "stackField",
+        "description": "旧版api，即将废弃 请使用seriesField替代",
+        "type": "string"
+      },
+      {
+        "identifier": "onGetG2Instance",
+        "description": "获取g2Plot实例的勾子函数",
+        "type": "(chart: Plot<any>) => void"
+      },
+      {
+        "identifier": "errorContent",
+        "type": "ReactNode"
+      },
+      {
+        "identifier": "events",
+        "description": "图表事件",
+        "type": "Record<string, Function>"
+      },
+      {
+        "identifier": "title",
+        "description": "图表标题。如需绑定事件请直接使用ReactNode。",
+        "type": "ReactNode | VisibleText"
+      },
+      {
+        "identifier": "description",
+        "description": "图表副标题。如需绑定事件请直接使用ReactNode。",
+        "type": "ReactNode | VisibleText"
+      },
+      {
+        "identifier": "forceFit",
+        "description": "请使用autoFit替代forceFit",
+        "type": "boolean"
+      },
+      {
+        "identifier": "isMaterial",
+        "description": "是否是物料组件，因搭建引擎消费ref和原来的组件吐的react实例不兼容。\n该属性会影响ref的消费，为ali-lowcode-engine消费而生。",
+        "type": "boolean"
+      }
+    ]
+  },
+  "child-form": {
+    "default": [
+      {
+        "identifier": "mode",
+        "type": "string"
+      },
+      {
+        "identifier": "columns",
+        "type": "number",
+        "required": true
+      },
+      {
+        "identifier": "children",
+        "description": "子元素",
+        "type": "ReactChild",
+        "required": true
+      },
+      {
+        "identifier": "emptyContent",
+        "type": "ReactNode",
+        "required": true
+      },
+      {
+        "identifier": "spacing",
+        "type": "number",
+        "required": true
+      },
+      {
+        "identifier": "operations",
+        "type": "ReactNode | object[]"
+      },
+      {
+        "identifier": "operationConfig",
+        "type": "object"
+      },
+      {
+        "identifier": "lastSaveTime",
+        "type": "number"
+      },
+      {
+        "identifier": "device",
+        "type": "string"
+      },
+      {
+        "identifier": "prefix",
+        "description": "样式前缀",
+        "type": "string"
+      },
+      {
+        "identifier": "inline",
+        "description": "内联表单",
+        "type": "boolean"
+      },
+      {
+        "identifier": "fullWidth",
+        "type": "boolean"
+      },
+      {
+        "identifier": "colon",
+        "type": "boolean"
+      },
+      {
+        "identifier": "size",
+        "description": "单个 Item 的 size 自定义，优先级高于 Form 的 size, 并且当组件与 Item 一起使用时，组件自身设置 size 属性无效。",
+        "type": "\"large\" | \"medium\" | \"small\""
+      },
+      {
+        "identifier": "labelAlign",
+        "description": "标签的位置",
+        "type": "\"top\" | \"left\" | \"inset\""
+      },
+      {
+        "identifier": "labelTextAlign",
+        "description": "标签的左右对齐方式",
+        "type": "\"left\" | \"right\""
+      },
+      {
+        "identifier": "field",
+        "description": "经 `new Field(this)` 初始化后，直接传给 Form 即可 用到表单校验则不可忽略此项",
+        "type": "any"
+      },
+      {
+        "identifier": "saveField",
+        "description": "保存 Form 自动生成的 field 对象",
+        "type": "() => void"
+      },
+      {
+        "identifier": "labelCol",
+        "description": "控制第一级 Item 的 labelCol",
+        "type": "SpanOffset"
+      },
+      {
+        "identifier": "wrapperCol",
+        "description": "控制第一级 Item 的 wrapperCol",
+        "type": "SpanOffset"
+      },
+      {
+        "identifier": "onSubmit",
+        "description": "form内有 `htmlType=\"submit\"` 的元素的时候会触发",
+        "type": "FormEventHandler<HTMLFormElement>"
+      },
+      {
+        "identifier": "className",
+        "description": "扩展class",
+        "type": "string"
+      },
+      {
+        "identifier": "disabled",
+        "description": "是否禁用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "style",
+        "description": "自定义内联样式",
+        "type": "CSSProperties"
+      },
+      {
+        "identifier": "value",
+        "description": "表单数值",
+        "type": "any"
+      },
+      {
+        "identifier": "onChange",
+        "description": "表单变化回调",
+        "type": "(values: any, item: any) => void"
+      },
+      {
+        "identifier": "component",
+        "description": "设置标签类型",
+        "type": "string | (() => void)"
+      },
+      {
+        "identifier": "responsive",
+        "description": "是否开启内置的响应式布局 （使用ResponsiveGrid）",
+        "type": "boolean"
+      },
+      {
+        "identifier": "gap",
+        "type": "number | number[]"
+      },
+      {
+        "identifier": "isPreview",
+        "description": "是否开启预览态",
+        "type": "boolean"
+      },
+      {
+        "identifier": "useLabelForErrorMessage",
+        "description": "是否使用 label 替换校验信息的 name 字段",
+        "type": "boolean"
+      },
+      {
+        "identifier": "onClick",
+        "type": "any"
+      },
+      {
+        "identifier": "type",
+        "description": "按钮的类型",
+        "type": "\"primary\" | \"secondary\" | \"normal\""
+      },
+      {
+        "identifier": "icons",
+        "description": "按钮中 Icon 的尺寸，用于替代 Icon 的默认大小",
+        "type": "{ loading?: ReactNode; }"
+      },
+      {
+        "identifier": "iconSize",
+        "description": "按钮中 Icon 的尺寸，用于替代 Icon 的默认大小",
+        "type": "number | \"large\" | \"medium\" | \"small\" | \"inherit\" | \"xxs\" | \"xs\" | \"xl\" | \"xxl\" | \"xxxl\""
+      },
+      {
+        "identifier": "htmlType",
+        "description": "当 component = 'button' 时，设置 button 标签的 type 值",
+        "type": "\"button\" | \"submit\" | \"reset\""
+      },
+      {
+        "identifier": "loading",
+        "description": "设置按钮的载入状态",
+        "type": "boolean"
+      },
+      {
+        "identifier": "ghost",
+        "description": "是否为幽灵按钮",
+        "type": "boolean | \"light\" | \"dark\""
+      },
+      {
+        "identifier": "text",
+        "description": "是否为文本按钮",
+        "type": "boolean"
+      },
+      {
+        "identifier": "warning",
+        "description": "是否为警告按钮",
+        "type": "boolean"
+      },
+      {
+        "identifier": "href",
+        "description": "在Button组件使用component属性值为a时有效，代表链接页面的URL",
+        "type": "string"
+      },
+      {
+        "identifier": "target",
+        "description": "在Button组件使用component属性值为a时有效，代表何处打开链接文档",
+        "type": "string"
+      },
+      {
+        "identifier": "locale",
+        "description": "国际化文案对象，属性为组件的 displayName",
+        "type": "any"
+      },
+      {
+        "identifier": "pure",
+        "description": "是否开启 Pure Render 模式，会提高性能，但是也会带来副作用",
+        "type": "boolean"
+      },
+      {
+        "identifier": "rtl",
+        "description": "是否开启 rtl 模式",
+        "type": "boolean"
+      }
+    ]
+  }
+}

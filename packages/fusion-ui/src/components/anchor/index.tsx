@@ -73,6 +73,8 @@ export interface AnchorProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 
    * 自定义滚动到页首的方法
    */
   scrollTop?: () => void;
+
+  containerRef?: any;
 }
 
 function getScrollElement(element: HTMLElement) {
@@ -114,13 +116,16 @@ export class Anchor extends React.Component<AnchorProps> {
     },
   };
 
+  ref = React.createRef();
+
   render() {
     const { direction, isWhalePageAnchor, ...otherProps } = this.props;
 
     otherProps.container = otherProps.container
       ? otherProps.container
       : () => {
-          let container = getScrollElement(document.querySelector('[class^="fusion-ui-anchor"]'));
+
+          let container = getScrollElement(this.ref?.current || document.querySelector('[class^="fusion-ui-anchor"]'));
           if (!container || container === document.documentElement) {
             container = window;
           }
@@ -128,9 +133,9 @@ export class Anchor extends React.Component<AnchorProps> {
         };
 
     if (direction === 'hoz') {
-      return <HozAnchor {...otherProps} />;
+      return <HozAnchor containerRef={this.ref} {...otherProps} />;
     }
 
-    return <VerAnchor {...otherProps} />;
+    return <VerAnchor containerRef={this.ref} {...otherProps} />;
   }
 }

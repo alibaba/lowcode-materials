@@ -5,4 +5,9 @@
     border: 1px dashed #c8d6fa;
     background-color: #f6f8fb;
   }
+  .next-table-cell-wrapper .next-select,
+  .next-table-cell-wrapper .next-input {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
 }

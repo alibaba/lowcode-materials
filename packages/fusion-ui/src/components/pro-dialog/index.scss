@@ -1,4 +1,7 @@
 .fusion-ui-dialog {
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
   &-small {
     width: calc(var(--s-1, 4) * 100) !important;
   }

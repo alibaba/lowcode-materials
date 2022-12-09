@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { AsyncDataSource } from '@/types';
-import { ProTableProps, ProTable } from '@/components/pro-table';
+import { ProTable } from '@/components/pro-table';
+import { ProTableProps } from '../pro-table/types';
 
 export interface ExpandTableDataProps {
   childTableProps: AsyncDataSource;

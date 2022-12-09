@@ -1,12 +1,14 @@
 import React from 'react';
-import PieChart from 'bizcharts/lib/plots/PieChart';
+import { PieChart as MyPie } from 'bizcharts';
 import numeral from 'numeral';
 import DataSet from '@antv/data-set';
 
 const { DataView } = DataSet;
 const dv = new DataView();
 
-function MyPie(props) {
+type Iprops = React.ComponentProps<typeof MyPie>;
+
+function PieChart(props: Iprops) {
   const { data, ...others } = props || {};
 
   dv.source(data);
@@ -19,7 +21,7 @@ function MyPie(props) {
   });
 
   return (
-    <PieChart
+    <MyPie
       isMaterial
       data={dv.rows}
       radius={0.8}
@@ -42,4 +44,4 @@ function MyPie(props) {
   );
 }
 
-export default MyPie;
+export default PieChart;

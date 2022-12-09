@@ -15,6 +15,7 @@ export interface ProFormItemProps extends ItemProps {
   labelTip?: Record<string, any>;
   componentProps?: Record<string, any>;
   __designMode?: string;
+  childForm?: any;
 }
 
 const ProFormItem: React.ForwardRefRenderFunction<any, ProFormItemProps> = (
@@ -81,6 +82,9 @@ const ProFormItem: React.ForwardRefRenderFunction<any, ProFormItemProps> = (
         otherComponentProps.renderPreview = (curValue) => {
           if (otherProps.isPreview && !curValue) {
             return '—';
+          }
+          if (!curValue) {
+            return curValue;
           }
           switch (typeof curValue) {
             case 'boolean':

@@ -1,7 +1,9 @@
 import React from 'react';
-import BizAreaChart from 'bizcharts/lib/plots/AreaChart';
+import { AreaChart as BizAreaChart } from 'bizcharts';
 
-function AreaChart(props) {
+type Iprops = React.ComponentProps<typeof BizAreaChart>;
+
+function AreaChart(props:Iprops) {
   return (
     <BizAreaChart
       tooltip={{

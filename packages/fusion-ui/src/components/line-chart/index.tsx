@@ -1,7 +1,9 @@
 import React from 'react';
-import BizLineChart from 'bizcharts/lib/plots/LineChart';
+import { LineChart as BizLineChart } from 'bizcharts';
 
-function LineChart(props) {
+type Iprops = React.ComponentProps<typeof BizLineChart>;
+
+function LineChart(props: Iprops) {
   return (
     <BizLineChart
       tooltip={{

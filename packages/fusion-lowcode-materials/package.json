@@ -1,6 +1,6 @@
 {
   "name": "@alilc/lowcode-materials",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Fusion Next for LowCode",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -63,8 +63,8 @@
     }
   ],
   "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.4/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.5/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/@alilc/lowcode-materials@1.0.4/build/index.html"
+  "homepage": "https://unpkg.com/@alilc/lowcode-materials@1.0.5/build/index.html"
 }

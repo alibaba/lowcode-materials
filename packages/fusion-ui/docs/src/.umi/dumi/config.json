@@ -1,0 +1,264 @@
+{
+  "menus": {
+    "zh-CN": {
+      "*": [
+        {
+          "title": "AnchorForm",
+          "path": "/anchor-form",
+          "meta": {},
+          "children": [
+            {
+              "path": "/anchor-form",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "AreaChart",
+          "path": "/area-chart",
+          "meta": {},
+          "children": [
+            {
+              "path": "/area-chart",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "BarChart",
+          "path": "/bar-chart",
+          "meta": {},
+          "children": [
+            {
+              "path": "/bar-chart",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "ChildForm",
+          "path": "/child-form",
+          "meta": {},
+          "children": [
+            {
+              "path": "/child-form",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "ColumnChart",
+          "path": "/column-chart",
+          "meta": {},
+          "children": [
+            {
+              "path": "/column-chart",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "DonutChart",
+          "path": "/donut-chart",
+          "meta": {},
+          "children": [
+            {
+              "path": "/donut-chart",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "EditTable",
+          "path": "/edit-table",
+          "meta": {},
+          "children": [
+            {
+              "path": "/edit-table",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "ExpandTable",
+          "path": "/expand-table",
+          "meta": {},
+          "children": [
+            {
+              "path": "/expand-table",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "Filter",
+          "path": "/filter",
+          "meta": {},
+          "children": [
+            {
+              "path": "/filter",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "GroupTable",
+          "path": "/group-table",
+          "meta": {},
+          "children": [
+            {
+              "path": "/group-table",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "LineChart",
+          "path": "/line-chart",
+          "meta": {},
+          "children": [
+            {
+              "path": "/line-chart",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "PageHeader",
+          "path": "/page-header",
+          "meta": {},
+          "children": [
+            {
+              "path": "/page-header",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "PieChart",
+          "path": "/pie-chart",
+          "meta": {},
+          "children": [
+            {
+              "path": "/pie-chart",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "ProCard",
+          "path": "/pro-card",
+          "meta": {},
+          "children": [
+            {
+              "path": "/pro-card",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "ProDialog",
+          "path": "/pro-dialog",
+          "meta": {},
+          "children": [
+            {
+              "path": "/pro-dialog",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "ProDrawer",
+          "path": "/pro-drawer",
+          "meta": {},
+          "children": [
+            {
+              "path": "/pro-drawer",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "ProForm",
+          "path": "/pro-form",
+          "meta": {},
+          "children": [
+            {
+              "path": "/pro-form",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "ProTable",
+          "path": "/pro-table",
+          "meta": {},
+          "children": [
+            {
+              "path": "/pro-table",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "StepForm",
+          "path": "/step-form",
+          "meta": {},
+          "children": [
+            {
+              "path": "/step-form",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        },
+        {
+          "title": "TabContainer",
+          "path": "/tab-container",
+          "meta": {},
+          "children": [
+            {
+              "path": "/tab-container",
+              "title": "何时使用",
+              "meta": {}
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "locales": [
+    {
+      "name": "zh-CN",
+      "label": "中文"
+    }
+  ],
+  "navs": {},
+  "title": "@alifd/fusion-ui",
+  "logo": "https://fusion.alicdn.com/images/jdSvK6gaqaWB.png",
+  "mode": "doc",
+  "repository": {
+    "url": "",
+    "branch": "master"
+  },
+  "theme": {},
+  "exportStatic": {}
+}

@@ -9,13 +9,15 @@ let timeout: number;
  * @param cb 锚点改变时触发
  * @param external 放置额外参数，例如 offsetY
  */
-export const startListen = (dataSource, container, cb, external: { offsetY: number }) => {
-  updateNodePosition(dataSource, container, cb, external);
+export const startListen = (dataSource, container, cb, external: { offsetY: number }, doNotUpdate=false) => {
+  if (!doNotUpdate) {
+    updateNodePosition(dataSource, container, cb, external);
+  }
   timeout = window.setTimeout(() => {
     setEventHandlerForContainer(dataSource, container, cb, external);
   });
 };
-const setEventHandlerForContainer = (dataSource, container, cb, external) => {
+export const setEventHandlerForContainer = (dataSource, container, cb, external) => {
   const affixContainer = container();
   if (affixContainer) {
     events.on(
@@ -94,7 +96,6 @@ export const updateNodePosition = debounce((dataSource, container, cb?, external
 
       return !!findEl;
     });
-
     if (findEl) {
       cb && cb(findEl);
     }

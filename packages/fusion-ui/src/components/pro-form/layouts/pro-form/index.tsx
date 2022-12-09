@@ -12,6 +12,12 @@ import ProFormItem from '@/components/pro-form/components/form-item';
 moment.locale('zh-cn');
 const cssPrefix = `${bizCssPrefix}-pro-form`;
 
+function getVisibleChildren(children: any[]) {
+  return children.filter((child: any) => {
+    return !child?.props?.invisible;
+  });
+}
+
 export interface ProFormProps extends FormProps {
   columns: number;
   children: React.ReactChild;
@@ -22,6 +28,35 @@ export interface ProFormProps extends FormProps {
   lastSaveTime?: number;
   device?: string;
 }
+
+export const calculateLastRows: Function = (children: any[], gridColumns: number) => {
+  const rows: any[] = [];
+  const childrenLength = children.length;
+  for (let i = 0; i < childrenLength; ) {
+    const subRows = [];
+    let index = i;
+    let sum = 0;
+    let childColumnSpan =
+      children[index].props.columnSpan || children[index].props.formItemProps?.columnSpan || 1;
+    if (childColumnSpan >= gridColumns) {
+      subRows.push(children[index].key);
+    } else {
+      while (index < childrenLength) {
+        childColumnSpan =
+          children[index].props.columnSpan || children[index].props.formItemProps?.columnSpan || 1;
+        sum += childColumnSpan;
+        if (sum > gridColumns) {
+          index--;
+          break;
+        }
+        subRows.push(children[index++].key);
+      }
+    }
+    i = ++index;
+    rows.push(subRows);
+  }
+  return rows;
+};
 
 export const formatFormItems: Function = (
   children: React.ReactChild,
@@ -40,35 +75,22 @@ export const formatFormItems: Function = (
     isPreview,
   } = props;
 
-  const _children = children.filter(
-    (child: React.ReactElement) => child && ['function', 'object'].indexOf(typeof child.type) > -1,
-  );
-  const childrenLength = _children.length;
-  const rows: any = [];
-  for (let i = 0; i < childrenLength; ) {
-    const subRows = [];
-    let index = i;
-    let sum = 0;
-    while (index < childrenLength) {
-      const currentColumnSpan =
-        _children[index].props.columnSpan || _children[index].props.formItemProps?.columnSpan || 1;
-      if (currentColumnSpan > gridColumns) {
-        subRows.push(_children[index++].key);
-      } else {
-        sum +=
-          _children[index].props.columnSpan ||
-          _children[index].props.formItemProps?.columnSpan ||
-          1;
-        if (sum > gridColumns) {
-          index--;
-          break;
-        }
-        subRows.push(_children[index++].key);
-      }
-    }
-    i = ++index;
-    rows.push(subRows);
+  let _children;
+
+  if (!children) {
+    return null;
+  } else if (Array.isArray(children)) {
+    _children = children.filter(
+      (child: React.ReactElement) =>
+        child && ['function', 'object', 'string'].indexOf(typeof child.type) > -1,
+    );
+  } else {
+    _children = [children];
   }
+
+  _children = getVisibleChildren(_children);
+
+  const rows: any = calculateLastRows(_children, gridColumns);
 
   return React.Children.map(_children, (child: React.ReactElement) => {
     if (ObjUtils.isReactFragment(child)) {

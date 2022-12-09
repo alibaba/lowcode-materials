@@ -1,7 +1,9 @@
 import React from 'react';
-import BizBarChart from 'bizcharts/lib/plots/BarChart';
+import { BarChart as BizBarChart } from 'bizcharts';
 
-function BarChart(props) {
+type Iprops = React.ComponentProps<typeof BizBarChart>;
+
+function BarChart(props:Iprops) {
   return (
     <BizBarChart
       tooltip={{
@@ -10,8 +12,6 @@ function BarChart(props) {
       padding="auto"
       interactions={[
         { type: 'active-region' },
-        // { type: 'element-selected' },
-        // { type: 'element-active' },
       ]}
       {...props}
     />

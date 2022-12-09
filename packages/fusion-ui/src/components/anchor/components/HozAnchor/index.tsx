@@ -11,6 +11,8 @@ export class HozAnchor extends React.Component<Omit<AnchorProps, 'direction'>> {
     container: null,
   };
 
+  affixRef = React.createRef();
+
   componentDidMount() {
     const { dataSource, container, offsetY } = this.props;
     const _container = container();
@@ -29,6 +31,9 @@ export class HozAnchor extends React.Component<Omit<AnchorProps, 'direction'>> {
   }
 
   updateCurrentValue = (newValue) => {
+    if (newValue === this.state.currentValue) {
+      return;
+    }
     this.setState({
       currentValue: newValue,
     });
@@ -46,7 +51,7 @@ export class HozAnchor extends React.Component<Omit<AnchorProps, 'direction'>> {
   };
 
   render() {
-    const { dataSource, className, style, hasAffix, affixProps } = this.props;
+    const { dataSource, className, style, hasAffix, affixProps, containerRef, offsetY } = this.props;
     const { container } = this.state;
     const { currentValue } = this.state;
 
@@ -61,7 +66,7 @@ export class HozAnchor extends React.Component<Omit<AnchorProps, 'direction'>> {
     }));
 
     const anchorEl = (
-      <div style={style} className={classes}>
+      <div ref={containerRef} style={style} className={classes}>
         <Segment
           size="large"
           type="primary"
@@ -73,8 +78,21 @@ export class HozAnchor extends React.Component<Omit<AnchorProps, 'direction'>> {
     );
 
     if (hasAffix) {
+      const self = this.affixRef?.current?.getInstance?.();
+      // FIXME: 为了解决一个页面多个 affix 会导致除最后一个 affix 外其余 affix 失效的问题，需要手动重新设置监听事件，
+      // 但调用了 affix 的内部方法，如果 affix 新版本的这个内部方法有变动，则需要加上兼容逻辑
+      const func = self?._setEventHandlerForContainer;
+      if (typeof func === 'function') {
+        func.call(self, () => container);
+      }
+      removeListen(dataSource, () => container)
+      startListen(dataSource, () => container, this.updateCurrentValue, {
+        offsetY,
+      });
+
+
       return (
-        <Affix className="fusion-ui-anchor-hoz-affix" container={() => container} {...affixProps}>
+        <Affix ref={this.affixRef} className="fusion-ui-anchor-hoz-affix" container={() => container} {...affixProps}>
           {anchorEl}
         </Affix>
       );

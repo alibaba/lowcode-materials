@@ -176,7 +176,7 @@ function Drawer(props: DrawerProps) {
   );
 }
 
-export class InnerProDrawer extends React.Component {
+export class InnerProDrawer extends React.Component<DrawerProps> {
   static displayName: 'ProDrawer';
 
   static propTypes: DrawerProps;

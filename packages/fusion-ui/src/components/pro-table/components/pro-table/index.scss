@@ -34,4 +34,10 @@
 
 .fusion-ui-pro-table-content {
   position: relative;
+  .next-loading.next-open.next-loading-inline.next-table-loading-content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
 }

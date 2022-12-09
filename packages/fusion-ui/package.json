@@ -1,91 +1,96 @@
 {
   "name": "@alifd/fusion-ui",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A component library based on Fusion Next",
   "files": [
-    "docs/",
     "es/",
     "lib/",
     "build/",
-    "dist/"
+    "dist/",
+    "lowcode/"
   ],
   "main": "lib/index.js",
   "module": "es/index.js",
   "lowcodeEditMain": "build/lowcode/view.js",
   "stylePath": "style.js",
   "scripts": {
-    "start": "build-scripts start --type=dev",
-    "compile": "build-scripts build",
-    "preview": "build-scripts start --type=preview",
-    "build": "npm run compile",
-    "dev": "start-storybook -p 9001",
+    "start": "npm run dumi",
+    "build": "build-scripts build",
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
     "lowcode:build": "build-scripts build --config ./build.lowcode.js",
     "test": "build-scripts test",
-    "prepublishOnly": "npm run build && npm run lowcode:build",
     "lint": "f2elint scan",
-    "lint:fix": "f2elint fix"
+    "lint:fix": "f2elint fix",
+    "dumi": "cross-env APP_ROOT=docs dumi dev",
+    "dumi:build": "cross-env APP_ROOT=docs dumi build",
+    "prepublishOnly": "npm run build && npm run lowcode:build && npm run dumi:build"
   },
   "keywords": [
     "react",
     "component"
   ],
   "dependencies": {
-    "@alifd/build-plugin-lowcode": "^0.3.1",
     "@alifd/next": "^1.25.18",
     "@alifd/pro-layout": "^1.0.1-beta.4",
     "@antv/data-set": "^0.11.8",
     "@sindresorhus/is": "^4.0.1",
     "ahooks": "^2.10.11",
-    "bizcharts": "^4.1.19",
+    "bizcharts": "^4.1.16",
     "classnames": "^2.3.1",
     "framer-motion": "^4.1.17",
     "lodash": "^4.17.21",
+    "moment": "^2.29.4",
     "numeral": "^2.0.6",
     "numvert": "^0.2.2",
     "prop-types": "^15.5.8",
     "qs": "^6.10.1",
     "rc-resize-observer": "^1.0.0",
     "react-beautiful-dnd": "^13.1.0",
-    "react-sortablejs": "6.0.0",
+    "react-sortablejs": "6.1.1",
     "sortablejs": "^1.14.0"
   },
   "devDependencies": {
     "@alifd/theme-2": "^0.4.4",
+    "node-sass": "^8.0.0",
+    "@umijs/plugin-sass": "^1.1.1",
     "@alilc/lowcode-engine": "^1.0.0",
     "@alib/build-scripts": "^0.1.3",
     "@alifd/build-plugin-lowcode": "^0.3.0",
-    "@storybook/addon-docs": "^6.3.12",
-    "@storybook/addon-essentials": "^6.3.12",
-    "@storybook/react": "^6.3.5",
     "@types/lodash": "^4.14.177",
     "@types/react": "^16.14.15",
     "@types/react-dom": "^16.9.4",
-    "build-plugin-component-multiple": "^1.0.0-beta.24",
+    "build-plugin-component": "^1.12.0",
     "build-plugin-fusion": "^0.1.0",
+    "build-plugin-load-assets": "^0.1.3",
+    "build-plugin-moment-locales": "^0.1.0",
+    "cross-env": "^7.0.3",
+    "dumi": "^1.1.49",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^6.0.1",
     "f2elint": "^1.2.0",
     "fs-extra": "^10.0.0",
     "marked": "^2.1.3",
-    "prop-types": "^15.7.2"
-  },
-  "resolutions": {
-    "webpack": "4.x"
+    "prop-types": "^15.7.2",
+    "remark-codesandbox": "^0.10.0",
+    "reqwest": "^2.0.5",
+    "to-string-loader": "^1.1.6"
   },
   "peerDependencies": {
     "@alifd/next": "1.x",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
+  "resolutions": {
+    "webpack": "4.x"
+  },
   "license": "MIT",
-  "homepage": "https://unpkg.com/@alifd/fusion-ui@1.0.7/build/docs/index.html?path=/story/protable--page",
+  "homepage": "https://unpkg.com/@alifd/fusion-ui@1.0.8/build/index.html",
   "componentConfig": {
     "name": "FusionUI",
     "category": "精品物料库",
     "isComponentLibrary": true,
-    "materialSchema": "https://alifd.alicdn.com/npm/@alifd/fusion-ui@1.0.7/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@alifd/fusion-ui@1.0.8/build/lowcode/assets-prod.json"
   },
   "husky": {
     "hooks": {

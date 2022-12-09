@@ -1,31 +1,21 @@
 import React from 'react';
-import BizColumnChart from 'bizcharts/lib/plots/ColumnChart';
-// import { processMetaOfChart } from '@/pages/demo/utils/format';
+import { ColumnChart as BizColumnChart } from 'bizcharts';
 
-function ColumnChart(props) {
+type Iprops = React.ComponentProps<typeof BizColumnChart>;
+
+function ColumnChart(props: Iprops) {
   const { meta, ...others } = props;
 
   return (
     <BizColumnChart
-      // meta={processMetaOfChart(meta)}
       tooltip={{
         visible: true,
       }}
       padding="auto"
-      interactions={[
-        { type: 'active-region' },
-        // { type: 'element-selected' },
-        // { type: 'element-active' },
-      ]}
+      interactions={[{ type: 'active-region' }]}
       {...others}
     />
   );
-
-  // return <GroupedColumnChart
-  //   autoFit
-  //   isGroup
-  //   {...others}
-  // />
 }
 
 export default ColumnChart;
