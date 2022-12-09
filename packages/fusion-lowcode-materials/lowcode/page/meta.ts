@@ -39,9 +39,6 @@ export default [
       component: {
         isContainer: true,
         disableBehaviors: '*',
-        nestingRule: {
-          childWhitelist: ['NextPage', 'ProDialog', 'Dialog', 'Drawer'],
-        },
       },
     },
     category: '基础',
