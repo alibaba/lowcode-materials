@@ -7,6 +7,7 @@ export default [
       props: {
         title: 'Basic Drawer',
         visible: true,
+        open: true,
         placement: 'right',
         destroyOnClose: true,
       },
@@ -26,6 +27,7 @@ export default [
       props: {
         title: 'Basic Drawer',
         visible: true,
+        open: true,
         placement: 'bottom',
         destroyOnClose: true,
       },

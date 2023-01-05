@@ -53,6 +53,15 @@ export default {
           defaultValue: false,
         },
         {
+          name: 'open',
+          title: {
+            label: '手动显隐open',
+            tip: 'open | 手动控制浮层显隐',
+          },
+          propType: 'bool',
+          setter: 'BoolSetter',
+        },
+        {
           name: 'visible',
           title: {
             label: '手动显隐',

@@ -46,6 +46,15 @@ export default {
           propType: 'bool',
           setter: 'BoolSetter',
         },
+        {
+          name: 'open',
+          title: {
+            label: '当前显隐open',
+            tip: 'open | 当前是否显隐',
+          },
+          propType: 'bool',
+          setter: 'BoolSetter',
+        },
       ],
     },
     {

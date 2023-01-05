@@ -6,6 +6,7 @@ const Modal: any = (props: any) => {
   if (props.__designMode === 'design') {
     // 低代码编辑态中强制显示，将控制权交给引擎侧
     innerProps.visible = true;
+    innerProps.open = true;
   }
   return <OriginalModal {...props} {...innerProps} />;
 };

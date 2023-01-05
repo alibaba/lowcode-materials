@@ -29,6 +29,13 @@ export default {
       supportVariable: true
     },
     {
+      name: 'open',
+      title: { label: '是否可见open', tip: '对话框是否可见open' },
+      propType: 'bool',
+      setter: 'BoolSetter',
+      supportVariable: true
+    },
+    {
       name: 'centered',
       title: { label: '垂直居中', tip: '垂直居中展示 Modal' },
       propType: 'bool',
