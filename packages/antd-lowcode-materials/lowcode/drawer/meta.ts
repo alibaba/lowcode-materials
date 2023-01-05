@@ -18,6 +18,12 @@ export default {
           setter: 'BoolSetter',
         },
         {
+          name: 'open',
+          title: { label: '是否可见open', tip: 'open | Drawer 是否可见 兼容 antd >= 4.23' },
+          propType: 'bool',
+          setter: 'BoolSetter',
+        },
+        {
           name: 'title',
           title: { label: '标题', tip: 'title | 标题' },
           propType: { type: 'oneOfType', value: ['string', 'node'] },
