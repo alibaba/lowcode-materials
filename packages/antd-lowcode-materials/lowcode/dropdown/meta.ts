@@ -7,51 +7,8 @@ export default {
   category: '导航',
   props: [
     {
-      name: 'visible',
-      title: { label: '菜单是否显示', tip: '菜单是否显示' },
-      propType: { type: 'oneOf', value: [true, false, '-'] },
-      defaultValue: '-',
-      setter: {
-        componentName: 'RadioGroupSetter',
-        props: {
-          options: [
-            {
-              title: '默认非受控',
-              value: '-',
-            },
-            {
-              title: '显示',
-              value: true,
-            },
-            {
-              title: '不显示',
-              value: false,
-            },
-          ],
-        },
-      },
-      extraProps: {
-        getValue(target, fieldValue) {
-          const { node } = target;
-          let value = node.getPropValue('visible');
-          if (value === undefined) {
-            value = '-';
-          }
-          return value;
-        },
-        setValue(target, value) {
-          const { node } = target;
-          if (value === '-') {
-            setTimeout(() => {
-              node.clearPropValue('visible');
-            });
-          }
-        },
-      },
-    },
-    {
       name: 'open',
-      title: { label: '菜单是否显示open', tip: '菜单是否显示open' },
+      title: { label: '菜单是否显示', tip: '菜单是否显示' },
       propType: { type: 'oneOf', value: [true, false, '-'] },
       defaultValue: '-',
       setter: {

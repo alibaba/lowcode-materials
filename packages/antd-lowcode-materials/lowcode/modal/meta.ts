@@ -22,15 +22,8 @@ export default {
       propType: { type: 'oneOfType', value: ['string', 'node'] },
     },
     {
-      name: 'visible',
-      title: { label: '是否可见', tip: '对话框是否可见' },
-      propType: 'bool',
-      setter: 'BoolSetter',
-      supportVariable: true
-    },
-    {
       name: 'open',
-      title: { label: '是否可见open', tip: '对话框是否可见open' },
+      title: { label: '是否可见', tip: '对话框是否可见' },
       propType: 'bool',
       setter: 'BoolSetter',
       supportVariable: true

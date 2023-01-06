@@ -38,18 +38,9 @@ export default {
           defaultValue: false,
         },
         {
-          name: 'visible',
-          title: {
-            label: '当前显隐',
-            tip: 'visible | 当前是否显隐',
-          },
-          propType: 'bool',
-          setter: 'BoolSetter',
-        },
-        {
           name: 'open',
           title: {
-            label: '当前显隐open',
+            label: '当前显隐',
             tip: 'open | 当前是否显隐',
           },
           propType: 'bool',

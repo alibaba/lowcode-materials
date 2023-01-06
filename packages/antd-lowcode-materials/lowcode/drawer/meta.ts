@@ -12,14 +12,8 @@ export default {
       type: 'group',
       items: [
         {
-          name: 'visible',
-          title: { label: '是否可见', tip: 'visible | Drawer 是否可见' },
-          propType: 'bool',
-          setter: 'BoolSetter',
-        },
-        {
           name: 'open',
-          title: { label: '是否可见open', tip: 'open | Drawer 是否可见 兼容 antd >= 4.23' },
+          title: { label: '是否可见', tip: 'open | Drawer 是否可见' },
           propType: 'bool',
           setter: 'BoolSetter',
         },
