@@ -7,7 +7,7 @@ export default {
   category: '导航',
   props: [
     {
-      name: 'visible',
+      name: 'open',
       title: { label: '菜单是否显示', tip: '菜单是否显示' },
       propType: { type: 'oneOf', value: [true, false, '-'] },
       defaultValue: '-',
@@ -33,7 +33,7 @@ export default {
       extraProps: {
         getValue(target, fieldValue) {
           const { node } = target;
-          let value = node.getPropValue('visible');
+          let value = node.getPropValue('open');
           if (value === undefined) {
             value = '-';
           }
@@ -43,7 +43,7 @@ export default {
           const { node } = target;
           if (value === '-') {
             setTimeout(() => {
-              node.clearPropValue('visible');
+              node.clearPropValue('open');
             });
           }
         },

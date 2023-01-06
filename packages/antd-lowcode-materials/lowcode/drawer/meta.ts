@@ -12,8 +12,8 @@ export default {
       type: 'group',
       items: [
         {
-          name: 'visible',
-          title: { label: '是否可见', tip: 'visible | Drawer 是否可见' },
+          name: 'open',
+          title: { label: '是否可见', tip: 'open | Drawer 是否可见' },
           propType: 'bool',
           setter: 'BoolSetter',
         },

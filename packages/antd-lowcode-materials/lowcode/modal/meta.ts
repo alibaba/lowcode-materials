@@ -22,7 +22,7 @@ export default {
       propType: { type: 'oneOfType', value: ['string', 'node'] },
     },
     {
-      name: 'visible',
+      name: 'open',
       title: { label: '是否可见', tip: '对话框是否可见' },
       propType: 'bool',
       setter: 'BoolSetter',
