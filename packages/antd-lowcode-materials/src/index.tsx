@@ -72,7 +72,7 @@ export { Progress } from 'antd';
 
 export { Rate } from 'antd';
 
-export { Result } from 'antd';
+// export { Result } from 'antd';
 
 export { Row } from 'antd';
 
@@ -147,3 +147,6 @@ export { default as Select } from './components/select'
 export { default as Cascader } from './components/cascader';
 
 export { default as AutoComplete } from './components/auto-complete';
+
+export { default as Result } from './components/result';
+

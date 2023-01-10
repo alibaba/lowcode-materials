@@ -1,4 +1,12 @@
+/*
+ * @Author: wangmeng
+ * @Date: 2022-08-09 13:00:20
+ * @LastEditors: wangmeng
+ * @LastEditTime: 2023-01-10 17:02:30
+ * @FilePath: /lowcode-materials/packages/antd-lowcode-materials/lowcode/result/meta.ts
+ */
 import snippets from './snippets';
+import { AntdIconSetter } from '../_setters';
 
 export default {
   snippets,
@@ -33,6 +41,7 @@ export default {
       name: 'icon',
       title: { label: '自定义 icon', tip: '自定义 icon' },
       propType: 'node',
+      setter: [AntdIconSetter, 'SlotSetter'],
     },
     {
       name: 'extra',
