@@ -43,10 +43,10 @@ export default {
       type: 'group',
       items: [
         {
-          name: 'defaultVisible',
+          name: 'defaultOpen',
           title: {
             label: '默认显隐',
-            tip: 'defaultVisible | 默认是否显隐',
+            tip: 'defaultOpen | 默认是否显隐',
           },
           propType: 'bool',
           setter: 'BoolSetter',
@@ -311,9 +311,9 @@ export default {
       style: true,
       events: [
         {
-          name: 'onVisibleChange',
+          name: 'onOpenChange',
           template:
-            "onVisibleChange(visible,${extParams}){\n// 显示隐藏的回调\nconsole.log('onVisibleChange',visible);}",
+            "onOpenChange(open,${extParams}){\n// 显示隐藏的回调\nconsole.log('onOpenChange',open);}",
         },
       ],
     },

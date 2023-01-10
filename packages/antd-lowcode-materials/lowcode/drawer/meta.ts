@@ -399,9 +399,9 @@ export default {
             "onClose(event,${extParams}){\n// 点击遮罩层或右上角叉或取消按钮的回调\nconsole.log('onClose',event);}",
         },
         {
-          name: 'afterVisibleChange',
+          name: 'afterOpenChange',
           template:
-            "afterVisibleChange(visible,${extParams}){\n// 切换抽屉时动画结束后的回调\nconsole.log('afterVisibleChange',visible);}",
+            "afterOpenChange(open,${extParams}){\n// 切换抽屉时动画结束后的回调\nconsole.log('afterOpenChange',open);}",
         },
       ],
     },

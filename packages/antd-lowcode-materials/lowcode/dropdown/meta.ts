@@ -108,10 +108,10 @@ export default {
       },
     },
     {
-      name: 'onVisibleChange',
+      name: 'onOpenChange',
       title: {
         label: '显示状态回调',
-        tip: '菜单显示状态改变时调用，参数为 `visible`',
+        tip: '菜单显示状态改变时调用，参数为 `open`',
       },
       propType: 'func',
     },
@@ -122,9 +122,9 @@ export default {
       style: true,
       events: [
         {
-          name: 'onVisibleChange',
+          name: 'onOpenChange',
           template:
-            "onVisibleChange(visible,${extParams}){\n// 菜单显示状态改变时调用\nconsole.log('onVisibleChange',visible);}",
+            "onOpenChange(open,${extParams}){\n// 菜单显示状态改变时调用\nconsole.log('onOpenChange',open);}",
         },
       ],
     },
