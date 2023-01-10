@@ -9,12 +9,14 @@ export default {
     {
       name: 'title',
       title: { label: '标题', tip: 'title 文字' },
-      propType: 'node',
+      propType: { type: 'oneOfType', value: ['string', 'node'] },
+      supportVariable: true
     },
     {
       name: 'subTitle',
       title: { label: '副标题', tip: 'subTitle 文字' },
-      propType: 'node',
+      propType: { type: 'oneOfType', value: ['string', 'node'] },
+      supportVariable: true
     },
     {
       name: 'status',
