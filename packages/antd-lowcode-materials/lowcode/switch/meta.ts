@@ -14,6 +14,14 @@ export default {
       setter: 'BoolSetter'
     },
     {
+      name: 'checked',
+      title: { label: '是否选中', tip: '当前是否选中' },
+      propType: 'bool',
+      defaultValue: false,
+      setter: 'BoolSetter',
+      supportVariable: true,
+    },
+    {
       name: 'autoFocus',
       title: { label: '自动聚焦', tip: '组件自动获取焦点' },
       propType: 'bool',
