@@ -32,12 +32,12 @@ export default {
       title: { label: '关闭时的回调', tip: '关闭时的回调' },
       propType: 'func',
     },
-    {
-      name: 'visible',
-      title: { label: '是否显示标签', tip: '是否显示标签' },
-      propType: 'bool',
-      defaultValue: true,
-    },
+    // {
+    //   name: 'visible',
+    //   title: { label: '是否显示标签', tip: '是否显示标签' },
+    //   propType: 'bool',
+    //   defaultValue: true,
+    // },
     {
       name: 'icon',
       title: { label: '设置图标', tip: '设置图标' },

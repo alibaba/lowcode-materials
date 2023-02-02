@@ -18,7 +18,7 @@
   ],
   "devDependencies": {
     "@alib/build-scripts": "^0.1.23",
-    "@alifd/build-plugin-lowcode": "^0.3.0",
+    "@alifd/build-plugin-lowcode": "^0.3.8",
     "@ant-design/icons": "^4.7.0",
     "@types/lodash": "^4.14.181",
     "@types/react": "^18.0.1",
