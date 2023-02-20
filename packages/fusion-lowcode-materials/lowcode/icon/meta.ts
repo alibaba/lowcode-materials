@@ -1,3 +1,4 @@
+import { IPublicModelNode } from '@alilc/lowcode-types';
 import snippets from './snippets';
 
 export default {
@@ -88,17 +89,17 @@ export default {
     },
     advanced: {
       callbacks: {
-        onHoverHook: (target) => {
-          return !target?.exportSchema()?.props?.disabled;
+        onHoverHook: (currentNode: IPublicModelNode) => {
+          return !currentNode?.getPropValue('disabled');
         },
-        onMouseDownHook: (target) => {
-          return !target?.exportSchema()?.props?.disabled;
+        onMouseDownHook: (e: MouseEvent, currentNode: IPublicModelNode) => {
+          return !currentNode?.getPropValue('disabled');
         },
-        onClickHook: (target) => {
-          return !target?.exportSchema()?.props?.disabled;
+        onClickHook: (e: MouseEvent, currentNode: IPublicModelNode) => {
+          return !currentNode?.getPropValue('disabled');
         },
-        onMove: (target) => {
-          return !target?.exportSchema()?.props?.disabled;
+        onMoveHook: (currentNode: IPublicModelNode) => {
+          return !currentNode?.getPropValue('disabled');
         },
       },
     },
