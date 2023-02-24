@@ -1,4 +1,4 @@
-import React, { ComponentType, ReactNode, useState } from 'react';
+import React, { ComponentType, forwardRef, Ref } from 'react';
 import moment from 'moment';
 import { get, set, has } from 'lodash';
 
@@ -21,9 +21,9 @@ function convertProps(
  * 部分组件ref比较特殊，包一层会解决这个问题
  */
 export function withWrap(Comp: ComponentType<any>) {
-  return (props: any) => {
-    return <Comp {...props} />;
-  };
+  return forwardRef((props: any, ref: Ref<any>) => {
+    return <Comp {...props} ref={ref} />;
+  });
 }
 
 /**
