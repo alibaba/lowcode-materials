@@ -1,7 +1,10 @@
+import snippets from './snippets';
+
 export default {
   componentName: 'Form.List',
   title: '表单列表',
   category: '表单',
+  snippets,
   props: [
     {
       name: 'name',
