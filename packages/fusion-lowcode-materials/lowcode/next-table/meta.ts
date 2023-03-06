@@ -5,10 +5,11 @@ module.exports = {
   docUrl: '',
   screenshot: '',
   npm: {
-    package: 'NextTable',
-    version: '{{version}}',
+    package: '@alilc/lowcode-materials',
+    version: 'latest',
     exportName: 'NextTable',
     main: 'lib/index.js',
+    destructuring: true,
     subName: '',
   },
   props: [
@@ -861,7 +862,6 @@ module.exports = {
         'onColumnsChange',
         'onRowOpen',
         'onShowSearch',
-        'onHideSearch',
       ],
     },
   },

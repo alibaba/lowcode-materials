@@ -35,16 +35,6 @@ module.exports = {
                 ],
                 library: 'Next',
               },
-              {
-                title: 'NextTable',
-                package: 'NextTable',
-                version: '1.0.1',
-                urls: [
-                  'https://g.alicdn.com/fusion-platform/pro-table/1.0.1/next-table.js',
-                  'https://g.alicdn.com/fusion-platform/pro-table/1.0.1/next-table.css',
-                ],
-                library: 'NextTable',
-              },
             ],
             components: [],
           },
