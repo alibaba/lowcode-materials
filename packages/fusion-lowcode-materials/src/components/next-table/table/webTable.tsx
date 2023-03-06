@@ -23,7 +23,7 @@ import { LoadingProps } from '@alifd/next/types/loading';
 export interface IWebTableProps extends IWebToolbarProps, IEditableMethodsProps, Omit<IWebNextTableActionCellProps, 'index'>, Omit<TableProps, 'locale' | 'onSelect'> {
   data?: any;
   columns?: any[];
-  deepTablePrefix?: string;
+  nextTablePrefix?: string;
   isPagination?: boolean;
   actionTitle?: string;
   actionFixed?: string;
@@ -100,7 +100,7 @@ class WebTable extends React.Component<IWebTableProps, IWebTableState> {
   }
 
   renderColumn(column: any) {
-    const { deepTablePrefix, onCellDataChange } = this.props;
+    const { nextTablePrefix, onCellDataChange } = this.props;
     const { lock, dataKey, width, title, titleRender, message, sortable, align, resizable, filters, filterMode } = column;
     const props: ColumnProps = {
       dataIndex: dataKey,
@@ -111,11 +111,11 @@ class WebTable extends React.Component<IWebTableProps, IWebTableState> {
           rowData,
           column,
           isRenderEditMode: true,
-          deepTablePrefix,
+          nextTablePrefix,
           onCellDataChange,
         }}/>);
       },
-      title: titleMessageRender(title, message, deepTablePrefix),
+      title: titleMessageRender(title, message, nextTablePrefix),
       width,
       sortable,
       align,
@@ -154,7 +154,7 @@ class WebTable extends React.Component<IWebTableProps, IWebTableState> {
   renderActionColumns() {
     const {
       actionTitle, actionFixed, actionWidth, actionColumn, actionType,
-      maxWebShownActionCount, deepTablePrefix, device, primaryKey, locale
+      maxWebShownActionCount, nextTablePrefix, device, primaryKey, locale
     } = this.props;
 
     if (!hasRowAction(this.props)) {
@@ -172,7 +172,7 @@ class WebTable extends React.Component<IWebTableProps, IWebTableState> {
           actionColumn,
           actionType,
           maxWebShownActionCount,
-          deepTablePrefix,
+          nextTablePrefix,
           primaryKey,
           value,
           index,
@@ -185,12 +185,12 @@ class WebTable extends React.Component<IWebTableProps, IWebTableState> {
   }
 
   render() {
-    const { deepTablePrefix, isPagination, locale } = this.props;
+    const { nextTablePrefix, isPagination, locale } = this.props;
     const { dataSource, currentColumns } = this.state;
     const paginationProps = this.getPaginationProps();
 
     return (
-      <div className={`${deepTablePrefix}web-table`}>
+      <div className={`${nextTablePrefix}web-table`}>
         <WebToolbar
           {...(this.props)}
           onActionClick={(item) => {

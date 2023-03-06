@@ -15,8 +15,8 @@ export default class DateField extends BaseTableField {
 
   renderField() {
     const field = this.field;
-    const { deepTablePrefix, value, onChange, rules, name, ...rest } = this.props;
+    const { nextTablePrefix, value, onChange, rules, name, ...rest } = this.props;
 
-    return (<DatePicker className={`${deepTablePrefix}date-picker`} {...field.init(name, { rules }, rest)} />);
+    return (<DatePicker className={`${nextTablePrefix}date-picker`} {...field.init(name, { rules }, rest)} />);
   }
 }

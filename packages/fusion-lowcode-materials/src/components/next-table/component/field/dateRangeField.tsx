@@ -30,9 +30,9 @@ export default class DateRangeField extends BaseTableField {
 
   renderField() {
     const field = this.field;
-    const { deepTablePrefix, value, onChange, rules, name, ...rest } = this.props;
+    const { nextTablePrefix, value, onChange, rules, name, ...rest } = this.props;
 
     return (<RangePicker
-      className={`${deepTablePrefix}date-range-picker`} {...field.init(name, { rules }, rest)} />);
+      className={`${nextTablePrefix}date-range-picker`} {...field.init(name, { rules }, rest)} />);
   }
 }

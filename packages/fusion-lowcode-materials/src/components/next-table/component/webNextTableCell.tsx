@@ -40,7 +40,7 @@ export interface IWebNextTableCellProps {
   };
   isRenderEditMode?: boolean;
   rowIndex: number;
-  deepTablePrefix?: string;
+  nextTablePrefix?: string;
   onCellDataChange?(options: {
     dataKey: IWebNextTableCellProps['column']['dataKey'];
     value: any,
@@ -111,7 +111,7 @@ export default class WebNextTableCell extends React.Component<IWebNextTableCellP
 
   renderCellEditInner() {
     const { currentValue } = this.state;
-    const { deepTablePrefix, column, rowData, rowIndex, onCellDataChange } = this.props;
+    const { nextTablePrefix, column, rowData, rowIndex, onCellDataChange } = this.props;
     const { editType, dataKey } = column;
     const FieldComponent = fieldsMap[editType!];
 
@@ -122,7 +122,7 @@ export default class WebNextTableCell extends React.Component<IWebNextTableCellP
 
     return (<FieldComponent
       ref={this.fieldComponentRef}
-      deepTablePrefix={deepTablePrefix}
+      nextTablePrefix={nextTablePrefix}
       name={dataKey}
       value={currentValue}
       onChange={(value: any) => {

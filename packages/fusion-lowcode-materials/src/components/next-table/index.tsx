@@ -10,6 +10,7 @@ import zhCN from './locale/zh-cn'
 import { LoadingProps } from '@alifd/next/types/loading';
 import { IEditableMethods } from './mixin/editableMethods';
 import { ICommonMethods } from './mixin/commonMethods';
+import './index.scss';
 
 const { GroupHeader, GroupFooter, Column, ColumnGroup } = Table
 
@@ -51,7 +52,7 @@ class NextTable extends React.Component<ITableProps> {
     if (children) {
       myProps.columns = getColumnsFromChildren(children)
     }
-    myProps.deepTablePrefix = `${clsPrefix}${tablePrefix}`;
+    myProps.nextTablePrefix = `${clsPrefix}${tablePrefix}`;
     myProps.actionColumn = delegateFunctions(myProps.actionColumn, 'callback', this, 2);
     myProps.actionBar = delegateFunctions(myProps.actionBar, 'callback', this);
     myProps.linkBar = delegateFunctions(myProps.linkBar, 'callback', this);
@@ -61,12 +62,12 @@ class NextTable extends React.Component<ITableProps> {
 
   render() {
     const { clsPrefix, tablePrefix, className } = this.props;
-    const deepTablePrefix = `${clsPrefix}${tablePrefix}`;
+    const nextTablePrefix = `${clsPrefix}${tablePrefix}`;
 
     console.log('render table in lowcode materials')
 
     return (
-      <div className={classnames(`${deepTablePrefix}full-wrap`, className,)}>
+      <div className={classnames(`${nextTablePrefix}full-wrap`, className,)}>
         {this.renderTable()}
       </div>
     );

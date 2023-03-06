@@ -25,7 +25,7 @@ export interface IWebCustomColumnDrawerProps {
   locale?: {
     [propKey: string]: string;
   }
-  deepTablePrefix?: string;
+  nextTablePrefix?: string;
   visible: boolean;
 }
 
@@ -167,15 +167,15 @@ export default class WebCustomColumnDrawer extends React.Component<IWebCustomCol
   }
 
   renderColumnShown(value: any, record: any, hasCheckbox: boolean) {
-    const { deepTablePrefix } = this.props;
+    const { nextTablePrefix } = this.props;
     const { dataKey } = record;
 
-    return <div className={`${deepTablePrefix}cell-wrap`}>
-      {hasCheckbox ? <Checkbox className={`${deepTablePrefix}cell-checkbox`} onChange={(checked) => {
+    return <div className={`${nextTablePrefix}cell-wrap`}>
+      {hasCheckbox ? <Checkbox className={`${nextTablePrefix}cell-checkbox`} onChange={(checked) => {
         this.handleCheck(checked, dataKey);
       }} checked={!this.isHidden(dataKey)} /> : null}
 
-      <span className={`${deepTablePrefix}cell`}>
+      <span className={`${nextTablePrefix}cell`}>
         {value}
       </span>
     </div>;
@@ -191,22 +191,22 @@ export default class WebCustomColumnDrawer extends React.Component<IWebCustomCol
       }} />;
   }
   render() {
-    const { deepTablePrefix, onClose, visible, locale = {} } = this.props;
+    const { nextTablePrefix, onClose, visible, locale = {} } = this.props;
     const { currentColumns = [] } = this.state;
     return (
       <div>
         <Drawer
-          className={`${deepTablePrefix}web-custom-column-drawer`}
+          className={`${nextTablePrefix}web-custom-column-drawer`}
           width="400px" height="100%" visible={visible} placement="right"
           closeable="mask,esc" onClose={onClose}>
 
-          <div className={`${deepTablePrefix}title`}>
-            <div className={`${deepTablePrefix}title-txt`}>{locale.customColumn}</div>
-            <Icon className={`${deepTablePrefix}close`}
+          <div className={`${nextTablePrefix}title`}>
+            <div className={`${nextTablePrefix}title-txt`}>{locale.customColumn}</div>
+            <Icon className={`${nextTablePrefix}close`}
               type="close" size="medium" onClick={onClose} />
           </div>
 
-          <div className={`${deepTablePrefix}center`}>
+          <div className={`${nextTablePrefix}center`}>
             <Table style={{ margin: '12px' }}
               dataSource={currentColumns.filter(item => {
                 return !item.isGroup
@@ -231,9 +231,9 @@ export default class WebCustomColumnDrawer extends React.Component<IWebCustomCol
             </Table>
           </div>
 
-          <div className={`${deepTablePrefix}bottom`}>
-            <Button className={`${deepTablePrefix}button`} onClick={onClose}>{locale.cancel}</Button>
-            <Button className={`${deepTablePrefix}button`}
+          <div className={`${nextTablePrefix}bottom`}>
+            <Button className={`${nextTablePrefix}button`} onClick={onClose}>{locale.cancel}</Button>
+            <Button className={`${nextTablePrefix}button`}
               onClick={this.restoreDefault.bind(this)}>{locale.restoreDefault}</Button>
             <Button style={{ width: 80 }} type="primary" onClick={this.handleOk.bind(this)}>{locale.submit}</Button>
           </div>

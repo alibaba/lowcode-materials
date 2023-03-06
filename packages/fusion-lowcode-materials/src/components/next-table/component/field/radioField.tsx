@@ -13,10 +13,10 @@ export default class RadioField extends BaseTableField<IRadioFieldProps> {
 
   renderField() {
     const field = this.field;
-    const { deepTablePrefix, value, onChange, rules, name, renderChildren, ...rest } = this.props;
+    const { nextTablePrefix, value, onChange, rules, name, renderChildren, ...rest } = this.props;
     if (renderChildren) {
       return (
-        <RadioGroup className={`${deepTablePrefix}radio-group`} {...field.init(name, { rules }, rest)}>
+        <RadioGroup className={`${nextTablePrefix}radio-group`} {...field.init(name, { rules }, rest)}>
           {renderChildren()}
         </RadioGroup>
       );

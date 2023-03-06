@@ -54,13 +54,13 @@ const methods: IColumnMethods = {
     },
     renderCustomColumnDrawer() {
         const { isCustomColumnDrawerShown, originalColumns } = this.state;
-        const { deepTablePrefix, locale, onColumnsChange = () => { } } = this.props;
+        const { nextTablePrefix, locale, onColumnsChange = () => { } } = this.props;
 
         return (
             <WebCustomColumnDrawer
                 locale={locale}
                 columns={originalColumns}
-                deepTablePrefix={deepTablePrefix}
+                nextTablePrefix={nextTablePrefix}
                 visible={isCustomColumnDrawerShown}
                 onClose={this.hideCustomColumnDrawer.bind(this)}
                 onOk={(columns) => {

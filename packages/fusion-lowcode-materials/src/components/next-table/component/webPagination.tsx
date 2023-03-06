@@ -6,7 +6,7 @@ import { paginationProps, fetchKey } from "../utils/tableProps";
 import { PaginationProps } from "@alifd/next/types/pagination";
 
 export interface IWebPaginationProps extends Pick<PaginationProps, 'pageSize' | 'onChange' | 'onPageSizeChange' | 'pageSizeList'> {
-  deepTablePrefix?: string;
+  nextTablePrefix?: string;
   currentPage?: PaginationProps['current'];
   totalCount?: PaginationProps['total'];
   locale?: {
@@ -19,7 +19,7 @@ export interface IWebPaginationProps extends Pick<PaginationProps, 'pageSize' | 
 
 export default class WebPagination extends React.Component<IWebPaginationProps> {
   render() {
-    const { deepTablePrefix, currentPage, pageSize, totalCount, locale, onChange, onPageSizeChange, hideOnlyOnePage, noPadding } = this.props;
+    const { nextTablePrefix, currentPage, pageSize, totalCount, locale, onChange, onPageSizeChange, hideOnlyOnePage, noPadding } = this.props;
 
     const myProps = fetchKey<IWebPaginationProps>(this.props, paginationProps as Array<keyof IWebPaginationProps>);
     const { pageSizeList, paginationPosition = 'right', ...rest } = myProps;
@@ -28,11 +28,11 @@ export default class WebPagination extends React.Component<IWebPaginationProps> 
       return null
     }
     return (
-      <div className={classnames(`${deepTablePrefix}web-pagination-wrap`, {
-        [`${deepTablePrefix}no-padding`]: noPadding
+      <div className={classnames(`${nextTablePrefix}web-pagination-wrap`, {
+        [`${nextTablePrefix}no-padding`]: noPadding
       })}>
         <Pagination
-          className={classnames(`${deepTablePrefix}web-pagination`, `${deepTablePrefix}web-pagination-${paginationPosition}`)}
+          className={classnames(`${nextTablePrefix}web-pagination`, `${nextTablePrefix}web-pagination-${paginationPosition}`)}
           totalRender={(total) => {
             return (
               <span>{locale && locale.totalCount ? locale.totalCount : '总计'}:{' '}{total}{' '}</span>);

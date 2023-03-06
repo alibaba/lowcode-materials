@@ -7,7 +7,7 @@ export interface IBaseTableFieldProps {
   name: string;
   value?: any;
   onChange: (value: any) => void;
-  deepTablePrefix: string;
+  nextTablePrefix: string;
   rules?: Rule;
 }
 
@@ -59,18 +59,18 @@ class BaseTableField<P = {}> extends React.Component<IBaseTableFieldProps & P> {
   }
 
   render() {
-    const { deepTablePrefix, name } = this.props;
+    const { nextTablePrefix, name } = this.props;
     const field = this.field;
     const errMsg = field.getError(name);
     const fieldState = field.getState(name);
 
     return (
-      <div className={classnames((fieldState === "error") ? `${deepTablePrefix}field-has-error` : "")}>
+      <div className={classnames((fieldState === "error") ? `${nextTablePrefix}field-has-error` : "")}>
         <div>
           {this.renderField()}
         </div>
         {errMsg ? <div>
-          <div className={`${deepTablePrefix}field-msg`}>{errMsg}</div>
+          <div className={`${nextTablePrefix}field-msg`}>{errMsg}</div>
         </div> : null}
       </div>
     );

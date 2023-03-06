@@ -17,7 +17,7 @@ export interface IAction {
 }
 
 export interface IWebToolbarProps {
-  deepTablePrefix?: string;
+  nextTablePrefix?: string;
   onSearch?: SearchProps['onSearch'];
   onActionClick?: (action: IAction, index: number) => void;
   locale?: { [prop: string]: string };
@@ -46,7 +46,7 @@ export interface IWebToolbarProps {
 export default class WebToolbar extends React.Component<IWebToolbarProps> {
   render() {
     const {
-      deepTablePrefix, onSearch, onActionClick, locale = {},
+      nextTablePrefix, onSearch, onActionClick, locale = {},
       showActionBar, actionBar, showLinkBar, linkBar, showSearch, searchBarPlaceholder, showCustomColumn,
       onClickCustomColumn, rowOrder, customBarItem, showMiniPager, paginationProps, noPadding
     } = this.props;
@@ -68,17 +68,17 @@ export default class WebToolbar extends React.Component<IWebToolbarProps> {
     }
 
     return (
-      <div className={classnames(`${deepTablePrefix}web-toolbar`, {
-        [`${deepTablePrefix}no-padding`]: noPadding
+      <div className={classnames(`${nextTablePrefix}web-toolbar`, {
+        [`${nextTablePrefix}no-padding`]: noPadding
       })}>
-        {renderLeft ? <div className={`${deepTablePrefix}left-wrap`}>
+        {renderLeft ? <div className={`${nextTablePrefix}left-wrap`}>
           {renderActionBar ? actionBar.map((action, index) => {
             const { isDisabled, title, type, disabled, callback, ...rest } = action
             const buttonType = type ? type : index === 0 ? 'secondary' : 'normal';
             const disable = disabled !== undefined ? disabled : isDisabled ? !!(isDisabled()) : false;
 
             return (
-              <Button {...rest} className={`${deepTablePrefix}button`} type={buttonType} disabled={disable}
+              <Button {...rest} className={`${nextTablePrefix}button`} type={buttonType} disabled={disable}
                 key={`${buttonType}-${disable ? "0" : "1"}-${index}`}
                 onClick={() => {
                   onActionClick && onActionClick(action, index);
@@ -88,23 +88,23 @@ export default class WebToolbar extends React.Component<IWebToolbarProps> {
             );
           }) : null}
 
-          {renderCustomBarItem ? <div className={`${deepTablePrefix}custom`}>
+          {renderCustomBarItem ? <div className={`${nextTablePrefix}custom`}>
             {customBarItem.render!()}
           </div> : null}
         </div> : null}
 
-        {renderRight ? <div className={`${deepTablePrefix}right-wrap`}>
+        {renderRight ? <div className={`${nextTablePrefix}right-wrap`}>
           {renderLinkBar ?
-            <WebLinkBar deepTablePrefix={deepTablePrefix} linkBar={linkBar}
+            <WebLinkBar nextTablePrefix={nextTablePrefix} linkBar={linkBar}
               onActionClick={onActionClick} /> : null}
-          {rowOrder ? <WebRowOrder {...rowOrder} {...{ deepTablePrefix }} /> : null}
-          {showCustomColumn ? <div className={`${deepTablePrefix}custom-column`}
+          {rowOrder ? <WebRowOrder {...rowOrder} {...{ nextTablePrefix }} /> : null}
+          {showCustomColumn ? <div className={`${nextTablePrefix}custom-column`}
             onClick={onClickCustomColumn}>
-            <Icon className={`${deepTablePrefix}icon`} type="custom-column" size="small" />
-            <span className={`${deepTablePrefix}text`}>{locale.customColumn}</span>
+            <Icon className={`${nextTablePrefix}icon`} type="custom-column" size="small" />
+            <span className={`${nextTablePrefix}text`}>{locale.customColumn}</span>
           </div> : null}
 
-          {showMiniPager ? <div className={`${deepTablePrefix}pagination`}>
+          {showMiniPager ? <div className={`${nextTablePrefix}pagination`}>
             <Pagination {...
               {
                 current: currentPage,
@@ -121,7 +121,7 @@ export default class WebToolbar extends React.Component<IWebToolbarProps> {
           {
             showSearch
               ? <Search
-                className={`${deepTablePrefix}search`}
+                className={`${nextTablePrefix}search`}
                 shape="simple"
                 hasClear
                 placeholder={searchBarPlaceholder}
@@ -129,14 +129,14 @@ export default class WebToolbar extends React.Component<IWebToolbarProps> {
               /> : null
           }
           {
-            renderCustomBarItemRight ? <div className={`${deepTablePrefix}custom-right`}>{customBarItem.rightRender!()}</div> : null
+            renderCustomBarItemRight ? <div className={`${nextTablePrefix}custom-right`}>{customBarItem.rightRender!()}</div> : null
           }
         </div> : null
         }
 
         <div style={{ clear: 'both' }} />
 
-        {renderCustomBarItemBottom ? <div className={`${deepTablePrefix}custom-bottom`}>
+        {renderCustomBarItemBottom ? <div className={`${nextTablePrefix}custom-bottom`}>
           {customBarItem.bottomRender!()}
         </div> : null}
       </div>

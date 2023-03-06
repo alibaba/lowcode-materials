@@ -105,10 +105,10 @@ const methods: ICommonMethods =  {
     });
   },
   getPaginationProps() {
-    const { deepTablePrefix, pagination, locale, noPadding } = this.props;
+    const { nextTablePrefix, pagination, locale, noPadding } = this.props;
     const { currentPage, pageSize, totalCount } = this.state;
     return {
-      deepTablePrefix, currentPage, totalCount,
+      nextTablePrefix, currentPage, totalCount,
       ...pagination,
       noPadding,
       pageSize,

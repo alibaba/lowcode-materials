@@ -11,7 +11,7 @@ export default class CustomField extends BaseTableField<ICustomFieldProps> {
 
   renderField() {
     const field = this.field;
-    const { deepTablePrefix, value, onChange, rules, name, renderField, rowData, ...rest } = this.props;
+    const { nextTablePrefix, value, onChange, rules, name, renderField, rowData, ...rest } = this.props;
 
     const props = field.init(name, { rules }, rest);
     delete props.value; // 外部默认为非受控模式

@@ -20,7 +20,7 @@ export interface IWebNextTableActionCellProps {
   actionColumn?: IActionColumnItem[];
   actionType?: string;
   maxWebShownActionCount?: number;
-  deepTablePrefix?: string;
+  nextTablePrefix?: string;
   rowData?: any;
   device?: string;
   index?: number;
@@ -42,7 +42,7 @@ export default class WebNextTableActionCell extends React.Component<IWebNextTabl
   }
 
   render() {
-    const { actionColumn, actionType, maxWebShownActionCount = 3, deepTablePrefix, rowData, device, index, locale = {} } = this.props;
+    const { actionColumn, actionType, maxWebShownActionCount = 3, nextTablePrefix, rowData, device, index, locale = {} } = this.props;
     const currentActionColumn = filterActionColumn(actionColumn, rowData, device);
     const showMoreAction = currentActionColumn.length > maxWebShownActionCount;
     const actionColumnToRender = currentActionColumn.slice(0, (showMoreAction ? maxWebShownActionCount - 1 : undefined));
@@ -54,14 +54,14 @@ export default class WebNextTableActionCell extends React.Component<IWebNextTabl
       return render ? <Item key={action.title}>{render}</Item> : null;
     }).filter(i => i !== null);
 
-    return (<div className={`${deepTablePrefix}action-cell`}>
+    return (<div className={`${nextTablePrefix}action-cell`}>
       {
         actionColumnToRender.map((action) => {
           const render = actionTitleRender(action, rowData)
           return (
             render ? <Button
               key={action.title}
-              className={classnames(isLink ? `${deepTablePrefix}action-link` : `${deepTablePrefix}action-button`)}
+              className={classnames(isLink ? `${nextTablePrefix}action-link` : `${nextTablePrefix}action-button`)}
               text={isLink} type={isLink ? 'primary' : 'secondary'}
               onClick={(e) => {
                 e.stopPropagation();
@@ -79,7 +79,7 @@ export default class WebNextTableActionCell extends React.Component<IWebNextTabl
       {showMoreAction && menu.length ?
         <MenuButton
           text={isLink}
-          className={classnames(`${deepTablePrefix}action-more`, isLink ? `${deepTablePrefix}action-link` : `${deepTablePrefix}action-button`)}
+          className={classnames(`${nextTablePrefix}action-more`, isLink ? `${nextTablePrefix}action-link` : `${nextTablePrefix}action-button`)}
           type={isLink ? 'primary' : 'secondary'}
           popupTriggerType="hover"
           autoWidth={false}

@@ -1,0 +1,956 @@
+/* write style here */
+@import "scss/variables";
+
+$table-css-prefix: '#{$deep-css-prefix}table-' !default;
+$red: #fb575f;
+$blue: #33a4ff;
+$orange: #ff8c33;
+$green: #82cb78;
+$grey: #c2c2c2;
+$black: #2c2f33;
+$yellow: #F9BD0F;
+
+.#{$table-css-prefix}full-wrap,
+.#{$table-css-prefix}detail-view-drawer {
+
+  .#{$table-css-prefix}detail-list {
+    background-color: #ffffff;
+    width: calc(100% - 18px);
+    .#{$table-css-prefix}detail-field-wrap {
+      line-height: 24px;
+      font-size: 14px;
+      display: flex;
+      .#{$table-css-prefix}detail-label {
+        color: $color-text1-3;
+        white-space: nowrap;
+      }
+
+      .#{$table-css-prefix}detail-value {
+        color: $color-text1-4;
+        .#{$css-prefix}btn {
+          font-size: 14px;
+        }
+        > span {
+          word-break: break-word;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .#{$table-css-prefix}detail-field-highlight {
+      font-size: 16px;
+      padding-left: 0;
+      font-weight: bold;
+      padding-bottom: 8px;
+    }
+  }
+
+  .#{$css-prefix}table-sort {
+    outline: none;
+    line-height: 16px;
+    .#{$css-prefix}icon {
+      &.#{$css-prefix}icon-ascending, &.#{$css-prefix}icon-descending {
+        left: 0;
+      }
+    }
+  }
+
+  .#{$css-prefix}table-filter {
+    width: 16px;
+  }
+
+  .#{$css-prefix}table th {
+    background-color: $color-fill1-1;
+    .#{$css-prefix}table-cell-wrapper {
+      ul.#{$css-prefix}menu {
+        text-align: left;
+      }
+    }
+  }
+
+  .#{$css-prefix}table-cell{
+    .#{$css-prefix}btn-text.deep-table-link-button {
+      color:$color-link-2
+    }
+    .deep-table-badge {
+      display: inline-block;
+      padding: 2px 5px;
+      border-radius: 2px;
+      &.deep-table-badge-background-red {
+        color: white;
+        background-color: $red;
+      }
+      &.deep-table-badge-color-red {
+        color: $red
+      }
+      &.deep-table-badge-background-yellow {
+        color: white;
+        background-color: $yellow;
+      }
+      &.deep-table-badge-color-yellow {
+        color: $yellow
+      }
+
+      &.deep-table-badge-background-black {
+        color: white;
+        background-color: $black;
+      }
+      &.deep-table-badge-color-black {
+        color: $black
+      }
+
+      &.deep-table-badge-background-grey {
+        color: white;
+        background-color: $grey;
+      }
+      &.deep-table-badge-color-grey {
+        color: $grey
+      }
+
+      &.deep-table-badge-background-green {
+        color: white;
+        background-color: $green;
+      }
+      &.deep-table-badge-color-green {
+        color: $green
+      }
+
+      &.deep-table-badge-background-blue {
+        color: white;
+        background-color: $blue;
+      }
+      &.deep-table-badge-color-blue {
+        color: $blue
+      }
+
+      &.deep-table-badge-background-orange {
+        color: white;
+        background-color: $orange;
+      }
+      &.deep-table-badge-color-orange {
+        color: $orange
+      }
+    }
+  }
+
+  .#{$css-prefix}table-cell.#{$css-prefix}table-expanded {
+    .#{$css-prefix}icon-add:before, .#{$css-prefix}icon-minus:before {
+      color: $color-fill1-6;
+      font-size: 16px;
+      width: 16px;
+    }
+
+    .#{$css-prefix}icon-add:before {
+      content: "\e724";
+    }
+
+    .#{$css-prefix}icon-minus:before {
+      content: "\e725";
+    }
+  }
+
+  .#{$table-css-prefix}input {
+    width: 100%;
+  }
+
+  .#{$table-css-prefix}field-msg {
+    line-height: 24px;
+    text-align: left;
+    color: $color-error-3;
+  }
+
+  .#{$table-css-prefix}employee {
+    width: 100%;
+
+    .#{$css-prefix}select-trigger, .#{$css-prefix}select .#{$css-prefix}select-inner {
+      min-width: 50px;
+    }
+  }
+}
+
+.#{$table-css-prefix}full-wrap {
+  .#{$table-css-prefix}web-toolbar {
+    overflow: hidden;
+    padding: 16px 0;
+
+    &.#{$table-css-prefix}no-padding {
+      padding-top: 0;
+    }
+
+    .#{$table-css-prefix}left-wrap {
+      float: left;
+    }
+
+    .#{$table-css-prefix}right-wrap {
+      float: right;
+    }
+
+    .#{$table-css-prefix}button {
+      margin-right: 8px;
+    }
+
+    .#{$table-css-prefix}search {
+      width: 280px;
+      margin-left: 20px;
+      vertical-align: top;
+
+      .#{$css-prefix}search-icon {
+        outline: none;
+      }
+    }
+
+    .#{$table-css-prefix}custom-column, .#{$table-css-prefix}link-a, .#{$table-css-prefix}link-div {
+      color: $color-link-1;
+      font-size: 12px;
+      cursor: pointer;
+      i {
+        color: $color-text1-2;
+        margin-right: 3px;
+      }
+      .#{$table-css-prefix}text {
+        padding-left: 3px;
+      }
+    }
+
+    .#{$table-css-prefix}link-a {
+      text-decoration: none;
+    }
+
+    .#{$table-css-prefix}custom-column {
+      margin-left: 24px;
+      line-height: 32px;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .#{$table-css-prefix}link-wrap {
+      margin-left: 24px;
+      display: inline-block;
+      white-space: nowrap;
+      line-height: 32px;
+      vertical-align: top;
+
+      .#{$table-css-prefix}link-item {
+        float: right;
+      }
+
+      .#{$table-css-prefix}link-sp {
+        width: 1px;
+        height: 12px;
+        margin: 10px 12px;
+        display: inline-block;
+        vertical-align: top;
+        background-color: $color-line1-2;
+      }
+    }
+
+    .#{$table-css-prefix}row-order {
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 24px;
+
+      .#{$table-css-prefix}row-order-v {
+        color: $color-link-1;
+        i {
+          color: $color-text1-2;
+          margin-right: 3px;
+        }
+      }
+
+      .#{$css-prefix}input-control {
+        display: none;
+      }
+
+      .#{$css-prefix}input.#{$css-prefix}medium .#{$css-prefix}input-text-field {
+        padding-left: 3px;
+        padding-right: 0;
+        color: $color-link-1;
+      }
+
+      .#{$css-prefix}select-inner {
+        min-width: 50px;
+      }
+
+      .#{$css-prefix}select-trigger {
+        min-width: 50px;
+      }
+
+      .#{$css-prefix}input.#{$css-prefix}medium .#{$css-prefix}icon:before {
+        width: 16px;
+        font-size: 16px;
+      }
+    }
+
+    .#{$table-css-prefix}custom {
+      display: inline-block;
+      height: 32px;
+      line-height: 32px;
+      vertical-align: top;
+      margin: 0 5px;
+    }
+
+    .#{$table-css-prefix}custom-right {
+      display: inline-block;
+      height: 32px;
+      line-height: 32px;
+      vertical-align: top;
+      margin: 0 5px 0 10px;
+    }
+
+    .#{$table-css-prefix}pagination {
+      display: inline-block;
+      vertical-align: top;
+      margin: 2px 0 0 20px;
+    }
+  }
+  .#{$table-css-prefix}mobile-body {
+    .#{$css-prefix}radio-group {
+      width: 100%;
+    }
+  }
+  .#{$table-css-prefix}mobile-toolbar {
+    overflow: hidden;
+    border-bottom: 1px solid $color-line1-2;
+
+    .#{$table-css-prefix}right-wrap {
+      line-height: 44px;
+      display: flex;
+      &-selector {
+        width: 54px;
+        text-align: center;
+      }
+      &-content {
+        width: 100%;
+        text-align: right;
+      }
+    }
+
+    .#{$table-css-prefix}search-wrap {
+      padding: 8px 0;
+
+      .#{$table-css-prefix}search-inner {
+        overflow: hidden;
+        padding-left: 16px;
+      }
+
+      .#{$table-css-prefix}search-cancel-wrap {
+        float: right;
+        line-height: 28px;
+        padding: 0 16px;
+      }
+    }
+
+    .#{$table-css-prefix}search-cancel {
+      font-size: 14px;
+      color: $color-fill1-7;
+    }
+
+    .#{$table-css-prefix}i-wrap, .#{$table-css-prefix}row-order {
+      margin-right: 16px;
+      display: inline-block;
+      vertical-align: top;
+      color: $color-link-1;
+      font-size: 0;
+      position: relative;
+      &:active {
+        &:after {
+          position: absolute;
+          top: 6px;
+          left: -6px;
+          display: inline-block;
+          content: '';
+          width: 32px;
+          height: 32px;
+          background: $color-fill1-1;
+          z-index: -1;
+          border-radius: 16px;
+        }
+      }
+    }
+
+    .#{$table-css-prefix}search {
+      position: relative;
+      overflow: hidden;
+
+      .#{$css-prefix}icon-search {
+        vertical-align: top;
+      }
+
+      .input {
+        line-height: 28px;
+        width: 100%;
+        padding: 0;
+        border: none;
+        font-size: 12px;
+        outline: none;
+        background-color: transparent;
+      }
+
+      .i-wrap {
+        position: absolute;
+        right: 5px;
+        top: 4px;
+        padding: 0 10px;
+        color: $color-fill1-6;
+      }
+
+      .input-wrap {
+        border-radius: 20px;
+        padding: 0 0 0 18px;
+        background: #F1F3F5;
+      }
+    }
+  }
+
+  .#{$table-css-prefix}mobile-table {
+    .#{$css-prefix}table.#{$css-prefix}table-small td .#{$css-prefix}table-cell-wrapper {
+      padding: 8px;
+    }
+
+    .#{$css-prefix}table.#{$css-prefix}table-small .#{$css-prefix}table-prerow .#{$css-prefix}table-cell-wrapper {
+      padding-right: 8px;
+    }
+
+    .#{$css-prefix}table.#{$css-prefix}table-small {
+      td.first,
+      th.#{$css-prefix}table-selection {
+        .#{$css-prefix}table-cell-wrapper {
+          padding-left: 16px;
+        }
+      }
+    }
+    .#{$css-prefix}table.#{$css-prefix}table-small th.#{$css-prefix}table-selection .#{$css-prefix}table-cell-wrapper {
+      padding-left: 16px;
+    }
+
+    .#{$css-prefix}table-expanded-row {
+      background-color: $color-fill1-1;
+    }
+
+    .#{$css-prefix}table.#{$css-prefix}table-small td.#{$table-css-prefix}column-action .#{$css-prefix}table-cell-wrapper {
+      padding: 0;
+    }
+
+    .#{$table-css-prefix}column-action-i {
+      padding: 8px;
+      color: $color-fill1-6;
+    }
+
+    .#{$css-prefix}btn, .#{$css-prefix}table-expanded-ctrl {
+      cursor: default;
+    }
+
+    .#{$css-prefix}table-row.hovered {
+      background-color: #ffffff;
+    }
+
+    .#{$table-css-prefix}expand-wrap {
+      padding-left: 8px;
+    }
+  }
+
+  .#{$table-css-prefix}card-table {
+
+    .#{$table-css-prefix}item-wrap {
+      width: 100%;
+      padding: 16px;
+      border-bottom: 1px solid $color-line1-2;
+      position: relative;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-items: center;
+      .#{$table-css-prefix}item-wrap-selector {
+        margin-right: 12px;
+      }
+      .#{$table-css-prefix}item-wrap-content {
+        width: 100%;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        &.is-right {
+          flex-direction: row-reverse;
+        }
+        .#{$table-css-prefix}item-wrap-content-column {
+          width: 100%;
+        }
+        .#{$table-css-prefix}row-operate {
+          position: absolute;
+          right: 16px;
+          top: 10px;
+          line-height: 30px;
+          color: $color-fill1-6;
+        }
+
+        .#{$table-css-prefix}row-button-wrap {
+          margin-top: 16px;
+          text-align: right;
+        }
+      }
+    }
+
+    .#{$table-css-prefix}expand-wrap {
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    .#{$table-css-prefix}more-wrap {
+      text-align: left;
+    }
+
+    .#{$table-css-prefix}expand-wrap, .#{$table-css-prefix}more-wrap {
+      line-height: 22px;
+      color: $color-fill1-6;
+      font-size: 14px;
+
+      .#{$table-css-prefix}text {
+        padding-right: 4px;
+      }
+
+      .#{$css-prefix}icon {
+        line-height: 20px;
+      }
+    }
+
+    .#{$table-css-prefix}expand-content-wrap {
+      background-color: $color-fill1-1;
+      border-radius: 4px;
+      margin-top: 16px;
+    }
+
+    .#{$css-prefix}btn {
+      cursor: default;
+    }
+  }
+
+  .#{$table-css-prefix}date-picker {
+    &.#{$css-prefix}date-picker, .#{$css-prefix}month-picker, .#{$css-prefix}year-picker {
+      width: 100%;
+    }
+  }
+
+  .#{$table-css-prefix}web-pagination-wrap {
+
+    .#{$table-css-prefix}web-pagination-left {
+      float: left;
+    }
+
+    .#{$table-css-prefix}web-pagination-right {
+      float: right;
+      .#{$css-prefix}select {
+        width: unset !important;
+      }
+    }
+  }
+
+  .#{$table-css-prefix}web-table {
+    .#{$css-prefix}table-expanded-row {
+      background-color: $color-fill1-1;
+    }
+
+    .#{$table-css-prefix}action-cell {
+      .#{$table-css-prefix}action-link {
+        &.#{$css-prefix}btn-text, &.#{$css-prefix}menu-btn.#{$css-prefix}btn-text.#{$css-prefix}btn-primary .#{$css-prefix}menu-btn-arrow {
+          color: $color-link-1;
+        }
+      }
+      .#{$table-css-prefix}action-button {
+        margin-right: 8px;
+        &:last-child {
+          margin-right: 0;
+        }
+        &.#{$table-css-prefix}action-more {
+          .#{$css-prefix}menu-btn-arrow {
+            vertical-align: middle;
+          }
+        }
+      }
+      .#{$table-css-prefix}action-link {
+        padding: 0 12px;
+        position: relative;
+        vertical-align: baseline;
+        &:first-child {
+          padding-left: 0;
+          &:before {
+            width: 0;
+          }
+        }
+        &:last-child {
+          padding-right: 0;
+        }
+        &.#{$table-css-prefix}action-more{
+          &:before {
+            top: 4px
+          }
+        }
+        &:before {
+          position: absolute;
+          content: '';
+          width: 1px;
+          height: 10px;
+          background: $color-line1-4;
+          vertical-align: middle;
+          top: 5px;
+          left: 1px;
+        }
+      }
+
+      .#{$table-css-prefix}action-more {
+        .#{$css-prefix}menu-btn-arrow {
+          vertical-align: top;
+        }
+      }
+    }
+
+    .#{$css-prefix}table-sort {
+      cursor: pointer;
+    }
+  }
+
+  .#{$table-css-prefix}web-pagination-wrap {
+    padding: 16px 10px;
+
+    &.#{$table-css-prefix}no-padding {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.#{$table-css-prefix}mobile-drawer {
+  .#{$css-prefix}drawer-body {
+    padding: 0;
+  }
+
+  &.#{$css-prefix}drawer {
+    background-color: $color-fill1-2;
+  }
+
+  &.#{$css-prefix}drawer-right {
+    max-width: none;
+    width: 100%;
+    height: 100%;
+  }
+
+  .#{$css-prefix}switch, .#{$css-prefix}checkbox-wrapper input[type="checkbox"] {
+    cursor: default;
+  }
+}
+
+.#{$table-css-prefix}detail-view-drawer {
+
+  .#{$css-prefix}drawer-body {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+  }
+
+  .#{$table-css-prefix}title {
+    line-height: 48px;
+    text-align: center;
+    background: #fff;
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    border-bottom: 1px solid $color-line1-2;
+    color: $color-text1-4;
+
+    .#{$table-css-prefix}close {
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      line-height: 20px;
+    }
+  }
+
+  .#{$table-css-prefix}detail-list-wrap {
+    background-color: #ffffff;
+    padding: 16px;
+  }
+
+  .#{$table-css-prefix}expand-content-wrap {
+    margin-top: 16px;
+    background-color: #ffffff;
+  }
+
+  .#{$table-css-prefix}center {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 49px;
+    bottom: 0;
+    overflow: auto;
+  }
+
+  .#{$table-css-prefix}center-action {
+    bottom: 51px;
+  }
+
+  .#{$table-css-prefix}bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1002;
+    background-color: #ffffff;
+
+    .#{$table-css-prefix}action-wrap {
+      display: flex;
+      flex-direction: row;
+      border-top: 1px solid $color-fill1-2;
+    }
+
+    .#{$table-css-prefix}action-item {
+      flex: 1;
+      padding: 12px 0;
+    }
+
+    .#{$table-css-prefix}action-inner {
+      line-height: 24px;
+      color: $color-fill1-7;
+      border-left: 1px solid $color-line1-2;
+      text-align: center;
+      padding: 0 5px;
+      font-size: 16px;
+    }
+
+    .#{$table-css-prefix}action-disable {
+      color: $color-fill1-5;
+    }
+
+    .#{$table-css-prefix}action-item.first .#{$table-css-prefix}action-inner {
+      border-left: none;
+    }
+  }
+}
+
+.#{$table-css-prefix}operation-drawer {
+  .#{$table-css-prefix}item {
+    line-height: 47px;
+    font-size: 17px;
+    text-align: center;
+    background-color: #fff;
+    border-bottom: 1px solid $color-line1-2;
+  }
+
+  .#{$table-css-prefix}item-disable {
+    color: $color-fill1-5;
+  }
+
+  .#{$table-css-prefix}close {
+    line-height: 47px;
+    font-size: 17px;
+    text-align: center;
+    background-color: #fff;
+    margin-top: 10px;
+  }
+
+  .#{$table-css-prefix}action-list {
+    max-height: 384px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.#{$table-css-prefix}web-custom-column-drawer {
+
+  .#{$css-prefix}drawer-body {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+    padding: 0;
+  }
+
+  .#{$table-css-prefix}title {
+    line-height: 48px;
+    text-align: left;
+    background: #fff;
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    color: $color-text1-4;
+    border-bottom: 1px solid $color-line1-2;
+
+    .#{$table-css-prefix}title-txt {
+      padding: 0 16px;
+      font-weight: bold;
+    }
+
+    .#{$table-css-prefix}close {
+      line-height: 20px;
+      position: absolute;
+      right: 16px;
+      top: 12px;
+      cursor: pointer;
+    }
+  }
+
+  .#{$table-css-prefix}center {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 49px;
+    bottom: 53px;
+    overflow: auto;
+  }
+
+
+  .#{$table-css-prefix}cell-wrap {
+    line-height: 32px;
+  }
+
+  .#{$table-css-prefix}cell, .#{$table-css-prefix}select-all-content {
+    font-size: 12px;
+    color: $color-text1-4;
+    vertical-align: top;
+  }
+
+  .#{$css-prefix}table {
+    td, th {
+      .#{$css-prefix}table-cell-wrapper {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      &.#{$css-prefix}table-selection {
+        .#{$css-prefix}table-cell-wrapper {
+          padding: 12px 16px;
+        }
+      }
+    }
+  }
+
+
+  .#{$table-css-prefix}cell-checkbox, .#{$table-css-prefix}select-all-checkbox {
+    vertical-align: top;
+    position: relative;
+    top: -2px;
+  }
+
+  .#{$table-css-prefix}bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid $color-line1-2;
+    padding: 10px 16px;
+    text-align: right;
+    left: 0;
+    background: #fff;
+    border-radius: 0 0 4px 4px;
+  }
+
+  .#{$table-css-prefix}select-all {
+    float: left;
+    margin-left: 20px;
+  }
+
+  .#{$table-css-prefix}button {
+    margin-right: 6px;
+  }
+}
+
+.#{$table-css-prefix}mobile-custom-column-drawer {
+
+  .#{$css-prefix}drawer-body {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    height: 100%;
+  }
+
+  .#{$table-css-prefix}title {
+    line-height: 48px;
+    text-align: center;
+    background: #fff;
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 0;
+    color: $color-text1-4;
+
+    .#{$table-css-prefix}close {
+      line-height: 20px;
+      position: absolute;
+      right: 16px;
+      top: 12px;
+    }
+  }
+
+  .#{$table-css-prefix}cell-wrap {
+    line-height: 32px;
+  }
+
+  .#{$table-css-prefix}cell, .#{$table-css-prefix}select-all-content {
+    margin-left: 12px;
+    font-size: 16px;
+    color: $color-text1-4;
+    vertical-align: top;
+  }
+
+  .#{$table-css-prefix}cell-checkbox, .#{$table-css-prefix}select-all-checkbox {
+    vertical-align: top;
+    position: relative;
+    top: -2px;
+  }
+
+  .#{$table-css-prefix}messge {
+    line-height: 30px;
+  }
+
+  .#{$table-css-prefix}center {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 49px;
+    bottom: 48px;
+    overflow: auto;
+  }
+
+  .#{$table-css-prefix}bottom {
+    position: absolute;
+    bottom: 0;
+    line-height: 48px;
+    background: #ffffff;
+    left: 0;
+    width: 100%;
+  }
+
+  .#{$table-css-prefix}select-all {
+    float: left;
+    margin-left: 20px;
+  }
+
+  .#{$table-css-prefix}button {
+    float: right;
+    margin-right: 16px;
+  }
+
+  .#{$css-prefix}checkbox-wrapper .#{$css-prefix}checkbox-inner {
+    border-radius: 50%;
+  }
+}
+
+.#{$table-css-prefix}full-wrap {
+  .#{$css-prefix}table-header {
+    overflow: hidden;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.#{$table-css-prefix}column-title {
+  .#{$table-css-prefix}column-tooltip {
+    color: $color-notice-3;
+    line-height: 14px;
+    margin-left: 4px;
+  }
+}
