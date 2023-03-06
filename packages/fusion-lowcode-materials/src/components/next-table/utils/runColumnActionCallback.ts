@@ -1,4 +1,4 @@
-import { IActionColumnItem } from "../component/webDeepTableActionCell";
+import { IActionColumnItem } from "../component/webNextTableActionCell";
 import getCleanRowData from "./getCleanRowData";
 
 export default function runColumnActionCallback(param: { action: IActionColumnItem; rowData: any; index?: number }) {

@@ -16,7 +16,7 @@ export interface IActionColumnItem {
   render?: (title: IActionColumnItem['title'], rowData: any) => ReactNode;
 }
 
-export interface IWebDeepTableActionCellProps {
+export interface IWebNextTableActionCellProps {
   actionColumn?: IActionColumnItem[];
   actionType?: string;
   maxWebShownActionCount?: number;
@@ -29,7 +29,7 @@ export interface IWebDeepTableActionCellProps {
   }
 }
 
-export default class WebDeepTableActionCell extends React.Component<IWebDeepTableActionCellProps> {
+export default class WebNextTableActionCell extends React.Component<IWebNextTableActionCellProps> {
   refreshCellUI() {
     this.forceUpdate(() => {
       dispatchResizeEvent();

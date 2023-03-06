@@ -19,7 +19,7 @@ const fieldsMap = {
   custom: CustomField,
 };
 
-function canEditCell(canEdit: boolean, rowData: IWebDeepTableCellProps['rowData']) {
+function canEditCell(canEdit: boolean, rowData: IWebNextTableCellProps['rowData']) {
   if (typeof canEdit === "undefined" || canEdit === null) {
     return true;
   }
@@ -31,7 +31,7 @@ function canEditCell(canEdit: boolean, rowData: IWebDeepTableCellProps['rowData'
   return !!canEdit;
 }
 
-export interface IWebDeepTableCellProps {
+export interface IWebNextTableCellProps {
   rowData: any;
   column: {
     editType?: keyof typeof fieldsMap;
@@ -42,21 +42,21 @@ export interface IWebDeepTableCellProps {
   rowIndex: number;
   deepTablePrefix?: string;
   onCellDataChange?(options: {
-    dataKey: IWebDeepTableCellProps['column']['dataKey'];
+    dataKey: IWebNextTableCellProps['column']['dataKey'];
     value: any,
-    rowData: IWebDeepTableCellProps['rowData'];
-    rowIndex: IWebDeepTableCellProps['rowIndex'];
+    rowData: IWebNextTableCellProps['rowData'];
+    rowIndex: IWebNextTableCellProps['rowIndex'];
   }): void;
 }
 
-interface IWebDeepTableCellState {
+interface IWebNextTableCellState {
   editable: boolean;
   currentValue: any;
 }
 
-export default class WebDeepTableCell extends React.Component<IWebDeepTableCellProps, IWebDeepTableCellState> {
+export default class WebNextTableCell extends React.Component<IWebNextTableCellProps, IWebNextTableCellState> {
   fieldComponentRef: React.RefObject<BaseTableField>;
-  constructor(props: IWebDeepTableCellProps) {
+  constructor(props: IWebNextTableCellProps) {
     super(props);
 
     this.state = {
@@ -104,7 +104,7 @@ export default class WebDeepTableCell extends React.Component<IWebDeepTableCellP
     return validate && validate.call(current);
   }
 
-  _fillFields(rowData: IWebDeepTableCellProps['rowData'], dataKey: IWebDeepTableCellProps['column']['dataKey']) {
+  _fillFields(rowData: IWebNextTableCellProps['rowData'], dataKey: IWebNextTableCellProps['column']['dataKey']) {
     rowData.__fields__ = rowData.__fields__ || {};
     rowData.__fields__[dataKey] = this;
   }

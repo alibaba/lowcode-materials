@@ -1,4 +1,4 @@
-import type { DeepTable } from "..";
+import type { NextTable } from "..";
 import { IEditableMethods } from "../mixin/editableMethods";
 
 const methodList: (keyof Omit<IEditableMethods, 'init'> | 'getDataSource')[] = [
@@ -9,7 +9,7 @@ const methodList: (keyof Omit<IEditableMethods, 'init'> | 'getDataSource')[] = [
   'getDataSource',
 ];
 
-export default function buildDeepTableMethod(instance: DeepTable) {
+export default function buildNextTableMethod(instance: NextTable) {
   methodList.forEach((name) => {
     instance[name] = function () {
       const { tableRef } = instance;

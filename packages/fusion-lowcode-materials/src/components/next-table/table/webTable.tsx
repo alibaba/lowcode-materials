@@ -12,15 +12,15 @@ import hasRowAction from "../utils/hasRowAction";
 import runToolbarActionCallback from "../utils/runToolbarActionCallback";
 import buildTableProps from "../utils/buildTableProps";
 import editableMethods, { IEditableMethods, IEditableMethodsProps } from "../mixin/editableMethods";
-import WebDeepTableActionCell, { IWebDeepTableActionCellProps } from "../component/webDeepTableActionCell";
-import WebDeepTableCell, { IWebDeepTableCellProps } from "../component/webDeepTableCell";
+import WebNextTableActionCell, { IWebNextTableActionCellProps } from "../component/webNextTableActionCell";
+import WebNextTableCell, { IWebNextTableCellProps } from "../component/webNextTableCell";
 import getDataSource from "../utils/getDataSource";
 import titleMessageRender from "../utils/render/titleMessageRender";
 import { LoadingProps } from '@alifd/next/types/loading';
 
 
 
-export interface IWebTableProps extends IWebToolbarProps, IEditableMethodsProps, Omit<IWebDeepTableActionCellProps, 'index'>, Omit<TableProps, 'locale' | 'onSelect'> {
+export interface IWebTableProps extends IWebToolbarProps, IEditableMethodsProps, Omit<IWebNextTableActionCellProps, 'index'>, Omit<TableProps, 'locale' | 'onSelect'> {
   data?: any;
   columns?: any[];
   deepTablePrefix?: string;
@@ -47,7 +47,7 @@ export interface IWebTableProps extends IWebToolbarProps, IEditableMethodsProps,
   onSelectAll?: NonNullable<TableProps['rowSelection']>['onSelectAll'];
   isRowSelectorDisabled?: (rowData: any, index: number) => boolean;
   rowSelector?: string;
-  onCellDataChange?: IWebDeepTableCellProps['onCellDataChange'];
+  onCellDataChange?: IWebNextTableCellProps['onCellDataChange'];
   clsPrefix?: string;
   tablePrefix?: string;
   className?: string;
@@ -105,7 +105,7 @@ class WebTable extends React.Component<IWebTableProps, IWebTableState> {
     const props: ColumnProps = {
       dataIndex: dataKey,
       cell: (value, rowIndex, rowData) => {
-        return (<WebDeepTableCell {...{
+        return (<WebNextTableCell {...{
           value,
           rowIndex,
           rowData,
@@ -166,7 +166,7 @@ class WebTable extends React.Component<IWebTableProps, IWebTableState> {
       lock: actionFixed !== 'none' ? actionFixed : false,
       width: actionWidth,
       cell: (value, index, rowData) => {
-        return <WebDeepTableActionCell {...{
+        return <WebNextTableActionCell {...{
           locale,
           device,
           actionColumn,

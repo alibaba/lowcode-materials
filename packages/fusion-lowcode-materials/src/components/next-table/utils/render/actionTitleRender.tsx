@@ -1,4 +1,4 @@
-import type { IActionColumnItem } from "../../component/webDeepTableActionCell";
+import type { IActionColumnItem } from "../../component/webNextTableActionCell";
 
 export default function actionTitleRender(action: IActionColumnItem, rowData: any) {
   const { title, render } = action;

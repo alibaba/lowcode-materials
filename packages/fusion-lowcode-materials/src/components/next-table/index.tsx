@@ -3,7 +3,7 @@ import React from 'react';
 import { Table, Loading, ConfigProvider } from '@alifd/next'
 import WebTable, { IWebTableProps } from './table/webTable';
 import { fetchKey, tableProps } from "./utils/tableProps";
-import buildDeepTableMethod from "./utils/buildDeepTableMethod";
+import buildNextTableMethod from "./utils/buildNextTableMethod";
 import delegateFunctions from "./utils/delegateFunctions";
 import getColumnsFromChildren from './utils/getColumnsFromChildern'
 import zhCN from './locale/zh-cn'
@@ -15,8 +15,8 @@ const { GroupHeader, GroupFooter, Column, ColumnGroup } = Table
 
 export interface ITableProps extends IWebTableProps {}
 
-interface DeepTable extends React.Component<ITableProps>, Omit<IEditableMethods, 'init'>, Pick<ICommonMethods, 'getDataSource'> {}
-class DeepTable extends React.Component<ITableProps> {
+interface NextTable extends React.Component<ITableProps>, Omit<IEditableMethods, 'init'>, Pick<ICommonMethods, 'getDataSource'> {}
+class NextTable extends React.Component<ITableProps> {
   static Column = Column
   static ColumnGroup = ColumnGroup
   static GroupHeader = GroupHeader
@@ -41,7 +41,7 @@ class DeepTable extends React.Component<ITableProps> {
     super(props);
 
     this.tableRef = React.createRef();
-    buildDeepTableMethod(this);
+    buildNextTableMethod(this);
   }
 
   renderTable() {
@@ -74,7 +74,7 @@ class DeepTable extends React.Component<ITableProps> {
 }
 
 export {
-  DeepTable,
+  NextTable,
 };
 
-export default ConfigProvider.config(DeepTable);
+export default ConfigProvider.config(NextTable);
