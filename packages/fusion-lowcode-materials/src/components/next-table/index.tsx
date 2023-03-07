@@ -64,8 +64,6 @@ class NextTable extends React.Component<ITableProps> {
     const { clsPrefix, tablePrefix, className } = this.props;
     const nextTablePrefix = `${clsPrefix}${tablePrefix}`;
 
-    console.log('render table in lowcode materials')
-
     return (
       <div className={classnames(`${nextTablePrefix}full-wrap`, className,)}>
         {this.renderTable()}
