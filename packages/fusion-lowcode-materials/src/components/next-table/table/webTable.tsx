@@ -71,9 +71,6 @@ interface WebTable extends React.Component<IWebTableProps, IWebTableState>, Omit
 class WebTable extends React.Component<IWebTableProps, IWebTableState> {
   static displayName = 'WebTable';
 
-  //FIXME: 用更优雅的方式解决 mixin 问题，目前虽然不报错，但一些提示兵不正确
-  // [prop: string]: any;
-
   constructor(props: IWebTableProps) {
     super(props);
 
