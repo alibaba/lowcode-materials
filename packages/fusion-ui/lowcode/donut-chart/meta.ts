@@ -1,6 +1,6 @@
 import { ComponentMetadata, Snippet } from '@ali/lowcode-types';
 import { actionConfigure } from '../common/chart-action';
-import { wrapWithCard } from '../pro-card/meta';
+// import { wrapWithCard } from '../pro-card/meta';
 
 const DonutChartMeta: ComponentMetadata = {
   componentName: 'DonutChart',
@@ -215,5 +215,5 @@ const snippets: Snippet[] = [
 
 export default {
   ...DonutChartMeta,
-  snippets: wrapWithCard(snippets),
+  snippets,
 };

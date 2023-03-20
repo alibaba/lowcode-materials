@@ -1,6 +1,6 @@
 import { ComponentMetadata } from '@ali/lowcode-types';
 import { actionConfigure } from '../common/chart-action';
-import { wrapWithCard } from '../pro-card/meta';
+// import { wrapWithCard } from '../pro-card/meta';
 
 const pieChartMeta: ComponentMetadata = {
   componentName: 'PieChart',
@@ -217,5 +217,5 @@ const snippets = [
 ];
 export default {
   ...pieChartMeta,
-  snippets: wrapWithCard(snippets),
+  snippets
 };
