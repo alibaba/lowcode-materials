@@ -1,6 +1,6 @@
 import { ComponentMetadata, Snippet } from '@ali/lowcode-types';
 import { actionConfigure } from '../common/chart-action';
-import { wrapWithCard } from '../pro-card/meta';
+// import { wrapWithCard } from '../pro-card/meta';
 
 const LineChartMeta: ComponentMetadata = {
   componentName: 'LineChart',
@@ -159,5 +159,5 @@ const snippets: Snippet[] = [
 
 export default {
   ...LineChartMeta,
-  snippets: wrapWithCard(snippets),
+  snippets
 };
