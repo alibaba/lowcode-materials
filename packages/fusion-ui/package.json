@@ -1,6 +1,6 @@
 {
   "name": "@alifd/fusion-ui",
-  "version": "1.0.8",
+  "version": "2.0.0",
   "description": "A component library based on Fusion Next",
   "files": [
     "es/",
@@ -30,8 +30,8 @@
     "component"
   ],
   "dependencies": {
+    "@alifd/layout": "^2.0.7",
     "@alifd/next": "^1.25.18",
-    "@alifd/pro-layout": "^1.0.1-beta.4",
     "@antv/data-set": "^0.11.8",
     "@sindresorhus/is": "^4.0.1",
     "ahooks": "^2.10.11",

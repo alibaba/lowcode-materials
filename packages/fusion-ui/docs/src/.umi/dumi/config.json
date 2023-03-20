@@ -159,18 +159,6 @@
           ]
         },
         {
-          "title": "ProCard",
-          "path": "/pro-card",
-          "meta": {},
-          "children": [
-            {
-              "path": "/pro-card",
-              "title": "何时使用",
-              "meta": {}
-            }
-          ]
-        },
-        {
           "title": "ProDialog",
           "path": "/pro-dialog",
           "meta": {},

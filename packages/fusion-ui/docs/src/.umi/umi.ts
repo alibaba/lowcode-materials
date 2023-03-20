@@ -4,8 +4,8 @@ import '@@/core/devScripts';
 import { plugin } from './core/plugin';
 import './core/pluginRegister';
 import { createHistory } from './core/history';
-import { ApplyPluginsType } from '/Users/mark.ck/Workspace/opensource/lowcode/lowcode-materials/packages/fusion-ui/node_modules/_@umijs_runtime@3.5.35@@umijs/runtime';
-import { renderClient } from '/Users/mark.ck/Workspace/opensource/lowcode/lowcode-materials/packages/fusion-ui/node_modules/_@umijs_renderer-react@3.5.35@@umijs/renderer-react/dist/index.js';
+import { ApplyPluginsType } from '/Users/guojia/Desktop/WorkApp/低代码开源域/lowcode-materials/packages/fusion-ui/node_modules/@umijs/runtime';
+import { renderClient } from '/Users/guojia/Desktop/WorkApp/低代码开源域/lowcode-materials/packages/fusion-ui/node_modules/@umijs/renderer-react/dist/index.js';
 import { getRoutes } from './core/routes';
 
 
@@ -38,7 +38,7 @@ export default clientRender();
 
 
     window.g_umi = {
-      version: '3.5.35',
+      version: '3.5.38',
     };
   
 

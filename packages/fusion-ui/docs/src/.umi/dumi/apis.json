@@ -48,12 +48,12 @@
       {
         "identifier": "title",
         "description": "图表标题。如需绑定事件请直接使用ReactNode。",
-        "type": "ReactNode | VisibleText"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | VisibleText"
       },
       {
         "identifier": "description",
         "description": "图表副标题。如需绑定事件请直接使用ReactNode。",
-        "type": "ReactNode | VisibleText"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | VisibleText"
       },
       {
         "identifier": "forceFit",
@@ -111,12 +111,12 @@
       {
         "identifier": "title",
         "description": "图表标题。如需绑定事件请直接使用ReactNode。",
-        "type": "ReactNode | VisibleText"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | VisibleText"
       },
       {
         "identifier": "description",
         "description": "图表副标题。如需绑定事件请直接使用ReactNode。",
-        "type": "ReactNode | VisibleText"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | VisibleText"
       },
       {
         "identifier": "forceFit",
@@ -164,12 +164,12 @@
       {
         "identifier": "title",
         "description": "图表标题。如需绑定事件请直接使用ReactNode。",
-        "type": "ReactNode | VisibleText"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | VisibleText"
       },
       {
         "identifier": "description",
         "description": "图表副标题。如需绑定事件请直接使用ReactNode。",
-        "type": "ReactNode | VisibleText"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | VisibleText"
       },
       {
         "identifier": "forceFit",
@@ -215,17 +215,17 @@
       {
         "identifier": "columnsSetting",
         "description": "列设置",
-        "type": "ProTableColumnsSetting"
+        "type": "Record<string, ProTableSettingItem>"
       },
       {
         "identifier": "defaultColumnsSetting",
         "description": "默认列设置",
-        "type": "ProTableColumnsSetting"
+        "type": "Record<string, ProTableSettingItem>"
       },
       {
         "identifier": "onColumnsSettingChange",
         "description": "设置改变时的回调",
-        "type": "(newSetting: ProTableColumnsSetting, actionType: ProTableSettingActionType) => void"
+        "type": "(newSetting: Record<string, ProTableSettingItem>, actionType: ProTableSettingActionType) => void"
       },
       {
         "identifier": "onFullscreenStateChange",
@@ -284,7 +284,7 @@
       {
         "identifier": "rowSelection",
         "description": "是否启用选择模式\nhttps://yuque.antfin-inc.com/docs/share/34ec077c-14d5-4408-bfd4-d2827bfd87ec",
-        "type": "{ ref?: MutableRefObject<ProTableRowSelectionInstance>; getProps?: (record: ProTableRowRecord, index: number) => CheckboxProps | RadioProps; ... 12 more ...; titleProps?: () => CheckboxProps; }"
+        "type": "{ ref?: MutableRefObject<ProTableRowSelectionInstance>; getProps?: (record: Record<string, any>, index: number) => CheckboxProps | RadioProps; ... 12 more ...; titleProps?: () => CheckboxProps; }"
       },
       {
         "identifier": "onRowClick",
@@ -352,7 +352,7 @@
       {
         "identifier": "expandedRowRender",
         "description": "额外渲染行的渲染函数",
-        "type": "(record: any, index: number) => ReactElement<any, string | JSXElementConstructor<any>>"
+        "type": "(record: any, index: number) => ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)>"
       },
       {
         "identifier": "rowExpandable",
@@ -376,7 +376,7 @@
       {
         "identifier": "getExpandedColProps",
         "description": "设置额外渲染行的属性",
-        "type": "<IRecord extends unknown = any>(record: IRecord, index: number) => object | Record<string | number, any>"
+        "type": "<IRecord extends unknown = any>(record: IRecord, index: number) => object | Record<ReactText, any>"
       },
       {
         "identifier": "onRowOpen",
@@ -396,7 +396,7 @@
       {
         "identifier": "maxBodyHeight",
         "description": "最大内容区域的高度,在`fixedHeader`为`true`的时候,超过这个高度会出现滚动条",
-        "type": "string | number"
+        "type": "ReactText"
       },
       {
         "identifier": "stickyHeader",
@@ -551,19 +551,19 @@
       },
       {
         "identifier": "columnFilters",
-        "type": "ProTableColumnsFilterValue"
+        "type": "Record<string, ProTableColumnFilterValue>"
       },
       {
         "identifier": "onColumnsFilterChange",
-        "type": "(newValue: ProTableColumnsFilterValue, oldValue: ProTableColumnsFilterValue, changedColumnFilterValue?: ProTableColumnFilterValue, changedColumnDataIndex?: string) => void"
+        "type": "(newValue: Record<string, ProTableColumnFilterValue>, oldValue: Record<string, ProTableColumnFilterValue>, changedColumnFilterValue?: ProTableColumnFilterValue, changedColumnDataIndex?: string) => void"
       },
       {
         "identifier": "groupHeader",
-        "type": "ReactNode | GroupHeaderProps"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | GroupHeaderProps"
       },
       {
         "identifier": "groupFooter",
-        "type": "ReactNode | GroupFooterProps"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | GroupFooterProps"
       },
       {
         "identifier": "stickyLock",
@@ -598,7 +598,7 @@
       {
         "identifier": "actionButtonGroupProps",
         "description": "操作列按钮组的props\n@deprecated 使用 actionColumnButtons",
-        "type": "ButtonGroupProps"
+        "type": "any"
       },
       {
         "identifier": "actionColumnPredication",
@@ -650,17 +650,17 @@
       {
         "identifier": "columnsSetting",
         "description": "列设置",
-        "type": "ProTableColumnsSetting"
+        "type": "Record<string, ProTableSettingItem>"
       },
       {
         "identifier": "defaultColumnsSetting",
         "description": "默认列设置",
-        "type": "ProTableColumnsSetting"
+        "type": "Record<string, ProTableSettingItem>"
       },
       {
         "identifier": "onColumnsSettingChange",
         "description": "设置改变时的回调",
-        "type": "(newSetting: ProTableColumnsSetting, actionType: ProTableSettingActionType) => void"
+        "type": "(newSetting: Record<string, ProTableSettingItem>, actionType: ProTableSettingActionType) => void"
       },
       {
         "identifier": "onFullscreenStateChange",
@@ -719,7 +719,7 @@
       {
         "identifier": "rowSelection",
         "description": "是否启用选择模式\nhttps://yuque.antfin-inc.com/docs/share/34ec077c-14d5-4408-bfd4-d2827bfd87ec",
-        "type": "{ ref?: MutableRefObject<ProTableRowSelectionInstance>; getProps?: (record: ProTableRowRecord, index: number) => CheckboxProps | RadioProps; ... 12 more ...; titleProps?: () => CheckboxProps; }"
+        "type": "{ ref?: MutableRefObject<ProTableRowSelectionInstance>; getProps?: (record: Record<string, any>, index: number) => CheckboxProps | RadioProps; ... 12 more ...; titleProps?: () => CheckboxProps; }"
       },
       {
         "identifier": "onRowClick",
@@ -787,7 +787,7 @@
       {
         "identifier": "expandedRowRender",
         "description": "额外渲染行的渲染函数",
-        "type": "(record: any, index: number) => ReactElement<any, string | JSXElementConstructor<any>>"
+        "type": "(record: any, index: number) => ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)>"
       },
       {
         "identifier": "rowExpandable",
@@ -811,7 +811,7 @@
       {
         "identifier": "getExpandedColProps",
         "description": "设置额外渲染行的属性",
-        "type": "<IRecord extends unknown = any>(record: IRecord, index: number) => object | Record<string | number, any>"
+        "type": "<IRecord extends unknown = any>(record: IRecord, index: number) => object | Record<ReactText, any>"
       },
       {
         "identifier": "onRowOpen",
@@ -831,7 +831,7 @@
       {
         "identifier": "maxBodyHeight",
         "description": "最大内容区域的高度,在`fixedHeader`为`true`的时候,超过这个高度会出现滚动条",
-        "type": "string | number"
+        "type": "ReactText"
       },
       {
         "identifier": "stickyHeader",
@@ -981,19 +981,19 @@
       },
       {
         "identifier": "columnFilters",
-        "type": "ProTableColumnsFilterValue"
+        "type": "Record<string, ProTableColumnFilterValue>"
       },
       {
         "identifier": "onColumnsFilterChange",
-        "type": "(newValue: ProTableColumnsFilterValue, oldValue: ProTableColumnsFilterValue, changedColumnFilterValue?: ProTableColumnFilterValue, changedColumnDataIndex?: string) => void"
+        "type": "(newValue: Record<string, ProTableColumnFilterValue>, oldValue: Record<string, ProTableColumnFilterValue>, changedColumnFilterValue?: ProTableColumnFilterValue, changedColumnDataIndex?: string) => void"
       },
       {
         "identifier": "groupHeader",
-        "type": "ReactNode | GroupHeaderProps"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | GroupHeaderProps"
       },
       {
         "identifier": "groupFooter",
-        "type": "ReactNode | GroupFooterProps"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | GroupFooterProps"
       },
       {
         "identifier": "stickyLock",
@@ -1028,7 +1028,7 @@
       {
         "identifier": "actionButtonGroupProps",
         "description": "操作列按钮组的props\n@deprecated 使用 actionColumnButtons",
-        "type": "ButtonGroupProps"
+        "type": "any"
       },
       {
         "identifier": "actionColumnPredication",
@@ -1205,7 +1205,7 @@
       {
         "identifier": "children",
         "description": "node 或者 function(values)",
-        "type": "(ReactNode | (() => void)) & ReactNode"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ... 47 more ... | ((() => void) & ReactPortal)"
       },
       {
         "identifier": "size",
@@ -1430,18 +1430,18 @@
       {
         "identifier": "columnsSetting",
         "description": "列设置",
-        "type": "ProTableColumnsSetting"
+        "type": "Record<string, ProTableSettingItem>"
       },
       {
         "identifier": "defaultColumnsSetting",
         "description": "默认列设置",
-        "type": "ProTableColumnsSetting",
+        "type": "Record<string, ProTableSettingItem>",
         "default": "{}"
       },
       {
         "identifier": "onColumnsSettingChange",
         "description": "设置改变时的回调",
-        "type": "(newSetting: ProTableColumnsSetting, actionType: ProTableSettingActionType) => void"
+        "type": "(newSetting: Record<string, ProTableSettingItem>, actionType: ProTableSettingActionType) => void"
       },
       {
         "identifier": "onFullscreenStateChange",
@@ -1500,7 +1500,7 @@
       {
         "identifier": "rowSelection",
         "description": "是否启用选择模式\nhttps://yuque.antfin-inc.com/docs/share/34ec077c-14d5-4408-bfd4-d2827bfd87ec",
-        "type": "{ ref?: MutableRefObject<ProTableRowSelectionInstance>; getProps?: (record: ProTableRowRecord, index: number) => CheckboxProps | RadioProps; ... 12 more ...; titleProps?: () => CheckboxProps; }"
+        "type": "{ ref?: MutableRefObject<ProTableRowSelectionInstance>; getProps?: (record: Record<string, any>, index: number) => CheckboxProps | RadioProps; ... 12 more ...; titleProps?: () => CheckboxProps; }"
       },
       {
         "identifier": "onRowClick",
@@ -1568,7 +1568,7 @@
       {
         "identifier": "expandedRowRender",
         "description": "额外渲染行的渲染函数",
-        "type": "(record: any, index: number) => ReactElement<any, string | JSXElementConstructor<any>>"
+        "type": "(record: any, index: number) => ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)>"
       },
       {
         "identifier": "rowExpandable",
@@ -1592,7 +1592,7 @@
       {
         "identifier": "getExpandedColProps",
         "description": "设置额外渲染行的属性",
-        "type": "<IRecord extends unknown = any>(record: IRecord, index: number) => object | Record<string | number, any>"
+        "type": "<IRecord extends unknown = any>(record: IRecord, index: number) => object | Record<ReactText, any>"
       },
       {
         "identifier": "onRowOpen",
@@ -1612,7 +1612,7 @@
       {
         "identifier": "maxBodyHeight",
         "description": "最大内容区域的高度,在`fixedHeader`为`true`的时候,超过这个高度会出现滚动条",
-        "type": "string | number"
+        "type": "ReactText"
       },
       {
         "identifier": "stickyHeader",
@@ -1773,19 +1773,19 @@
       },
       {
         "identifier": "columnFilters",
-        "type": "ProTableColumnsFilterValue"
+        "type": "Record<string, ProTableColumnFilterValue>"
       },
       {
         "identifier": "onColumnsFilterChange",
-        "type": "(newValue: ProTableColumnsFilterValue, oldValue: ProTableColumnsFilterValue, changedColumnFilterValue?: ProTableColumnFilterValue, changedColumnDataIndex?: string) => void"
+        "type": "(newValue: Record<string, ProTableColumnFilterValue>, oldValue: Record<string, ProTableColumnFilterValue>, changedColumnFilterValue?: ProTableColumnFilterValue, changedColumnDataIndex?: string) => void"
       },
       {
         "identifier": "groupHeader",
-        "type": "ReactNode | GroupHeaderProps"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | GroupHeaderProps"
       },
       {
         "identifier": "groupFooter",
-        "type": "ReactNode | GroupFooterProps"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | GroupFooterProps"
       },
       {
         "identifier": "stickyLock",
@@ -1821,7 +1821,7 @@
       {
         "identifier": "actionButtonGroupProps",
         "description": "操作列按钮组的props\n@deprecated 使用 actionColumnButtons",
-        "type": "ButtonGroupProps"
+        "type": "any"
       },
       {
         "identifier": "actionColumnPredication",
@@ -1890,12 +1890,12 @@
       {
         "identifier": "title",
         "description": "图表标题。如需绑定事件请直接使用ReactNode。",
-        "type": "ReactNode | VisibleText"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | VisibleText"
       },
       {
         "identifier": "description",
         "description": "图表副标题。如需绑定事件请直接使用ReactNode。",
-        "type": "ReactNode | VisibleText"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | VisibleText"
       },
       {
         "identifier": "forceFit",
@@ -1938,7 +1938,7 @@
       },
       {
         "identifier": "breadcrumb",
-        "type": "any[] | ReactElement<typeof Breadcrumb, string | JSXElementConstructor<any>>"
+        "type": "any[] | ReactElement<typeof Breadcrumb, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)>"
       },
       {
         "identifier": "breadcrumbRender",
@@ -1946,7 +1946,7 @@
       },
       {
         "identifier": "tags",
-        "type": "ReactElement<any, string | JSXElementConstructor<any>> | ReactElement<any, string | JSXElementConstructor<any>>[]"
+        "type": "ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactElement<any, string | ((props: any) => ReactElement<...>) | (new (props: any) => Component<...>)>[]"
       },
       {
         "identifier": "footer",
@@ -2034,12 +2034,12 @@
       {
         "identifier": "title",
         "description": "图表标题。如需绑定事件请直接使用ReactNode。",
-        "type": "ReactNode | VisibleText"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | VisibleText"
       },
       {
         "identifier": "description",
         "description": "图表副标题。如需绑定事件请直接使用ReactNode。",
-        "type": "ReactNode | VisibleText"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | VisibleText"
       },
       {
         "identifier": "forceFit",
@@ -2049,110 +2049,6 @@
       {
         "identifier": "isMaterial",
         "description": "是否是物料组件，因搭建引擎消费ref和原来的组件吐的react实例不兼容。\n该属性会影响ref的消费，为ali-lowcode-engine消费而生。",
-        "type": "boolean"
-      }
-    ]
-  },
-  "pro-card": {
-    "default": [
-      {
-        "identifier": "title",
-        "description": "卡片标题",
-        "type": "ReactNode"
-      },
-      {
-        "identifier": "description",
-        "type": "ReactNode"
-      },
-      {
-        "identifier": "visibleButtonCount",
-        "type": "number"
-      },
-      {
-        "identifier": "explanation",
-        "description": "帮助信息，仅在 title 展示时生效",
-        "type": "string"
-      },
-      {
-        "identifier": "bodyPadding",
-        "type": "boolean"
-      },
-      {
-        "identifier": "explanationTooltipProps",
-        "description": "帮助信息气泡配置",
-        "type": "TooltipProps"
-      },
-      {
-        "identifier": "actionBar",
-        "description": "卡片顶部操作区域自定义渲染",
-        "type": "ReactNode"
-      },
-      {
-        "identifier": "actionButtons",
-        "type": "CardButtonGroupProps"
-      },
-      {
-        "identifier": "tagGroup",
-        "type": "CardTagProps[]"
-      },
-      {
-        "identifier": "segmentLine",
-        "description": "段落分割线; 如果为 true 时，默认最后一个段落没有分割线。",
-        "type": "boolean",
-        "default": "false"
-      },
-      {
-        "identifier": "loading",
-        "description": "是否 loading",
-        "type": "boolean",
-        "default": "false"
-      },
-      {
-        "identifier": "isCollapse",
-        "description": "受控控制 Card 展开收起状态",
-        "type": "boolean"
-      },
-      {
-        "identifier": "hasCollapse",
-        "description": "是否开启 Card 显示展开收起",
-        "type": "boolean",
-        "default": "false"
-      },
-      {
-        "identifier": "defaultCollapse",
-        "description": "默认收起",
-        "type": "boolean",
-        "default": "false"
-      },
-      {
-        "identifier": "setCollapse",
-        "description": "展开收起状态切换后的回调函数",
-        "type": "(collapseState: boolean) => void"
-      },
-      {
-        "identifier": "isDialogCard",
-        "description": "是否为弹窗卡片",
-        "type": "boolean",
-        "default": "false"
-      },
-      {
-        "identifier": "hasDivider",
-        "type": "boolean"
-      },
-      {
-        "identifier": "operations",
-        "type": "IOperationItem[]"
-      },
-      {
-        "identifier": "operationConfig",
-        "type": "IOperationConfig"
-      },
-      {
-        "identifier": "lastSaveTime",
-        "type": "number"
-      },
-      {
-        "identifier": "text",
         "type": "boolean"
       }
     ]
@@ -2234,12 +2130,12 @@
       {
         "identifier": "width",
         "description": "宽度，仅在 placement是 left right 的时候生效",
-        "type": "string | number"
+        "type": "ReactText"
       },
       {
         "identifier": "height",
         "description": "高度，仅在 placement是 top bottom 的时候生效",
-        "type": "string | number"
+        "type": "ReactText"
       },
       {
         "identifier": "onVisibleChange",
@@ -2393,7 +2289,7 @@
       {
         "identifier": "trigger",
         "description": "触发弹层显示或隐藏的元素",
-        "type": "ReactElement<any, string | JSXElementConstructor<any>>"
+        "type": "ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)>"
       },
       {
         "identifier": "triggerType",
@@ -2523,12 +2419,12 @@
       {
         "identifier": "width",
         "description": "宽度，仅在 placement是 left right 的时候生效",
-        "type": "string | number"
+        "type": "ReactText"
       },
       {
         "identifier": "height",
         "description": "高度，仅在 placement是 top bottom 的时候生效",
-        "type": "string | number"
+        "type": "ReactText"
       },
       {
         "identifier": "onVisibleChange",
@@ -2682,7 +2578,7 @@
       {
         "identifier": "trigger",
         "description": "触发弹层显示或隐藏的元素",
-        "type": "ReactElement<any, string | JSXElementConstructor<any>>"
+        "type": "ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)>"
       },
       {
         "identifier": "triggerType",
@@ -2766,7 +2662,7 @@
       },
       {
         "identifier": "operations",
-        "type": "ReactNode | object[]"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | object[]"
       },
       {
         "identifier": "operationConfig",
@@ -2836,7 +2732,7 @@
       {
         "identifier": "onSubmit",
         "description": "form内有 `htmlType=\"submit\"` 的元素的时候会触发",
-        "type": "FormEventHandler<HTMLFormElement>"
+        "type": "(event: FormEvent<HTMLFormElement>) => void"
       },
       {
         "identifier": "className",
@@ -2889,6 +2785,7 @@
       },
       {
         "identifier": "onClick",
+        "description": "点击按钮的回调",
         "type": "any"
       },
       {
@@ -2974,18 +2871,18 @@
       {
         "identifier": "columnsSetting",
         "description": "列设置",
-        "type": "ProTableColumnsSetting"
+        "type": "Record<string, ProTableSettingItem>"
       },
       {
         "identifier": "defaultColumnsSetting",
         "description": "默认列设置",
-        "type": "ProTableColumnsSetting",
+        "type": "Record<string, ProTableSettingItem>",
         "default": "{}"
       },
       {
         "identifier": "onColumnsSettingChange",
         "description": "设置改变时的回调",
-        "type": "(newSetting: ProTableColumnsSetting, actionType: ProTableSettingActionType) => void"
+        "type": "(newSetting: Record<string, ProTableSettingItem>, actionType: ProTableSettingActionType) => void"
       },
       {
         "identifier": "onFullscreenStateChange",
@@ -3044,7 +2941,7 @@
       {
         "identifier": "rowSelection",
         "description": "是否启用选择模式\nhttps://yuque.antfin-inc.com/docs/share/34ec077c-14d5-4408-bfd4-d2827bfd87ec",
-        "type": "{ ref?: MutableRefObject<ProTableRowSelectionInstance>; getProps?: (record: ProTableRowRecord, index: number) => CheckboxProps | RadioProps; ... 12 more ...; titleProps?: () => CheckboxProps; }"
+        "type": "{ ref?: MutableRefObject<ProTableRowSelectionInstance>; getProps?: (record: Record<string, any>, index: number) => CheckboxProps | RadioProps; ... 12 more ...; titleProps?: () => CheckboxProps; }"
       },
       {
         "identifier": "onRowClick",
@@ -3112,7 +3009,7 @@
       {
         "identifier": "expandedRowRender",
         "description": "额外渲染行的渲染函数",
-        "type": "(record: any, index: number) => ReactElement<any, string | JSXElementConstructor<any>>"
+        "type": "(record: any, index: number) => ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)>"
       },
       {
         "identifier": "rowExpandable",
@@ -3136,7 +3033,7 @@
       {
         "identifier": "getExpandedColProps",
         "description": "设置额外渲染行的属性",
-        "type": "<IRecord extends unknown = any>(record: IRecord, index: number) => object | Record<string | number, any>"
+        "type": "<IRecord extends unknown = any>(record: IRecord, index: number) => object | Record<ReactText, any>"
       },
       {
         "identifier": "onRowOpen",
@@ -3156,7 +3053,7 @@
       {
         "identifier": "maxBodyHeight",
         "description": "最大内容区域的高度,在`fixedHeader`为`true`的时候,超过这个高度会出现滚动条",
-        "type": "string | number"
+        "type": "ReactText"
       },
       {
         "identifier": "stickyHeader",
@@ -3317,19 +3214,19 @@
       },
       {
         "identifier": "columnFilters",
-        "type": "ProTableColumnsFilterValue"
+        "type": "Record<string, ProTableColumnFilterValue>"
       },
       {
         "identifier": "onColumnsFilterChange",
-        "type": "(newValue: ProTableColumnsFilterValue, oldValue: ProTableColumnsFilterValue, changedColumnFilterValue?: ProTableColumnFilterValue, changedColumnDataIndex?: string) => void"
+        "type": "(newValue: Record<string, ProTableColumnFilterValue>, oldValue: Record<string, ProTableColumnFilterValue>, changedColumnFilterValue?: ProTableColumnFilterValue, changedColumnDataIndex?: string) => void"
       },
       {
         "identifier": "groupHeader",
-        "type": "ReactNode | GroupHeaderProps"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | GroupHeaderProps"
       },
       {
         "identifier": "groupFooter",
-        "type": "ReactNode | GroupFooterProps"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | GroupFooterProps"
       },
       {
         "identifier": "stickyLock",
@@ -3365,7 +3262,7 @@
       {
         "identifier": "actionButtonGroupProps",
         "description": "操作列按钮组的props\n@deprecated 使用 actionColumnButtons",
-        "type": "ButtonGroupProps"
+        "type": "any"
       },
       {
         "identifier": "actionColumnPredication",
@@ -3513,7 +3410,7 @@
       {
         "identifier": "shape",
         "description": "外观形态",
-        "type": "\"pure\" | \"wrapped\" | \"text\" | \"capsule\""
+        "type": "\"text\" | \"pure\" | \"wrapped\" | \"capsule\""
       },
       {
         "identifier": "animation",
@@ -3723,7 +3620,7 @@
       },
       {
         "identifier": "anchorProps",
-        "type": "AnchorProps"
+        "type": "any"
       },
       {
         "identifier": "enableRandomHtmlId",
@@ -3770,12 +3667,12 @@
       {
         "identifier": "title",
         "description": "图表标题。如需绑定事件请直接使用ReactNode。",
-        "type": "ReactNode | VisibleText"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | VisibleText"
       },
       {
         "identifier": "description",
         "description": "图表副标题。如需绑定事件请直接使用ReactNode。",
-        "type": "ReactNode | VisibleText"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | VisibleText"
       },
       {
         "identifier": "forceFit",
@@ -3818,7 +3715,7 @@
       },
       {
         "identifier": "operations",
-        "type": "ReactNode | object[]"
+        "type": "string | number | boolean | {} | ReactElement<any, string | ((props: any) => ReactElement<any, any>) | (new (props: any) => Component<any, any, any>)> | ReactNodeArray | ReactPortal | object[]"
       },
       {
         "identifier": "operationConfig",
@@ -3888,7 +3785,7 @@
       {
         "identifier": "onSubmit",
         "description": "form内有 `htmlType=\"submit\"` 的元素的时候会触发",
-        "type": "FormEventHandler<HTMLFormElement>"
+        "type": "(event: FormEvent<HTMLFormElement>) => void"
       },
       {
         "identifier": "className",
@@ -3941,6 +3838,7 @@
       },
       {
         "identifier": "onClick",
+        "description": "点击按钮的回调",
         "type": "any"
       },
       {
