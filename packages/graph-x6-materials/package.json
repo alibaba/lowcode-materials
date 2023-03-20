@@ -1,6 +1,6 @@
 {
   "name": "@alilc/lce-x6-items",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "x6-items",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -74,6 +74,6 @@
   },
   "componentConfig": {
     "isComponentLibrary": true,
-    "materialSchema": "https://unpkg.com/@alilc/lce-x6-items@1.0.6/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@alilc/lce-x6-items@1.0.7/build/lowcode/assets-prod.json"
   }
 }
