@@ -1,6 +1,5 @@
 import { ComponentMetadata, Snippet } from '@ali/lowcode-types';
 import { actionConfigure } from '../common/chart-action';
-// import { wrapWithCard } from '../pro-card/meta';
 
 const ColumnChartMeta: ComponentMetadata = {
   componentName: 'ColumnChart',
