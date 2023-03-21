@@ -1,7 +1,6 @@
 import { IComponentDescription } from '../types';
 import { hideProp, mockId } from '../utils';
 import { operationProps } from '../common';
-// import { CardProps } from '../pro-card/meta';
 
 const AnchorFormMeta: IComponentDescription = {
   componentName: 'AnchorForm',
