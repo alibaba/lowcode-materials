@@ -24,3 +24,5 @@ yarn-error.log*
 yarn.lock
 
 storybook-static/
+
+docs/src/.umi/

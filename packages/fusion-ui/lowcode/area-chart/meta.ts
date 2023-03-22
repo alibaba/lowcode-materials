@@ -1,6 +1,5 @@
 import { ComponentMetadata, Snippet } from '@ali/lowcode-types';
 import { actionConfigure } from '../common/chart-action';
-import { wrapWithCard } from '../pro-card/meta';
 
 const AreaChartMeta: ComponentMetadata = {
   componentName: 'AreaChart',
@@ -159,5 +158,5 @@ const snippets: Snippet[] = [
 
 export default {
   ...AreaChartMeta,
-  snippets: wrapWithCard(snippets),
+  snippets,
 };
