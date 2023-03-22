@@ -25,4 +25,4 @@ yarn.lock
 
 storybook-static/
 
-./docs/src/.umi/
+docs/src/.umi/
