@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: 'NextTable',
+    title: '表格',
     screenshot:
       'https://alifd.oss-cn-hangzhou.aliyuncs.com/fusion-cool/icons/icon-light/ic_light_table.png',
     schema: {
