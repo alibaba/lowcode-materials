@@ -1,0 +1,57 @@
+.apiContainer {
+  border: none !important;
+  .apiTitle{
+    text-transform: capitalize;
+  }
+  thead tr {
+    th {
+      background: #fff;
+      border: none;
+      font-weight: 700;
+      text-align: left;
+      word-wrap: break-word;
+      letter-spacing: 0.2px;
+      padding: 4px 0 10px;
+      border-bottom: 2px solid #333;
+      font-size: 14px;
+      &:first-child {
+        padding-left: 8px;
+      }
+    }
+  }
+  tbody tr {
+    td {
+      border: none;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+      margin: 0;
+      padding: 18px 18px 18px 0;
+      color: #666;
+      word-wrap: break-word;
+      line-height: 24px;
+      letter-spacing: 0.2px;
+			font-size: 14px;
+      code {
+        color: #666;
+        word-wrap: break-word;
+        line-height: 24px;
+        letter-spacing: 0.2px;
+				font-size: 13px;
+      }
+			&:last-child {
+        min-width: 72px;
+      }
+			&:first-child{
+				color: #595959;
+				font-weight: 600;
+				white-space: nowrap;
+				padding-left: 8px;
+				font-size: 14px;
+			}
+    }
+  }
+}
+
+.__dumi-default-layout-footer-meta {
+  border: none;
+}

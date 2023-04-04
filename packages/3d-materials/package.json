@@ -1,0 +1,83 @@
+{
+  "name": "@alilc/3d-materials",
+  "version": "0.1.0",
+  "description": "@alilc/3d-materials",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "typings": "types/index.d.ts",
+  "files": [
+    "build",
+    "dist",
+    "lib",
+    "es",
+    "types"
+  ],
+  "scripts": {
+    "start": "npm run dumi",
+    "build": "build-scripts build",
+    "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
+    "lowcode:build": "build-scripts build --config ./build.lowcode.js",
+    "f2elint-scan": "f2elint scan",
+    "f2elint-fix": "f2elint fix",
+    "dumi": "cross-env APP_ROOT=docs dumi dev",
+    "dumi:build": "cross-env APP_ROOT=docs dumi build",
+    "prepublishOnly": "npm run build && npm run lowcode:build && npm run dumi:build"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "Fusion"
+  ],
+  "author": "fusion-team",
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "f2elint commit-file-scan",
+      "commit-msg": "f2elint commit-msg-scan"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,vue}": "f2elint exec eslint",
+    "**/*.{css,scss,less,acss}": "f2elint exec stylelint"
+  },
+  "peerDependencies": {
+    "moment": "latest",
+    "react": "^16.x",
+    "react-dom": "^16.x"
+  },
+  "devDependencies": {
+    "@alib/build-scripts": "^0.1.3",
+    "@alifd/build-plugin-lowcode": "^0.3.0",
+    "@alifd/theme-2": "^0.4.0",
+    "@types/react": "^16.14.24",
+    "@types/react-dom": "^16.9.4",
+    "@umijs/plugin-sass": "^1.1.1",
+    "build-plugin-component": "^1.12.1",
+    "build-plugin-fusion": "^0.1.0",
+    "cross-env": "^7.0.3",
+    "dumi": "^1.1.49",
+    "dumi-theme-default": "^1.1.24",
+    "f2elint": "^1.2.0"
+  },
+  "dependencies": {
+    "@alifd/next": "^1.25.27",
+    "@react-three/drei": "^7.13.1",
+    "@react-three/fiber": "^7.0.29",
+    "@types/three": "^0.147.0",
+    "moment": "latest",
+    "prop-types": "^15.5.8",
+    "react": "^16.x",
+    "react-dom": "^16.x",
+    "three": "^0.147.0"
+  },
+  "acceptDependencies": {
+    "webpack": "^4.46.x"
+  },
+  "resolutions": {
+    "webpack": "^4.46.x"
+  },
+  "componentConfig": {
+    "isComponentLibrary": true
+  }
+}
