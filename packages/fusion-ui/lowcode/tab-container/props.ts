@@ -92,7 +92,7 @@ export default [
             for (const primaryKey in map) {
               if (Object.hasOwnProperty.call(map, primaryKey)) {
                 items.push({
-                  componentName: 'Tab.Item',
+                  componentName: 'TabContainer.Item',
                   props: map[primaryKey],
                 });
               }

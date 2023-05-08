@@ -1,6 +1,6 @@
 {
   "name": "@alifd/fusion-ui",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A component library based on Fusion Next",
   "files": [
     "es/",
