@@ -1,5 +1,4 @@
 import { version } from '../package';
-import { ProCard } from '@alifd/pro-layout';
 
 // export { default as ProCard } from './components/pro-card';
 // export type { CardProps, CardSectionProps } from './components/pro-card';
@@ -29,4 +28,4 @@ export * from './variables';
 const bizCssPrefix = 'fusion-ui';
 const displayName = 'FusionUI';
 
-export { bizCssPrefix, displayName, version, ProCard };
+export { bizCssPrefix, displayName, version };

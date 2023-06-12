@@ -1,52 +1,5 @@
 import { hideProp } from '../utils';
 
-const anchorLength = (Math.floor(Math.random() * 10000) % 10) + 1;
-const dataSource = [];
-const children = [];
-for (let i = 0; i < anchorLength; i++) {
-  const htmlId = String(Math.floor(Math.random() * 10000));
-  dataSource.push({
-    htmlId,
-    label: `电梯第${i + 1}层`,
-  });
-  children.push({
-    componentName: 'NextBlock',
-    props: {
-      id: htmlId,
-      placeholderStyle: {
-        height: '100%',
-      },
-      noPadding: false,
-      noBorder: false,
-      background: 'surface',
-      layoutmode: 'O',
-      strict: true,
-      colSpan: 12,
-      rowSpan: 1,
-      mode: 'inset',
-      childTotalColumns: 12,
-      title: '第一层',
-    },
-    children: [
-      {
-        componentName: 'NextBlockCell',
-        props: {
-          colSpan: 12,
-          rowSpan: 1,
-          mode: 'transparent',
-          isAutoContainer: true,
-          childNum: 2,
-          flowChildNum: 9,
-          childWidth: 200,
-          childMode: 'initial',
-          outermode: 'transparent',
-        },
-      },
-    ],
-    title: '区块',
-  });
-}
-
 const meta = {
   components: [
     {

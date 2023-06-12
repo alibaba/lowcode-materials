@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useRef, useImperativeHandle, forwardRef } from 'react';
-import { Form } from '@alifd/next';
+import { Form, Card } from '@alifd/next';
 import { Space } from '@/components/container';
-import { ProCard } from '@alifd/pro-layout';
 import { Anchor, AnchorProps, LinkItemData } from '@/components/anchor';
 import Operations from '@/common/operations';
 import { getId } from '@/utils';
@@ -52,7 +51,7 @@ function renderForm(
         const { mode = 'independent', cardProps = {}, ...otherProps } = child.props;
         const { label = '', htmlId = getId() } = anchorItemProps;
         return (
-          <ProCard title={label} id={htmlId} className="fusion-ui-anchor-form forms" {...cardProps}>
+          <Card title={label}  id={htmlId} className="fusion-ui-anchor-form forms" {...cardProps}>
             {React.cloneElement(child, {
               ref: (node) => {
                 // Keep your own reference
@@ -66,7 +65,7 @@ function renderForm(
               ...otherProps,
               mode,
             })}
-          </ProCard>
+          </Card>
         );
       })}
     </>

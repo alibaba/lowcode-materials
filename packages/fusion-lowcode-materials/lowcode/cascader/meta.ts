@@ -147,6 +147,7 @@ module.exports = {
         },
         {
           name: 'listStyle',
+          setter: 'ObjectSetter',
           condition: () => false,
         },
         {
