@@ -326,6 +326,7 @@ export default {
               if (value) {
                 target.parent.setPropValue('pagination', {
                   pageSize: 10,
+                  size: 'default'
                 });
               }
             },
@@ -404,7 +405,6 @@ export default {
           },
           propType: 'bool',
           setter: 'BoolSetter',
-          defaultValue: false,
           condition: {
             type: 'JSFunction',
             value: 'target => !!target.getProps().getPropValue("pagination")',
@@ -418,7 +418,6 @@ export default {
           },
           propType: 'bool',
           setter: 'BoolSetter',
-          defaultValue: false,
           condition: {
             type: 'JSFunction',
             value: 'target => !!target.getProps().getPropValue("pagination")',
@@ -429,7 +428,6 @@ export default {
           title: { label: '简单分页', tip: 'pagination.simple | 简单分页' },
           propType: 'bool',
           setter: 'BoolSetter',
-          defaultValue: false,
           condition: {
             type: 'JSFunction',
             value: 'target => !!target.getProps().getPropValue("pagination")',
@@ -460,7 +458,6 @@ export default {
             },
             'VariableSetter',
           ],
-          defaultValue: 'default',
           condition: {
             type: 'JSFunction',
             value: 'target => !!target.getProps().getPropValue("pagination")',
