@@ -7,7 +7,8 @@ import RichText from './components/rich-text';
 import NextText from './components/next-text';
 import NoteWrapper from './components/note-wrapper';
 import NextTable from './components/next-table';
+import Div from './components/div';
 
 export * from '@alifd/next';
 
-export { Link, Image, Video, RichText, NextText, NoteWrapper, Calendar, Balloon, NextTable };
+export { Link, Image, Video, RichText, NextText, NoteWrapper, Calendar, Balloon, NextTable, Div };

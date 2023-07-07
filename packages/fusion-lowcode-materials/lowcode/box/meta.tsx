@@ -8,7 +8,7 @@ module.exports = {
   docUrl: '',
   screenshot: '',
   npm: {
-    package: '@alifd/next',
+    package: '@alilc/lowcode-materials',
     version: '{{version}}',
     exportName: 'Box',
     main: '',

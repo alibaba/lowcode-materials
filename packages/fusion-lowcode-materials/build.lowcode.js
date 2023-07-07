@@ -8,7 +8,7 @@ module.exports = {
   },
   plugins: [
     [
-      '@alifd/build-plugin-lowcode',
+      '/Users/ens/pwd/lowcode-tools/packages/build-plugin-lowcode',
       {
         noParse: true,
         builtinAssets: [

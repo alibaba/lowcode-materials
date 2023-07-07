@@ -11,7 +11,7 @@ export default {
   icon:
     'https://img.alicdn.com/imgextra/i1/O1CN01yR8vcY1M504YbHxzo_!!6000000001382-55-tps-56-56.svg',
   npm: {
-    package: '@alifd/next',
+    package: '@alilc/lowcode-materials',
     version: '{{version}}',
     exportName: 'Icon',
     main: '',
