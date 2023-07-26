@@ -1,6 +1,6 @@
 {
   "name": "@alilc/lowcode-materials",
-  "version": "1.2.0-beta.7",
+  "version": "1.2.0-beta.8",
   "description": "Fusion Next for LowCode",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -71,11 +71,15 @@
     }
   ],
   "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.0-beta.7/build/lowcode/assets-daily.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.0-beta.8/build/lowcode/assets-daily.json"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/@alilc/lowcode-materials@1.2.0-beta.7/build/index.html",
+  "homepage": "https://unpkg.com/@alilc/lowcode-materials@1.2.0-beta.8/build/index.html",
   "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
     "./prototype": {
       "require": "./lowcode_lib/meta.js",
       "import": "./lowcode_es/meta.js"
@@ -84,11 +88,7 @@
       "require": "./lowcode_lib/view.js",
       "import": "./lowcode_es/view.js"
     },
-    "./*": "./*",
-    ".": {
-      "import": "./es/index.js",
-      "require": "./lib/index.js"
-    }
+    "./*": "./*"
   },
   "lcMeta": {
     "type": "component"
