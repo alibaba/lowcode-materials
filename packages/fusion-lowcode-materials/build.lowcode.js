@@ -8,7 +8,7 @@ module.exports = {
   },
   plugins: [
     [
-      '/Users/ens/pwd/lowcode-tools/packages/build-plugin-lowcode',
+      '@alifd/build-plugin-lowcode',
       {
         noParse: true,
         builtinAssets: [
@@ -43,7 +43,7 @@ module.exports = {
           prod: `https://alifd.alicdn.com/npm/${name}@${version}`,
           daily: `https://alifd.alicdn.com/npm/${name}@${version}`,
         },
-        categories: ['通用', '导航', '信息输入', '信息展示', '信息反馈'],
+        categories: ['通用', '导航', '信息输入', '信息展示', '信息反馈', '常用'],
         engineScope: '@alilc',
       },
     ],
