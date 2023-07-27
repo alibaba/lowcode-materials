@@ -8,7 +8,7 @@ export default {
   screenshot: '',
   keywords: ['弹窗', '模态'],
   npm: {
-    package: '@alifd/next',
+    package: '@alilc/lowcode-materials',
     version: '{{version}}',
     exportName: 'Dialog',
     main: '',

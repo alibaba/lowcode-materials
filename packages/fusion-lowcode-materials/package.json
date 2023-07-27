@@ -1,6 +1,6 @@
 {
   "name": "@alilc/lowcode-materials",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Fusion Next for LowCode",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -11,14 +11,18 @@
     "build": "build-scripts build",
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
     "lowcode:build": "build-scripts build --config ./build.lowcode.js",
-    "prepublishOnly": "npm run build && npm run lowcode:build"
+    "prepublishOnly": "npm run build && npm run lowcode:build",
+    "beta": "npm publish --tag beta",
+    "pub": "npm publish"
   },
   "files": [
     "es/",
     "lib/",
     "dist/",
     "build/",
-    "lowcode/"
+    "lowcode/",
+    "lowcode_lib/",
+    "lowcode_es/"
   ],
   "resolutions": {
     "webpack": "4.x"
@@ -28,11 +32,12 @@
     "@types/react": "^16.14.0",
     "big.js": "^6.2.1",
     "lodash": "^4.17.21",
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.23",
-    "@alifd/build-plugin-lowcode": "^0.3.6",
+    "@alifd/build-plugin-lowcode": "^0.4.1",
     "@alifd/theme-2": "^0.4.4",
     "@types/big.js": "^6.1.6",
     "@types/lodash": "^4.14.191",
@@ -68,8 +73,26 @@
     }
   ],
   "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.1.0/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.0/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/@alilc/lowcode-materials@1.1.0/build/index.html"
+  "homepage": "https://unpkg.com/@alilc/lowcode-materials@1.2.0/build/index.html",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./prototype": {
+      "require": "./lowcode_lib/meta.js",
+      "import": "./lowcode_es/meta.js"
+    },
+    "./prototypeView": {
+      "require": "./lowcode_lib/view.js",
+      "import": "./lowcode_es/view.js"
+    },
+    "./*": "./*"
+  },
+  "lcMeta": {
+    "type": "component"
+  }
 }

@@ -8,7 +8,7 @@ export default {
   docUrl: '',
   screenshot: '',
   npm: {
-    package: '@alifd/next',
+    package: '@alilc/lowcode-materials',
     version: '{{version}}',
     exportName: 'Select',
     main: '',
