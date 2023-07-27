@@ -1,6 +1,6 @@
 {
   "name": "@alilc/lowcode-materials",
-  "version": "1.2.0-beta.8",
+  "version": "1.2.0",
   "description": "Fusion Next for LowCode",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -11,7 +11,9 @@
     "build": "build-scripts build",
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
     "lowcode:build": "build-scripts build --config ./build.lowcode.js",
-    "prepublishOnly": "npm run build && npm run lowcode:build"
+    "prepublishOnly": "npm run build && npm run lowcode:build",
+    "beta": "npm publish --tag beta",
+    "pub": "npm publish"
   },
   "files": [
     "es/",
@@ -35,7 +37,7 @@
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.23",
-    "@alifd/build-plugin-lowcode": "beta",
+    "@alifd/build-plugin-lowcode": "^0.4.1",
     "@alifd/theme-2": "^0.4.4",
     "@types/big.js": "^6.1.6",
     "@types/lodash": "^4.14.191",
@@ -71,10 +73,10 @@
     }
   ],
   "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.0-beta.8/build/lowcode/assets-daily.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.0/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/@alilc/lowcode-materials@1.2.0-beta.8/build/index.html",
+  "homepage": "https://unpkg.com/@alilc/lowcode-materials@1.2.0/build/index.html",
   "exports": {
     ".": {
       "import": "./es/index.js",
