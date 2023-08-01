@@ -3,7 +3,7 @@ module.exports = {
   componentName: 'Table.Column',
   title: 'Table.Column',
   npm: {
-    package: '@alifd/next',
+    package: '@alilc/lowcode-materials',
     version: '{{version}}',
     exportName: 'Table',
     main: '',
