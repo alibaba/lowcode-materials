@@ -1,28 +1,28 @@
-import { ComponentMetadata, Snippet, FieldConfig, SettingTarget } from '@ali/lowcode-types';
+import { IPublicTypeComponentMetadata, IPublicTypeSnippet, IPublicTypeFieldConfig, IPublicModelSettingTarget } from '@alilc/lowcode-types';
 
-export interface ISnippet extends Snippet {
+export interface ISnippet extends IPublicTypeSnippet {
   label?: string;
   title?: string;
 }
 
-export interface IComponentDescription extends ComponentMetadata {
+export interface IComponentDescription extends IPublicTypeComponentMetadata {
   snippets?: ISnippet[];
 }
 
-export interface IProps extends FieldConfig {
+export interface IProps extends IPublicTypeFieldConfig {
   showInListSetter?: boolean;
   initialValue?: Function | any;
   editable?: boolean;
   display?: 'accordion' | 'inline' | 'block' | 'plain' | 'popup' | 'entry' | 'none';
-  items?: Iprops[] | FieldConfig[];
+  items?: IProps[] | IPublicTypeFieldConfig[];
 }
 
 export interface SetterProps {
   forceInline?: boolean;
   key?: string;
-  prop?: SettingTarget;
+  prop?: IPublicModelSettingTarget;
   selected?: any;
-  field?: SettingTarget;
+  field?: IPublicModelSettingTarget;
   value: any;
   onChange: Function;
   onInitial?: Function;
