@@ -1,3 +1,4 @@
+import { IPublicModelNode } from '@alilc/lowcode-types';
 import { IComponentDescription, ISnippet } from '../types';
 
 const snippets: ISnippet[] = [
@@ -19,6 +20,12 @@ const snippets: ISnippet[] = [
     },
   },
 ];
+
+interface INode extends IPublicModelNode {
+  startRect: any;
+  beforeSpan: number;
+  parentRect: any;
+}
 
 const meta: IComponentDescription = {
   componentName: 'StoryPlaceholder',
@@ -62,8 +69,8 @@ const meta: IComponentDescription = {
       return ['e'];
     },
     callbacks: {
-      onResizeStart: (e, currentNode) => {
-        const parent = currentNode.getParent();
+      onResizeStart: (e, currentNode: INode) => {
+        const parent = currentNode.parent;
         if (parent) {
           const parentNode = parent.getDOMNode();
           if (parentNode) {
@@ -73,7 +80,7 @@ const meta: IComponentDescription = {
         currentNode.beforeSpan = currentNode.getPropValue('colSpan') || 12;
         currentNode.startRect = currentNode.getRect();
       },
-      onResize: (e, currentNode) => {
+      onResize: (e, currentNode: INode) => {
         const { deltaX } = e;
         const startWidth = currentNode.startRect
           ? currentNode.startRect.width
