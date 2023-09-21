@@ -1,4 +1,4 @@
-import { IPublicTypeComponentMetadata, IPublicTypeSnippet, IPublicTypeFieldConfig, IPublicModelSettingTarget } from '@alilc/lowcode-types';
+import { IPublicTypeComponentMetadata, IPublicTypeSnippet, IPublicTypeFieldConfig, IPublicModelSettingField } from '@alilc/lowcode-types';
 
 export interface ISnippet extends IPublicTypeSnippet {
   label?: string;
@@ -13,16 +13,15 @@ export interface IProps extends IPublicTypeFieldConfig {
   showInListSetter?: boolean;
   initialValue?: Function | any;
   editable?: boolean;
-  display?: 'accordion' | 'inline' | 'block' | 'plain' | 'popup' | 'entry' | 'none';
   items?: IProps[] | IPublicTypeFieldConfig[];
 }
 
 export interface SetterProps {
   forceInline?: boolean;
   key?: string;
-  prop?: IPublicModelSettingTarget;
+  prop?: IPublicModelSettingField;
   selected?: any;
-  field?: IPublicModelSettingTarget;
+  field?: IPublicModelSettingField;
   value: any;
   onChange: Function;
   onInitial?: Function;

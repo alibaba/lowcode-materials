@@ -52,7 +52,7 @@ const ProFormMeta: IComponentDescription[] = [
     group: '精选组件',
     docUrl: '',
     screenshot: '',
-    devMode: 'procode',
+    devMode: 'proCode',
     npm: {
       package: '@alifd/fusion-ui',
       version: '0.1.4',
@@ -84,7 +84,7 @@ const ProFormMeta: IComponentDescription[] = [
     screenshot:
       'https://img.alicdn.com/imgextra/i2/O1CN016gn5DQ1FeXUNKdK22_!!6000000000512-55-tps-50-36.svg',
     icon: 'https://img.alicdn.com/imgextra/i2/O1CN016gn5DQ1FeXUNKdK22_!!6000000000512-55-tps-50-36.svg',
-    devMode: 'procode',
+    devMode: 'proCode',
     npm: {
       package: '@alifd/fusion-ui',
       version: '0.1.4',
@@ -122,8 +122,8 @@ const ProFormMeta: IComponentDescription[] = [
               return;
             }
             const { children } = currentNode;
-            // 若无children,则说明当前P组件内已为空,需要删除 FormItem 组件本身
-            if (children && children.length === 0) {
+            // 若无 children，则说明当前 P 组件内已为空，需要删除 FormItem 组件本身
+            if (children && children.isEmptyNode) {
               currentNode.remove();
             }
           },

@@ -1,6 +1,8 @@
+import { IProps } from '../types';
 import { hideProp } from '../utils';
+import { IPublicModelSettingField } from '@alilc/lowcode-types';
 
-export const operationConfig = {
+export const operationConfig: IProps = {
   name: 'operationConfig',
   display: 'accordion',
   title: '底部操作',
@@ -68,7 +70,7 @@ export const operationConfig = {
   },
 };
 
-export const operations = {
+export const operations: IProps = {
   name: 'operations',
   display: 'block',
   title: '操作项',
@@ -97,7 +99,7 @@ export const operations = {
                     {
                       name: 'id',
                       condition: hideProp,
-                      setter: (target) => {
+                      setter: (target: IPublicModelSettingField) => {
                         if (!target.getValue()) {
                           target.setValue(`${target.id}`);
                         }
@@ -116,8 +118,8 @@ export const operations = {
                       display: 'inline',
                       title: '操作',
                       important: true,
-                      setValue: (target, value) => {
-                        const actionNameMap = {
+                      setValue: (target: IPublicModelSettingField, value: any) => {
+                        const actionNameMap: any = {
                           submit: '提交',
                           reset: '重置',
                           custom: '自定义',
@@ -174,13 +176,13 @@ export const operations = {
                       name: 'behavior',
                       title: '交互设置',
                       display: 'block',
-                      condition: (target) => {
+                      condition: (target: IPublicModelSettingField) => {
                         const action = target.parent.getPropValue('action');
                         return !action || action === 'custom';
                       },
                       setter: {
                         componentName: 'BehaviorSetter',
-                        props: (target) => ({
+                        props: (target: IPublicModelSettingField) => ({
                           actions: ['onClick'],
                           enableTooltipAction: true,
                           enableMessageAction: true,
@@ -222,14 +224,14 @@ export const operations = {
                         componentName: 'BoolSetter',
                       },
                       extraProps: {
-                        setValue: (target, value) => {
+                        setValue: (target: IPublicModelSettingField, value: any) => {
                           target.parent.setPropValue('htmlType', value ? 'submit' : '');
                         },
-                        getValue: (target, value) => {
+                        getValue: (target: IPublicModelSettingField, value: any) => {
                           return value === 'submit';
                         },
                       },
-                      condition: (target) => {
+                      condition: (target: IPublicModelSettingField) => {
                         return target.parent.getPropValue('action') !== 'submit';
                       },
                     },
