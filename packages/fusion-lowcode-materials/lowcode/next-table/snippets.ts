@@ -75,7 +75,7 @@ module.exports = [
         actionTitle: '操作',
         actionWidth: 180,
         actionType: 'link',
-        actionFixed: 'right',
+        actionFixed: 'none',
         actionHidden: false,
         maxWebShownActionCount: 2,
         actionColumn: [
@@ -94,7 +94,6 @@ module.exports = [
               value:
                 '(rowData, action, table) => { \nreturn table.saveRow(rowData).then((row) => { \nconsole.log(row); \n}); \n}',
             },
-            mode: 'EDIT',
           },
         ],
       },
