@@ -1,4 +1,6 @@
-export const actionConfigure = [
+import { IPublicTypeConfigure } from '@alilc/lowcode-types';
+
+export const actionConfigure: NonNullable<IPublicTypeConfigure['props']> = [
   {
     type: 'field',
     name: 'cardProps.actionButtons',

@@ -1,7 +1,8 @@
-import { ComponentMetadata, Snippet } from '@ali/lowcode-types';
+import { IPublicTypeComponentMetadata, IPublicTypeSnippet } from '@alilc/lowcode-types';
 import { actionConfigure } from '../common/chart-action';
+import { plotConfigure } from '../common/chart-plot';
 
-const ColumnChartMeta: ComponentMetadata = {
+const ColumnChartMeta: IPublicTypeComponentMetadata = {
   componentName: 'ColumnChart',
   title: '柱状图',
   category: '图表',
@@ -17,41 +18,6 @@ const ColumnChartMeta: ComponentMetadata = {
     destructuring: true,
     subName: '',
   },
-  props: [
-    {
-      name: 'ref',
-      propType: {
-        type: 'oneOfType',
-        value: [
-          {
-            type: 'func',
-            params: [
-              {
-                name: 'instance',
-                propType: 'object',
-              },
-            ],
-            returns: {
-              propType: 'number',
-            },
-            raw: '(instance: unknown) => void',
-          },
-          'object',
-        ],
-      },
-    },
-    {
-      name: 'key',
-      propType: {
-        type: 'oneOfType',
-        value: ['string', 'number'],
-      },
-    },
-    {
-      name: 'style',
-      propType: 'object',
-    },
-  ],
   configure: {
     props: [
       // 数据
@@ -139,11 +105,13 @@ const ColumnChartMeta: ComponentMetadata = {
           },
         ],
       },
-    ].concat(actionConfigure),
+      ...plotConfigure,
+      ...actionConfigure,
+    ],
   },
 };
 
-const snippets: Snippet[] = [
+const snippets: IPublicTypeSnippet[] = [
   {
     title: '柱状图',
     screenshot:

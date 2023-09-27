@@ -1,7 +1,8 @@
-import { ComponentMetadata, Snippet } from '@ali/lowcode-types';
+import { IPublicTypeComponentMetadata, IPublicTypeSnippet } from '@alilc/lowcode-types';
 import { actionConfigure } from '../common/chart-action';
+import { plotConfigure } from '../common/chart-plot';
 
-const DonutChartMeta: ComponentMetadata = {
+const DonutChartMeta: IPublicTypeComponentMetadata = {
   componentName: 'DonutChart',
   title: '环形图',
   category: '图表',
@@ -17,41 +18,6 @@ const DonutChartMeta: ComponentMetadata = {
     destructuring: true,
     subName: '',
   },
-  props: [
-    {
-      name: 'ref',
-      propType: {
-        type: 'oneOfType',
-        value: [
-          {
-            type: 'func',
-            params: [
-              {
-                name: 'instance',
-                propType: 'object',
-              },
-            ],
-            returns: {
-              propType: 'number',
-            },
-            raw: '(instance: unknown) => void',
-          },
-          'object',
-        ],
-      },
-    },
-    {
-      name: 'key',
-      propType: {
-        type: 'oneOfType',
-        value: ['string', 'number'],
-      },
-    },
-    {
-      name: 'style',
-      propType: 'object',
-    },
-  ],
   configure: {
     props: [
       // 图例
@@ -174,10 +140,12 @@ const DonutChartMeta: ComponentMetadata = {
           },
         ],
       },
-    ].concat(actionConfigure),
+      ...plotConfigure,
+      ...actionConfigure,
+    ],
   },
 };
-const snippets: Snippet[] = [
+const snippets: IPublicTypeSnippet[] = [
   {
     title: '环形图',
     screenshot:

@@ -6,9 +6,9 @@ import DataSet from '@antv/data-set';
 const { DataView } = DataSet;
 const dv = new DataView();
 
-type Iprops = React.ComponentProps<typeof MyPie>;
+type IProps = React.ComponentProps<typeof MyPie>;
 
-function PieChart(props: Iprops) {
+function PieChart(props: IProps) {
   const { data, ...others } = props || {};
 
   dv.source(data);
@@ -32,14 +32,13 @@ function PieChart(props: Iprops) {
             typeof angleField?.percent === 'number'
               ? numeral(angleField?.percent).format('0.00%')
               : angleField?.percent;
-          return [`${angleField?.[props?.colorField]} ${percent}`];
+          return `${angleField?.[props?.colorField]} ${percent}`;
         },
       }}
       interactions={[
         { type: 'element-selected' },
-        // { type: 'element-active' }
       ]}
-      {...others}
+      {...others as IProps}
     />
   );
 }

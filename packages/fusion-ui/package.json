@@ -1,13 +1,15 @@
 {
   "name": "@alifd/fusion-ui",
-  "version": "2.0.3",
+  "version": "2.1.0",
   "description": "A component library based on Fusion Next",
   "files": [
     "es/",
     "lib/",
     "build/",
     "dist/",
-    "lowcode/"
+    "lowcode/",
+    "lowcode_lib/",
+    "lowcode_es/"
   ],
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -47,7 +49,8 @@
     "rc-resize-observer": "^1.0.0",
     "react-beautiful-dnd": "^13.1.0",
     "react-sortablejs": "6.1.1",
-    "sortablejs": "^1.14.0"
+    "sortablejs": "^1.14.0",
+    "@babel/runtime": "^7.0.0"
   },
   "devDependencies": {
     "@alifd/theme-2": "^0.4.4",
@@ -85,12 +88,12 @@
     "webpack": "4.x"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/@alifd/fusion-ui@2.0.3/build/index.html",
+  "homepage": "https://unpkg.com/@alifd/fusion-ui@2.1.0/build/index.html",
   "componentConfig": {
     "name": "FusionUI",
     "category": "精品物料库",
     "isComponentLibrary": true,
-    "materialSchema": "https://alifd.alicdn.com/npm/@alifd/fusion-ui@2.0.3/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@alifd/fusion-ui@2.1.0/build/lowcode/assets-prod.json"
   },
   "husky": {
     "hooks": {
@@ -105,5 +108,23 @@
       "url": "https://fusion.design/api/v1/sites/1/materials"
     }
   },
-  "repository": "https://github.com/alibaba/lowcode-materials.git"
+  "repository": "https://github.com/alibaba/lowcode-materials.git",
+  "exports": {
+    "./prototype": {
+      "require": "./lowcode_lib/meta.js",
+      "import": "./lowcode_es/meta.js"
+    },
+    "./prototypeView": {
+      "require": "./lowcode_lib/view.js",
+      "import": "./lowcode_es/view.js"
+    },
+    "./*": "./*",
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    }
+  },
+  "lcMeta": {
+    "type": "component"
+  }
 }

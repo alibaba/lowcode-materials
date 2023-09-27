@@ -1,7 +1,8 @@
-import { ComponentMetadata, Snippet } from '@ali/lowcode-types';
+import { IPublicTypeComponentMetadata, IPublicTypeSnippet } from '@alilc/lowcode-types';
 import { actionConfigure } from '../common/chart-action';
+import { plotConfigure } from '../common/chart-plot';
 
-const AreaChartMeta: ComponentMetadata = {
+const AreaChartMeta: IPublicTypeComponentMetadata = {
   componentName: 'AreaChart',
   title: '面积图',
   category: '图表',
@@ -17,41 +18,6 @@ const AreaChartMeta: ComponentMetadata = {
     destructuring: true,
     subName: '',
   },
-  props: [
-    {
-      name: 'ref',
-      propType: {
-        type: 'oneOfType',
-        value: [
-          {
-            type: 'func',
-            params: [
-              {
-                name: 'instance',
-                propType: 'object',
-              },
-            ],
-            returns: {
-              propType: 'number',
-            },
-            raw: '(instance: unknown) => void',
-          },
-          'object',
-        ],
-      },
-    },
-    {
-      name: 'key',
-      propType: {
-        type: 'oneOfType',
-        value: ['string', 'number'],
-      },
-    },
-    {
-      name: 'style',
-      propType: 'object',
-    },
-  ],
   configure: {
     props: [
       // 数据
@@ -122,10 +88,12 @@ const AreaChartMeta: ComponentMetadata = {
           },
         ],
       },
-    ].concat(actionConfigure),
+      ...plotConfigure,
+      ...actionConfigure,
+    ],
   },
 };
-const snippets: Snippet[] = [
+const snippets: IPublicTypeSnippet[] = [
   {
     title: '面积图',
     screenshot:

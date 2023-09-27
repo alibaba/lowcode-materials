@@ -1,14 +1,15 @@
-import { ComponentMetadata } from '@ali/lowcode-types';
+import { IPublicTypeComponentMetadata, IPublicTypeConfigure } from '@alilc/lowcode-types';
 import { actionConfigure } from '../common/chart-action';
+import { plotConfigure } from '../common/chart-plot';
 
-const pieChartMeta: ComponentMetadata = {
+const pieChartMeta: IPublicTypeComponentMetadata = {
   componentName: 'PieChart',
   title: '饼图',
   category: '图表',
   group: '精选组件',
   docUrl: '',
   screenshot: '',
-  devMode: 'procode',
+  devMode: 'proCode',
   npm: {
     package: '@alifd/fusion-ui',
     version: '0.1.3-beta.3',
@@ -17,41 +18,6 @@ const pieChartMeta: ComponentMetadata = {
     destructuring: true,
     subName: '',
   },
-  props: [
-    {
-      name: 'ref',
-      propType: {
-        type: 'oneOfType',
-        value: [
-          {
-            type: 'func',
-            params: [
-              {
-                name: 'instance',
-                propType: 'object',
-              },
-            ],
-            returns: {
-              propType: 'number',
-            },
-            raw: '(instance: unknown) => void',
-          },
-          'object',
-        ],
-      },
-    },
-    {
-      name: 'key',
-      propType: {
-        type: 'oneOfType',
-        value: ['string', 'number'],
-      },
-    },
-    {
-      name: 'style',
-      propType: 'object',
-    },
-  ],
   configure: {
     props: [
       // 图例
@@ -172,9 +138,11 @@ const pieChartMeta: ComponentMetadata = {
               },
             ],
           },
+          ...plotConfigure,
+          ...actionConfigure,
         ],
       },
-    ].concat(actionConfigure),
+    ],
   },
 };
 
