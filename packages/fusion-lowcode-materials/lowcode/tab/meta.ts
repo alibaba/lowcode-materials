@@ -1,4 +1,5 @@
 import snippets from './snippets';
+import { IPublicModelSettingField } from '@alilc/lowcode-types';
 
 export default {
   group: '原子组件',
@@ -159,7 +160,7 @@ export default {
                       name: 'primaryKey',
                       title: '项目编号',
                       condition: () => false,
-                      initialValue: (val) => {
+                      initialValue: (val: string) => {
                         if (val) return val;
                         return String(Math.floor(Math.random() * 10000));
                       },
@@ -197,10 +198,8 @@ export default {
           },
         },
         extraProps: {
-          getValue(target, fieldValue) {
-            // const node = target.node;
-            // const children = node.children;
-            const map = target.node.children.map((child) => {
+          getValue(target: IPublicModelSettingField, value: any) {
+            const map = target.node?.children?.map((child) => {
               const primaryKey = child.getPropValue('primaryKey')
                 ? String(child.getPropValue('primaryKey'))
                 : child.id;
@@ -210,21 +209,21 @@ export default {
                 closeable: child.getPropValue('closeable'),
                 disabled: child.getPropValue('disabled'),
               };
-            });
+            }) || [];
             return map;
           },
-          setValue(target, value) {
+          setValue(target: IPublicModelSettingField, value: any) {
             const { node } = target;
-            const map = {};
+            const map: Record<string, any> = {};
             if (!Array.isArray(value)) {
               value = [];
             }
-            value.forEach((item) => {
+            value.forEach((item: any) => {
               const tabitem = Object.assign({}, item);
               map[item.primaryKey] = tabitem;
             });
 
-            node.children.mergeChildren(
+            node?.children?.mergeChildren(
               (child) => {
                 const primaryKey = String(child.getPropValue('primaryKey'));
                 if (Object.hasOwnProperty.call(map, primaryKey)) {
@@ -250,10 +249,10 @@ export default {
               },
               (child1, child2) => {
                 const a = value.findIndex(
-                  (item) => String(item.primaryKey) === String(child1.getPropValue('primaryKey')),
+                  (item: any) => String(item.primaryKey) === String(child1.getPropValue('primaryKey')),
                 );
                 const b = value.findIndex(
-                  (item) => String(item.primaryKey) === String(child2.getPropValue('primaryKey')),
+                  (item: any) => String(item.primaryKey) === String(child2.getPropValue('primaryKey')),
                 );
                 return a - b;
               },
@@ -347,7 +346,7 @@ export default {
               //   }`,
               // }
             },
-            condition(target) {
+            condition(target: IPublicModelSettingField) {
               return target.parent.getPropValue('needBadge') || false;
             },
           },
