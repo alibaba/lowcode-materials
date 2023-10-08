@@ -126,6 +126,25 @@ export default {
       },
       defaultValue: 'bottom',
     },
+    {
+      name: 'size',
+      title: { label: '尺寸', tip: '进度条的尺寸' },
+      propType: { type: 'oneOfType', value: ['oneOf', 'number'] },
+      setter: [
+        {
+          componentName: 'RadioGroupSetter',
+          props: {
+            options: [
+              { title: '小', value: 'small' },
+              { title: '默认', value: 'default' },
+            ],
+          },
+        },
+        {
+          componentName: 'NumberSetter',
+        },
+      ],
+    },
   ],
   configure: { supports: { style: true } },
 };
