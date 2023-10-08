@@ -67,7 +67,7 @@ export default {
     },
     {
       name: 'forceRender',
-      title: { label: '强制渲染Modal', tip: '强制渲染Modal' },
+      title: { label: '强制渲染Modal', tip: '预渲染 Modal 内元素' },
       propType: 'bool',
       defaultValue: false,
       setter: 'BoolSetter',
