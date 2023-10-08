@@ -107,7 +107,12 @@ export default {
     {
       name: 'width',
       title: { label: '宽度', tip: '宽度' },
-      propType: { type: 'oneOfType', value: ['string', 'number'] },
+      propType: 'number',
+    },
+    {
+      name: 'height',
+      title: { label: '高度', tip: '高度' },
+      propType: 'number',
     },
     {
       name: 'footer',
