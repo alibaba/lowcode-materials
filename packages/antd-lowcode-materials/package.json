@@ -7,18 +7,20 @@
     "build": "build-scripts build",
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
     "lowcode:build": "build-scripts build --config ./build.lowcode.js",
-    "prepublishOnly": "npm run lowcode:build"
+    "prepublishOnly": "npm run build && npm run lowcode:build"
   },
   "files": [
     "es/",
     "lib/",
     "dist/",
     "build/",
-    "lowcode/"
+    "lowcode/",
+    "lowcode_lib/",
+    "lowcode_es/"
   ],
   "devDependencies": {
     "@alib/build-scripts": "^0.1.23",
-    "@alifd/build-plugin-lowcode": "^0.3.8",
+    "@alifd/build-plugin-lowcode": "^0.4.0",
     "@ant-design/icons": "^4.7.0",
     "@types/lodash": "^4.14.181",
     "@types/react": "^18.0.1",
@@ -44,7 +46,8 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "antd": "^4.24.7",
-    "moment": "^2.29.1"
+    "moment": "^2.29.1",
+    "@babel/runtime": "^7.0.0"
   },
   "peerDependencies": {
     "react": "^16.0.0",
@@ -55,5 +58,23 @@
   },
   "license": "MIT",
   "homepage": "https://unpkg.com/@alilc/antd-lowcode-materials@1.2.2/build/index.html",
-  "repository": "https://github.com/alibaba/lowcode-materials.git"
+  "repository": "https://github.com/alibaba/lowcode-materials.git",
+  "exports": {
+    "./prototype": {
+      "require": "./lowcode_lib/meta.js",
+      "import": "./lowcode_es/meta.js"
+    },
+    "./prototypeView": {
+      "require": "./lowcode_lib/view.js",
+      "import": "./lowcode_es/view.js"
+    },
+    "./*": "./*",
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    }
+  },
+  "lcMeta": {
+    "type": "component"
+  }
 }

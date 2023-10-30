@@ -17,13 +17,13 @@ module.exports = {
         library,
         staticResources: {
           engineCoreCssUrl:
-            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@1.0.14/dist/css/engine-core.css',
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@1.2.1/dist/css/engine-core.css',
           engineExtCssUrl:
-            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine-ext@1.0.5-beta.10/dist/css/engine-ext.css',
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine-ext@1.0.6/dist/css/engine-ext.css',
           engineCoreJsUrl:
-            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@1.0.14/dist/js/engine-core.js',
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@1.2.1/dist/js/engine-core.js',
           engineExtJsUrl:
-            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine-ext@1.0.5-beta.10/dist/js/engine-ext.js',
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine-ext@1.0.6/dist/js/engine-ext.js',
         },
         npmInfo: {
           package: name,
