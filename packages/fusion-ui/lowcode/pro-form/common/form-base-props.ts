@@ -1,13 +1,13 @@
 import { isEqual, throttle } from 'lodash';
+import { IPublicModelSettingField } from '@alilc/lowcode-types';
+import { material } from '@alilc/lowcode-engine'
 
 import { IProps } from '../../types';
 import { formItemShortcutProps as baseFormItemProps } from './form-item-props';
 import { hideProp, showWithLabelAlign } from '../../utils';
 
 function getInitialPropsForFormItem(componentName, currentComponentProps) {
-  const component = AliLowCodeEngine.material
-    .getAssets()
-    .components.filter((item) => item.componentName === componentName)[0];
+  const component = material?.getAssets()?.components.filter((item) => item.componentName === componentName)[0];
   const defaultProps = {};
   const initials = component?.advanced?.initials;
   if (initials && Array.isArray(initials) && initials.length) {
@@ -29,15 +29,16 @@ function getInitialPropsForFormItem(componentName, currentComponentProps) {
   return props;
 }
 
-const itemSetValue = throttle((target, value) => {
+const itemSetValue = throttle((target: IPublicModelSettingField, value) => {
   const { node } = target;
   const mergedValueMap = {};
-  const mergedValues = [];
+  const mergedValues: any = [];
   const map = {};
   if (!Array.isArray(value)) {
     value = [];
   }
   value.forEach((item) => {
+    if (item.primaryKey === undefined) return;
     if (!mergedValueMap[item.primaryKey]) {
       mergedValueMap[item.primaryKey] = item;
       mergedValues.push(item);
@@ -49,9 +50,9 @@ const itemSetValue = throttle((target, value) => {
     }
     map[item.primaryKey] = FormItem;
   });
-  const children = node.children.filter((child) => {
-    if (!mergedValueMap[child.propsData.primaryKey]) {
-      mergedValueMap[child.propsData.primaryKey] = child.propsData;
+  const children = node?.children?.filter((child) => {
+    if (!mergedValueMap[child.propsData?.['primaryKey']]) {
+      mergedValueMap[child.propsData?.['primaryKey']] = child.propsData;
       mergedValues.push(child.propsData);
     }
     return true;
@@ -62,7 +63,7 @@ const itemSetValue = throttle((target, value) => {
   if (isEqual(preValue, value)) {
     return;
   }
-  node.children.mergeChildren(
+  node?.children?.mergeChildren(
     (child) => {
       const primaryKey =
         child.getPropValue('formItemProps')?.primaryKey || child.getPropValue('primaryKey');
@@ -97,7 +98,7 @@ const itemSetValue = throttle((target, value) => {
       return true;
     },
     () => {
-      const items = [];
+      const items: any[] = [];
       for (const primaryKey in map) {
         if (Object.hasOwnProperty.call(map, primaryKey)) {
           const { componentName, componentProps, ...otherProps } = map[primaryKey];
@@ -192,9 +193,8 @@ export const formItemsProps = {
       },
     },
   },
-  getValue: (target) => {
-    const { children } = target.node;
-    const hotValue = children.map((child) => {
+  getValue: (target: IPublicModelSettingField) => {
+    const hotValue = target.node?.children?.map((child) => {
       const { propsData } = child;
       // 兼容 FroFromItem -> Input 的数据结构
       if (child.componentName === 'ProFormItem') {

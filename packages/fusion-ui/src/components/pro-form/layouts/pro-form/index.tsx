@@ -92,13 +92,13 @@ export const formatFormItems: Function = (
 
   const rows: any = calculateLastRows(_children, gridColumns);
 
-  return React.Children.map(_children, (child: React.ReactElement) => {
+  return React.Children.map(_children, (child: React.ReactElement<any, any>) => {
     if (ObjUtils.isReactFragment(child)) {
       return formatFormItems(child.props.children, props);
     }
     if (child && ['function', 'object'].indexOf(typeof child.type) > -1) {
       const _labelAlign = device === 'phone' ? 'top' : labelAlign;
-      const childrenProps = {
+      const childrenProps: any = {
         labelCol: child.props.labelCol ? child.props.labelCol : labelCol,
         wrapperCol: child.props.wrapperCol ? child.props.wrapperCol : wrapperCol,
         labelAlign: child.props.labelAlign ? child.props.labelAlign : _labelAlign,
@@ -181,7 +181,9 @@ const ProForm: React.ForwardRefRenderFunction<any, ProFormProps> = (props: ProFo
   );
 };
 
-const RefProForm = React.forwardRef(ProForm);
+const RefProForm: React.ForwardRefExoticComponent<ProFormProps> & {
+  Item?: typeof ProFormItem;
+} = React.forwardRef(ProForm);
 RefProForm.displayName = 'ProForm';
 RefProForm.defaultProps = {};
 RefProForm.propTypes = {};
