@@ -1,7 +1,7 @@
 {
-  "name": "@alilc/antd-lowcode-materials",
-  "version": "1.2.2",
-  "description": "Antd for LowCode",
+  "name": "@discode/antd",
+  "version": "0.0.3",
+  "description": "Antd for Discode",
   "main": "lib/index.js",
   "scripts": {
     "build": "build-scripts build",
@@ -21,6 +21,8 @@
   "devDependencies": {
     "@alib/build-scripts": "^0.1.23",
     "@alifd/build-plugin-lowcode": "^0.4.0",
+    "@alilc/lowcode-react-renderer": "^1.2.2",
+    "@alilc/lowcode-utils": "^1.2.2",
     "@ant-design/icons": "^4.7.0",
     "@types/lodash": "^4.14.181",
     "@types/react": "^18.0.1",
@@ -37,28 +39,23 @@
   },
   "authors": [
     {
-      "name": "莫夭"
-    },
-    {
-      "name": "金禅"
+      "name": "charmtiger"
     }
   ],
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
+    "@babel/runtime": "^7.0.0",
     "antd": "^4.24.7",
-    "moment": "^2.29.1",
-    "@babel/runtime": "^7.0.0"
+    "moment": "^2.29.1"
   },
   "peerDependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
   "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.2.2/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@discode/antd@0.0.2/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/@alilc/antd-lowcode-materials@1.2.2/build/index.html",
-  "repository": "https://github.com/alibaba/lowcode-materials.git",
   "exports": {
     "./prototype": {
       "require": "./lowcode_lib/meta.js",

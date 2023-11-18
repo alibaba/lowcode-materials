@@ -1,6 +1,6 @@
 const { name, version } = require("./package.json");
 
-const library = 'AntdLowcode';
+const library = 'DiscodeAntd';
 
 module.exports = {
   sourceMap: false,
