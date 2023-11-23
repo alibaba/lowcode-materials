@@ -120,6 +120,8 @@ interface AntdIconSetterProps {
   icons: string[];
 }
 
+const Tooltip = Balloon.Tooltip;
+
 const AntdIconSetter = (props: AntdIconSetterProps) => {
   const [search, setSearch] = useState('');
   const [icons, setIcons] = useState<Record<string, any>>({});
@@ -252,10 +254,9 @@ const AntdIconSetter = (props: AntdIconSetterProps) => {
                 className="lc-antd-icon-setter-list-item"
                 onClick={() => handleChange(item.name)}
               >
-                <Icon type={item.name} icons={icons} />
-                <div className="lc-antd-icon-setter-list-item-name">
+                <Tooltip v2 trigger={<Icon type={item.name} icons={icons} />} popupStyle= {{backgroundColor: "#fff"}}>
                   {item.name}
-                </div>
+                </Tooltip>
               </li>
             ))}
           </ul>
