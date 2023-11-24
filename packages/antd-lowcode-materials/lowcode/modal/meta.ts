@@ -67,7 +67,7 @@ export default {
     },
     {
       name: 'forceRender',
-      title: { label: '强制渲染Modal', tip: '强制渲染Modal' },
+      title: { label: '强制渲染Modal', tip: '预渲染 Modal 内元素' },
       propType: 'bool',
       defaultValue: false,
       setter: 'BoolSetter',
@@ -107,7 +107,12 @@ export default {
     {
       name: 'width',
       title: { label: '宽度', tip: '宽度' },
-      propType: { type: 'oneOfType', value: ['string', 'number'] },
+      propType: 'number',
+    },
+    {
+      name: 'height',
+      title: { label: '高度', tip: '高度' },
+      propType: 'number',
     },
     {
       name: 'footer',
