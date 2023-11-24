@@ -76,6 +76,8 @@ export { Result } from 'antd';
 
 export { Row } from 'antd';
 
+export { Segmented } from 'antd';
+
 // export { Skeleton } from 'antd';
 
 export { Space } from 'antd';
