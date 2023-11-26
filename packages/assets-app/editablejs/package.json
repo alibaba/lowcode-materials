@@ -1,0 +1,81 @@
+{
+  "name": "editablejs",
+  "version": "0.1.0",
+  "description": "editablejs",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "typings": "types/index.d.ts",
+  "files": [
+    "build",
+    "dist",
+    "lib",
+    "es",
+    "types"
+  ],
+  "scripts": {
+    "start": "build-scripts start",
+    "build": "build-scripts build",
+    "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
+    "lowcode:build": "build-scripts build --config ./build.lowcode.js",
+    "f2elint-scan": "f2elint scan",
+    "f2elint-fix": "f2elint fix",
+    "prepublishOnly": "npm run build && npm run lowcode:build"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "Fusion"
+  ],
+  "author": "fusion-team",
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "f2elint commit-file-scan",
+      "commit-msg": "f2elint commit-msg-scan"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,vue}": "f2elint exec eslint",
+    "**/*.{css,scss,less,acss}": "f2elint exec stylelint"
+  },
+  "peerDependencies": {
+    "react": "^16.x",
+    "react-dom": "^16.x",
+    "moment": "latest"
+  },
+  "devDependencies": {
+    "@alib/build-scripts": "^0.1.3",
+    "@alifd/build-plugin-lowcode": "^0.3.0",
+    "@alifd/theme-2": "^0.4.0",
+    "@storybook/addon-actions": "^6.3.1",
+    "@storybook/addon-docs": "^6.3.4",
+    "@storybook/addon-essentials": "^6.3.0",
+    "@storybook/addon-storysource": "^6.3.1",
+    "@storybook/react": "^6.3.5",
+    "@storybook/source-loader": "^6.3.1",
+    "@types/react": "^16.14.24",
+    "@types/react-dom": "^16.9.4",
+    "build-plugin-component-multiple": "^1.0.0-beta.5",
+    "build-plugin-fusion": "^0.1.0",
+    "f2elint": "^1.2.0"
+  },
+  "dependencies": {
+    "@alifd/next": "^1.25.27",
+    "@editablejs/editor": "^1.0.2",
+    "@editablejs/models": "^1.0.0",
+    "less-loader": "^11.1.0",
+    "prop-types": "^15.5.8",
+    "react": "^16.x",
+    "react-dom": "^16.x"
+  },
+  "acceptDependencies": {
+    "webpack": "^4.46.x"
+  },
+  "resolutions": {
+    "webpack": "^4.46.x"
+  },
+  "componentConfig": {
+    "isComponentLibrary": true
+  }
+}
