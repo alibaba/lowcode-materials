@@ -1,0 +1,46 @@
+#{$biz-css-prefix}pro-form {
+  &.one-column {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .next-number-picker {
+    .next-input-control {
+      padding-right: 0 !important;
+    }
+  }
+
+  .next-form-item-label label[required]:before {
+    margin-right: 0;
+    content: '';
+  }
+  .next-form-item-label label[required]:after {
+    margin-left: 4px;
+    content: '*';
+    color: #ff3000;
+  }
+  &.empty-content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+}
+
+.next-form-item-control > .next-input,
+.next-form-item-control > .next-input-group,
+.next-form-item-fullwidth .next-form-item-control > .next-date-picker,
+.next-form-item-fullwidth
+  .next-form-item-control
+  > .next-date-picker
+  > .next-date-picker-trigger
+  > .next-input,
+.next-form-item-fullwidth .next-form-item-control > .next-input,
+.next-form-item-fullwidth .next-form-item-control > .next-input-group,
+.next-form-item-fullwidth .next-form-item-control > .next-month-picker,
+.next-form-item-fullwidth .next-form-item-control > .next-range-picker,
+.next-form-item-fullwidth .next-form-item-control > .next-select,
+.next-form-item-fullwidth .next-form-item-control > .next-time-picker,
+.next-form-item-fullwidth .next-form-item-control > .next-year-picker,
+.next-form-item-fullwidth .next-form-item-control > .next-number-picker {
+  width: 100%;
+}

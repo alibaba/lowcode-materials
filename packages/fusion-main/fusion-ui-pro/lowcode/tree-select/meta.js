@@ -1,0 +1,82 @@
+import { wrapFormItemProps } from '../utils/form-utils';
+
+export default {
+  componentName: 'FormTreeSelect',
+  isFormItemComponent: true,
+  title: '树型选择控件',
+  docUrl: '',
+  screenshot: '',
+  npm: {
+    package: '@alifd/fusion-ui',
+    version: '{{version}}',
+    exportName: 'FormTreeSelect',
+    main: '',
+    destructuring: true,
+    subName: '',
+  },
+  configure: {
+    props: wrapFormItemProps([
+      {
+        name: 'placeholder',
+        title: {
+          label: '占位提示',
+          tip: '属性: placeholder',
+        },
+        defaultValue: '请选择', // 不生效
+        setter: 'StringSetter',
+      },
+      {
+        name: 'defaultValue',
+        title: {
+          label: {
+            type: 'i18n',
+            zh_CN: '默认值',
+            en_US: 'Placeholder',
+          },
+          tip: {
+            type: 'i18n',
+            zh_CN: '属性: placeholder | 说明: 输入提示',
+            en_US: 'prop: placeholder | description: placeholder',
+          },
+        },
+        setter: 'StringSetter',
+        supportVariable: true,
+      },
+      {
+        name: 'hasClear',
+        title: {
+          label: '清除按钮',
+          tip: '属性: hasClear',
+        },
+        setter: 'BoolSetter',
+        defaultValue: false,
+      },
+      {
+        name: 'showSearch',
+        title: {
+          label: '可搜索',
+          tip: '属性: showSearch',
+        },
+        setter: 'BoolSetter',
+        defaultValue: false,
+      },
+      {
+        name: 'label',
+        title: '内联文案',
+        setter: {
+          componentName: 'StringSetter',
+        },
+      },
+      {
+        name: 'dataSource',
+        title: {
+          label: '节点数据',
+          tip: '数据源',
+        },
+        setter: 'JsonSetter',
+      },
+    ]),
+  },
+  icon: '',
+  category: '内容',
+};

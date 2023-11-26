@@ -1,0 +1,16 @@
+.fusion-ui-tab {
+  display: block;
+  background-color: #fff;
+
+  &.next-medium {
+    .next-tabs-content {
+      padding: 16px;
+    }
+  }
+
+  &.next-small {
+    .next-tabs-content {
+      padding: 12px;
+    }
+  }
+}

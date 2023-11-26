@@ -1,0 +1,283 @@
+$css-prefix: '.next-';
+
+:root {
+  --s-base: 4px;
+  --s-compact: calc(var(--s-base) * 50);
+  --s-comfortable: calc(var(--s-base) * 80);
+  --s-luxury: calc(var(--s-base) * 160);
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 28px;
+  --s-8: 32px;
+  --s-9: 36px;
+  --s-10: 40px;
+
+  /* font */
+  --font-family: Roboto, 'Helvetica Neue', Helvetica, Tahoma, Arial, 'PingFang SC',
+    'Microsoft YaHei';
+  --p-h1-font-size: 56px;
+  --p-h1-icon-size: 56px;
+  --p-h1-font-weight: 900;
+  --p-h1-line-height: 64px;
+  --p-h1-margin-top: var(--s-9);
+  --p-h1-margin-bottom: var(--s-1);
+
+  --p-h2-font-size: 48px;
+  --p-h2-icon-size: 48px;
+  --p-h2-font-weight: 800;
+  --p-h2-line-height: 52px;
+  --p-h2-margin-top: var(--s-8);
+  --p-h2-margin-bottom: var(--s-1);
+
+  --p-h3-font-size: 36px;
+  --p-h3-icon-size: 36px;
+  --p-h3-font-weight: 700;
+  --p-h3-line-height: 44px;
+  --p-h3-margin-top: var(--s-7);
+  --p-h3-margin-bottom: var(--s-1);
+
+  --p-h4-font-size: 24px;
+  --p-h4-icon-size: 24px;
+  --p-h4-font-weight: 600;
+  --p-h4-line-height: 32px;
+  --p-h4-margin-top: var(--s-5);
+  --p-h4-margin-bottom: var(--s-2);
+
+  --p-h5-font-size: 20px;
+  --p-h5-icon-size: 20px;
+  --p-h5-font-weight: 500;
+  --p-h5-line-height: 28px;
+  --p-h5-margin-top: var(--s-4); // 上下不一定相等
+  --p-h5-margin-bottom: var(--s-1);
+
+  /* large */
+  --p-h6-font-size: 16px;
+  --p-h6-icon-size: 16px;
+  --p-h6-font-weight: 400;
+  --p-h6-line-height: 24px;
+  --p-h6-margin-top: var(--s-4);
+  --p-h6-margin-bottom: var(--s-1);
+
+  --p-body1-font-size: 16px;
+  --p-body1-icon-size: 16px;
+  --p-body1-font-weight: 400;
+  --p-body1-line-height: 24px;
+  --p-body1-margin-top: var(--s-3);
+  --p-body1-margin-bottom: var(--s-1);
+  --p-body1-indent-size: var(--s-2);
+
+  /* medium */
+  --p-body2-font-size: 14px;
+  --p-body2-icon-size: 14px;
+  --p-body2-font-weight: 400;
+  --p-body2-line-height: 22px;
+  --p-body2-margin-top: var(--s-2);
+  --p-body2-margin-bottom: var(--s-1);
+  --p-body2-indent-size: var(--s-2);
+
+  /* small */
+  --p-caption-font-size: 12px;
+  --p-caption-icon-size: 12px;
+  --p-caption-font-weight: 300;
+  --p-caption-line-height: 20px;
+  --p-caption-margin-top: var(--s-3);
+  --p-caption-margin-bottom: var(--s-1);
+  --p-caption-indent-size: var(--s-1);
+
+  --p-overline-font-size: 10px;
+  --p-overline-icon-size: 10px;
+  --p-overline-font-weight: 200;
+  --p-overline-line-height: 18px;
+  --p-overline-margin-top: var(--s-1);
+  --p-overline-margin-bottom: var(--s-1);
+}
+
+body {
+  --p-h1-margin-top: var(--s-1);
+  --p-h2-margin-top: var(--s-1);
+  --p-h3-margin-top: var(--s-1);
+  --p-h4-margin-top: var(--s-1);
+  --p-h5-margin-top: var(--s-1);
+  --p-h6-margin-top: var(--s-1);
+  --p-body1-margin-top: var(--s-1);
+  --p-body2-margin-top: var(--s-1);
+  --p-caption-margin-top: var(--s-1);
+}
+#{$css-prefix}text {
+  color: #1f2633;
+  text-align: justify;
+
+  // & + & {
+  //     margin-left: 0;
+  // }
+
+  &-title {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+  }
+
+  & + &-title {
+    margin-top: 1.2em;
+  }
+
+  &-paragraph {
+    color: #1f2633;
+    margin-bottom: 1em;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  mark {
+    padding: 0;
+    background: #fffbc7;
+    color: #1f2633;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  code {
+    background-color: #f4f6f9;
+    color: #1f2633;
+    border: 1px solid #e4e8ee;
+    margin: 0 0.2em;
+    padding: 0.2em 0.4em 0.1em;
+    font-size: 85%;
+    border-radius: 4px;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 1em 0;
+    padding: 0;
+  }
+
+  li {
+    list-style-type: circle;
+    margin: 0 0 0 20px;
+    padding: 0 0 0 4px;
+  }
+
+  a {
+    text-decoration: none;
+    &:link {
+      color: rgba(3, 193, 253, 1);
+    }
+    &:visited {
+      color: rgba(0, 123, 176, 1);
+    }
+    &:hover {
+      color: rgba(0, 157, 214, 1);
+    }
+    &:active {
+      text-decoration: underline;
+      color: rgba(0, 157, 214, 1);
+    }
+  }
+}
+
+h1#{$css-prefix}text-title {
+  font-size: 24px;
+}
+
+h2#{$css-prefix}text-title {
+  font-size: 20px;
+}
+
+h3#{$css-prefix}text-title {
+  font-size: 16px;
+}
+
+h4#{$css-prefix}text-title {
+  font-size: 16px;
+}
+
+h5#{$css-prefix}text-title {
+  font-size: 14px;
+}
+
+h6#{$css-prefix}text-title {
+  font-size: 14px;
+}
+#{$css-prefix}text {
+  &-inherit {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+  &-overline {
+    font-family: var(--p-overline-font-family);
+    font-size: var(--p-overline-font-size);
+    font-weight: var(--p-overline-font-weight);
+    line-height: var(--p-overline-line-height);
+  }
+
+  &-caption {
+    font-family: var(--p-caption-font-family);
+    font-size: var(--p-caption-font-size);
+    font-weight: var(--p-caption-font-weight);
+    line-height: var(--p-caption-line-height);
+  }
+
+  &-body2 {
+    font-family: var(--p-body2-font-family);
+    font-size: var(--p-body2-font-size);
+    font-weight: var(--p-body2-font-weight);
+    line-height: var(--p-body2-line-height);
+  }
+
+  &-body1 {
+    font-family: var(--p-body1-font-family);
+    font-size: var(--p-body1-font-size);
+    font-weight: var(--p-body1-font-weight);
+    line-height: var(--p-body1-line-height);
+  }
+
+  &-h6 {
+    font-family: var(--p-h6-font-family);
+    font-size: var(--p-h6-font-size);
+    font-weight: var(--p-h6-font-weight);
+    line-height: var(--p-h6-line-height);
+  }
+
+  &-h5 {
+    font-family: var(--p-h5-font-family);
+    font-size: var(--p-h5-font-size);
+    font-weight: var(--p-h5-font-weight);
+    line-height: var(--p-h5-line-height);
+  }
+
+  &-h4 {
+    font-family: var(--p-h4-font-family);
+    font-size: var(--p-h4-font-size);
+    font-weight: var(--p-h4-font-weight);
+    line-height: var(--p-h4-line-height);
+  }
+
+  &-h3 {
+    font-family: var(--p-h3-font-family);
+    font-size: var(--p-h3-font-size);
+    font-weight: var(--p-h3-font-weight);
+    line-height: var(--p-h3-line-height);
+  }
+
+  &-h2 {
+    font-family: var(--p-h2-font-family);
+    font-size: var(--p-h2-font-size);
+    font-weight: var(--p-h2-font-weight);
+    line-height: var(--p-h2-line-height);
+  }
+
+  &-h1 {
+    font-family: var(--p-h1-font-family);
+    font-size: var(--p-h1-font-size);
+    font-weight: var(--p-h1-font-weight);
+    line-height: var(--p-h1-line-height);
+  }
+}

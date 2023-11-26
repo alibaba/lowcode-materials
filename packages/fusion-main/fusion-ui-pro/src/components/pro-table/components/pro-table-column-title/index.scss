@@ -1,0 +1,109 @@
+@import '../../../../variables.scss';
+
+.fusion-ui-pro-table-column-title-sortter {
+  display: inline-block;
+  position: relative;
+  height: 14px;
+  width: var(--s-2, $s-2);
+  cursor: pointer;
+  top: -3px;
+  .fusion-ui-icon {
+    position: absolute;
+    left: 0;
+    transform: scale(0.8);
+  }
+  .fusion-ui-icon-triangle-up {
+    top: 0;
+  }
+  .fusion-ui-icon-triangle-down {
+    top: 7px;
+  }
+  &--desc {
+    .fusion-ui-icon-triangle-down {
+      color: var(--color-brand1-6, $color-brand1-6);
+    }
+  }
+  &--asc {
+    .fusion-ui-icon-triangle-up {
+      color: var(--color-brand1-6, $color-brand1-6);
+    }
+  }
+}
+
+.fusion-ui-pro-table-column-title-icons {
+  display: inline-flex;
+  flex-direction: row;
+  gap: var(--s-2, $s-2);
+  margin-left: var(--s-2, $s-2);
+  color: var(--color-text1-2, $color-text1-2);
+  align-items: center;
+}
+.fusion-ui-pro-table-column-title-filter {
+  cursor: pointer;
+  color: var(--color-text1-2, $color-text1-2);
+  &--active {
+    color: var(--color-brand1-6, $color-brand1-6);
+  }
+}
+
+.fusion-ui-pro-table-column-title-filter-panel {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white, $color-white);
+  box-shadow: var(--shadow-2-down, $shadow-2-down);
+  border-radius: var(--corner-2, $corner-2);
+  width: calc(var(--s-1, 4) * 60);
+
+  &__bd {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-2, $s-2);
+    align-items: stretch;
+    padding: var(--s-3 $s-4, $s-3 $s-4);
+  }
+  &__ft {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--s-2, $s-2);
+    border-top: var(--line-1 solid $color-line1-1, $line-1 solid $color-line1-1);
+    padding: var(--s-2 $s-4, $s-2 $s-4);
+  }
+  &__segment {
+    // margin-bottom: var(--s-2, $s-2);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  &__input {
+    // margin-bottom: var(--s-2, $s-2);
+  }
+  &__menu {
+    > .fusion-ui-menu.fusion-ui-ver {
+      padding: 0;
+    }
+    .fusion-ui-menu-header {
+      line-height: var(--s-7, $s-7);
+    }
+    > .fusion-ui-menu.fusion-ui-menu.fusion-ui-ver {
+      padding: 0 !important;
+      > .fusion-ui-menu-content {
+        margin: 0 -12px;
+      }
+      .fusion-ui-menu-item {
+        padding: 0 12px 0 12px;
+      }
+    }
+  }
+}
+
+.fusion-ui-pro-table-column-title {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  // white-space: nowrap;
+  &--wrap {
+    white-space: normal;
+  }
+}

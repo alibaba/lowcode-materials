@@ -1,0 +1,71 @@
+{
+  "name": "@alilc/lowcode-materials",
+  "version": "1.0.4",
+  "description": "Fusion Next for LowCode",
+  "scripts": {
+    "start": "build-scripts start --type=dev",
+    "compile": "build-scripts build",
+    "preview": "build-scripts start --type=preview",
+    "build": "npm run compile",
+    "dev": "start-storybook -p 9001",
+    "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
+    "lowcode:build": "build-scripts build --config ./build.lowcode.js",
+    "prepublishOnly": "npm run build && npm run lowcode:build && npm run lowcode:antd:build"
+  },
+  "files": [
+    "es/",
+    "lib/",
+    "dist/",
+    "build/",
+    "lowcode/"
+  ],
+  "devDependencies": {
+    "@alib/build-scripts": "^0.1.3",
+    "@alifd/build-plugin-lowcode": "^0.3.0",
+    "@alifd/theme-2": "^0.4.0",
+    "@alilc/build-plugin-alt": "^1.2.2",
+    "@storybook/addon-actions": "^6.3.1",
+    "@storybook/addon-docs": "^6.3.4",
+    "@storybook/addon-essentials": "^6.3.0",
+    "@storybook/addon-storysource": "^6.3.1",
+    "@storybook/react": "^6.3.5",
+    "@storybook/source-loader": "^6.3.1",
+    "@types/react": "^16.14.24",
+    "@types/react-dom": "^16.9.4",
+    "build-plugin-component-multiple": "^1.0.0-beta.5",
+    "build-plugin-fusion": "^0.1.0",
+    "f2elint": "^1.2.0"
+  },
+  "authors": [
+    {
+      "name": "金禅"
+    },
+    {
+      "name": "荣彬"
+    },
+    {
+      "name": "屹凡"
+    },
+    {
+      "name": "启剑"
+    },
+    {
+      "name": "春希"
+    },
+    {
+      "name": "度城"
+    },
+    {
+      "name": "梧忌"
+    }
+  ],
+  "dependencies": {
+    "@alifd/next": "^1.24.14",
+    "@types/react": "^17.0.39",
+    "moment": "^2.29.4"
+  },
+  "componentConfig": {
+    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.4/build/lowcode/assets-prod.json"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,9 @@
+#{$biz-css-prefix}step-form {
+  &.steps {
+    margin-bottom: var(--s-5, $s-5);
+  }
+
+  &.forms {
+    margin-left: 0;
+  }
+}

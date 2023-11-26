@@ -1,0 +1,48 @@
+#{$biz-css-prefix}anchor-ver-menu {
+  padding: var(--s-4, $s-4);
+  background: var(--color-white, $color-white);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+  width: 160px;
+
+  &-header {
+    position: absolute;
+    display: none;
+    top: var(--s-4, $s-4);
+    left: 14px;
+    width: var(--s-1, $s-1);
+    height: var(--s-3, $s-3);
+    border-radius: 2px;
+    background: var(--color-brand1-6, $color-brand1-6);
+    transition: top 0.3s ease;
+  }
+
+  &-footer {
+    border-left: 1px solid $color-line1-2;
+    #{$biz-css-prefix}anchor-item {
+      font-weight: var(--font-weight-medium, $font-weight-medium);
+      font-size: var(--font-size-body-1, $font-size-body-1);
+      color: var(--color-text1-4, $color-text1-4);
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: var(--s-4, $s-4);
+      }
+
+      &-active,
+      &:hover {
+        color: var(--color-brand1-6, $color-brand1-6);
+      }
+
+      &-level-1 {
+        padding-left: var(--s-3, $s-3);
+      }
+
+      &-level-2 {
+        padding-left: var(--s-5, $s-5);
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import './variables.scss';
+
+@import './common/operations/index.scss';
+@import './components/anchor/index.scss';
+@import './components/ellipsis/index.scss';
+@import './components/expand-table/index.scss';
+@import './components/filter/index.scss';
+@import './components/menu/index.scss';
+@import './components/menu-button/index.scss';
+// @import './components/pro-card/index.scss';
+@import './components/pro-dialog/index.scss';
+@import './components/pro-drawer/index.scss';
+@import './components/page-header/index.scss';
+@import './components/pro-table/index.scss';
+@import './components/pro-form/index.scss';
+@import './components/segment/index.scss';
+@import './components/tab-container/index.scss';
+@import './components/toggle-icon/index.scss';
+@import '~@alifd/pro-layout/lib/pro-card/index.scss';
+
+#{$biz-css-prefix}page .lc-container-placeholder {
+  min-height: 48px;
+  background: #f1f1f1;
+  border: 1px solid #e0e0e0;
+}
