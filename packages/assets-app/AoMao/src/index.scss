@@ -1,9 +1,6 @@
 /* write style here */
-.ExampleComponent {
 
-}
-
-.nav{
+.Aomao_nav{
 
     overscroll-behavior: contain;
     border-width: 1px;
@@ -13,7 +10,7 @@
     border-bottom-color: rgb(229 231 235 / var(--tw-border-opacity));
     padding: 0.5rem;
 }
-.content {
+.Aomao_content {
 max-width: 720px;
     margin: 0 auto;
     border: 1px dotted silver;
@@ -23,4 +20,7 @@ max-width: 720px;
     padding: 30px;
     box-sizing: border-box;
 
+}
+.Aomao_loading{
+    width: 100%;
 }

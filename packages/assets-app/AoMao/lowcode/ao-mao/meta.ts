@@ -1,9 +1,9 @@
 
-import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
+import { IPublicTypeComponentMetadata, IPublicTypeSnippet } from '@alilc/lowcode-types';
 
-const AoMaoMeta: ComponentMetadata = {
+const AoMaoMeta: IPublicTypeComponentMetadata = {
   "componentName": "AoMao",
-  "title": "AoMao",
+  "title": "AoMao编辑器",
   "docUrl": "",
   "screenshot": "",
   "devMode": "proCode",
@@ -18,104 +18,106 @@ const AoMaoMeta: ComponentMetadata = {
   "configure": {
     "props": [
       {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "title",
-            "zh-CN": "title"
-          }
-        },
-        "name": "title",
-        "setter": {
-          "componentName": "StringSetter",
-          "isRequired": true,
-          "initialValue": ""
-        }
+        name: 'lang',
+        title:"语言",
+        setter: 'StringSetter',
+        defaultValue: "zh-CN",
       },
       {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "content",
-            "zh-CN": "content"
-          }
-        },
-        "name": "content",
-        "setter": {
-          "componentName": "StringSetter",
-          "isRequired": true,
-          "initialValue": ""
-        }
+        name: 'readonly',
+        title:"编辑只读",
+        setter: 'BoolSetter',
       },
       {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "ref",
-            "zh-CN": "ref"
-          }
-        },
-        "name": "ref",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "FunctionSetter"
-              },
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                },
-                "isRequired": false,
-                "initialValue": {}
-              }
-            ]
-          }
-        }
+        name: 'autoPrepend',
+        title:"头部空行",
+        setter: 'BoolSetter',
       },
       {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "key",
-            "zh-CN": "key"
-          }
+        name: 'autoAppend',
+        title:"尾部空行",
+        setter: 'BoolSetter',
+      },
+      {
+        name: 'visible',
+        title:"等待",
+        setter: 'BoolSetter',
+        defaultValue:false,
+      },
+
+
+      {
+        name: 'data',
+        type: 'group',
+        display: 'accordion',
+        title: {
+          label: '图片配置',
         },
-        "name": "key",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "StringSetter",
-                "isRequired": false,
-                "initialValue": ""
-              },
-              {
-                "componentName": "NumberSetter",
-                "isRequired": false,
-                "initialValue": 0
-              }
-            ]
-          }
-        }
-      }
+        items: [
+          {
+            name: 'Images.action',
+            title:"请求地址",
+            setter: 'StringSetter',
+          },
+          {
+            name: 'Images.crossOrigin',
+            title:"是否跨域",
+            setter: 'BoolSetter',
+            defaultValue:true,
+          },
+
+          {
+            name: 'Images.withCredentials',
+            title:"跨域withCredentials",
+            setter: 'BoolSetter',
+            defaultValue:true,
+          },
+          {
+            name: 'Images.headers',
+            title:"请求头",
+            setter: 'JsonSetter',
+          },
+          {
+            name: 'Images.contentType',
+            title:"请求头",
+            setter: 'StringSetter',
+            defaultValue:"multipart/form-data",
+          },
+          {
+            name: 'Images.accept',
+            title:"文件类型",
+            setter: 'StringSetter',
+            defaultValue:"svg,png,bmp,jpg,jpeg,gif,tif,tiff,emf,webp",
+          },
+          {
+            name: 'Images.limitSize',
+            title:"文件大小",
+            setter: 'StringSetter',
+            defaultValue:"1024 * 1024 * 5",
+          },
+          {
+            name: 'Images.data',
+            title:"附带数据",
+            setter: 'JsonSetter',
+          },
+          {
+            name: 'Images.name',
+            title:"文件上传名称",
+            setter: 'StringSetter',
+            defaultValue:"file",
+          },
+        ],
+      },
+
     ],
     "supports": {
-      "style": true
+      "style": true,
+      events:["saveField"]
     },
     "component": {}
   }
 };
-const snippets: Snippet[] = [
+const snippets: IPublicTypeSnippet[] = [
   {
     "title": "AoMao",
     "screenshot": "",
