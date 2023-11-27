@@ -34,6 +34,9 @@ import Redo from '@aomao/plugin-redo';
 import Removeformat from '@aomao/plugin-removeformat';
 import Selectall from '@aomao/plugin-selectall';
 import Status , { StatusComponent } from '@aomao/plugin-status';
+import Heading from '@aomao/plugin-heading';
+import Italic from '@aomao/plugin-italic';
+
 
 interface ComponentProps {
   title: string;
@@ -67,7 +70,7 @@ const ExampleComponent = (props: ComponentProps) => {
   useEffect(() => {
     if (!ref.current) return;
     const engines = new Engine(ref.current, {
-      plugins: [Status,Selectall,Removeformat,Redo,Quote,Orderedlist,Mention,lightblock,Lineheight,Link,Fontfamily,File , FileUploader ,Embed,Code,Fontcolor,Image , ImageUploader,Paintformat,Bold, ToolbarPlugin, CodeBlock , Table , Fontsize,Alignment,Backcolor,Hr,Tasklist,Underline, Video, VideoUploader,Unorderedlist,Undo,Strikethrough],
+      plugins: [Italic,Heading,Status,Selectall,Removeformat,Redo,Quote,Orderedlist,Mention,lightblock,Lineheight,Link,Fontfamily,File , FileUploader ,Embed,Code,Fontcolor,Image , ImageUploader,Paintformat,Bold, ToolbarPlugin, CodeBlock , Table , Fontsize,Alignment,Backcolor,Hr,Tasklist,Underline, Video, VideoUploader,Unorderedlist,Undo,Strikethrough],
       cards: [StatusComponent,MentionComponent,FileComponent,EmbedComponent,ImageComponent,ToolbarComponent, CodeBlockComponent, HrComponent, TableComponent,CheckboxComponent,VideoComponent],
       lang: 'zh-CN',
       
