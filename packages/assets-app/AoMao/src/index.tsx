@@ -45,6 +45,7 @@ import { Loading } from '@alifd/next';
 
 interface ComponentProps {
   title: string;
+  // data:Object,
   saveField?(vditor: any): void;
   Images: Object
 }
@@ -152,6 +153,9 @@ const ExampleComponent = (props: ComponentProps) => {
       saveField(engines);
     }
 
+    // if (data){
+    //      engines.setValue(data);
+    // }
     // engines.setValue(content);
     // engines.on('change', () => {
     //   const value = engines.getValue();
