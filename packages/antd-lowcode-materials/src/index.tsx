@@ -2,8 +2,6 @@ export { Affix } from 'antd';
 
 export { Anchor } from 'antd';
 
-// export { AutoComplete } from 'antd';
-
 export { Alert } from 'antd';
 
 export { Avatar } from 'antd';
@@ -20,25 +18,15 @@ export { Collapse } from 'antd';
 
 export { Carousel } from 'antd';
 
-// export { Cascader } from 'antd';
-
-// export { Checkbox } from 'antd';
-
 export { Col } from 'antd';
-
-export { Comment } from 'antd';
 
 export { Descriptions } from 'antd';
 
 export { Divider } from 'antd';
 
-// export { Drawer } from 'antd';
-
 export { Empty } from 'antd';
 
 export { Grid } from 'antd';
-
-// export { Input } from 'antd';
 
 export { Image } from 'antd';
 
@@ -58,8 +46,6 @@ export { Statistic } from 'antd';
 
 export { notification } from 'antd';
 
-export { PageHeader } from 'antd';
-
 export { Pagination } from 'antd';
 
 export { Popconfirm } from 'antd';
@@ -68,15 +54,11 @@ export { Popover } from 'antd';
 
 export { Progress } from 'antd';
 
-// export { Radio } from 'antd';
-
 export { Rate } from 'antd';
 
 export { Result } from 'antd';
 
 export { Row } from 'antd';
-
-// export { Skeleton } from 'antd';
 
 export { Space } from 'antd';
 
@@ -86,13 +68,11 @@ export { Steps } from 'antd';
 
 export { Switch } from 'antd';
 
+export { ColorPicker } from 'antd';
+
 export { Transfer } from 'antd';
 
 export { Tree } from 'antd';
-
-// export { TreeSelect } from 'antd';
-
-// export { Tabs } from 'antd';
 
 export { Tag } from 'antd';
 

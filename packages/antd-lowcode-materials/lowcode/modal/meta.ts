@@ -1,7 +1,7 @@
 import snippets from './snippets';
 
 export default {
-  snippets,
+  snippets: [],
   componentName: 'Modal',
   title: '对话框',
   category: '反馈',
