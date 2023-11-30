@@ -101,5 +101,6 @@
     "title": "demo component",
     "category": "Information"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://unpkg.com/AoMao@0.1.0/build/index.html"
 }

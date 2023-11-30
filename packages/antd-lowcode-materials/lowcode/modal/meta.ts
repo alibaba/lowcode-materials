@@ -1,7 +1,7 @@
 import snippets from './snippets';
 
 export default {
-  snippets: [],
+  snippets,
   componentName: 'Modal',
   title: '对话框',
   category: '反馈',
@@ -115,7 +115,7 @@ export default {
         label: '底部内容',
         tip: '底部内容，当不需要默认底部按钮时，可以设为 `footer={null}`',
       },
-      propType: { type: 'oneOfType', value: ['string', 'node'] },
+      propType: { type: 'oneOfType', value: [ 'node'] },
     },
     {
       name: 'okType',
@@ -182,38 +182,90 @@ export default {
       },
     },
     {
-      name: 'bodyStyle',
-      title: { label: 'body样式', tip: 'Modal body 样式' },
+      name: 'cancelButtonProps',
+      title: { label: '取消按钮props', tip: '取消按钮props' },
       propType: 'object',
-    },
-    {
-      name: 'maskStyle',
-      title: { label: '遮罩样式', tip: '遮罩样式' },
-      propType: 'object',
-    },
-    {
-      name: 'style',
-      title: {
-        label: '浮层样式',
-        tip: '可用于设置浮层的样式，调整浮层位置等',
+      setter: {
+        componentName: 'ObjectSetter',
+        props: {
+          config: {
+            items: [
+              {
+                name: 'disabled',
+                title: { label: '是否可点击', tip: 'disabled' },
+                propType: 'bool',
+                setter: [
+                  {
+                    componentName: 'BoolSetter',
+
+                    initialValue: false,
+                  },
+                  'VariableSetter',
+                ],
+                isRequired: true,
+              },
+            ],
+          },
+        },
       },
-      propType: 'object',
     },
+    // {
+    //   name: 'styles',
+    //   title: { label: 'body样式', tip: 'Modal body 样式' },
+    //   propType: 'object',
+    //   setter: {
+    //     componentName: 'StyleSetter',
+    //   }
+    // },
     {
-      name: 'wrapClassName',
-      title: { label: '外层容器类名', tip: '对话框外层容器的类名' },
-      propType: 'string',
-      setter: 'StringSetter',
-      supportVariable: true
-    },
-    {
-      name: 'getContainer',
-      title: {
-        label: '指定挂载节点',
-        tip: '指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom',
+      name: 'styles',
+      title: '头部样式',
+      type: 'group',
+      extraProps: {
+        display: 'entry',
       },
-      propType: { type: 'oneOfType', value: ['node', 'func'] },
+      items: [
+        {
+          name: 'styles',
+          title: {
+            label: 'body样式',
+            tip: 'Modal body 样式',
+          },
+          setter: 'StyleSetter',
+          extraProps: {
+            display: 'block',
+          },
+        },
+      ],
     },
+    // {
+    //   name: 'maskStyle',
+    //   title: { label: '遮罩样式', tip: '遮罩样式' },
+    //   propType: 'object',
+    // },
+    // {
+    //   name: 'style',
+    //   title: {
+    //     label: '浮层样式',
+    //     tip: '可用于设置浮层的样式，调整浮层位置等',
+    //   },
+    //   propType: 'object',
+    // },
+    // {
+    //   name: 'wrapClassName',
+    //   title: { label: '外层容器类名', tip: '对话框外层容器的类名' },
+    //   propType: 'string',
+    //   setter: 'StringSetter',
+    //   supportVariable: true
+    // },
+    // {
+    //   name: 'getContainer',
+    //   title: {
+    //     label: '指定挂载节点',
+    //     tip: '指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom',
+    //   },
+    //   propType: { type: 'oneOfType', value: ['node', 'func'] },
+    // },
     {
       name: 'onCancel',
       title: {
