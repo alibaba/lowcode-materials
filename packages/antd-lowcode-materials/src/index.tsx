@@ -41,6 +41,7 @@ export { Menu } from 'antd';
 export { Mentions } from 'antd';
 
 // export { Modal } from 'antd';
+export { Watermark } from 'antd';
 
 export { Statistic } from 'antd';
 
@@ -69,6 +70,7 @@ export { Steps } from 'antd';
 export { Switch } from 'antd';
 
 export { ColorPicker } from 'antd';
+export { QRCode } from 'antd';
 
 export { Transfer } from 'antd';
 
@@ -127,3 +129,10 @@ export { default as Select } from './components/select'
 export { default as Cascader } from './components/cascader';
 
 export { default as AutoComplete } from './components/auto-complete';
+
+
+
+
+
+
+export { default as customNav } from './components/custom-nav-menu';
