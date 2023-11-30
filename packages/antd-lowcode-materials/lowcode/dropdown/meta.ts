@@ -6,60 +6,86 @@ export default {
   title: '下拉菜单',
   category: '导航',
   props: [
-    {
-      name: 'open',
-      title: { label: '菜单是否显示', tip: '菜单是否显示' },
-      propType: { type: 'oneOf', value: [true, false, '-'] },
-      defaultValue: '-',
-      setter: {
-        componentName: 'RadioGroupSetter',
-        props: {
-          options: [
-            {
-              title: '默认非受控',
-              value: '-',
-            },
-            {
-              title: '显示',
-              value: true,
-            },
-            {
-              title: '不显示',
-              value: false,
-            },
-          ],
-        },
-      },
-      extraProps: {
-        getValue(target, fieldValue) {
-          const { node } = target;
-          let value = node.getPropValue('open');
-          if (value === undefined) {
-            value = '-';
-          }
-          return value;
-        },
-        setValue(target, value) {
-          const { node } = target;
-          if (value === '-') {
-            setTimeout(() => {
-              node.clearPropValue('open');
-            });
-          }
-        },
-      },
-    },
-    {
-      name: 'arrow',
-      title: { label: '显示下拉箭头', tip: '是否显示下拉箭头' },
-      propType: 'bool',
-      defaultValue: false,
-    },
+    // {
+    //   name: 'open',
+    //   title: { label: '菜单是否显示', tip: '菜单是否显示' },
+    //   propType: { type: 'oneOf', value: [true, false, '-'] },
+    //   defaultValue: '-',
+    //   setter: {
+    //     componentName: 'RadioGroupSetter',
+    //     props: {
+    //       options: [
+    //         {
+    //           title: '默认非受控',
+    //           value: '-',
+    //         },
+    //         {
+    //           title: '显示',
+    //           value: true,
+    //         },
+    //         {
+    //           title: '不显示',
+    //           value: false,
+    //         },
+    //       ],
+    //     },
+    //   },
+    //   // extraProps: {
+    //   //   getValue(target, fieldValue) {
+    //   //     const { node } = target;
+    //   //     let value = node.getPropValue('open');
+    //   //     if (value === undefined) {
+    //   //       value = '-';
+    //   //     }
+    //   //     return value;
+    //   //   },
+    //   //   setValue(target, value) {
+    //   //     const { node } = target;
+    //   //     if (value === '-') {
+    //   //       setTimeout(() => {
+    //   //         node.clearPropValue('open');
+    //   //       });
+    //   //     }
+    //   //   },
+    //   // },
+    // },
+    // {
+    //   name: 'arrow',
+    //   title: { label: '显示下拉箭头', tip: '是否显示下拉箭头' },
+    //   propType: 'bool',
+    //   defaultValue: false,
+    // },
+    // {
+    //   name: 'autoAdjustOverflow	',
+    //   title: { label: '下拉位置调整', tip: '下拉框被遮挡时自动调整位置	' },
+    //   propType: 'bool',
+    //   defaultValue: true,
+    // },
+    // {
+    //   name: 'autoFocus	',
+    //   title: { label: '聚焦下拉框	', tip: '打开后自动聚焦下拉框		' },
+    //   propType: 'bool',
+    //   defaultValue: false,
+    // },
     {
       name: 'disabled',
       title: { label: '是否禁用', tip: '是否为禁用状态' },
       propType: 'bool',
     },
+    {
+      name: 'destroyPopupOnHide',
+      title: { label: '关闭销毁', tip: '关闭后是否销毁 Dropdown	' },
+      propType: 'bool',
+      defaultValue: false,
+    },
+    // {
+    //   name: 'dropdownRender',
+    //   title: { label: '自定义内容', tip: '自定义下拉框内容' },
+    //   // propType: 'node',
+    //   setter: ['SlotSetter'],
+
+    // },
+    
     // {
     //   name: 'getPopupContainer',
     //   title: {
@@ -106,6 +132,7 @@ export default {
         type: 'arrayOf',
         value: { type: 'oneOf', value: ['click', 'hover', 'contextMenu'] },
       },
+
     },
     {
       name: 'onOpenChange',

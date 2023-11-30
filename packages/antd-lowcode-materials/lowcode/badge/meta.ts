@@ -10,6 +10,7 @@ export default {
       name: 'color',
       title: { label: '圆点颜色', tip: '自定义小圆点的颜色' },
       propType: 'string',
+      setter: 'ColorSetter',
     },
     {
       name: 'count',
@@ -18,6 +19,7 @@ export default {
         tip: '展示的数字，大于 overflowCount 时显示为 `${overflowCount}+`，为 0 时隐藏',
       },
       propType: 'node',
+      
     },
     {
       name: 'dot',
@@ -59,6 +61,14 @@ export default {
       },
     },
     {
+      name: 'size',
+      title: { label: '大小', tip: '设置 Badge 为大小' },
+      propType: {
+        type: 'oneOf',
+        value: ['default', 'small'],
+      },
+    },
+    {
       name: 'text',
       title: {
         label: '状态文本',
@@ -78,5 +88,9 @@ export default {
       propType: 'string',
     },
   ],
-  configure: { supports: { style: true } },
+  configure: { supports: { style: true },    component: { isContainer: true } 
+
+
+
+},
 };

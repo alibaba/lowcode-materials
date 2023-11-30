@@ -18,9 +18,17 @@ export default {
       defaultValue: false,
     },
     {
+      name: 'bordered',
+      title: { label: '是否边框', tip: '是否有边框' },
+      propType: 'bool',
+      defaultValue: false,
+    },
+    {
       name: 'color',
       title: { label: '标签色', tip: '标签色' },
       propType: 'string',
+      setter: ['ColorSetter'],
+
     },
     // {
     //   name: 'closeIcon',

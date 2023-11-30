@@ -28,7 +28,7 @@ export default {
                   {
                     name: 'color',
                     title: '圆圈颜色',
-                    setter: 'StringSetter',
+                    setter: 'ColorSetter',
                   },
                   {
                     name: 'dot',

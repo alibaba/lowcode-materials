@@ -10,15 +10,15 @@ export default [
       },
     },
   },
-  {
-    title: '进度圈',
-    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/progress-2.png',
-    schema: {
-      componentName: 'Progress',
-      props: {
-        percent: 20,
-        type: 'circle',
-      },
-    },
-  },
+  // {
+  //   title: '进度圈',
+  //   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/progress-2.png',
+  //   schema: {
+  //     componentName: 'Progress',
+  //     props: {
+  //       percent: 20,
+  //       type: 'circle',
+  //     },
+  //   },
+  // },
 ];

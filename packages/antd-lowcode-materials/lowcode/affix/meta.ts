@@ -31,6 +31,8 @@ export default {
     },
   ],
   configure: {
+    component: { isContainer: true } ,
+
     supports: {
       style: true,
       events: [
@@ -40,6 +42,7 @@ export default {
             "onChange(affixed,${extParams}){\n// 固定状态变更回调函数\nconsole.log('onChange', affixed);}",
         },
       ],
+
     },
   },
 };

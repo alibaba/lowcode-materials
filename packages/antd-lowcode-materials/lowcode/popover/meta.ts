@@ -21,7 +21,7 @@ export default {
             type: 'oneOfType',
             value: ['string', 'node', 'func'],
           },
-          setter: ['StringSetter', 'SlotSetter', 'FunctionSetter', 'VariableSetter'],
+          setter: ['StringSetter', 'SlotSetter'],
         },
         {
           name: 'content',
@@ -33,7 +33,7 @@ export default {
             type: 'oneOfType',
             value: ['string', 'node', 'func'],
           },
-          setter: ['StringSetter', 'SlotSetter', 'FunctionSetter', 'VariableSetter'],
+          setter: ['StringSetter', 'SlotSetter'],
         },
       ],
     },

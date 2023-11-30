@@ -1,12 +1,52 @@
-import { uuid } from '../_utils/utils';
-import { itemsExtraProps } from './utils';
 
-import snippets from './snippets';
+
+const snippets = [
+  {
+    "title": "高级菜单",
+    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/menu-1.jpg',
+    "schema": {
+      "componentName": "customNav",
+      "props": {
+        items: [
+          {
+            key: '1',
+            label: '菜单项1',
+            children: [
+              {
+                key: '1-1',
+                label: '子菜单项1',
+              },
+              {
+                key: '1-2',
+                label: '子菜单项2',
+              },
+            ],
+          },
+          {
+            key: '2',
+            label: '菜单项2',
+          },
+        ],
+        triggerSubMenuAction: 'click',
+        mode: "inline",
+        theme: "light",
+        "icon.name": "icon-tuichu",
+        "icon.url": [
+          '//at.alicdn.com/t/font_1788044_0dwu4guekcwr.js', // icon-javascript, icon-java, icon-shoppingcart (overridden)
+          '//at.alicdn.com/t/font_1788592_a5xf2bdic3u.js', // icon-shoppingcart, icon-python
+        ]
+      }
+    }
+  }
+];
+
 
 export default {
   snippets,
-  componentName: 'Menu',
-  title: '导航菜单',
+  "componentName": "customNav",
+  "title": "高级菜单",
+  "docUrl": "",
+  screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/menu-1.jpg',
   category: '导航',
   props: [
     {
@@ -14,9 +54,7 @@ export default {
       title: '菜单项',
       setter: {
         componentName: 'JsonSetter',
-
       },
-      extraProps: itemsExtraProps,
     },
     {
       name: 'defaultOpenKeys',
@@ -62,8 +100,7 @@ export default {
         label: '菜单类型',
         tip: '菜单类型，现在支持垂直、水平、和内嵌模式三种',
       },
-      defaultValue:'inline',
-
+      defaultValue: 'inline',
       propType: { type: 'oneOf', value: ['vertical', 'horizontal', 'inline'] },
       setter: {
         componentName: 'SelectSetter',
@@ -142,6 +179,7 @@ export default {
       name: 'theme',
       title: { label: '主题颜色', tip: '主题颜色' },
       propType: { type: 'oneOf', value: ['light', 'dark'] },
+      defaultValue: 'light',
       setter: {
         componentName: 'SelectSetter',
         props: {
@@ -209,10 +247,55 @@ export default {
       title: { label: '折叠图标', tip: '自定义 Menu 折叠时的图标' },
       propType: 'node',
     },
+    {
+      title: 'icon配置',
+      display: 'block',
+      type: 'group',
+      items: [
+        // {
+        //   name: 'icon.name',
+        //   title: { label: 'icon标签', tip: '自定义图标,iconfont.cn' },
+        //   setter: {
+        //     componentName: 'StringSetter',
+        //   },
+        // },
+        {
+          name: 'icon.url',
+          title: { label: 'icon地址', tip: '自定义 icon地址,iconfont.cn' },
+          setter: {
+            componentName: 'JsonSetter',
+          },
+        },
+
+        {
+          name: 'icon.style',
+          title: '弹出层样式',
+          type: 'group',
+          extraProps: {
+            display: 'entry',
+          },
+          items: [
+            {
+              name: 'icon.style',
+              title: {
+                label: '样式设置',
+                tip: '自定义 icon样式',
+              },
+              setter: 'StyleSetter',
+              extraProps: {
+                display: 'block',
+              },
+            },
+          ],
+        },
+      ]
+    },
+
   ],
-  configure: {
-    supports: {
-      style: true,
+  "configure": {
+
+    "supports": {
+      "style": true,
       events: [
         {
           name: 'onClick',
@@ -236,5 +319,9 @@ export default {
         },
       ],
     },
-  },
+    "component": {}
+  }
 };
+
+
+

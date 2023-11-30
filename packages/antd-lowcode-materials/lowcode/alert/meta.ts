@@ -6,14 +6,14 @@ export default {
   title: '警告提示',
   category: '反馈',
   props: [
-    {
-      name: 'afterClose',
-      title: {
-        label: '关闭动画结束后触发的回调函数',
-        tip: '关闭动画结束后触发的回调函数',
-      },
-      propType: 'func',
-    },
+    // {
+    //   name: 'afterClose',
+    //   title: {
+    //     label: '关闭动画结束后触发的回调函数',
+    //     tip: '关闭动画结束后触发的回调函数',
+    //   },
+    //   propType: 'func',
+    // },
     {
       name: 'banner',
       title: { label: '顶部公告', tip: '是否用作顶部公告' },
@@ -25,11 +25,14 @@ export default {
       title: { label: '可关闭', tip: '默认不显示关闭按钮' },
       propType: 'bool',
     },
-    {
-      name: 'closeText',
-      title: { label: '自定义关闭按钮', tip: '自定义关闭按钮' },
-      propType: { type: 'oneOfType', value: ['string', 'node'] },
-    },
+    // {
+    //   name: 'closeIcon',
+    //   title: { label: '自定义关闭按钮', tip: '自定义关闭按钮' },
+    //   // stter:[
+    //   //   'SlotSetter','BoolSetter'
+    //   // ]
+    //   propType: { type: 'oneOfType', value: ['bool','node'] },
+    // },
     {
       name: 'description',
       title: {
@@ -49,7 +52,7 @@ export default {
     {
       name: 'message',
       title: { label: '警告提示内容', tip: '警告提示内容' },
-      propType: { type: 'oneOfType', value: ['string', 'node'] },
+      propType: { type: 'oneOfType', value: ['string','node'] },
     },
     {
       name: 'showIcon',
@@ -63,6 +66,31 @@ export default {
         type: 'oneOf',
         value: ['success', 'info', 'warning', 'error'],
       },
+      setter: [
+        {
+          componentName: 'SelectSetter',
+          props: {
+            options: [
+              {
+                title: '成功',
+                value: 'success',
+              },
+              {
+                title: '信息',
+                value: 'info',
+              },
+              {
+                title: '告警',
+                value: 'warning',
+              },
+              {
+                title: '错误',
+                value: 'error',
+              },
+            ],
+          },
+        },
+      ]
     },
     {
       name: 'onClose',
@@ -79,6 +107,10 @@ export default {
           template:
             "onChange(event,${extParams}){\n// 关闭时触发的回调函数\nconsole.log('onChange');}",
         },
+        {
+          name: 'afterClose',
+        },
+
       ],
     },
   },
