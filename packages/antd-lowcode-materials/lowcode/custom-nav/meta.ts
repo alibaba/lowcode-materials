@@ -103,7 +103,7 @@ export default {
       defaultValue: 'inline',
       propType: { type: 'oneOf', value: ['vertical', 'horizontal', 'inline'] },
       setter: {
-        componentName: 'SelectSetter',
+        componentName: 'RadioGroupSetter',
         props: {
           options: [
             {
@@ -181,7 +181,7 @@ export default {
       propType: { type: 'oneOf', value: ['light', 'dark'] },
       defaultValue: 'light',
       setter: {
-        componentName: 'SelectSetter',
+        componentName: 'RadioGroupSetter',
         props: {
           options: [
             {
@@ -217,7 +217,7 @@ export default {
       },
       propType: { type: 'oneOf', value: ['hover', 'click'] },
       setter: {
-        componentName: 'SelectSetter',
+        componentName: 'RadioGroupSetter',
         props: {
           options: [
             {
@@ -260,16 +260,36 @@ export default {
         //   },
         // },
         {
-          name: 'icon.url',
+          name: 'icon',
           title: { label: 'icon地址', tip: '自定义 icon地址,iconfont.cn' },
           setter: {
-            componentName: 'JsonSetter',
+            componentName: 'ObjectSetter',
+            props: {
+              config: {
+                items: [
+                  {
+                    name: 'url',
+                    title: { label: '地址', tip: '地址' },
+                    setter: {
+                      componentName: 'ArraySetter',
+                      props: {
+                        itemSetter: {
+                          componentName: 'StringSetter',
+                        }
+                      }
+                    },
+                  },
+                ],
+              },
+            },
           },
         },
 
+
+
         {
           name: 'icon.style',
-          title: '弹出层样式',
+          title: 'icon样式',
           type: 'group',
           extraProps: {
             display: 'entry',
