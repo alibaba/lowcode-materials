@@ -171,16 +171,18 @@ const ExampleComponent = (props: ComponentProps) => {
   return (
     <Loading visible={_otherProps?.visible || false} shape="fusion-reactor" className='Aomao_loading'>
       <div>
-        <div className='Aomao_nav'>
+        <div style={_otherProps?.navStyle} >
           {engine && <Toolbar engine={engine} items={[['collapse'], ['undo', 'redo', 'removeformat', 'paintformat'],
           ['heading', 'fontfamily', 'fontsize',], ['fontcolor', 'backcolor', 'image', 'bold', 'italic', 'strikethrough', 'underline', 'icon'],
           ['orderedlist', 'unorderedlist', 'mention', 'lightblock', 'lineheight', 'code', 'alignment', 'tasklist', 'codeblock'], ['quote', 'status', 'selectall', 'hr', 'link']]} />}
+        
+
         </div>
-        <div className='Aomao_content'>
-          <div
+
+          <div style={_otherProps?.contentStyle} 
             ref={ref}
           />
-        </div>
+  
       </div>
     </Loading>
   );
