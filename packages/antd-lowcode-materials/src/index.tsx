@@ -131,8 +131,8 @@ export { default as Cascader } from './components/cascader';
 export { default as AutoComplete } from './components/auto-complete';
 
 
-
-
-
-
 export { default as customNav } from './components/custom-nav-menu';
+
+export type { ImgCropProps } from 'antd-img-crop'
+
+export { default as ImgCrop } from 'antd-img-crop'

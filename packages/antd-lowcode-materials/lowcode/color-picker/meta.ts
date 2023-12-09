@@ -2,7 +2,7 @@
 const snippets= [
   {
     "title": "颜色选择器",
-    "screenshot": "",
+    "screenshot": "https://cdn.itq168.com/img/disscode-color.svg",
     "schema": {
       "componentName": "ColorPicker",
       "props": {}
@@ -15,7 +15,7 @@ snippets,
   "title": "颜色选择器",
   category: '反馈',
   "docUrl": "",
-  "screenshot": "",
+  "screenshot": "https://cdn.itq168.com/img/disscode-color.svg",
   "configure": {
     "props": [
       {
