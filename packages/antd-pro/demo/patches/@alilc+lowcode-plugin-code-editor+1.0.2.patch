@@ -1,0 +1,21 @@
+diff --git a/node_modules/@alilc/lowcode-plugin-code-editor/es/components/JSEditor/JsEditor.js b/node_modules/@alilc/lowcode-plugin-code-editor/es/components/JSEditor/JsEditor.js
+index 8730c70..6d6631b 100644
+--- a/node_modules/@alilc/lowcode-plugin-code-editor/es/components/JSEditor/JsEditor.js
++++ b/node_modules/@alilc/lowcode-plugin-code-editor/es/components/JSEditor/JsEditor.js
+@@ -249,14 +249,14 @@ export var JsEditor = /*#__PURE__*/function (_PureComponent) {
+       return;
+     }
+ 
+-    var pos = monacoEditor.getPosition();
++    // var pos = monacoEditor.getPosition();
+     this.setState({
+       errorInfo: errorInfo,
+       hasError: hasError,
+       code: newCode,
+       errorLocation: errorLocation
+     }, function () {
+-      monacoEditor.setPosition(pos); // update error decorations
++      // monacoEditor.setPosition(pos); // update error decorations
+ 
+       if (_this4.lastErrorDecoration) {
+         monacoEditor.deltaDecorations(_this4.lastErrorDecoration, []);

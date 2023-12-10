@@ -1,0 +1,97 @@
+{
+  "name": "lowcode-plugins",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "preinstall": "cd demo && yarn",
+    "start": "cd demo && yarn start",
+    "start:materials": "cd packages/antd-materials && yarn lowcode:dev",
+    "build:materials": "cd packages/antd-materials && yarn lowcode:build",
+    "start:formily": "cd packages/formily-materials && yarn lowcode:dev",
+    "build:formily": "cd packages/formily-materials && yarn lowcode:build",
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna clean",
+    "build": "lerna run build",
+    "prepare": "husky install",
+    "commit": "git-cz",
+    "preversion": "yarn install && git add -A && yarn run build && yarn run build:materials && yarn run build:formily",
+    "version:alpha": "lerna version prerelease --preid alpha",
+    "version:beta": "lerna version prerelease --preid beta",
+    "version:rc": "lerna version prerelease --preid rc",
+    "version:patch": "lerna version patch",
+    "version:minor": "lerna version minor",
+    "version:preminor": "lerna version preminor --preid beta",
+    "version:major": "lerna version major",
+    "release:force": "lerna publish from-package --yes"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seada-low-code/lowcode-ecology.git"
+  },
+  "keywords": [],
+  "author": "ruhuo.tan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seada-low-code/lowcode-ecology/issues"
+  },
+  "homepage": "https://github.com/seada-low-code/lowcode-ecology#readme",
+  "devDependencies": {
+    "@commitlint/config-conventional": "^16.2.4",
+    "@types/node": "^17.0.31",
+    "@types/react": "^17",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "commitizen": "^4.2.4",
+    "commitlint": "^16.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "husky": "^7.0.4",
+    "lerna": "^3.22.1",
+    "less-plugin-npm-import": "^2.1.0",
+    "lint-staged": "^12.4.1",
+    "postcss": "^8.4.13",
+    "postcss-less": "^6.0.0",
+    "prettier": "^2.6.2",
+    "react": "^17",
+    "react-dom": "^17",
+    "rollup": "^2.72.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write .",
+      "eslint  --fix"
+    ],
+    "*.{md,json,less}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@formily/antd": "^2.1.11",
+    "@formily/core": "^2.1.11",
+    "@formily/react": "^2.1.11",
+    "@formily/shared": "^2.1.11",
+    "ahooks": "^3.5.1",
+    "antd": "^4.22.8",
+    "lodash": "^4.17.21",
+    "semver": "^7.3.7"
+  }
+}

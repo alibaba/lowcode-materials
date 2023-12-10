@@ -1,0 +1,29 @@
+{
+  "name": "@seada/antd-plugins",
+  "version": "1.0.0-rc.30",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "scripts": {
+    "build": "rimraf -rf lib esm && npm run build:cjs && npm run build:esm && ts-node copy",
+    "build:cjs": "tsc --project tsconfig.build.json",
+    "build:esm": "tsc --project tsconfig.build.json --module es2015 --outDir esm"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@alilc/lowcode-engine": "^1.0.9",
+    "@alilc/lowcode-types": "^1.0.10"
+  },
+  "dependencies": {
+    "@seada/antd-setters": "1.0.0-rc.30",
+    "@seada/lowcode-code-generator": "^1.0.4",
+    "ahooks": "^3.7.0",
+    "string-natural-compare": "^3.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "eea735f466b0184f3a4be074574e5668f0908b06"
+}

@@ -1,0 +1,185 @@
+.variable-dialog-body {
+  width: 730px;
+  height: 410px;
+  font-size: 12px;
+
+  .dialog-small-title {
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: rgb(0, 0, 0);
+  }
+  .dialog-help-tip-input {
+    height: 180px;
+    border: 1px solid rgba(31, 56, 88, 0.3);
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+    padding: 8px;
+    overflow: auto;
+    user-select: text;
+    font-size: 12px;
+    line-height: 20px;
+    .vs-variable-content-desc-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+  }
+
+  .dialog-left-container {
+    float: left;
+
+    .vs-variable-selector-inner {
+      border: 1px solid rgba(31, 56, 88, 0.3);
+      display: flex;
+      height: 382px;
+      border-radius: 3px;
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .vs-variable-selector-ul {
+        li {
+          height: 28px;
+          line-height: 28px;
+          padding: 0 12px;
+          cursor: pointer;
+          position: relative;
+          white-space: nowrap;
+          &:hover {
+            background: rgba(128, 128, 128, 0.15);
+          }
+        }
+        .active {
+          background: rgba(128, 128, 128, 0.15);
+        }
+      }
+      .vs-variable-selector-category {
+        width: 110px;
+        border-right: 1px solid rgba(31, 56, 88, 0.3);
+        height: 100%;
+        overflow: auto;
+      }
+      .vs-variable-selector-items-container {
+        width: 157px;
+        .ve-search-control {
+          height: 28px;
+          margin: 10px;
+        }
+        .vs-variable-selector-ul {
+          height: calc(100% - 48px);
+          width: 100%;
+          overflow: auto;
+        }
+      }
+    }
+
+    .dialog-left-context {
+      width: 270px;
+      height: 392px;
+      border: 1px solid rgba(31, 56, 88, 0.3);
+      border-radius: 3px;
+
+      .variable-type-container {
+        width: 200px;
+        height: 390px;
+        float: left;
+      }
+
+      .select-item {
+        font-size: 12px;
+        height: 28px;
+        line-height: 28px;
+        padding: 0 30px 0 12px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .select-item-active {
+        background: rgba(128, 128, 128, 0.15);
+      }
+
+      .event-select-container {
+        width: 156px;
+        float: left;
+
+        .event-search-box {
+          width: 135px;
+          margin: 10px;
+        }
+      }
+
+      .event-list {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 342px;
+      }
+
+      .variable-list {
+        font-size: 13px;
+        .variable-item {
+          padding-left: 30px;
+          cursor: pointer;
+          height: 30px;
+          line-height: 30px;
+        }
+
+        .variable-item:hover {
+          background-color: rgba(31, 56, 88, 0.06);
+        }
+      }
+    }
+  }
+
+  .dialog-right-container {
+    width: 420px;
+    padding-left: 12px;
+    float: left;
+
+    .event-input-container {
+      margin-bottom: 20px;
+    }
+    textarea {
+      height: 100%;
+    }
+  }
+}
+
+.variable-bind-dialog-bottom {
+  .bottom-left-container {
+    float: left;
+  }
+}
+
+.variable-dialog-title {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 12px;
+  img {
+    cursor: pointer;
+  }
+}
+
+.vs-variable-minimize {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  right: 286px;
+  z-index: 100;
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 8px #aaa;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  img {
+    width: 12px;
+  }
+}
