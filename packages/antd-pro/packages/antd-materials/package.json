@@ -31,7 +31,6 @@
   "dependencies": {
     "@ant-design/pro-components": "^2.6.43",
     "@types/react": "^18.0.14",
-    "antd-img-crop": "^4.12.2"
   },
   "componentConfig": {
     "materialSchema": "https://unpkg.com/@seada/antd-materials@1.0.0-rc.30/build/lowcode/assets-prod.json"

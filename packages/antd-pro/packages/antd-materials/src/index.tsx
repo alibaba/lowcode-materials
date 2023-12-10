@@ -20,7 +20,3 @@ export { ProPopconfirm } from './components/ProPopconfirm'
 
 export type { IProContainerProps } from './components/ProContainer'
 export { default as ProContainer } from './components/ProContainer'
-
-export type { ImgCropProps } from 'antd-img-crop'
-
-export { default as ImgCrop } from 'antd-img-crop'
