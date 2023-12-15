@@ -2,7 +2,7 @@ import { Snippet } from '@alilc/lowcode-types'
 
 export const snippets: Snippet[] = [
   {
-    title: 'ProContainer',
+    title: '页容器',
     screenshot: require('./__screenshots__/container.jpg'),
     schema: {
       componentName: 'ProContainer',
@@ -76,15 +76,15 @@ export const snippets: Snippet[] = [
           breadcrumb: {
             routes: [
               {
-                path: '',
+                path: '/1',
                 breadcrumbName: '一级页面'
               },
               {
-                path: '',
+                path: '/2',
                 breadcrumbName: '二级页面'
               },
               {
-                path: '',
+                path: '/3',
                 breadcrumbName: '当前页面'
               }
             ]

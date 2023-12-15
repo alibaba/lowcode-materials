@@ -62,7 +62,7 @@ const getDataSource = () => {
   return [
     {
       id: '1',
-      name: '肖战',
+      name: 'disscode',
       age: 30,
       avatar:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Xiao_Zhan_at_the_Weibo_Night_Ceremony_January_11_2020.jpg/1280px-Xiao_Zhan_at_the_Weibo_Night_Ceremony_January_11_2020.jpg',
@@ -75,7 +75,7 @@ const getDataSource = () => {
     },
     {
       id: '2',
-      name: '王一博',
+      name: 'IDE',
       age: 28,
       avatar:
         'https://upload.wikimedia.org/wikipedia/commons/9/9a/%E7%8E%8B%E4%B8%80%E5%8D%9A.jpg',

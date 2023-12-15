@@ -42,7 +42,7 @@ module.exports = {
                 version: '4.23.0',
                 urls: [
                   // `//g.alicdn.com/code/lib/antd/4.23.0/antd.min.js`,
-                  // `//g.alicdn.com/code/lib/antd/4.23.0/antd.min.css`
+                  // `//g.alicdn.com/code/lib/antd/4.23.0/antd.min.css`,
                   `https://cdn.bootcdn.net/ajax/libs/antd/5.9.0/reset.css`,
                   `https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.9/dayjs.min.js`,
                   `https://cdn.bootcdn.net/ajax/libs/antd/5.9.0/antd.js`
@@ -54,6 +54,7 @@ module.exports = {
                 version: '1.0.7',
                 library: 'DiscodeAntd',
                 urls: [
+                  
                 //   'https://cdn.scredit.sg/th/seada/live/antd-lowcode-materials@1.0.7/lowcode/view.js',
                 //   'https://cdn.scredit.sg/th/seada/live/antd-lowcode-materials@1.0.7/lowcode/view.css'
                 `https://cdn.disscode.com/material/118158/@discode/antd/0.0.5/view.js`,

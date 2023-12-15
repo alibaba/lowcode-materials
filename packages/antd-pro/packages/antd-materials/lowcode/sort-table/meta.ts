@@ -90,6 +90,24 @@ const ProTableMeta = {
             setter: 'BoolSetter'
           },
           {
+            name: 'dragSortKey',
+            title: {
+              label: '排序名称',
+              tip: 'dragSortKey'
+            },
+            setter: 'StringSetter'
+          },
+
+          {
+            name: 'dragSortKey',
+            title: {
+              label: '排序名称',
+              tip: 'dragSortHandlerRender'
+            },
+            setter: 'FunctionSetter'
+          },
+          
+          {
             name: 'rowKey',
             title: {
               label: '行Key',

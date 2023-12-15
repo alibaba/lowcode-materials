@@ -20,3 +20,13 @@ export { ProPopconfirm } from './components/ProPopconfirm'
 
 export type { IProContainerProps } from './components/ProContainer'
 export { default as ProContainer } from './components/ProContainer'
+
+
+export { default as ProLayout } from './components/ProLayout'
+
+// export { ProLayout } from '@ant-design/pro-components';
+
+export { CheckCard } from '@ant-design/pro-components';
+
+
+

@@ -127,7 +127,6 @@ class DragSortTable extends Component<IPsortTableProps, any> {
       <ConfigProvider locale={intlMap[intl || 'zhCNIntl']}>
         <OriginalProTable
           {...this.props}
-          dragSortKey="sort"
           search={
             typeof this.props.search === 'boolean'
               ? this.props.search

@@ -99,7 +99,6 @@ export const snippets: Snippet[] = [
       props: {
         cardBordered: true,
         dataSource: getDataSource(),
-        dragSortKey:'sort',
         columns: [
           ...getColumns(),
           {
@@ -205,92 +204,4 @@ export const snippets: Snippet[] = [
       }
     }
   },
-  {
-    title: '查询表格',
-    screenshot:
-      'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/table-1.png',
-    schema: {
-      componentName: 'ProTable',
-      props: {
-        cardBordered: true,
-        dataSource: getDataSource(),
-        columns: getColumns(),
-        rowKey: 'id',
-        pagination: {
-          defaultPageSize: 10
-        },
-        search: {
-          defaultCollapsed: false,
-          resetText: '',
-          searchText: '',
-          labelWidth: 'auto'
-        },
-        intl: 'zhCNIntl'
-      }
-    }
-  },
-  {
-    title: '嵌套表格',
-    screenshot:
-      'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/table-1.png',
-    schema: {
-      componentName: 'ProTable',
-      props: {
-        cardBordered: true,
-        dataSource: getDataSource(),
-        columns: getColumns(),
-        rowKey: 'id',
-        pagination: {
-          defaultPageSize: 10
-        },
-        expandable: {
-          expandedRowRender: {
-            type: 'JSSlot',
-            params: ['record', 'index', 'indent', 'expanded'],
-            value: [
-              {
-                componentName: 'ProTable',
-                props: {
-                  columns: [
-                    { title: 'Date', dataIndex: 'date', key: 'date' },
-                    { title: 'Name', dataIndex: 'name', key: 'name' },
-                    {
-                      title: 'Upgrade Status',
-                      dataIndex: 'upgradeNum',
-                      key: 'upgradeNum'
-                    }
-                  ],
-                  headerTitle: false,
-                  search: false,
-                  options: false,
-                  dataSource: [
-                    {
-                      key: 0,
-                      date: '2014-12-24 23:12:00',
-                      name: 'This is production name',
-                      upgradeNum: 'Upgraded: 56'
-                    },
-                    {
-                      key: 1,
-                      date: '2014-12-24 23:12:00',
-                      name: 'This is production name',
-                      upgradeNum: 'Upgraded: 57'
-                    },
-                    {
-                      key: 2,
-                      date: '2014-12-24 23:12:00',
-                      name: 'This is production name',
-                      upgradeNum: 'Upgraded: 58'
-                    }
-                  ],
-                  pagination: false
-                }
-              }
-            ]
-          }
-        },
-        intl: 'zhCNIntl'
-      }
-    }
-  }
 ]
