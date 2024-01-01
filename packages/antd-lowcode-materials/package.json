@@ -1,6 +1,6 @@
 {
   "name": "@discode/antd",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Antd for Discode",
   "main": "lib/index.js",
   "scripts": {
@@ -71,6 +71,7 @@
     "@ant-design/icons": "^5.2.6",
     "@babel/runtime": "^7.0.0",
     "antd": "^5.11.5",
+    "antd-img-crop": "^4.18.0",
     "moment": "^2.29.1"
   },
   "peerDependencies": {
@@ -99,5 +100,5 @@
   "resolutions": {
     "webpack": "^4.46.x"
   },
-  "homepage": "https://unpkg.com/@discode/antd@0.0.4/build/index.html"
+  "homepage": "https://unpkg.com/@discode/antd@0.0.5/build/index.html"
 }

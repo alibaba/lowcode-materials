@@ -477,6 +477,7 @@ export default {
   configure: {
     supports: {
       style: true,
+      className: true ,
       events: [
         {
           name: 'pagination.onChange',

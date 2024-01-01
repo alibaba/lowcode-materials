@@ -400,6 +400,7 @@ export default {
   configure: {
     component: { isContainer: true },
     supports: {
+      className: true,
       style: true,
       events: [
         {

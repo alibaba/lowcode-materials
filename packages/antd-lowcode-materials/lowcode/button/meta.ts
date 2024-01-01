@@ -295,6 +295,8 @@ export default {
         },
       ],
       style: true,
+      className: true,
+
     },
   },
   snippets,
