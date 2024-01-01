@@ -62,7 +62,7 @@ const getDataSource = () => {
   return [
     {
       id: '1',
-      name: '肖战',
+      name: 'disscode',
       age: 30,
       avatar:
         'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Xiao_Zhan_at_the_Weibo_Night_Ceremony_January_11_2020.jpg/1280px-Xiao_Zhan_at_the_Weibo_Night_Ceremony_January_11_2020.jpg',
@@ -75,7 +75,7 @@ const getDataSource = () => {
     },
     {
       id: '2',
-      name: '王一博',
+      name: 'IDE',
       age: 28,
       avatar:
         'https://upload.wikimedia.org/wikipedia/commons/9/9a/%E7%8E%8B%E4%B8%80%E5%8D%9A.jpg',
@@ -91,12 +91,21 @@ const getDataSource = () => {
 
 export const snippets: Snippet[] = [
   {
-    title: '拖拽表格',
+    title: '编辑表格',
     screenshot:
       'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/table-1.png',
     schema: {
-      componentName: 'DragSortTable',
+      componentName: 'EditableProTable',
       props: {
+        recordCreatorProps:{
+          newRecordType:"",
+          creatorButtonText: '新增一行',
+          record: {},
+          position: 'bottom',
+
+        },
+  
+        rowKey:'id',
         cardBordered: true,
         dataSource: getDataSource(),
         columns: [
@@ -160,12 +169,12 @@ export const snippets: Snippet[] = [
         pagination: {
           defaultPageSize: 10
         },
-        search: {
-          defaultCollapsed: false,
-          resetText: '',
-          searchText: '',
-          labelWidth: 'auto'
-        },
+        // search: {
+        //   defaultCollapsed: false,
+        //   resetText: '',
+        //   searchText: '',
+        //   labelWidth: 'auto'
+        // },
         toolBarRender: {
           type: 'JSSlot',
           params: ['currentPageData'],
@@ -203,5 +212,5 @@ export const snippets: Snippet[] = [
         intl: 'zhCNIntl'
       }
     }
-  },
+  }
 ]

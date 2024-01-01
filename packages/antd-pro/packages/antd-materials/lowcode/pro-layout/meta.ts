@@ -10,7 +10,7 @@ const ProLayoutMeta: ComponentMetadata = {
   category: '布局类',
   "devMode": "proCode",
   "npm": {
-    "package": "@seada/antd-materials",
+    "package": "@disscode/antd-pro",
     "version": "1.0.0-rc.30",
     "exportName": "ProLayout",
     "main": "src/index.tsx",
@@ -19,283 +19,66 @@ const ProLayoutMeta: ComponentMetadata = {
   },
   "configure": {
    "props":[
+    
+
     {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "contentWidth",
-          "zh-CN": "内容模式"
-        },
-        "tip": "layout 的内容模式,Fluid：自适应，Fixed：定宽 1200px"
-      },
-      "name": "contentWidth",
-      "description": "@name layout of content: `Fluid` or `Fixed`, only works when layout is top",
-      "setter": {
-        "componentName": "RadioGroupSetter",
-        "props": {
-          "dataSource": [
-            {
-              "label": "Fluid",
-              "value": "Fluid"
+      title: '菜单配置',
+      display: 'block',
+      type: 'group',
+      items: [
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "menuExtraRender",
+              "zh-CN": "标题下方"
             },
-            {
-              "label": "Fixed",
-              "value": "Fixed"
-            }
-          ],
-          "options": [
-            {
-              "label": "Fluid",
-              "value": "Fluid"
-            },
-            {
-              "label": "Fixed",
-              "value": "Fixed"
-            }
-          ]
-        },
-        "initialValue": "Fluid"
-      }
-    },
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "menu",
-          "zh-CN": "菜单配置"
-        },
-        "tip": "menu | @name menu 相关的一些配置，可以配置菜单的行为"
-      },
-      "name": "menu",
-      "description": "@name menu 相关的一些配置，可以配置菜单的行为",
-      "setter": {
-        "componentName": "ObjectSetter",
-        "props": {
-          "config": {
-            "items": [
-              {
-                "title": {
-                  "label": {
-                    "type": "i18n",
-                    "en-US": "locale",
-                    "zh-CN": "国际化"
-                  }
-                },
-                "name": "locale",
-                "setter": {
-                  "componentName": "BoolSetter",
-                  "initialValue": false
-                }
-              },
-              {
-                "title": {
-                  "label": {
-                    "type": "i18n",
-                    "en-US": "defaultOpenAll",
-                    "zh-CN": "菜单项打开"
-                  }
-                },
-                "name": "defaultOpenAll",
-                "setter": {
-                  "componentName": "BoolSetter",
-                  
-                  "initialValue": false
-                }
-              },
-              {
-                "title": {
-                  "label": {
-                    "type": "i18n",
-                    "en-US": "ignoreFlatMenu",
-                    "zh-CN": "忽略折叠菜单"
-                  }
-                },
-                "name": "ignoreFlatMenu",
-                "setter": {
-                  "componentName": "BoolSetter",
-                  
-                  "initialValue": false
-                }
-              },
-              {
-                "title": {
-                  "label": {
-                    "type": "i18n",
-                    "en-US": "loading",
-                    "zh-CN": "loading"
-                  }
-                },
-                "name": "loading",
-                "setter": {
-                  "componentName": "BoolSetter",
-                  
-                  "initialValue": false
-                }
-              },
-              {
-                "title": {
-                  "label": {
-                    "type": "i18n",
-                    "en-US": "onLoadingChange",
-                    "zh-CN": "onLoadingChange"
-                  }
-                },
-                "name": "onLoadingChange",
-                "setter": {
-                  "componentName": "FunctionSetter"
-                }
-              },
-              {
-                "title": {
-                  "label": {
-                    "type": "i18n",
-                    "en-US": "params",
-                    "zh-CN": "params"
-                  }
-                },
-                "name": "params",
-                "setter": {
-                  "componentName": "ObjectSetter",
-                  "props": {
-                    "config": {
-                      "extraSetter": {
-                        "componentName": "MixedSetter",
-                        
-                        "props": {}
-                      }
-                    }
-                  },
-                  
-                  "initialValue": {}
-                }
-              },
-              {
-                "title": {
-                  "label": {
-                    "type": "i18n",
-                    "en-US": "request",
-                    "zh-CN": "request"
-                  }
-                },
-                "name": "request",
-                "setter": {
-                  "componentName": "FunctionSetter",
-                  props: {
-                    template:
-                      'expandedRowRender(params,defaultMenuDat,${extParams}){\n// \n`}'
-                  }
-                }
-              },
-              {
-                "title": {
-                  "label": {
-                    "type": "i18n",
-                    "en-US": "type",
-                    "zh-CN": "type"
-                  }
-                },
-                "name": "type",
-                "setter": {
-                  "componentName": "RadioGroupSetter",
-                  "props": {
-                    "dataSource": [
-                      {
-                        "label": "sub",
-                        "value": "sub"
-                      },
-                      {
-                        "label": "group",
-                        "value": "group"
-                      }
-                    ],
-                    "options": [
-                      {
-                        "label": "sub",
-                        "value": "sub"
-                      },
-                      {
-                        "label": "group",
-                        "value": "group"
-                      }
-                    ]
-                  },
-                  "initialValue": "sub"
-                }
-              },
-            ],
-            "extraSetter": {
-              "componentName": "MixedSetter",
-              
-              "props": {}
+            "tip": "menuExtraRender | @name 侧边菜单 title 和 logo 下面区域的渲染，一般会增加个搜索框"
+          },
+          "name": "menuExtraRender",
+          "description": "@name 侧边菜单 title 和 logo 下面区域的渲染，一般会增加个搜索框",
+          "setter": {
+            "componentName": "SlotSetter",
+            initialValue: {
+              type: 'JSSlot',
+              params: ['menuProps'],
+              value: []
             }
           }
-        }
-      }
-    },
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "devops",
-          "zh-CN": "开发模式"
-        }
-      },
-      "name": "devops",
-      "setter": {
-        "componentName": "BoolSetter",
-      }
-    },
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "menuRender",
-          "zh-CN": "菜单渲染"
         },
-        "tip": "menuRender | @name 虽然叫menuRender，但是其实是整个 SiderMenu 面板的渲染函数"
-      },
-      "name": "menuRender",
-      "description": "@name 虽然叫menuRender，但是其实是整个 SiderMenu 面板的渲染函数",
-      "setter": {
-        "componentName": "MixedSetter",
-        "props": {
-          "setters": [
-            {
-              "componentName": "FunctionSetter"
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "layout",
+              "zh-CN": "菜单模式"
             },
-
-          ]
-        }
-      },
-    },
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "actionsRender",
-          "zh-CN": "顶部操作列表"
-        },
-        "tip": "rightContentRender | @deprecated 使用 actionsRender 和 avatarProps 代替"
-      },
-      "name": "actionsRender",
-      "setter": {
-        "componentName": "SlotSetter",
-            
-            "initialValue": {
-              "type": "JSSlot",
+            "tip": "layout 的菜单模式,side：右侧导航，top：顶部导航"
+          },
+          "name": "layout",
+          "description": "@name layout 的布局方式",
+          "setter": {
+            "componentName": "SelectSetter",
+            "props": {
+              "options": [
+                {
+                  "label": "左侧模式",
+                  "value": "side"
+                },
+                {
+                  "label": "顶部模式",
+                  "value": "top"
+                },
+                {
+                  "label": "混合模式",
+                  "value": "mix"
+                },
+              ]
             }
-        // "props": {
-        //   "itemSetter": {
-        //     "componentName": "SlotSetter",
+    
             
-        //     // "initialValue": {
-        //     //   "type": "JSSlot",
-        //     //   "value": []
-        //     // }
-        //   }
-        // },
-      }
-    },
+          }
+        },
     {
       "title": {
         "label": {
@@ -339,6 +122,305 @@ const ProLayoutMeta: ComponentMetadata = {
         
       }
     },
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "menu",
+              "zh-CN": "菜单配置"
+            },
+            "tip": "menu | @name menu 相关的一些配置，可以配置菜单的行为"
+          },
+          "name": "menu",
+          "description": "@name menu 相关的一些配置，可以配置菜单的行为",
+          "setter": {
+            "componentName": "ObjectSetter",
+            "props": {
+              "config": {
+                "items": [
+                  {
+                    "title": {
+                      "label": {
+                        "type": "i18n",
+                        "en-US": "locale",
+                        "zh-CN": "国际化"
+                      }
+                    },
+                    "name": "locale",
+                    "setter": {
+                      "componentName": "BoolSetter",
+                      "initialValue": false
+                    }
+                  },
+                  {
+                    "title": {
+                      "label": {
+                        "type": "i18n",
+                        "en-US": "defaultOpenAll",
+                        "zh-CN": "菜单项打开"
+                      }
+                    },
+                    "name": "defaultOpenAll",
+                    "setter": {
+                      "componentName": "BoolSetter",
+                      
+                      "initialValue": false
+                    }
+                  },
+                  {
+                    "title": {
+                      "label": {
+                        "type": "i18n",
+                        "en-US": "ignoreFlatMenu",
+                        "zh-CN": "忽略折叠菜单"
+                      }
+                    },
+                    "name": "ignoreFlatMenu",
+                    "setter": {
+                      "componentName": "BoolSetter",
+                      
+                      "initialValue": false
+                    }
+                  },
+                  {
+                    "title": {
+                      "label": {
+                        "type": "i18n",
+                        "en-US": "loading",
+                        "zh-CN": "loading"
+                      }
+                    },
+                    "name": "loading",
+                    "setter": {
+                      "componentName": "BoolSetter",
+                      
+                      "initialValue": false
+                    }
+                  },
+                  {
+                    "title": {
+                      "label": {
+                        "type": "i18n",
+                        "en-US": "onLoadingChange",
+                        "zh-CN": "onLoadingChange"
+                      }
+                    },
+                    "name": "onLoadingChange",
+                    "setter": {
+                      "componentName": "FunctionSetter"
+                    }
+                  },
+                  {
+                    "title": {
+                      "label": {
+                        "type": "i18n",
+                        "en-US": "params",
+                        "zh-CN": "params"
+                      }
+                    },
+                    "name": "params",
+                    "setter": {
+                      "componentName": "ObjectSetter",
+                      "props": {
+                        "config": {
+                          "extraSetter": {
+                            "componentName": "MixedSetter",
+                            
+                            "props": {}
+                          }
+                        }
+                      },
+                      
+                      "initialValue": {}
+                    }
+                  },
+                  {
+                    "title": {
+                      "label": {
+                        "type": "i18n",
+                        "en-US": "request",
+                        "zh-CN": "request"
+                      }
+                    },
+                    "name": "request",
+                    "setter": {
+                      "componentName": "FunctionSetter",
+                      props: {
+                        template:
+                          'expandedRowRender(params,defaultMenuDat,${extParams}){\n// \n`}'
+                      }
+                    }
+                  },
+                  {
+                    "title": {
+                      "label": {
+                        "type": "i18n",
+                        "en-US": "type",
+                        "zh-CN": "type"
+                      }
+                    },
+                    "name": "type",
+                    "setter": {
+                      "componentName": "RadioGroupSetter",
+                      "props": {
+                        "dataSource": [
+                          {
+                            "label": "sub",
+                            "value": "sub"
+                          },
+                          {
+                            "label": "group",
+                            "value": "group"
+                          }
+                        ],
+                        "options": [
+                          {
+                            "label": "sub",
+                            "value": "sub"
+                          },
+                          {
+                            "label": "group",
+                            "value": "group"
+                          }
+                        ]
+                      },
+                      "initialValue": "sub"
+                    }
+                  },
+                ],
+                "extraSetter": {
+                  "componentName": "MixedSetter",
+                  
+                  "props": {}
+                }
+              }
+            }
+          }
+        },
+
+    {
+      "title": {
+        "label": {
+          "type": "i18n",
+          "en-US": "menuRender",
+          "zh-CN": "菜单渲染"
+        },
+        "tip": "menuRender | @name 虽然叫menuRender，但是其实是整个 SiderMenu 面板的渲染函数"
+      },
+      "name": "menuRender",
+      "description": "@name 虽然叫menuRender，但是其实是整个 SiderMenu 面板的渲染函数",
+      "setter": {
+        "componentName": "MixedSetter",
+        "props": {
+          "setters": [
+            {
+              "componentName": "FunctionSetter"
+            },
+
+          ]
+        }
+      },
+    },
+    {
+      "title": {
+        "label": {
+          "type": "i18n",
+          "en-US": "menuFooterRender",
+          "zh-CN": "底部菜单"
+        },
+        "tip": "在 layout 底部渲染一个块"
+      },
+      "name": "menuFooterRender",
+      "description": "@name 侧边菜单底部的配置，可以增加一些底部操作",
+      "setter": {
+        "componentName": "SlotSetter",
+        title: '展开行插槽',
+        initialValue: {
+          type: 'JSSlot',
+          params: ['menuProps'],
+          value: []
+        }
+      },
+      
+    },
+    {
+      "title": {
+        "label": {
+          "type": "i18n",
+          "en-US": "menuHeaderRender",
+          "zh-CN": "header菜单"
+        },
+        "tip": "渲染 logo 和 title, 优先级比 headerTitleRender 更高	"
+      },
+      "name": "menuHeaderRender",
+      "description": "@name 菜单 logo 和 title 区域的渲染",
+      "setter": {
+        "componentName": "MixedSetter",
+        "props": {
+          "setters": [
+            {
+              "componentName": "SlotSetter",
+              initialValue: {
+                type: 'JSSlot',
+                params: ['logo','title'],
+                value: []
+              }
+            },
+
+          ]
+        }
+      }
+    },
+
+    {
+      "title": {
+        "label": {
+          "type": "i18n",
+          "en-US": "appListRender",
+          "zh-CN": "自定义应用"
+        },
+        "tip": "自定义跨站点导航列表的 render 方法	"
+      },
+      "name": "appListRender",
+      "description": "@name 侧边菜单 title 和 logo 下面区域的渲染，一般会增加个搜索框",
+      "setter": {
+        "componentName": "SlotSetter",
+        initialValue: {
+          type: 'JSSlot',
+          params: ['props'],
+          value: []
+        }
+      }
+    },
+
+
+    {
+      "title": {
+        "label": {
+          "type": "i18n",
+          "en-US": "siderWidth",
+          "zh-CN": "菜单的宽度"
+        },
+        "tip": "siderWidth | 菜单的宽度"
+      },
+      "name": "siderWidth",
+      "description": "菜单的宽度",
+      "setter": {
+        "componentName": "NumberSetter",
+        
+        "initialValue": 208
+      }
+    },
+
+      ]
+    },
+    {
+      title: '头部配置',
+      display: 'block',
+      type: 'group',
+      items: [
+
+
     {
       "title": {
         "label": {
@@ -353,58 +435,35 @@ const ProLayoutMeta: ComponentMetadata = {
         
       }
     },
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "layout",
-          "zh-CN": "菜单模式"
-        },
-        "tip": "layout 的菜单模式,side：右侧导航，top：顶部导航"
-      },
-      "name": "layout",
-      "description": "@name layout 的布局方式",
-      "setter": {
-        "componentName": "SelectSetter",
-        "props": {
-          "options": [
-            {
-              "label": "左侧模式",
-              "value": "side"
-            },
-            {
-              "label": "顶部模式",
-              "value": "top"
-            },
-            {
-              "label": "混合模式",
-              "value": "mix"
-            },
-          ]
-        }
-
-        
-      }
-    },
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "avatarProps",
-          "zh-CN": "头像设置"
-        },
-        "tip": "avatarProps | 头像的设置"
-      },
-      "name": "avatarProps",
-      "description": "头像的设置",
-      "setter": {
-        "componentName": "SlotSetter",
-        initialValue: {
-          type: 'JSSlot',
-          value: []
-        }
-      }
-    },
+    // {
+    //   "title": {
+    //     "label": {
+    //       "type": "i18n",
+    //       "en-US": "actionsRender",
+    //       "zh-CN": "自定义操作列表"
+    //     },
+    //     "tip": "侧边菜单底部的一些快捷链接"
+    //   },
+    //   "name": "actionsRender",
+    //   "description": "@name 侧边菜单底部的一些快捷链接",
+    //   "setter": {
+    //     "componentName": "ArraySetter",
+    //     "props": {
+    //       "itemSetter": {
+    //         "componentName": "SlotSetter",
+    //         "props": {
+    //           "mode": "node"
+    //         },
+            
+    //         "initialValue": {
+    //           "type": "JSSlot",
+    //           "value": []
+    //         }
+    //       }
+    //     },
+    //     "initialValue": []
+    //   }
+    // },
     {
       "title": {
         "label": {
@@ -487,207 +546,180 @@ const ProLayoutMeta: ComponentMetadata = {
         }
       }
     },
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "menuHeaderRender",
-          "zh-CN": "header菜单"
-        },
-        "tip": "渲染 logo 和 title, 优先级比 headerTitleRender 更高	"
-      },
-      "name": "menuHeaderRender",
-      "description": "@name 菜单 logo 和 title 区域的渲染",
-      "setter": {
-        "componentName": "MixedSetter",
-        "props": {
-          "setters": [
-            {
-              "componentName": "SlotSetter",
-              initialValue: {
-                type: 'JSSlot',
-                params: ['logo','title'],
-                value: []
-              }
-            },
-
-          ]
-        }
-      }
+      ]
     },
     {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "menuExtraRender",
-          "zh-CN": "标题下方"
-        },
-        "tip": "menuExtraRender | @name 侧边菜单 title 和 logo 下面区域的渲染，一般会增加个搜索框"
-      },
-      "name": "menuExtraRender",
-      "description": "@name 侧边菜单 title 和 logo 下面区域的渲染，一般会增加个搜索框",
-      "setter": {
-        "componentName": "SlotSetter",
-        initialValue: {
-          type: 'JSSlot',
-          params: ['menuProps'],
-          value: []
-        }
-      }
-    },
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "menuItemRender",
-          "zh-CN": "自定义菜单"
-        },
-        "tip": "menuExtraRender | @name 侧边菜单 title 和 logo 下面区域的渲染，一般会增加个搜索框"
-      },
-      "name": "menuItemRender",
-      "description": "@name 侧边菜单 title 和 logo 下面区域的渲染，一般会增加个搜索框",
-      "setter": {
-        "componentName": "FunctionSetter",
-        // initialValue: {
-        //   type: 'JSSlot',
-        //   value: []
-        // }
-      }
-    },
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "appListRender",
-          "zh-CN": "自定义应用"
-        },
-        "tip": "自定义跨站点导航列表的 render 方法	"
-      },
-      "name": "appListRender",
-      "description": "@name 侧边菜单 title 和 logo 下面区域的渲染，一般会增加个搜索框",
-      "setter": {
-        "componentName": "SlotSetter",
-        initialValue: {
-          type: 'JSSlot',
-          params: ['props'],
-          value: []
-        }
-      }
-    },
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "footerRender",
-          "zh-CN": "页脚"
-        },
-        "tip": "menuExtraRender | @name 侧边菜单 title 和 logo 下面区域的渲染，一般会增加个搜索框"
-      },
-      "name": "footerRender",
-      "setter": {
-        "componentName": "SlotSetter",
-        initialValue: {
-          type: 'JSSlot',
-          params: ['props'],
-
-          value: []
-        }
-      }
-    },
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "menuFooterRender",
-          "zh-CN": "底部菜单"
-        },
-        "tip": "在 layout 底部渲染一个块"
-      },
-      "name": "menuFooterRender",
-      "description": "@name 侧边菜单底部的配置，可以增加一些底部操作",
-      "setter": {
-        "componentName": "SlotSetter",
-        title: '展开行插槽',
-        initialValue: {
-          type: 'JSSlot',
-          params: ['menuProps'],
-          value: []
-        }
-      },
-      
-    },
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "content",
-          "zh-CN": "内容区域"
-        },
-        "tip": "在 layout 底部渲染一个块"
-      },
-      "name": "content",
-      "setter": {
-        "componentName": "SlotSetter",
-        title: '展开行插槽',
-        initialValue: {
-          type: 'JSSlot',
-          value: []
-        }
-      },
-      
-    },
-    {
-      name: 'contentStyle',
       title: '内容区域',
+      display: 'block',
       type: 'group',
-      extraProps: {
-        display: 'entry',
-      },
       items: [
         {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "contentWidth",
+              "zh-CN": "内容模式"
+            },
+            "tip": "layout 的内容模式,Fluid：自适应，Fixed：定宽 1200px"
+          },
+          "name": "contentWidth",
+          "description": "@name layout of content: `Fluid` or `Fixed`, only works when layout is top",
+          "setter": {
+            "componentName": "RadioGroupSetter",
+            "props": {
+              "dataSource": [
+                {
+                  "label": "Fluid",
+                  "value": "Fluid"
+                },
+                {
+                  "label": "Fixed",
+                  "value": "Fixed"
+                }
+              ],
+              "options": [
+                {
+                  "label": "Fluid",
+                  "value": "Fluid"
+                },
+                {
+                  "label": "Fixed",
+                  "value": "Fixed"
+                }
+              ]
+            },
+            "initialValue": "Fluid"
+          }
+        },
+        {
           name: 'contentStyle',
-          title: {
-            label: '样式设置',
-            tip: 'contentStyle | 用于设置 Drawer 弹出层的样式',
-          },
-          setter: 'StyleSetter',
+          title: '内容样式',
+          type: 'group',
           extraProps: {
-            display: 'block',
+            display: 'entry',
           },
+          items: [
+            {
+              name: 'contentStyle',
+              title: {
+                label: '样式设置',
+                tip: 'contentStyle | 用于设置 Drawer 弹出层的样式',
+              },
+              setter: 'StyleSetter',
+              extraProps: {
+                display: 'block',
+              },
+            },
+          ],
         },
-      ],
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "content",
+              "zh-CN": "内容区域"
+            },
+            "tip": "layout区域设置"
+          },
+          "name": "content",
+          "setter": {
+            "componentName": "SlotSetter",
+            title: '展开行插槽',
+            initialValue: {
+              type: 'JSSlot',
+              value: []
+            }
+          },
+          
+        },
+      ]
     },
     {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "siderWidth",
-          "zh-CN": "菜单的宽度"
+      title: 'footer配置',
+      display: 'block',
+      type: 'group',
+      items: [
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "footerRender",
+              "zh-CN": "页脚"
+            },
+            "tip": "menuExtraRender | @name 侧边菜单 title 和 logo 下面区域的渲染，一般会增加个搜索框"
+          },
+          "name": "footerRender",
+          "setter": {
+            "componentName": "SlotSetter",
+            initialValue: {
+              type: 'JSSlot',
+              params: ['props'],
+    
+              value: []
+            }
+          }
         },
-        "tip": "siderWidth | 菜单的宽度"
-      },
-      "name": "siderWidth",
-      "description": "菜单的宽度",
-      "setter": {
-        "componentName": "NumberSetter",
-        
-        "initialValue": 208
-      }
+      ]
     },
+
+
     {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "menuExtraRender",
-          "zh-CN": "配置设置"
+      title: '工具配置',
+      display: 'block',
+      type: 'group',
+      items: [
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "devops",
+              "zh-CN": "开发模式"
+            }
+          },
+          "name": "devops",
+          "setter": {
+            "componentName": "BoolSetter",
+          }
         },
-        "tip": "settingsdata 设置"
-      },
-      "name": "settingsdata",
-      "setter": {
-        "componentName": "JsonSetter",
-      }
+
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "menuExtraRender",
+              "zh-CN": "配置设置"
+            },
+            "tip": "dev模式 设置"
+          },
+          "name": "settingsdata",
+          "setter": {
+            "componentName": "JsonSetter",
+          }
+        },
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "token",
+              "zh-CN": "token"
+            }
+          },
+          "name": "token",
+          "setter": {
+            "componentName": "JsonSetter",
+            
+            "initialValue": {}
+          }
+        },
+      ]
     },
+
+
+
+
+
+
+
    ],
     "supports": {
       "style": true,
@@ -696,6 +728,7 @@ const ProLayoutMeta: ComponentMetadata = {
         'menuDataRender',
         'postMenuData',
         'onMenuHeaderClick',
+       "onPageChange"
       ]
     },
     "component": {
@@ -703,19 +736,22 @@ const ProLayoutMeta: ComponentMetadata = {
     }
   }
 };
+
 const snippets: Snippet[] = [
   {
     "title": "中台布局",
-    "screenshot": "",
+    "screenshot": "https://cdn.itq168.com/img/layout.svg",
     "schema": {
       "componentName": "ProLayout",
       "props": {
-        avatarProps: {
-            src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-            size: 'small',
-            title: 'disscode',
-          },
+        avatarProps:{},
+        // avatarProps: {
+        //     src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+        //     size: 'small',
+        //     title: 'disscode',
+        //   },
         devops:false,
+        layout:'mix',
         route:{
           path: '/',
           routes: [

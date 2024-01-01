@@ -2,17 +2,17 @@ import { snippets } from './snippets'
 import { uuid } from '../utils'
 
 const ProTableMeta = {
-  componentName: 'DragSortTable',
-  title: '拖拽表格',
+  componentName: 'EditableProTable',
+  title: '编辑表格',
   docUrl: '',
   screenshot: '',
   devMode: 'proCode',
   group: '高级组件',
   category: '表格类',
   npm: {
-    package: '@seada/antd-materials',
+    package: '@disscode/antd-pro',
     version: 'latest',
-    exportName: 'DragSortTable',
+    exportName: 'EditableProTable',
     main: '',
     destructuring: true,
     subName: ''
@@ -29,6 +29,377 @@ const ProTableMeta = {
           return `pro_table_${uuid()}`
         },
         setter: 'StringSetter'
+      },
+      {
+        title: '数据源',
+        display: 'block',
+        type: 'group',
+        items: [
+          {
+            title: {
+              label: {
+                type: 'i18n',
+                'en-US': 'maxLength',
+                'zh-CN': '最大行数'
+              },
+              tip: '最大的行数，到达最大行数新建按钮会自动消失'
+            },
+            name: 'maxLength',
+            description: '是否手动触发请求',
+            setter: {
+              componentName: 'NumberSetter',
+            }
+          },
+          {
+            title: {
+              label: {
+                type: 'i18n',
+                'en-US': 'controlled',
+                'zh-CN': '是否受控'
+              },
+              tip: '是否受控, 如果受控每次编辑都会触发 onChange，并且会修改 dataSource	'
+            },
+            name: 'controlled',
+            setter: {
+              componentName: 'BoolSetter',
+            }
+          },
+          {
+            title: {
+              label: {
+                type: 'i18n',
+                'en-US': 'onChange',
+                'zh-CN': '请求函数'
+              },
+              tip: 'dataSource 修改时触发，删除和修改都会触发,如果设置了 value，Table 会成为一个受控组件。	'
+            },
+            name: 'onChange',
+            setter: {
+              componentName: 'FunctionSetter',
+              isRequired: false
+            }
+          },
+
+          {
+            "title": {
+              "label": {
+                "type": "i18n",
+                "en-US": "editable",
+                "zh-CN": "行配置"
+              },
+              "tip": "editable "
+            },
+            "name": "editable",
+            "description": "@name menu 相关的一些配置，可以配置菜单的行为",
+            "setter": {
+              "componentName": "ObjectSetter",
+              "props": {
+                "config": {
+                  "items": [
+                    {
+                      name: 'type',
+                      title: {
+                        label: '行选择类型',
+                        tip: 'type| 多选/单选'
+                      },
+                      propType: {
+                        type: 'oneOf',
+                        value: ['radio']
+                      },
+                      setter: [
+                        {
+                          componentName: 'RadioGroupSetter',
+                          props: {
+                            options: [
+                              {
+                                title: '单个',
+                                value: 'single'
+                              },
+                              {
+                                title: '多个',
+                                value: 'multiple'
+                              }
+                            ]
+                          }
+                        },
+                        'VariableSetter'
+                      ]
+                    },
+                    {
+                      title: {
+                        label: {
+                          type: 'i18n',
+                          'en-US': 'saveText',
+                          'zh-CN': '保存文字'
+                        },
+                      },
+                      name: 'saveText',
+                      setter: {
+                        componentName: 'StringSetter',
+                      }
+                    },
+                    {
+                      title: {
+                        label: {
+                          type: 'i18n',
+                          'en-US': 'deleteText',
+                          'zh-CN': '删除文字'
+                        },
+                      },
+                      name: 'deleteText',
+                      setter: {
+                        componentName: 'StringSetter',
+                      }
+                    },
+                    {
+                      title: {
+                        label: {
+                          type: 'i18n',
+                          'en-US': 'cancelText',
+                          'zh-CN': '取消文字'
+                        },
+                      },
+                      name: 'cancelText',
+                      setter: {
+                        componentName: 'StringSetter',
+                      }
+                    },
+                    {
+                      title: {
+                        label: {
+                          type: 'i18n',
+                          'en-US': 'onChange',
+                          'zh-CN': '修改触发'
+                        },
+                        tip: '行数据被修改的时候触发		'
+                      },
+                      name: 'onChange',
+                      setter: {
+                        componentName: 'FunctionSetter',
+                        isRequired: false
+                      }
+                    },
+                    {
+                      title: {
+                        label: {
+                          type: 'i18n',
+                          'en-US': 'onSave',
+                          'zh-CN': '保存触发'
+                        },
+                        tip: '保存触发		'
+                      },
+                      name: 'onSave',
+                      setter: {
+                        componentName: 'FunctionSetter',
+                        props: {
+                          template:
+                            'expandedRowRender(key,row,originRow,newLine,${extParams}){\n// 展开行渲染\n}'
+                        },
+                        isRequired: false
+                      }
+                    },
+                    {
+                      title: {
+                        label: {
+                          type: 'i18n',
+                          'en-US': 'onDelete',
+                          'zh-CN': '删除触发'
+                        },
+                        tip: '删除触发		'
+                      },
+                      name: 'onDelete',
+                      setter: {
+                        componentName: 'FunctionSetter',
+                        template:
+                          'expandedRowRender(key,row,${extParams}){\n// 展开行渲染\n}'
+                      },
+                      isRequired: false
+                    },
+
+                    {
+                      title: {
+                        label: {
+                          type: 'i18n',
+                          'en-US': 'onCancel',
+                          'zh-CN': '取消触发'
+                        },
+                        tip: '取消触发		'
+                      },
+                      name: 'onCancel',
+                      setter: {
+                        componentName: 'FunctionSetter',
+                        props: {
+                          template:
+                            'expandedRowRender(key,row,originRow,newLine,${extParams}){\n// 展开行渲染\n}'
+                        },
+                        isRequired: false
+                      }
+                    },
+                    {
+                      name: 'deletePopconfirmMessage',
+                      title: { label: '删除提示', tip: '删除时弹出的确认框提示消息	' },
+                      setter: [
+                        {
+                          componentName: 'SlotSetter',
+                          title: '列标题插槽',
+                          initialValue: {
+                            type: 'JSSlot',
+                            value: []
+                          }
+                        }
+                      ],
+                    },
+                    {
+                      name: 'onlyOneLineEditorAlertMessage',
+                      title: { label: '编辑提示', tip: '只能编辑一行的的提示		' },
+                      setter: [
+                        {
+                          componentName: 'SlotSetter',
+                          title: '列标题插槽',
+                          initialValue: {
+                            type: 'JSSlot',
+                            value: []
+                          }
+                        }
+                      ],
+                    },
+                    {
+                      name: 'onlyAddOneLineAlertMessage',
+                      title: { label: '新增提示', tip: '只能同时新增一行的提示		' },
+                      setter: [
+                        {
+                          componentName: 'SlotSetter',
+                          title: '列标题插槽',
+                          initialValue: {
+                            type: 'JSSlot',
+                            value: []
+                          }
+                        }
+                      ],
+                    },
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "title": {
+              "label": {
+                "type": "i18n",
+                "en-US": "recordCreatorProps",
+                "zh-CN": "新建行"
+              },
+              "tip": "新建按钮配置"
+            },
+            "name": "recordCreatorProps",
+            "description": "@name menu 相关的一些配置，可以配置菜单的行为",
+            "setter": {
+              "componentName": "ObjectSetter",
+              "props": {
+                "config": {
+                  "items": [
+
+                    {
+                      title: {
+                        label: {
+                          type: 'i18n',
+                          'en-US': 'newRecordType',
+                          'zh-CN': '记录类型'
+                        },
+                        tip: 'dataSource 修改时触发，删除和修改都会触发,如果设置了 value，Table 会成为一个受控组件。	'
+                      },
+                      name: 'newRecordType',
+                      setter: {
+                        componentName: 'StringSetter',
+                        
+                        isRequired: false
+                      }
+                    },
+                    {
+                      title: {
+                        label: {
+                          type: 'i18n',
+                          'en-US': 'parentKey',
+                          'zh-CN': '父ID'
+                        },
+                        tip: '树结构父ID	'
+                      },
+                      name: 'parentKey',
+                      setter: {
+                        componentName: 'StringSetter',
+                        
+                        isRequired: false
+                      }
+                    },
+                    {
+                      title: {
+                        label: {
+                          type: 'i18n',
+                          'en-US': 'position',
+                          'zh-CN': '新增位置'
+                        },
+                        tip: '顶部添加还是末尾添加'
+                      },
+                      name: 'position',
+                      setter: [
+                        {
+                          componentName: 'RadioGroupSetter',
+                          props: {
+                            options: [
+                              {
+                                title: '末尾',
+                                value: 'bottom'
+                              },
+                              {
+                                title: '上面',
+                                value: 'top'
+                              }
+                            ]
+                          }
+                        },
+                        'VariableSetter'
+                      ]
+                    },
+                    {
+                      title: {
+                        label: {
+                          type: 'i18n',
+                          'en-US': 'creatorButtonText',
+                          'zh-CN': '新增名称'
+                        },
+                        tip: '顶部添加还是末尾添加'
+                      },
+                      name: 'creatorButtonText',
+                      setter: {
+                        componentName: 'StringSetter',
+                        isRequired: false
+                      }
+                    },
+                    // {
+                    //   title: {
+                    //     label: {
+                    //       type: 'i18n',
+                    //       'en-US': 'record',
+                    //       'zh-CN': '记录'
+                    //     },
+                    //     tip: '新增记录初始信息'
+                    //   },
+                    //   name: 'record',
+                    //   setter: {
+                    //     componentName: 'FunctionSetter',
+                    //     props: {
+                    //       template:
+                    //         'expandedRowRender(${extParams}){\n// 展开行渲染\nreturn {id: (Math.random() * 10000000).toFixed(0)}}'
+                    //     }                      }
+                    // },
+                  ]
+                }
+                }
+                }
+              
+              }
+
+        ]
       },
       {
         title: '数据源',
@@ -89,24 +460,6 @@ const ProTableMeta = {
             propType: 'bool',
             setter: 'BoolSetter'
           },
-          {
-            name: 'dragSortKey',
-            title: {
-              label: '排序名称',
-              tip: 'dragSortKey'
-            },
-            setter: 'StringSetter'
-          },
-
-          {
-            name: 'dragSortKey',
-            title: {
-              label: '排序名称',
-              tip: 'dragSortHandlerRender'
-            },
-            setter: 'FunctionSetter'
-          },
-          
           {
             name: 'rowKey',
             title: {
@@ -1365,144 +1718,144 @@ const ProTableMeta = {
           }
         ]
       },
-      {
-        title: '搜索设置',
-        display: 'block',
-        type: 'group',
-        items: [
-          {
-            name: 'search',
-            title: { label: '搜索', tip: 'search | 搜索' },
-            propType: 'bool',
-            setter: 'BoolSetter',
-            defaultValue: true,
-            extraProps: {
-              setValue: (target, value) => {
-                if (value) {
-                  target.parent.setPropValue('search', {
-                    defaultCollapsed: true
-                  })
-                }
-              }
-            }
-          },
-          {
-            title: {
-              label: {
-                type: 'i18n',
-                'en-US': 'searchText',
-                'zh-CN': 'searchText'
-              },
-              tip: 'searchText | 查询按钮的文本'
-            },
-            name: 'search.searchText',
-            setter: {
-              componentName: 'StringSetter',
-              isRequired: false,
-              initialValue: ''
-            },
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("search")'
-            }
-          },
-          {
-            title: {
-              label: {
-                type: 'i18n',
-                'en-US': 'resetText',
-                'zh-CN': 'resetText'
-              },
-              tip: 'resetText | 重置按钮的文本'
-            },
-            name: 'search.resetText',
-            setter: {
-              componentName: 'StringSetter',
-              isRequired: false,
-              initialValue: ''
-            },
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("search")'
-            }
-          },
-          {
-            name: 'search.labelWidth',
-            title: {
-              label: '标签宽度',
-              tip: 'labelWidth | 标签宽度'
-            },
-            propType: 'number',
-            setter: ['StringSetter', 'NumberSetter', 'VariableSetter'],
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("search")'
-            }
-          },
-          {
-            name: 'search.span',
-            title: {
-              label: '所占列数',
-              tip: 'span | 所占列数'
-            },
-            propType: 'number',
-            setter: 'NumberSetter',
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("search")'
-            }
-          },
-          {
-            name: 'search.defaultCollapsed',
-            title: {
-              label: '默认是否收起',
-              tip: 'defaultCollapsed | 默认是否收起'
-            },
-            propType: 'bool',
-            setter: 'BoolSetter',
-            defaultValue: true,
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("search")'
-            }
-          }
-          // {
-          //   name: 'search.collapsed',
-          //   title: {
-          //     label: '是否收起',
-          //     tip: 'collapsed | 是否收起'
-          //   },
-          //   propType: 'bool',
-          //   setter: 'BoolSetter',
-          //   condition: {
-          //     type: 'JSFunction',
-          //     value: 'target => !!target.getProps().getPropValue("search")'
-          //   }
-          // },
-          // // {
-          // //   name: 'search.onCollapse',
-          // //   title: {
-          // //     label: '收起按钮的事件',
-          // //     tip: 'onCollapse | 收起按钮的事件'
-          // //   },
-          // //   propType: 'func',
-          // //   setter: [
-          // //     {
-          // //       componentName: 'FunctionSetter',
-          // //       props: {
-          // //         template:
-          // //           'onCollapse(collapsed,,${extParams}){\n// 设置行属性\nreturn {onClick:event=>{}};\n}'
-          // //       }
-          // //     },
-          // //     'VariableSetter'
-          // //   ],
-          // //   condition: {
-          // //     type: 'JSFunction',
-          // //     value: 'target => !!target.getProps().getPropValue("search")'
-          // //   }
-          // // }
-        ]
-      },
+      // {
+      //   title: '搜索设置',
+      //   display: 'block',
+      //   type: 'group',
+      //   items: [
+      //     {
+      //       name: 'search',
+      //       title: { label: '搜索', tip: 'search | 搜索' },
+      //       propType: 'bool',
+      //       setter: 'BoolSetter',
+      //       defaultValue: false,
+      //       extraProps: {
+      //         setValue: (target, value) => {
+      //           if (value) {
+      //             target.parent.setPropValue('search', {
+      //               defaultCollapsed: true
+      //             })
+      //           }
+      //         }
+      //       }
+      //     },
+      //     {
+      //       title: {
+      //         label: {
+      //           type: 'i18n',
+      //           'en-US': 'searchText',
+      //           'zh-CN': 'searchText'
+      //         },
+      //         tip: 'searchText | 查询按钮的文本'
+      //       },
+      //       name: 'search.searchText',
+      //       setter: {
+      //         componentName: 'StringSetter',
+      //         isRequired: false,
+      //         initialValue: ''
+      //       },
+      //       condition: {
+      //         type: 'JSFunction',
+      //         value: 'target => !!target.getProps().getPropValue("search")'
+      //       }
+      //     },
+      //     {
+      //       title: {
+      //         label: {
+      //           type: 'i18n',
+      //           'en-US': 'resetText',
+      //           'zh-CN': 'resetText'
+      //         },
+      //         tip: 'resetText | 重置按钮的文本'
+      //       },
+      //       name: 'search.resetText',
+      //       setter: {
+      //         componentName: 'StringSetter',
+      //         isRequired: false,
+      //         initialValue: ''
+      //       },
+      //       condition: {
+      //         type: 'JSFunction',
+      //         value: 'target => !!target.getProps().getPropValue("search")'
+      //       }
+      //     },
+      //     {
+      //       name: 'search.labelWidth',
+      //       title: {
+      //         label: '标签宽度',
+      //         tip: 'labelWidth | 标签宽度'
+      //       },
+      //       propType: 'number',
+      //       setter: ['StringSetter', 'NumberSetter', 'VariableSetter'],
+      //       condition: {
+      //         type: 'JSFunction',
+      //         value: 'target => !!target.getProps().getPropValue("search")'
+      //       }
+      //     },
+      //     {
+      //       name: 'search.span',
+      //       title: {
+      //         label: '所占列数',
+      //         tip: 'span | 所占列数'
+      //       },
+      //       propType: 'number',
+      //       setter: 'NumberSetter',
+      //       condition: {
+      //         type: 'JSFunction',
+      //         value: 'target => !!target.getProps().getPropValue("search")'
+      //       }
+      //     },
+      //     {
+      //       name: 'search.defaultCollapsed',
+      //       title: {
+      //         label: '默认是否收起',
+      //         tip: 'defaultCollapsed | 默认是否收起'
+      //       },
+      //       propType: 'bool',
+      //       setter: 'BoolSetter',
+      //       defaultValue: true,
+      //       condition: {
+      //         type: 'JSFunction',
+      //         value: 'target => !!target.getProps().getPropValue("search")'
+      //       }
+      //     }
+      //     // {
+      //     //   name: 'search.collapsed',
+      //     //   title: {
+      //     //     label: '是否收起',
+      //     //     tip: 'collapsed | 是否收起'
+      //     //   },
+      //     //   propType: 'bool',
+      //     //   setter: 'BoolSetter',
+      //     //   condition: {
+      //     //     type: 'JSFunction',
+      //     //     value: 'target => !!target.getProps().getPropValue("search")'
+      //     //   }
+      //     // },
+      //     // // {
+      //     // //   name: 'search.onCollapse',
+      //     // //   title: {
+      //     // //     label: '收起按钮的事件',
+      //     // //     tip: 'onCollapse | 收起按钮的事件'
+      //     // //   },
+      //     // //   propType: 'func',
+      //     // //   setter: [
+      //     // //     {
+      //     // //       componentName: 'FunctionSetter',
+      //     // //       props: {
+      //     // //         template:
+      //     // //           'onCollapse(collapsed,,${extParams}){\n// 设置行属性\nreturn {onClick:event=>{}};\n}'
+      //     // //       }
+      //     // //     },
+      //     // //     'VariableSetter'
+      //     // //   ],
+      //     // //   condition: {
+      //     // //     type: 'JSFunction',
+      //     // //     value: 'target => !!target.getProps().getPropValue("search")'
+      //     // //   }
+      //     // // }
+      //   ]
+      // },
       {
         title: '高级',
         display: 'block',

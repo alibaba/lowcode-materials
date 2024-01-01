@@ -33,7 +33,7 @@ export default {
     }
   ],
   npm: {
-    package: '@seada/antd-materials',
+    package: '@disscode/antd-pro',
     version: 'latest',
     exportName: 'ProPopconfirm',
     main: '',

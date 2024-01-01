@@ -26,7 +26,31 @@ export { default as ProLayout } from './components/ProLayout'
 
 // export { ProLayout } from '@ant-design/pro-components';
 
-export { CheckCard } from '@ant-design/pro-components';
+// export { CheckCard } from '@ant-design/pro-components';
 
 
+
+
+export type {EditableProTableProps } from './components/EditableProTable'
+export { default as EditableProTable } from './components/EditableProTable'
+
+// export { ProForm } from '@ant-design/pro-components';
+
+// export { ProFormGroup } from '@ant-design/pro-components';
+
+
+
+// export { default as ProForm } from './components/ProForm'
+
+// export { QueryFilter } from '@ant-design/pro-components';
+
+export {  QueryFilter } from '@ant-design/pro-components'
+
+
+
+// export {  ProFormList } from '@ant-design/pro-components'
+
+export {  ProSkeleton } from '@ant-design/pro-components'
+
+// export {  ProField } from '@ant-design/pro-components'
 

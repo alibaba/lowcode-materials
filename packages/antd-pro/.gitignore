@@ -1,3 +1,5 @@
+lowcode_es/
+lowcode_lib/
 node_modules
 yarn-error.log
 dist

@@ -7,6 +7,16 @@ module.exports = {
       '@alifd/build-plugin-lowcode',
       {
         engineScope: '@alilc',
+        staticResources: {
+          engineCoreCssUrl:
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@1.2.1/dist/css/engine-core.css',
+          engineExtCssUrl:
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine-ext@1.0.6/dist/css/engine-ext.css',
+          engineCoreJsUrl:
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine@1.2.1/dist/js/engine-core.js',
+          engineExtJsUrl:
+            'https://alifd.alicdn.com/npm/@alilc/lowcode-engine-ext@1.0.6/dist/js/engine-ext.js',
+        },
         builtinAssets: [
           {
             packages: [
@@ -39,18 +49,16 @@ module.exports = {
               },
               {
                 package: 'antd',
-                version: '4.23.0',
+                version: '5.9.0',
                 urls: [
-                  // `//g.alicdn.com/code/lib/antd/4.23.0/antd.min.js`,
-                  // `//g.alicdn.com/code/lib/antd/4.23.0/antd.min.css`,
-                  `https://cdn.bootcdn.net/ajax/libs/antd/5.9.0/reset.css`,
-                  `https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.9/dayjs.min.js`,
-                  `https://cdn.bootcdn.net/ajax/libs/antd/5.9.0/antd.js`
+                  '//cdn.bootcdn.net/ajax/libs/dayjs/1.11.9/dayjs.min.js',
+                  `//cdn.bootcdn.net/ajax/libs/antd/5.9.0/antd.js`,
+                  `//cdn.bootcdn.net/ajax/libs/antd/5.9.0/reset.css`,
                 ],
-                library: 'antd'
+                library: 'antd',
               },
               {
-                package: '@alilc/antd-lowcode-materials',
+                package: '@discode/antd',
                 version: '1.0.7',
                 library: 'DiscodeAntd',
                 urls: [

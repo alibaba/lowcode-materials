@@ -11,7 +11,7 @@ export default {
   group: '高级组件',
   category: '弹窗类',
   npm: {
-    package: '@seada/antd-materials',
+    package: '@disscode/antd-pro',
     version: 'latest',
     exportName: 'ProDrawer',
     main: '',

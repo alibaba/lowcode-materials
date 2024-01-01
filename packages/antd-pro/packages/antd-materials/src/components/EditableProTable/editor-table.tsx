@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Component, createRef } from 'react'
 import {
-  DragSortTable as OriginalProTable,
+  EditableProTable as OriginalProTable,
   ActionType,
   ProColumnType
 } from '@ant-design/pro-components'
@@ -12,7 +12,11 @@ import zhCNIntl from 'antd/es/locale/zh_CN'
 import enUSIntl from 'antd/es/locale/en_US'
 import { defineGetterProperties, isPlainObj } from '../../shared/index'
 import { FormProps } from 'rc-field-form/lib/Form'
-
+import {
+  ProCard,
+  ProFormField,
+  ProFormRadio,
+} from '@ant-design/pro-components';
 interface IValueEnum {
   text: string
   value: string
@@ -24,7 +28,7 @@ type IExtendsColType = ProColumnType & {
   renderTag?: boolean
 }
 
-export type IPsortTableProps = React.ComponentProps<typeof OriginalProTable> & {
+export type EditableProTableProps = React.ComponentProps<typeof OriginalProTable> & {
   columns?: IExtendsColType
   intl?: string
   onValuesChange?: FormProps['onValuesChange']
@@ -35,7 +39,7 @@ const intlMap = {
   enUSIntl
 }
 
-class DragSortTable extends Component<IPsortTableProps, any> {
+class EditableProTable extends Component<EditableProTableProps, any> {
   // pro-table 未对批量操作进行封装，自己封了
   state = {
     selectedRowKeys: (this.props.rowSelection as any)?.selectedRowKeys ?? [],
@@ -79,9 +83,20 @@ class DragSortTable extends Component<IPsortTableProps, any> {
   }
 
   render() {
-    const { columns, rowSelection, intl, onValuesChange, toolBarRender, toolBarRenderOpen } = this.props
+
+
+
+
+    const { columns, rowSelection, intl, onValuesChange, toolBarRender, toolBarRenderOpen,recordCreatorProps } = this.props
 
     const { selectedRowKeys, collapsed } = this.state
+
+
+    if (this.props?.rowKey){
+    recordCreatorProps?.record[this.props?.rowKey] = (Math.random() * 10000000).toFixed(0)
+    }
+
+    console.log("recordCreatorProps",recordCreatorProps)
 
     // 劫持渲染标签类型的列
     columns?.map((item) => {
@@ -110,7 +125,7 @@ class DragSortTable extends Component<IPsortTableProps, any> {
     if (typeof pagination?.total === 'number') {
       delete pagination.total
     }
-    
+
     const toolBarRenderFunc = () => {
       if (toolBarRenderOpen) {
         if (toolBarRender === false) {
@@ -127,25 +142,37 @@ class DragSortTable extends Component<IPsortTableProps, any> {
       <ConfigProvider locale={intlMap[intl || 'zhCNIntl']}>
         <OriginalProTable
           {...this.props}
+          // value={dataSource}
+          // editable={{
+          //   type: 'multiple',
 
-          search={
-            typeof this.props.search === 'boolean'
-              ? this.props.search
-              : {
-                  ...this.props.search,
-                  collapsed,
-                  onCollapse: () => {
-                    if (this.props.search === false) return
-                    this.setState({
-                      collapsed: !collapsed
-                    })
-                    if (this.props.search.onCollapse) {
-                      // 如果设置了函数则继续执行
-                      this.props.search.onCollapse(!collapsed)
-                    }
-                  }
-                }
-          }
+          // }}
+          recordCreatorProps = {recordCreatorProps}
+
+          // recordCreatorProps={{
+          //   // newRecordType: 'dataSource',
+          //   record: () => ({
+          //     id: Date.now(),
+          //   }),
+          // }}
+          // search={
+          //   typeof this.props.search === 'boolean'
+          //     ? this.props.search
+          //     : {
+          //         ...this.props.search,
+          //         collapsed,
+          //         onCollapse: () => {
+          //           if (this.props.search === false) return
+          //           this.setState({
+          //             collapsed: !collapsed
+          //           })
+          //           if (this.props.search.onCollapse) {
+          //             // 如果设置了函数则继续执行
+          //             this.props.search.onCollapse(!collapsed)
+          //           }
+          //         }
+          //       }
+          // }
           rowSelection={
             rowSelection
               ? {
@@ -159,15 +186,20 @@ class DragSortTable extends Component<IPsortTableProps, any> {
                 }
               : false
           }
+          value={this.props?.dataSource}
+     
           columns={columns}
           actionRef={this.actionRef}
-          formRef={this.formRef}
+          // formRef={this.formRef}
+          editableFormRef={this.formRef}
           form={{ onValuesChange: onValuesChange }}
           toolBarRender={toolBarRenderFunc()}
         />
+
+        
       </ConfigProvider>
     )
   }
 }
 
-export default DragSortTable
+export default EditableProTable

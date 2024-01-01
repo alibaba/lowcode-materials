@@ -1,12505 +1,1674 @@
+import { snippets } from './snippets'
+import { uuid } from '../utils'
 
-import { ComponentMetadata, Snippet } from '@alilc/lowcode-types';
-
-const DragSortTableMeta: ComponentMetadata = {
-  "componentName": "DragSortTable",
-  "title": "DragSortTable",
-  "docUrl": "",
-  "screenshot": "",
-  "devMode": "proCode",
-  "npm": {
-    "package": "@seada/antd-materials",
-    "version": "1.0.0-rc.30",
-    "exportName": "DragSortTable",
-    "main": "src/index.tsx",
-    "destructuring": true,
-    "subName": ""
+const ProTableMeta = {
+  componentName: 'DragSortTable',
+  title: '拖拽表格',
+  docUrl: '',
+  screenshot: '',
+  devMode: 'proCode',
+  group: '高级组件',
+  category: '表格类',
+  npm: {
+    package: '@disscode/antd-pro',
+    version: 'latest',
+    exportName: 'DragSortTable',
+    main: '',
+    destructuring: true,
+    subName: ''
   },
-  "configure": {
-    "props": [
+  configure: {
+    props: [
       {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "dragSortKey",
-            "zh-CN": "@name 拖动排序"
-          },
-          "tip": "dragSortKey | @name 拖动排序列key值 如配置此参数，则会在该 key 对应的行显示拖拽排序把手，允许拖拽排序"
+        name: 'ref',
+        title: {
+          label: 'ref',
+          tip: "ref | 通过 this.$('xxx') 获取到组件实例"
         },
-        "name": "dragSortKey",
-        "description": "@name 拖动排序列key值 如配置此参数，则会在该 key 对应的行显示拖拽排序把手，允许拖拽排序",
-        "setter": {
-          "componentName": "StringSetter",
-          "isRequired": false,
-          "initialValue": ""
-        }
+        defaultValue: () => {
+          return `pro_table_${uuid()}`
+        },
+        setter: 'StringSetter'
       },
       {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "dragSortHandlerRender",
-            "zh-CN": "@name 渲染自定"
+        title: '数据源',
+        display: 'block',
+        type: 'group',
+        items: [
+          {
+            name: 'dataSource',
+            title: { label: '表格数据', tip: 'dataSource | 表格数据' },
+            propType: 'object',
+            setter: 'JsonSetter'
           },
-          "tip": "dragSortHandlerRender | @name 渲染自定义拖动排序把手的函数 如配置了 dragSortKey 但未配置此参数，则使用默认把手图标"
-        },
-        "name": "dragSortHandlerRender",
-        "description": "@name 渲染自定义拖动排序把手的函数 如配置了 dragSortKey 但未配置此参数，则使用默认把手图标",
-        "setter": {
-          "componentName": "FunctionSetter",
-          "isRequired": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "columns",
-            "zh-CN": "@name 列配置能"
+          {
+            title: {
+              label: {
+                type: 'i18n',
+                'en-US': 'request',
+                'zh-CN': '请求函数'
+              },
+              tip: 'request | 获得 dataSource 的方法'
+            },
+            name: 'request',
+            description: '请求函数',
+            setter: {
+              componentName: 'FunctionSetter',
+              isRequired: false
+            }
           },
-          "tip": "columns | @name 列配置能力，支持一个数组"
-        },
-        "name": "columns",
-        "description": "@name 列配置能力，支持一个数组",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {}
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "toolbar",
-            "zh-CN": "@name List"
+          {
+            title: {
+              label: {
+                type: 'i18n',
+                'en-US': 'manualRequest',
+                'zh-CN': '手动请求'
+              },
+              tip: 'manualRequest | 是否手动触发请求'
+            },
+            name: 'manualRequest',
+            description: '是否手动触发请求',
+            setter: {
+              componentName: 'BoolSetter',
+              isRequired: false,
+              initialValue: false
+            }
           },
-          "tip": "toolbar | @name ListToolBar 的属性"
-        },
-        "name": "toolbar",
-        "description": "@name ListToolBar 的属性",
-        "setter": {
-          "componentName": "ObjectSetter",
-          "props": {
-            "config": {
-              "items": [
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "prefixCls",
-                      "zh-CN": "prefixCls"
-                    }
-                  },
-                  "name": "prefixCls",
-                  "setter": {
-                    "componentName": "StringSetter",
-                    "isRequired": false,
-                    "initialValue": ""
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "className",
-                      "zh-CN": "className"
-                    }
-                  },
-                  "name": "className",
-                  "setter": {
-                    "componentName": "StringSetter",
-                    "isRequired": false,
-                    "initialValue": ""
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "style",
-                      "zh-CN": "style"
-                    }
-                  },
-                  "name": "style",
-                  "setter": {
-                    "componentName": "ObjectSetter",
-                    "props": {
-                      "config": {
-                        "extraSetter": {
-                          "componentName": "MixedSetter",
-                          "isRequired": false,
-                          "props": {}
-                        }
-                      }
-                    },
-                    "isRequired": false,
-                    "initialValue": {}
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "title",
-                      "zh-CN": "title"
-                    }
-                  },
-                  "name": "title",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "subTitle",
-                      "zh-CN": "subTitle"
-                    }
-                  },
-                  "name": "subTitle",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "tooltip",
-                      "zh-CN": "tooltip"
-                    }
-                  },
-                  "name": "tooltip",
-                  "setter": {
-                    "componentName": "MixedSetter",
-                    "props": {
-                      "setters": [
-                        {
-                          "componentName": "StringSetter",
-                          "isRequired": false,
-                          "initialValue": ""
-                        },
-                        {
-                          "componentName": "NumberSetter",
-                          "isRequired": false,
-                          "initialValue": 0
-                        },
-                        {
-                          "componentName": "BoolSetter",
-                          "isRequired": false,
-                          "initialValue": false
-                        },
-                        {
-                          "componentName": "ObjectSetter",
-                          "props": {
-                            "config": {
-                              "extraSetter": {
-                                "componentName": "MixedSetter",
-                                "isRequired": false,
-                                "props": {}
-                              }
-                            }
-                          },
-                          "isRequired": false,
-                          "initialValue": {}
-                        },
-                        {
-                          "componentName": "FunctionSetter"
-                        },
-                        {
-                          "componentName": "FunctionSetter"
-                        },
-                        {
-                          "componentName": "ObjectSetter",
-                          "props": {
-                            "config": {
-                              "items": [
-                                {
-                                  "title": {
-                                    "label": {
-                                      "type": "i18n",
-                                      "en-US": "T",
-                                      "zh-CN": "T"
-                                    }
-                                  },
-                                  "name": "T",
-                                  "setter": {
-                                    "componentName": "MixedSetter",
-                                    "isRequired": true,
-                                    "props": {}
-                                  }
-                                },
-                                {
-                                  "title": {
-                                    "label": {
-                                      "type": "i18n",
-                                      "en-US": "__@iterator",
-                                      "zh-CN": "__@iterator"
-                                    }
-                                  },
-                                  "name": "__@iterator",
-                                  "setter": {
-                                    "componentName": "FunctionSetter",
-                                    "isRequired": true
-                                  }
-                                }
-                              ],
-                              "extraSetter": {
-                                "componentName": "MixedSetter",
-                                "isRequired": false,
-                                "props": {}
-                              }
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "search",
-                      "zh-CN": "search"
-                    }
-                  },
-                  "name": "search",
-                  "setter": {
-                    "componentName": "MixedSetter",
-                    "props": {
-                      "setters": [
-                        {
-                          "componentName": "StringSetter",
-                          "isRequired": false,
-                          "initialValue": ""
-                        },
-                        {
-                          "componentName": "NumberSetter",
-                          "isRequired": false,
-                          "initialValue": 0
-                        },
-                        {
-                          "componentName": "BoolSetter",
-                          "isRequired": false,
-                          "initialValue": false
-                        },
-                        {
-                          "componentName": "ObjectSetter",
-                          "props": {
-                            "config": {
-                              "extraSetter": {
-                                "componentName": "MixedSetter",
-                                "isRequired": false,
-                                "props": {}
-                              }
-                            }
-                          },
-                          "isRequired": false,
-                          "initialValue": {}
-                        },
-                        {
-                          "componentName": "ObjectSetter",
-                          "props": {
-                            "config": {
-                              "items": [
-                                {
-                                  "title": {
-                                    "label": {
-                                      "type": "i18n",
-                                      "en-US": "T",
-                                      "zh-CN": "T"
-                                    }
-                                  },
-                                  "name": "T",
-                                  "setter": {
-                                    "componentName": "MixedSetter",
-                                    "isRequired": true,
-                                    "props": {}
-                                  }
-                                },
-                                {
-                                  "title": {
-                                    "label": {
-                                      "type": "i18n",
-                                      "en-US": "__@iterator",
-                                      "zh-CN": "__@iterator"
-                                    }
-                                  },
-                                  "name": "__@iterator",
-                                  "setter": {
-                                    "componentName": "FunctionSetter",
-                                    "isRequired": true
-                                  }
-                                }
-                              ],
-                              "extraSetter": {
-                                "componentName": "MixedSetter",
-                                "isRequired": false,
-                                "props": {}
-                              }
-                            }
-                          }
-                        },
-                        {
-                          "componentName": "FunctionSetter"
-                        }
-                      ]
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "onSearch",
-                      "zh-CN": "onSearch"
-                    }
-                  },
-                  "name": "onSearch",
-                  "setter": {
-                    "componentName": "FunctionSetter"
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "actions",
-                      "zh-CN": "actions"
-                    }
-                  },
-                  "name": "actions",
-                  "setter": {
-                    "componentName": "ArraySetter",
-                    "props": {
-                      "itemSetter": {
-                        "componentName": "SlotSetter",
-                        "props": {
-                          "mode": "node"
-                        },
-                        "isRequired": false,
-                        "initialValue": {
-                          "type": "JSSlot",
-                          "value": []
-                        }
-                      }
-                    },
-                    "initialValue": []
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "settings",
-                      "zh-CN": "settings"
-                    }
-                  },
-                  "name": "settings",
-                  "setter": {
-                    "componentName": "ArraySetter",
-                    "props": {
-                      "itemSetter": {
-                        "componentName": "MixedSetter",
-                        "props": {
-                          "setters": [
-                            {
-                              "componentName": "StringSetter",
-                              "isRequired": false,
-                              "initialValue": ""
-                            },
-                            {
-                              "componentName": "NumberSetter",
-                              "isRequired": false,
-                              "initialValue": 0
-                            },
-                            {
-                              "componentName": "BoolSetter",
-                              "isRequired": false,
-                              "initialValue": false
-                            },
-                            {
-                              "componentName": "ObjectSetter",
-                              "props": {
-                                "config": {
-                                  "extraSetter": {
-                                    "componentName": "MixedSetter",
-                                    "isRequired": false,
-                                    "props": {}
-                                  }
-                                }
-                              },
-                              "isRequired": false,
-                              "initialValue": {}
-                            },
-                            {
-                              "componentName": "ObjectSetter",
-                              "props": {
-                                "config": {
-                                  "items": [
-                                    {
-                                      "title": {
-                                        "label": {
-                                          "type": "i18n",
-                                          "en-US": "T",
-                                          "zh-CN": "T"
-                                        }
-                                      },
-                                      "name": "T",
-                                      "setter": {
-                                        "componentName": "MixedSetter",
-                                        "isRequired": true,
-                                        "props": {}
-                                      }
-                                    },
-                                    {
-                                      "title": {
-                                        "label": {
-                                          "type": "i18n",
-                                          "en-US": "__@iterator",
-                                          "zh-CN": "__@iterator"
-                                        }
-                                      },
-                                      "name": "__@iterator",
-                                      "setter": {
-                                        "componentName": "FunctionSetter",
-                                        "isRequired": true
-                                      }
-                                    }
-                                  ],
-                                  "extraSetter": {
-                                    "componentName": "MixedSetter",
-                                    "isRequired": false,
-                                    "props": {}
-                                  }
-                                }
-                              }
-                            },
-                            {
-                              "componentName": "ObjectSetter",
-                              "props": {
-                                "config": {
-                                  "items": [
-                                    {
-                                      "title": {
-                                        "label": {
-                                          "type": "i18n",
-                                          "en-US": "icon",
-                                          "zh-CN": "icon"
-                                        }
-                                      },
-                                      "name": "icon",
-                                      "setter": {
-                                        "componentName": "SlotSetter",
-                                        "props": {
-                                          "mode": "node"
-                                        },
-                                        "isRequired": true,
-                                        "initialValue": {
-                                          "type": "JSSlot",
-                                          "value": []
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "title": {
-                                        "label": {
-                                          "type": "i18n",
-                                          "en-US": "tooltip",
-                                          "zh-CN": "tooltip"
-                                        }
-                                      },
-                                      "name": "tooltip",
-                                      "setter": {
-                                        "componentName": "MixedSetter",
-                                        "props": {
-                                          "setters": [
-                                            {
-                                              "componentName": "StringSetter",
-                                              "isRequired": false,
-                                              "initialValue": ""
-                                            },
-                                            {
-                                              "componentName": "NumberSetter",
-                                              "isRequired": false,
-                                              "initialValue": 0
-                                            },
-                                            {
-                                              "componentName": "BoolSetter",
-                                              "isRequired": false,
-                                              "initialValue": false
-                                            },
-                                            {
-                                              "componentName": "ObjectSetter",
-                                              "props": {
-                                                "config": {
-                                                  "extraSetter": {
-                                                    "componentName": "MixedSetter",
-                                                    "isRequired": false,
-                                                    "props": {}
-                                                  }
-                                                }
-                                              },
-                                              "isRequired": false,
-                                              "initialValue": {}
-                                            },
-                                            {
-                                              "componentName": "FunctionSetter"
-                                            },
-                                            {
-                                              "componentName": "FunctionSetter"
-                                            },
-                                            {
-                                              "componentName": "ObjectSetter",
-                                              "props": {
-                                                "config": {
-                                                  "items": [
-                                                    {
-                                                      "title": {
-                                                        "label": {
-                                                          "type": "i18n",
-                                                          "en-US": "T",
-                                                          "zh-CN": "T"
-                                                        }
-                                                      },
-                                                      "name": "T",
-                                                      "setter": {
-                                                        "componentName": "MixedSetter",
-                                                        "isRequired": true,
-                                                        "props": {}
-                                                      }
-                                                    },
-                                                    {
-                                                      "title": {
-                                                        "label": {
-                                                          "type": "i18n",
-                                                          "en-US": "__@iterator",
-                                                          "zh-CN": "__@iterator"
-                                                        }
-                                                      },
-                                                      "name": "__@iterator",
-                                                      "setter": {
-                                                        "componentName": "FunctionSetter",
-                                                        "isRequired": true
-                                                      }
-                                                    }
-                                                  ],
-                                                  "extraSetter": {
-                                                    "componentName": "MixedSetter",
-                                                    "isRequired": false,
-                                                    "props": {}
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          ]
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "title": {
-                                        "label": {
-                                          "type": "i18n",
-                                          "en-US": "key",
-                                          "zh-CN": "key"
-                                        }
-                                      },
-                                      "name": "key",
-                                      "setter": {
-                                        "componentName": "StringSetter",
-                                        "isRequired": false,
-                                        "initialValue": ""
-                                      }
-                                    },
-                                    {
-                                      "title": {
-                                        "label": {
-                                          "type": "i18n",
-                                          "en-US": "onClick",
-                                          "zh-CN": "onClick"
-                                        }
-                                      },
-                                      "name": "onClick",
-                                      "setter": {
-                                        "componentName": "FunctionSetter"
-                                      }
-                                    }
-                                  ],
-                                  "extraSetter": {
-                                    "componentName": "MixedSetter",
-                                    "isRequired": false,
-                                    "props": {}
-                                  }
-                                }
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    },
-                    "initialValue": []
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "multipleLine",
-                      "zh-CN": "multipleLine"
-                    }
-                  },
-                  "name": "multipleLine",
-                  "setter": {
-                    "componentName": "BoolSetter",
-                    "isRequired": false,
-                    "initialValue": false
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "filter",
-                      "zh-CN": "filter"
-                    }
-                  },
-                  "name": "filter",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "tabs",
-                      "zh-CN": "tabs"
-                    }
-                  },
-                  "name": "tabs",
-                  "setter": {
-                    "componentName": "ObjectSetter",
-                    "props": {
-                      "config": {
-                        "items": [
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "activeKey",
-                                "zh-CN": "activeKey"
-                              }
-                            },
-                            "name": "activeKey",
-                            "setter": {
-                              "componentName": "StringSetter",
-                              "isRequired": false,
-                              "initialValue": ""
-                            }
-                          },
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "defaultActiveKey",
-                                "zh-CN": "defaultActiveKey"
-                              }
-                            },
-                            "name": "defaultActiveKey",
-                            "setter": {
-                              "componentName": "StringSetter",
-                              "isRequired": false,
-                              "initialValue": ""
-                            }
-                          },
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "onChange",
-                                "zh-CN": "onChange"
-                              }
-                            },
-                            "name": "onChange",
-                            "setter": {
-                              "componentName": "FunctionSetter"
-                            }
-                          },
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "items",
-                                "zh-CN": "items"
-                              }
-                            },
-                            "name": "items",
-                            "setter": {
-                              "componentName": "ArraySetter",
-                              "props": {
-                                "itemSetter": {
-                                  "componentName": "ObjectSetter",
-                                  "props": {
-                                    "config": {
-                                      "extraSetter": {
-                                        "componentName": "MixedSetter",
-                                        "isRequired": false,
-                                        "props": {}
-                                      }
-                                    }
-                                  },
-                                  "isRequired": false,
-                                  "initialValue": {}
-                                }
-                              },
-                              "initialValue": []
-                            }
-                          }
-                        ],
-                        "extraSetter": {
-                          "componentName": "MixedSetter",
-                          "isRequired": false,
-                          "props": {}
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "menu",
-                      "zh-CN": "menu"
-                    }
-                  },
-                  "name": "menu",
-                  "setter": {
-                    "componentName": "ObjectSetter",
-                    "props": {
-                      "config": {
-                        "items": [
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "type",
-                                "zh-CN": "type"
-                              }
-                            },
-                            "name": "type",
-                            "setter": {
-                              "componentName": "RadioGroupSetter",
-                              "props": {
-                                "dataSource": [
-                                  {
-                                    "label": "inline",
-                                    "value": "inline"
-                                  },
-                                  {
-                                    "label": "tab",
-                                    "value": "tab"
-                                  },
-                                  {
-                                    "label": "dropdown",
-                                    "value": "dropdown"
-                                  }
-                                ],
-                                "options": [
-                                  {
-                                    "label": "inline",
-                                    "value": "inline"
-                                  },
-                                  {
-                                    "label": "tab",
-                                    "value": "tab"
-                                  },
-                                  {
-                                    "label": "dropdown",
-                                    "value": "dropdown"
-                                  }
-                                ]
-                              },
-                              "initialValue": "inline"
-                            }
-                          },
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "activeKey",
-                                "zh-CN": "activeKey"
-                              }
-                            },
-                            "name": "activeKey",
-                            "setter": {
-                              "componentName": "MixedSetter",
-                              "props": {
-                                "setters": [
-                                  {
-                                    "componentName": "StringSetter",
-                                    "isRequired": false,
-                                    "initialValue": ""
-                                  },
-                                  {
-                                    "componentName": "NumberSetter",
-                                    "isRequired": false,
-                                    "initialValue": 0
-                                  }
-                                ]
-                              }
-                            }
-                          },
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "defaultActiveKey",
-                                "zh-CN": "defaultActiveKey"
-                              }
-                            },
-                            "name": "defaultActiveKey",
-                            "setter": {
-                              "componentName": "MixedSetter",
-                              "props": {
-                                "setters": [
-                                  {
-                                    "componentName": "StringSetter",
-                                    "isRequired": false,
-                                    "initialValue": ""
-                                  },
-                                  {
-                                    "componentName": "NumberSetter",
-                                    "isRequired": false,
-                                    "initialValue": 0
-                                  }
-                                ]
-                              }
-                            }
-                          },
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "items",
-                                "zh-CN": "items"
-                              }
-                            },
-                            "name": "items",
-                            "setter": {
-                              "componentName": "ArraySetter",
-                              "props": {
-                                "itemSetter": {
-                                  "componentName": "ObjectSetter",
-                                  "props": {
-                                    "config": {
-                                      "items": [
-                                        {
-                                          "title": {
-                                            "label": {
-                                              "type": "i18n",
-                                              "en-US": "key",
-                                              "zh-CN": "key"
-                                            }
-                                          },
-                                          "name": "key",
-                                          "setter": {
-                                            "componentName": "MixedSetter",
-                                            "props": {
-                                              "setters": [
-                                                {
-                                                  "componentName": "StringSetter",
-                                                  "isRequired": false,
-                                                  "initialValue": ""
-                                                },
-                                                {
-                                                  "componentName": "NumberSetter",
-                                                  "isRequired": false,
-                                                  "initialValue": 0
-                                                }
-                                              ]
-                                            },
-                                            "isRequired": true
-                                          }
-                                        },
-                                        {
-                                          "title": {
-                                            "label": {
-                                              "type": "i18n",
-                                              "en-US": "label",
-                                              "zh-CN": "label"
-                                            }
-                                          },
-                                          "name": "label",
-                                          "setter": {
-                                            "componentName": "SlotSetter",
-                                            "props": {
-                                              "mode": "node"
-                                            },
-                                            "isRequired": true,
-                                            "initialValue": {
-                                              "type": "JSSlot",
-                                              "value": []
-                                            }
-                                          }
-                                        },
-                                        {
-                                          "title": {
-                                            "label": {
-                                              "type": "i18n",
-                                              "en-US": "disabled",
-                                              "zh-CN": "disabled"
-                                            }
-                                          },
-                                          "name": "disabled",
-                                          "setter": {
-                                            "componentName": "BoolSetter",
-                                            "isRequired": false,
-                                            "initialValue": false
-                                          }
-                                        }
-                                      ],
-                                      "extraSetter": {
-                                        "componentName": "MixedSetter",
-                                        "isRequired": false,
-                                        "props": {}
-                                      }
-                                    }
-                                  }
-                                }
-                              },
-                              "initialValue": []
-                            }
-                          },
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "onChange",
-                                "zh-CN": "onChange"
-                              }
-                            },
-                            "name": "onChange",
-                            "setter": {
-                              "componentName": "FunctionSetter"
-                            }
-                          },
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "prefixCls",
-                                "zh-CN": "prefixCls"
-                              }
-                            },
-                            "name": "prefixCls",
-                            "setter": {
-                              "componentName": "StringSetter",
-                              "isRequired": false,
-                              "initialValue": ""
-                            }
-                          }
-                        ],
-                        "extraSetter": {
-                          "componentName": "MixedSetter",
-                          "isRequired": false,
-                          "props": {}
-                        }
-                      }
-                    }
-                  }
+          {
+            name: 'loading',
+            title: { label: '加载中', tip: 'loading | 是否加载中' },
+            propType: 'bool',
+            setter: 'BoolSetter'
+          },
+          {
+            name: 'cardBordered',
+            title: {
+              label: '边框',
+              tip: 'cardBordered | Table 和 Search 外围 Card 组件的边框'
+            },
+            propType: 'bool',
+            setter: 'BoolSetter'
+          },
+          {
+            name: 'dragSortKey',
+            title: {
+              label: '排序名称',
+              tip: 'dragSortKey'
+            },
+            setter: 'StringSetter'
+          },
+
+          // {
+          //   name: 'dragSortHandlerRender',
+          //   title: {
+          //     label: '排序图标',
+          //     tip: 'dragSortHandlerRender'
+          //   },
+          //   setter: 'SlotSetter',
+          //   initialValue: {
+          //     type: 'JSSlot',
+          //     params: ['rowData', 'idx'],
+          //     value: []
+          //   }
+          // },
+          
+          {
+            name: 'rowKey',
+            title: {
+              label: '行Key',
+              tip: 'rowKey | 表格行 key 的取值，可以是字符串或一个函数'
+            },
+            propType: { type: 'oneOfType', value: ['string', 'func'] },
+            setter: [
+              'StringSetter',
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'getRowKey(record,index,${extParams}){\n// 通过函数获取表格行 key\nreturn record.id;\n}'
                 }
-              ],
-              "extraSetter": {
-                "componentName": "MixedSetter",
-                "isRequired": false,
-                "props": {}
-              }
-            }
+              },
+              'VariableSetter'
+            ],
+            defaultValue: 'id'
           }
-        }
+        ]
       },
       {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "ghost",
-            "zh-CN": "@name 幽灵模式"
-          },
-          "tip": "ghost | @name 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。"
-        },
-        "name": "ghost",
-        "description": "@name 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。",
-        "setter": {
-          "componentName": "BoolSetter",
-          "isRequired": false,
-          "initialValue": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "params",
-            "zh-CN": "request 的参"
-          },
-          "tip": "params | request 的参数，修改之后会触发更新"
-        },
-        "name": "params",
-        "description": "request 的参数，修改之后会触发更新",
-        "setter": {
-          "componentName": "ObjectSetter",
-          "props": {
-            "config": {
-              "extraSetter": {
-                "componentName": "MixedSetter",
-                "isRequired": false,
-                "props": {}
-              }
-            }
-          },
-          "isRequired": false,
-          "initialValue": {}
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "columnsStateMap",
-            "zh-CN": "列状态配置，可以配置"
-          },
-          "tip": "columnsStateMap | 列状态配置，可以配置是否浮动和是否展示"
-        },
-        "name": "columnsStateMap",
-        "description": "列状态配置，可以配置是否浮动和是否展示",
-        "setter": {
-          "componentName": "ObjectSetter",
-          "props": {
-            "config": {
-              "extraSetter": {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "items": [],
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                },
-                "isRequired": false
-              }
-            }
-          },
-          "initialValue": {}
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "onColumnsStateChange",
-            "zh-CN": "列状态配置修改触发事"
-          },
-          "tip": "onColumnsStateChange | 列状态配置修改触发事件"
-        },
-        "name": "onColumnsStateChange",
-        "description": "列状态配置修改触发事件",
-        "setter": {
-          "componentName": "FunctionSetter"
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "columnsState",
-            "zh-CN": "@name 列状态的"
-          },
-          "tip": "columnsState | @name 列状态的配置，可以用来操作列功能"
-        },
-        "name": "columnsState",
-        "description": "@name 列状态的配置，可以用来操作列功能",
-        "setter": {
-          "componentName": "ObjectSetter",
-          "props": {
-            "config": {
-              "items": [
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "persistenceType",
-                      "zh-CN": "persistenceType"
-                    }
-                  },
-                  "name": "persistenceType",
-                  "setter": {
-                    "componentName": "RadioGroupSetter",
-                    "props": {
-                      "dataSource": [
+        name: 'columns',
+        title: { label: '表格列', tip: '表格列的配置描述，具体项见下表' },
+        setter: {
+          componentName: 'ArraySetter',
+          props: {
+            itemSetter: {
+              componentName: 'ObjectSetter',
+              props: {
+                config: {
+                  items: [
+                    {
+                      name: 'title',
+                      title: { label: '列标题', tip: 'title | 列标题' },
+                      propType: {
+                        type: 'oneOfType',
+                        value: ['string', 'func']
+                      },
+                      setter: [
+                        'StringSetter',
                         {
-                          "label": "localStorage",
-                          "value": "localStorage"
-                        },
-                        {
-                          "label": "sessionStorage",
-                          "value": "sessionStorage"
+                          componentName: 'SlotSetter',
+                          title: '列标题插槽',
+                          initialValue: {
+                            type: 'JSSlot',
+                            params: ['options'],
+                            value: []
+                          }
                         }
                       ],
-                      "options": [
-                        {
-                          "label": "localStorage",
-                          "value": "localStorage"
-                        },
-                        {
-                          "label": "sessionStorage",
-                          "value": "sessionStorage"
-                        }
-                      ]
-                    },
-                    "initialValue": "localStorage"
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "persistenceKey",
-                      "zh-CN": "persistenceKey"
-                    }
-                  },
-                  "name": "persistenceKey",
-                  "setter": {
-                    "componentName": "StringSetter",
-                    "isRequired": false,
-                    "initialValue": ""
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "defaultValue",
-                      "zh-CN": "defaultValue"
-                    }
-                  },
-                  "name": "defaultValue",
-                  "setter": {
-                    "componentName": "ObjectSetter",
-                    "props": {
-                      "config": {
-                        "extraSetter": {
-                          "componentName": "ObjectSetter",
-                          "props": {
-                            "config": {
-                              "items": [],
-                              "extraSetter": {
-                                "componentName": "MixedSetter",
-                                "isRequired": false,
-                                "props": {}
-                              }
-                            }
-                          },
-                          "isRequired": false
-                        }
-                      }
-                    },
-                    "initialValue": {}
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "value",
-                      "zh-CN": "value"
-                    }
-                  },
-                  "name": "value",
-                  "setter": {
-                    "componentName": "ObjectSetter",
-                    "props": {
-                      "config": {
-                        "extraSetter": {
-                          "componentName": "ObjectSetter",
-                          "props": {
-                            "config": {
-                              "items": [],
-                              "extraSetter": {
-                                "componentName": "MixedSetter",
-                                "isRequired": false,
-                                "props": {}
-                              }
-                            }
-                          },
-                          "isRequired": false
-                        }
-                      }
-                    },
-                    "initialValue": {}
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "onChange",
-                      "zh-CN": "onChange"
-                    }
-                  },
-                  "name": "onChange",
-                  "setter": {
-                    "componentName": "FunctionSetter"
-                  }
-                }
-              ],
-              "extraSetter": {
-                "componentName": "MixedSetter",
-                "isRequired": false,
-                "props": {}
-              }
-            }
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "onSizeChange",
-            "zh-CN": "onSizeChange"
-          }
-        },
-        "name": "onSizeChange",
-        "setter": {
-          "componentName": "FunctionSetter"
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "cardProps",
-            "zh-CN": "@name tabl"
-          },
-          "tip": "cardProps | @name table 外面卡片的设置"
-        },
-        "name": "cardProps",
-        "description": "@name table 外面卡片的设置",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                },
-                "isRequired": false,
-                "initialValue": {}
-              },
-              {
-                "componentName": "RadioGroupSetter",
-                "props": {
-                  "dataSource": [
-                    {
-                      "label": "false",
-                      "value": false
-                    }
-                  ],
-                  "options": [
-                    {
-                      "label": "false",
-                      "value": false
-                    }
-                  ]
-                },
-                "initialValue": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "tableRender",
-            "zh-CN": "@name 渲染 t"
-          },
-          "tip": "tableRender | @name 渲染 table"
-        },
-        "name": "tableRender",
-        "description": "@name 渲染 table",
-        "setter": {
-          "componentName": "FunctionSetter",
-          "isRequired": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "tableViewRender",
-            "zh-CN": "@name 渲染 t"
-          },
-          "tip": "tableViewRender | @name 渲染 table 视图，用于定制 ProList，不推荐直接使用"
-        },
-        "name": "tableViewRender",
-        "description": "@name 渲染 table 视图，用于定制 ProList，不推荐直接使用",
-        "setter": {
-          "componentName": "FunctionSetter",
-          "isRequired": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "tableExtraRender",
-            "zh-CN": "@name tabl"
-          },
-          "tip": "tableExtraRender | @name table 和搜索表单之间的 dom 渲染"
-        },
-        "name": "tableExtraRender",
-        "description": "@name table 和搜索表单之间的 dom 渲染",
-        "setter": {
-          "componentName": "FunctionSetter",
-          "isRequired": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "searchFormRender",
-            "zh-CN": "@name 渲染搜索"
-          },
-          "tip": "searchFormRender | @name 渲染搜索表单"
-        },
-        "name": "searchFormRender",
-        "description": "@name 渲染搜索表单",
-        "setter": {
-          "componentName": "FunctionSetter",
-          "isRequired": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "request",
-            "zh-CN": "@name 一个获得"
-          },
-          "tip": "request | @name 一个获得 dataSource 的方法"
-        },
-        "name": "request",
-        "description": "@name 一个获得 dataSource 的方法",
-        "setter": {
-          "componentName": "FunctionSetter",
-          "isRequired": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "postData",
-            "zh-CN": "@name 对数据进"
-          },
-          "tip": "postData | @name 对数据进行一些处理"
-        },
-        "name": "postData",
-        "description": "@name 对数据进行一些处理",
-        "setter": {
-          "componentName": "MixedSetter",
-          "isRequired": false,
-          "props": {}
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "defaultData",
-            "zh-CN": "@name 默认的数"
-          },
-          "tip": "defaultData | @name 默认的数据"
-        },
-        "name": "defaultData",
-        "description": "@name 默认的数据",
-        "setter": {
-          "componentName": "ArraySetter",
-          "props": {
-            "itemSetter": {
-              "componentName": "ObjectSetter",
-              "props": {
-                "config": {
-                  "extraSetter": {
-                    "componentName": "MixedSetter",
-                    "isRequired": false,
-                    "props": {}
-                  }
-                }
-              },
-              "isRequired": false,
-              "initialValue": {}
-            }
-          },
-          "initialValue": []
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "formRef",
-            "zh-CN": "@name 操作自带"
-          },
-          "tip": "formRef | @name 操作自带的 form"
-        },
-        "name": "formRef",
-        "description": "@name 操作自带的 form",
-        "setter": {
-          "componentName": "ObjectSetter",
-          "props": {
-            "config": {
-              "extraSetter": {
-                "componentName": "MixedSetter",
-                "isRequired": false,
-                "props": {}
-              }
-            }
-          },
-          "isRequired": false,
-          "initialValue": {}
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "toolBarRender",
-            "zh-CN": "@name 渲染操作"
-          },
-          "tip": "toolBarRender | @name 渲染操作栏"
-        },
-        "name": "toolBarRender",
-        "description": "@name 渲染操作栏",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "FunctionSetter",
-                "isRequired": false
-              },
-              {
-                "componentName": "RadioGroupSetter",
-                "props": {
-                  "dataSource": [
-                    {
-                      "label": "false",
-                      "value": false
-                    }
-                  ],
-                  "options": [
-                    {
-                      "label": "false",
-                      "value": false
-                    }
-                  ]
-                },
-                "initialValue": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "optionsRender",
-            "zh-CN": "optionsRender"
-          }
-        },
-        "name": "optionsRender",
-        "setter": {
-          "componentName": "FunctionSetter",
-          "isRequired": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "onLoadingChange",
-            "zh-CN": "@name load"
-          },
-          "tip": "onLoadingChange | @name loading 被修改时触发，一般是网络请求导致的"
-        },
-        "name": "onLoadingChange",
-        "description": "@name loading 被修改时触发，一般是网络请求导致的",
-        "setter": {
-          "componentName": "FunctionSetter"
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "onRequestError",
-            "zh-CN": "@name 数据加载"
-          },
-          "tip": "onRequestError | @name 数据加载失败时触发"
-        },
-        "name": "onRequestError",
-        "description": "@name 数据加载失败时触发",
-        "setter": {
-          "componentName": "FunctionSetter"
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "polling",
-            "zh-CN": "是否轮询 ProTa"
-          },
-          "tip": "polling | 是否轮询 ProTable 它不会自动提交表单，如果你想自动提交表单的功能，需要在 onValueChange 中调用 formRef.current?.submit()"
-        },
-        "name": "polling",
-        "description": "是否轮询 ProTable 它不会自动提交表单，如果你想自动提交表单的功能，需要在 onValueChange 中调用 formRef.current?.submit()",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "NumberSetter",
-                "isRequired": false,
-                "initialValue": 0
-              },
-              {
-                "componentName": "FunctionSetter",
-                "isRequired": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "tableClassName",
-            "zh-CN": "@name 给封装的"
-          },
-          "tip": "tableClassName | @name 给封装的 table 的 className"
-        },
-        "name": "tableClassName",
-        "description": "@name 给封装的 table 的 className",
-        "setter": {
-          "componentName": "StringSetter",
-          "isRequired": false,
-          "initialValue": ""
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "tableStyle",
-            "zh-CN": "@name 给封装的"
-          },
-          "tip": "tableStyle | @name 给封装的 table 的 style"
-        },
-        "name": "tableStyle",
-        "description": "@name 给封装的 table 的 style",
-        "setter": {
-          "componentName": "ObjectSetter",
-          "props": {
-            "config": {
-              "extraSetter": {
-                "componentName": "MixedSetter",
-                "isRequired": false,
-                "props": {}
-              }
-            }
-          },
-          "isRequired": false,
-          "initialValue": {}
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "headerTitle",
-            "zh-CN": "@name 左上角的"
-          },
-          "tip": "headerTitle | @name 左上角的 title"
-        },
-        "name": "headerTitle",
-        "description": "@name 左上角的 title",
-        "setter": {
-          "componentName": "SlotSetter",
-          "props": {
-            "mode": "node"
-          },
-          "isRequired": false,
-          "initialValue": {
-            "type": "JSSlot",
-            "value": []
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "tooltip",
-            "zh-CN": "@name 标题旁边"
-          },
-          "tip": "tooltip | @name 标题旁边的 tooltip"
-        },
-        "name": "tooltip",
-        "description": "@name 标题旁边的 tooltip",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "StringSetter",
-                "isRequired": false,
-                "initialValue": ""
-              },
-              {
-                "componentName": "NumberSetter",
-                "isRequired": false,
-                "initialValue": 0
-              },
-              {
-                "componentName": "BoolSetter",
-                "isRequired": false,
-                "initialValue": false
-              },
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                },
-                "isRequired": false,
-                "initialValue": {}
-              },
-              {
-                "componentName": "FunctionSetter"
-              },
-              {
-                "componentName": "FunctionSetter"
-              },
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "items": [
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "T",
-                            "zh-CN": "T"
-                          }
-                        },
-                        "name": "T",
-                        "setter": {
-                          "componentName": "MixedSetter",
-                          "isRequired": true,
-                          "props": {}
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "__@iterator",
-                            "zh-CN": "__@iterator"
-                          }
-                        },
-                        "name": "__@iterator",
-                        "setter": {
-                          "componentName": "FunctionSetter",
-                          "isRequired": true
-                        }
-                      }
-                    ],
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "options",
-            "zh-CN": "@name 操作栏配"
-          },
-          "tip": "options | @name 操作栏配置"
-        },
-        "name": "options",
-        "description": "@name 操作栏配置",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "items": [
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "density",
-                            "zh-CN": "density"
-                          }
-                        },
-                        "name": "density",
-                        "setter": {
-                          "componentName": "BoolSetter",
-                          "isRequired": false,
-                          "initialValue": false
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "fullScreen",
-                            "zh-CN": "fullScreen"
-                          }
-                        },
-                        "name": "fullScreen",
-                        "setter": {
-                          "componentName": "MixedSetter",
-                          "props": {
-                            "setters": [
-                              {
-                                "componentName": "BoolSetter",
-                                "isRequired": false,
-                                "initialValue": false
-                              },
-                              {
-                                "componentName": "FunctionSetter"
-                              }
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "reload",
-                            "zh-CN": "reload"
-                          }
-                        },
-                        "name": "reload",
-                        "setter": {
-                          "componentName": "MixedSetter",
-                          "props": {
-                            "setters": [
-                              {
-                                "componentName": "BoolSetter",
-                                "isRequired": false,
-                                "initialValue": false
-                              },
-                              {
-                                "componentName": "FunctionSetter"
-                              }
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "setting",
-                            "zh-CN": "setting"
-                          }
-                        },
-                        "name": "setting",
-                        "setter": {
-                          "componentName": "MixedSetter",
-                          "props": {
-                            "setters": [
-                              {
-                                "componentName": "BoolSetter",
-                                "isRequired": false,
-                                "initialValue": false
-                              },
-                              {
-                                "componentName": "ObjectSetter",
-                                "props": {
-                                  "config": {
-                                    "items": [
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "draggable",
-                                            "zh-CN": "draggable"
-                                          }
-                                        },
-                                        "name": "draggable",
-                                        "setter": {
-                                          "componentName": "BoolSetter",
-                                          "isRequired": false,
-                                          "initialValue": false
-                                        }
-                                      },
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "checkable",
-                                            "zh-CN": "checkable"
-                                          }
-                                        },
-                                        "name": "checkable",
-                                        "setter": {
-                                          "componentName": "BoolSetter",
-                                          "isRequired": false,
-                                          "initialValue": false
-                                        }
-                                      },
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "showListItemOption",
-                                            "zh-CN": "showListItemOption"
-                                          }
-                                        },
-                                        "name": "showListItemOption",
-                                        "setter": {
-                                          "componentName": "BoolSetter",
-                                          "isRequired": false,
-                                          "initialValue": false
-                                        }
-                                      },
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "checkedReset",
-                                            "zh-CN": "checkedReset"
-                                          }
-                                        },
-                                        "name": "checkedReset",
-                                        "setter": {
-                                          "componentName": "BoolSetter",
-                                          "isRequired": false,
-                                          "initialValue": false
-                                        }
-                                      },
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "listsHeight",
-                                            "zh-CN": "listsHeight"
-                                          }
-                                        },
-                                        "name": "listsHeight",
-                                        "setter": {
-                                          "componentName": "NumberSetter",
-                                          "isRequired": false,
-                                          "initialValue": 0
-                                        }
-                                      },
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "extra",
-                                            "zh-CN": "extra"
-                                          }
-                                        },
-                                        "name": "extra",
-                                        "setter": {
-                                          "componentName": "SlotSetter",
-                                          "props": {
-                                            "mode": "node"
-                                          },
-                                          "isRequired": false,
-                                          "initialValue": {
-                                            "type": "JSSlot",
-                                            "value": []
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "children",
-                                            "zh-CN": "children"
-                                          }
-                                        },
-                                        "name": "children",
-                                        "setter": {
-                                          "componentName": "SlotSetter",
-                                          "props": {
-                                            "mode": "node"
-                                          },
-                                          "isRequired": false,
-                                          "initialValue": {
-                                            "type": "JSSlot",
-                                            "value": []
-                                          }
-                                        }
-                                      },
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "settingIcon",
-                                            "zh-CN": "settingIcon"
-                                          }
-                                        },
-                                        "name": "settingIcon",
-                                        "setter": {
-                                          "componentName": "SlotSetter",
-                                          "props": {
-                                            "mode": "node"
-                                          },
-                                          "isRequired": false,
-                                          "initialValue": {
-                                            "type": "JSSlot",
-                                            "value": []
-                                          }
-                                        }
-                                      }
-                                    ],
-                                    "extraSetter": {
-                                      "componentName": "MixedSetter",
-                                      "isRequired": false,
-                                      "props": {}
-                                    }
-                                  }
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "search",
-                            "zh-CN": "search"
-                          }
-                        },
-                        "name": "search",
-                        "setter": {
-                          "componentName": "MixedSetter",
-                          "props": {
-                            "setters": [
-                              {
-                                "componentName": "BoolSetter",
-                                "isRequired": false,
-                                "initialValue": false
-                              },
-                              {
-                                "componentName": "ObjectSetter",
-                                "props": {
-                                  "config": {
-                                    "extraSetter": {
-                                      "componentName": "MixedSetter",
-                                      "isRequired": false,
-                                      "props": {}
-                                    }
-                                  }
-                                },
-                                "isRequired": false,
-                                "initialValue": {}
-                              }
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "reloadIcon",
-                            "zh-CN": "reloadIcon"
-                          }
-                        },
-                        "name": "reloadIcon",
-                        "setter": {
-                          "componentName": "SlotSetter",
-                          "props": {
-                            "mode": "node"
-                          },
-                          "isRequired": false,
-                          "initialValue": {
-                            "type": "JSSlot",
-                            "value": []
-                          }
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "densityIcon",
-                            "zh-CN": "densityIcon"
-                          }
-                        },
-                        "name": "densityIcon",
-                        "setter": {
-                          "componentName": "SlotSetter",
-                          "props": {
-                            "mode": "node"
-                          },
-                          "isRequired": false,
-                          "initialValue": {
-                            "type": "JSSlot",
-                            "value": []
-                          }
-                        }
-                      }
-                    ],
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                }
-              },
-              {
-                "componentName": "RadioGroupSetter",
-                "props": {
-                  "dataSource": [
-                    {
-                      "label": "false",
-                      "value": false
-                    }
-                  ],
-                  "options": [
-                    {
-                      "label": "false",
-                      "value": false
-                    }
-                  ]
-                },
-                "initialValue": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "search",
-            "zh-CN": "@name 是否显示"
-          },
-          "tip": "search | @name 是否显示搜索表单"
-        },
-        "name": "search",
-        "description": "@name 是否显示搜索表单",
-        "setter": {
-          "componentName": "ObjectSetter",
-          "props": {
-            "config": {
-              "extraSetter": {
-                "componentName": "MixedSetter",
-                "isRequired": false,
-                "props": {}
-              }
-            }
-          },
-          "isRequired": false,
-          "initialValue": {}
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "form",
-            "zh-CN": "基本配置与 antd"
-          },
-          "tip": "form | 基本配置与 antd Form 相同, 但是劫持了 form onFinish 的配置"
-        },
-        "name": "form",
-        "description": "基本配置与 antd Form 相同, 但是劫持了 form onFinish 的配置",
-        "setter": {
-          "componentName": "ObjectSetter",
-          "props": {
-            "config": {
-              "extraSetter": {
-                "componentName": "MixedSetter",
-                "isRequired": false,
-                "props": {}
-              }
-            }
-          },
-          "isRequired": false,
-          "initialValue": {}
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "dateFormatter",
-            "zh-CN": "暂时只支持 dayj"
-          },
-          "tip": "dateFormatter | 暂时只支持 dayjs - string 会格式化为 YYYY-DD-MM - number 代表时间戳"
-        },
-        "name": "dateFormatter",
-        "description": "暂时只支持 dayjs - string 会格式化为 YYYY-DD-MM - number 代表时间戳",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "FunctionSetter"
-              },
-              {
-                "componentName": "RadioGroupSetter",
-                "props": {
-                  "dataSource": [
-                    {
-                      "label": "false",
-                      "value": false
+                      isRequired: true
                     },
                     {
-                      "label": "string",
-                      "value": "string"
+                      name: 'dataIndex',
+                      title: { label: '数据字段', tip: 'dataIndex | 数据字段' },
+                      propType: 'string',
+                      setter: 'StringSetter',
+                      isRequired: true
                     },
                     {
-                      "label": "number",
-                      "value": "number"
-                    }
-                  ],
-                  "options": [
-                    {
-                      "label": "false",
-                      "value": false
-                    },
-                    {
-                      "label": "string",
-                      "value": "string"
-                    },
-                    {
-                      "label": "number",
-                      "value": "number"
-                    }
-                  ]
-                },
-                "initialValue": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "tableAlertRender",
-            "zh-CN": "设置或者返回fals"
-          },
-          "tip": "tableAlertRender | 设置或者返回false 即可关闭"
-        },
-        "name": "tableAlertRender",
-        "description": "设置或者返回false 即可关闭",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "FunctionSetter",
-                "isRequired": false
-              },
-              {
-                "componentName": "RadioGroupSetter",
-                "props": {
-                  "dataSource": [
-                    {
-                      "label": "false",
-                      "value": false
-                    }
-                  ],
-                  "options": [
-                    {
-                      "label": "false",
-                      "value": false
-                    }
-                  ]
-                },
-                "initialValue": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "tableAlertOptionRender",
-            "zh-CN": "设置或者返回fals"
-          },
-          "tip": "tableAlertOptionRender | 设置或者返回false 即可关闭"
-        },
-        "name": "tableAlertOptionRender",
-        "description": "设置或者返回false 即可关闭",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "FunctionSetter",
-                "isRequired": false
-              },
-              {
-                "componentName": "RadioGroupSetter",
-                "props": {
-                  "dataSource": [
-                    {
-                      "label": "false",
-                      "value": false
-                    }
-                  ],
-                  "options": [
-                    {
-                      "label": "false",
-                      "value": false
-                    }
-                  ]
-                },
-                "initialValue": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "rowSelection",
-            "zh-CN": "@name 选择项配"
-          },
-          "tip": "rowSelection | @name 选择项配置"
-        },
-        "name": "rowSelection",
-        "description": "@name 选择项配置",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                },
-                "isRequired": false,
-                "initialValue": {}
-              },
-              {
-                "componentName": "RadioGroupSetter",
-                "props": {
-                  "dataSource": [
-                    {
-                      "label": "false",
-                      "value": false
-                    }
-                  ],
-                  "options": [
-                    {
-                      "label": "false",
-                      "value": false
-                    }
-                  ]
-                },
-                "initialValue": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "type",
-            "zh-CN": "支持 ProTabl"
-          },
-          "tip": "type | 支持 ProTable 的类型"
-        },
-        "name": "type",
-        "description": "支持 ProTable 的类型",
-        "setter": {
-          "componentName": "SelectSetter",
-          "props": {
-            "dataSource": [
-              {
-                "label": "form",
-                "value": "form"
-              },
-              {
-                "label": "table",
-                "value": "table"
-              },
-              {
-                "label": "list",
-                "value": "list"
-              },
-              {
-                "label": "descriptions",
-                "value": "descriptions"
-              },
-              {
-                "label": "cardList",
-                "value": "cardList"
-              }
-            ],
-            "options": [
-              {
-                "label": "form",
-                "value": "form"
-              },
-              {
-                "label": "table",
-                "value": "table"
-              },
-              {
-                "label": "list",
-                "value": "list"
-              },
-              {
-                "label": "descriptions",
-                "value": "descriptions"
-              },
-              {
-                "label": "cardList",
-                "value": "cardList"
-              }
-            ]
-          },
-          "initialValue": "form"
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "columnEmptyText",
-            "zh-CN": "@name 空值时显"
-          },
-          "tip": "columnEmptyText | @name 空值时显示"
-        },
-        "name": "columnEmptyText",
-        "description": "@name 空值时显示",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "StringSetter",
-                "isRequired": false,
-                "initialValue": ""
-              },
-              {
-                "componentName": "RadioGroupSetter",
-                "props": {
-                  "dataSource": [
-                    {
-                      "label": "false",
-                      "value": false
-                    }
-                  ],
-                  "options": [
-                    {
-                      "label": "false",
-                      "value": false
-                    }
-                  ]
-                },
-                "initialValue": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "manualRequest",
-            "zh-CN": "@name 是否手动"
-          },
-          "tip": "manualRequest | @name 是否手动触发请求"
-        },
-        "name": "manualRequest",
-        "description": "@name 是否手动触发请求",
-        "setter": {
-          "componentName": "BoolSetter",
-          "isRequired": false,
-          "initialValue": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "editable",
-            "zh-CN": "@name 编辑行相"
-          },
-          "tip": "editable | @name 编辑行相关的配置"
-        },
-        "name": "editable",
-        "description": "@name 编辑行相关的配置",
-        "setter": {
-          "componentName": "ObjectSetter",
-          "props": {
-            "config": {
-              "items": [
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "formProps",
-                      "zh-CN": "formProps"
-                    }
-                  },
-                  "name": "formProps",
-                  "setter": {
-                    "componentName": "FunctionSetter"
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "form",
-                      "zh-CN": "form"
-                    }
-                  },
-                  "name": "form",
-                  "setter": {
-                    "componentName": "ObjectSetter",
-                    "props": {
-                      "config": {
-                        "items": [
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "Values",
-                                "zh-CN": "Values"
-                              }
-                            },
-                            "name": "Values",
-                            "setter": {
-                              "componentName": "MixedSetter",
-                              "isRequired": true,
-                              "props": {}
-                            }
-                          },
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "scrollToField",
-                                "zh-CN": "scrollToField"
-                              }
-                            },
-                            "name": "scrollToField",
-                            "setter": {
-                              "componentName": "FunctionSetter",
-                              "isRequired": true
-                            }
-                          },
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "__INTERNAL__",
-                                "zh-CN": "__INTERNAL__"
-                              }
-                            },
-                            "name": "__INTERNAL__",
-                            "setter": {
-                              "componentName": "ObjectSetter",
-                              "props": {
-                                "config": {
-                                  "items": [
-                                    {
-                                      "title": {
-                                        "label": {
-                                          "type": "i18n",
-                                          "en-US": "name",
-                                          "zh-CN": "name"
-                                        }
-                                      },
-                                      "name": "name",
-                                      "setter": {
-                                        "componentName": "StringSetter",
-                                        "isRequired": false,
-                                        "initialValue": ""
-                                      }
-                                    },
-                                    {
-                                      "title": {
-                                        "label": {
-                                          "type": "i18n",
-                                          "en-US": "itemRef",
-                                          "zh-CN": "itemRef"
-                                        }
-                                      },
-                                      "name": "itemRef",
-                                      "setter": {
-                                        "componentName": "FunctionSetter",
-                                        "isRequired": true
-                                      }
-                                    }
-                                  ],
-                                  "extraSetter": {
-                                    "componentName": "MixedSetter",
-                                    "isRequired": false,
-                                    "props": {}
-                                  }
-                                }
-                              },
-                              "isRequired": true
-                            }
-                          },
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "getFieldInstance",
-                                "zh-CN": "getFieldInstance"
-                              }
-                            },
-                            "name": "getFieldInstance",
-                            "setter": {
-                              "componentName": "FunctionSetter",
-                              "isRequired": true
-                            }
-                          }
-                        ],
-                        "extraSetter": {
-                          "componentName": "MixedSetter",
-                          "isRequired": false,
-                          "props": {}
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "type",
-                      "zh-CN": "type"
-                    }
-                  },
-                  "name": "type",
-                  "setter": {
-                    "componentName": "RadioGroupSetter",
-                    "props": {
-                      "dataSource": [
-                        {
-                          "label": "single",
-                          "value": "single"
-                        },
-                        {
-                          "label": "multiple",
-                          "value": "multiple"
-                        }
-                      ],
-                      "options": [
-                        {
-                          "label": "single",
-                          "value": "single"
-                        },
-                        {
-                          "label": "multiple",
-                          "value": "multiple"
-                        }
-                      ]
-                    },
-                    "initialValue": "single"
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "editableKeys",
-                      "zh-CN": "editableKeys"
-                    }
-                  },
-                  "name": "editableKeys",
-                  "setter": {
-                    "componentName": "ArraySetter",
-                    "props": {
-                      "itemSetter": {
-                        "componentName": "MixedSetter",
-                        "props": {
-                          "setters": [
+                      name: 'valueType',
+                      title: { label: '数据类型', tip: 'valueType | 数据类型' },
+                      propType: 'string',
+                      setter: {
+                        componentName: 'SelectSetter',
+                        props: {
+                          options: [
                             {
-                              "componentName": "StringSetter",
-                              "isRequired": false,
-                              "initialValue": ""
+                              title: '操作',
+                              value: 'option'
                             },
                             {
-                              "componentName": "NumberSetter",
-                              "isRequired": false,
-                              "initialValue": 0
+                              title: '文本',
+                              value: 'text'
+                            },
+                            {
+                              title: '标签',
+                              value: 'tag'
+                            },
+                            {
+                              title: '数字',
+                              value: 'digit'
+                            },
+                            {
+                              title: '密码输入框',
+                              value: 'password'
+                            },
+                            {
+                              title: '金额',
+                              value: 'money'
+                            },
+                            {
+                              title: '日期',
+                              value: 'date'
+                            },
+                            {
+                              title: '日期时间',
+                              value: 'dateTime'
+                            },
+                            {
+                              title: '日期区间',
+                              value: 'dateRange'
+                            },
+                            {
+                              title: '日期时间区间',
+                              value: 'dateTimeRange'
+                            },
+                            {
+                              title: '链接',
+                              value: 'link'
+                            },
+                            // {
+                            //   title: '标签',
+                            //   value: 'tag',
+                            // },
+                            {
+                              title: '头像',
+                              value: 'avatar'
+                            },
+                            {
+                              title: '开关',
+                              value: 'switch'
+                            },
+                            {
+                              title: '百分比',
+                              value: 'percent'
+                            },
+                            {
+                              title: '进度条',
+                              value: 'progress'
+                            },
+                            {
+                              title: '下拉框',
+                              value: 'select'
+                            },
+                            {
+                              title: '单选框',
+                              value: 'radio'
+                            },
+                            {
+                              title: '多选框',
+                              value: 'checkbox'
+                            },
+                            {
+                              title: '图片',
+                              value: 'image'
+                            },
+                            {
+                              title: 'JSON代码框',
+                              value: 'jsonCode'
+                            },
+                            {
+                              title: '代码框',
+                              value: 'code'
+                            },
+                            {
+                              title: '颜色选择器',
+                              value: 'color'
+                            },
+                            {
+                              title: '级联选择器',
+                              value: 'cascader'
                             }
                           ]
                         }
                       }
                     },
-                    "initialValue": []
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "onChange",
-                      "zh-CN": "onChange"
-                    }
-                  },
-                  "name": "onChange",
-                  "setter": {
-                    "componentName": "FunctionSetter"
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "onValuesChange",
-                      "zh-CN": "onValuesChange"
-                    }
-                  },
-                  "name": "onValuesChange",
-                  "setter": {
-                    "componentName": "FunctionSetter"
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "actionRender",
-                      "zh-CN": "actionRender"
-                    }
-                  },
-                  "name": "actionRender",
-                  "setter": {
-                    "componentName": "FunctionSetter",
-                    "isRequired": false
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "onSave",
-                      "zh-CN": "onSave"
-                    }
-                  },
-                  "name": "onSave",
-                  "setter": {
-                    "componentName": "FunctionSetter"
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "onCancel",
-                      "zh-CN": "onCancel"
-                    }
-                  },
-                  "name": "onCancel",
-                  "setter": {
-                    "componentName": "FunctionSetter"
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "onDelete",
-                      "zh-CN": "onDelete"
-                    }
-                  },
-                  "name": "onDelete",
-                  "setter": {
-                    "componentName": "FunctionSetter"
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "deletePopconfirmMessage",
-                      "zh-CN": "deletePopconfirmMessage"
-                    }
-                  },
-                  "name": "deletePopconfirmMessage",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "onlyOneLineEditorAlertMessage",
-                      "zh-CN": "onlyOneLineEditorAlertMessage"
-                    }
-                  },
-                  "name": "onlyOneLineEditorAlertMessage",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "onlyAddOneLineAlertMessage",
-                      "zh-CN": "onlyAddOneLineAlertMessage"
-                    }
-                  },
-                  "name": "onlyAddOneLineAlertMessage",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "tableName",
-                      "zh-CN": "tableName"
-                    }
-                  },
-                  "name": "tableName",
-                  "setter": {
-                    "componentName": "MixedSetter",
-                    "props": {
-                      "setters": [
-                        {
-                          "componentName": "StringSetter",
-                          "isRequired": false,
-                          "initialValue": ""
-                        },
-                        {
-                          "componentName": "NumberSetter",
-                          "isRequired": false,
-                          "initialValue": 0
-                        },
-                        {
-                          "componentName": "ArraySetter",
-                          "props": {
-                            "itemSetter": {
-                              "componentName": "MixedSetter",
-                              "props": {
-                                "setters": [
-                                  {
-                                    "componentName": "StringSetter",
-                                    "isRequired": false,
-                                    "initialValue": ""
-                                  },
-                                  {
-                                    "componentName": "NumberSetter",
-                                    "isRequired": false,
-                                    "initialValue": 0
-                                  }
-                                ]
-                              }
-                            }
-                          },
-                          "initialValue": []
-                        }
-                      ]
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "saveText",
-                      "zh-CN": "saveText"
-                    }
-                  },
-                  "name": "saveText",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "cancelText",
-                      "zh-CN": "cancelText"
-                    }
-                  },
-                  "name": "cancelText",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "deleteText",
-                      "zh-CN": "deleteText"
-                    }
-                  },
-                  "name": "deleteText",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "getRealIndex",
-                      "zh-CN": "getRealIndex"
-                    }
-                  },
-                  "name": "getRealIndex",
-                  "setter": {
-                    "componentName": "FunctionSetter"
-                  }
-                }
-              ],
-              "extraSetter": {
-                "componentName": "MixedSetter",
-                "isRequired": false,
-                "props": {}
-              }
-            }
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "cardBordered",
-            "zh-CN": "@name 查询表单"
-          },
-          "tip": "cardBordered | @name 查询表单和 Table 的卡片 border 配置"
-        },
-        "name": "cardBordered",
-        "description": "@name 查询表单和 Table 的卡片 border 配置",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "BoolSetter",
-                "isRequired": false,
-                "initialValue": false
-              },
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "items": [
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "search",
-                            "zh-CN": "search"
-                          }
-                        },
-                        "name": "search",
-                        "setter": {
-                          "componentName": "BoolSetter",
-                          "isRequired": false,
-                          "initialValue": false
-                        }
+                    {
+                      name: 'fieldProps',
+                      title: {
+                        label: '字段属性',
+                        tip: 'fieldProps | 字段属性，会透传给表单项'
                       },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "table",
-                            "zh-CN": "table"
+                      propType: 'object',
+                      setter: 'JsonSetter'
+                    },
+                    {
+                      name: 'formItemProps',
+                      title: {
+                        label: 'Form.Item 属性',
+                        tip: 'formItemProps | 传递给 Form.Item 的配置,可以配置 rules'
+                      },
+                      propType: 'object',
+                      setter: 'JsonSetter'
+                    },
+                    {
+                      name: 'renderTag',
+                      title: {
+                        label: '使用 Tag 渲染',
+                        tip: 'renderTag | 是否使用 Tag 渲染'
+                      },
+                      propType: 'bool',
+                      setter: 'BoolSetter'
+                    },
+                    {
+                      name: 'valueEnum',
+                      title: {
+                        label: '枚举定义',
+                        tip: 'valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容'
+                      },
+                      propType: 'object',
+                      setter: 'JsonSetter'
+                    },
+                    {
+                      title: {
+                        label: {
+                          type: 'i18n',
+                          'en-US': 'request',
+                          'zh-CN': '远程获取枚举'
+                        },
+                        tip: 'request | 远程获取枚举'
+                      },
+                      name: 'request',
+                      description: '远程获取枚举',
+                      setter: {
+                        componentName: 'FunctionSetter',
+                        isRequired: false
+                      }
+                    },
+                    {
+                      name: 'options',
+                      title: {
+                        label: 'options',
+                        tip: '支持select, checkbox, radio, radioButton'
+                      },
+                      description: '数据源',
+                      propType: 'object',
+                      setter: 'JsonSetter'
+                    },
+                    {
+                      name: 'width',
+                      title: { label: '宽度', tip: 'width | 宽度' },
+                      propType: {
+                        type: 'oneOfType',
+                        value: ['number', 'string']
+                      },
+                      setter: ['NumberSetter', 'StringSetter', 'VariableSetter']
+                    },
+                    {
+                      name: 'tooltip',
+                      title: {
+                        label: '气泡提示',
+                        tip: 'tooltip	| 气泡提示'
+                      },
+                      propType: 'string',
+                      setter: 'StringSetter'
+                    },
+                    {
+                      name: 'ellipsis',
+                      title: {
+                        label: '是否自动缩略',
+                        tip: 'ellipsis | 是否自动缩略'
+                      },
+                      propType: 'bool',
+                      setter: 'BoolSetter'
+                    },
+                    {
+                      name: 'copyable',
+                      title: {
+                        label: '是否可复制',
+                        tip: 'copyable | 是否可复制'
+                      },
+                      propType: 'bool',
+                      setter: 'BoolSetter'
+                    },
+                    // {
+                    //   name: 'valueEnum',
+                    //   title: {
+                    //     label: '枚举定义',
+                    //     tip: 'valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容'
+                    //   },
+                    //   propType: 'object',
+                    //   setter: 'JsonSetter'
+                    // },
+                    // {
+                    //   title: {
+                    //     label: {
+                    //       type: 'i18n',
+                    //       'en-US': 'request',
+                    //       'zh-CN': '远程获取枚举'
+                    //     },
+                    //     tip: 'request | 远程获取枚举'
+                    //   },
+                    //   name: 'request',
+                    //   description: '远程获取枚举',
+                    //   setter: {
+                    //     componentName: 'FunctionSetter',
+                    //     isRequired: false
+                    //   }
+                    // },
+                    {
+                      name: 'align',
+                      title: { label: '对齐方式', tip: 'align | 对齐方式' },
+                      propType: {
+                        type: 'oneOf',
+                        value: ['left', 'right', 'center']
+                      },
+                      defaultValue: 'left',
+                      setter: [
+                        {
+                          componentName: 'RadioGroupSetter',
+                          props: {
+                            options: [
+                              {
+                                title: 'left',
+                                value: 'left'
+                              },
+                              {
+                                title: 'right',
+                                value: 'right'
+                              },
+                              {
+                                title: 'center',
+                                value: 'center'
+                              }
+                            ]
                           }
                         },
-                        "name": "table",
-                        "setter": {
-                          "componentName": "BoolSetter",
-                          "isRequired": false,
-                          "initialValue": false
-                        }
-                      }
-                    ],
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "debounceTime",
-            "zh-CN": "@name 去抖时间"
-          },
-          "tip": "debounceTime | @name 去抖时间"
-        },
-        "name": "debounceTime",
-        "description": "@name 去抖时间",
-        "setter": {
-          "componentName": "NumberSetter",
-          "isRequired": false,
-          "initialValue": 0
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "revalidateOnFocus",
-            "zh-CN": "只在request "
-          },
-          "tip": "revalidateOnFocus | 只在request 存在的时候生效，可编辑表格也不会生效"
-        },
-        "name": "revalidateOnFocus",
-        "description": "只在request 存在的时候生效，可编辑表格也不会生效",
-        "defaultValue": "true",
-        "setter": {
-          "componentName": "BoolSetter",
-          "isRequired": false,
-          "initialValue": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "defaultSize",
-            "zh-CN": "默认的表格大小"
-          },
-          "tip": "defaultSize | 默认的表格大小"
-        },
-        "name": "defaultSize",
-        "description": "默认的表格大小",
-        "setter": {
-          "componentName": "RadioGroupSetter",
-          "props": {
-            "dataSource": [
-              {
-                "label": "small",
-                "value": "small"
-              },
-              {
-                "label": "middle",
-                "value": "middle"
-              },
-              {
-                "label": "large",
-                "value": "large"
-              }
-            ],
-            "options": [
-              {
-                "label": "small",
-                "value": "small"
-              },
-              {
-                "label": "middle",
-                "value": "middle"
-              },
-              {
-                "label": "large",
-                "value": "large"
-              }
-            ]
-          },
-          "initialValue": "small"
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "name",
-            "zh-CN": "@name , 可编"
-          },
-          "tip": "name | @name , 可编辑表格的name,通过这个name 可以直接与 form通信，无需嵌套"
-        },
-        "name": "name",
-        "description": "@name , 可编辑表格的name,通过这个name 可以直接与 form通信，无需嵌套",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "StringSetter",
-                "isRequired": false,
-                "initialValue": ""
-              },
-              {
-                "componentName": "NumberSetter",
-                "isRequired": false,
-                "initialValue": 0
-              },
-              {
-                "componentName": "ArraySetter",
-                "props": {
-                  "itemSetter": {
-                    "componentName": "MixedSetter",
-                    "props": {
-                      "setters": [
-                        {
-                          "componentName": "StringSetter",
-                          "isRequired": false,
-                          "initialValue": ""
-                        },
-                        {
-                          "componentName": "NumberSetter",
-                          "isRequired": false,
-                          "initialValue": 0
-                        }
+                        'VariableSetter'
                       ]
-                    }
-                  }
-                },
-                "initialValue": []
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "ErrorBoundary",
-            "zh-CN": "错误边界自定义"
-          },
-          "tip": "ErrorBoundary | 错误边界自定义"
-        },
-        "name": "ErrorBoundary",
-        "description": "错误边界自定义",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                },
-                "isRequired": false,
-                "initialValue": {}
-              },
-              {
-                "componentName": "RadioGroupSetter",
-                "props": {
-                  "dataSource": [
+                    },
                     {
-                      "label": "false",
-                      "value": false
-                    }
-                  ],
-                  "options": [
+                      name: 'fixed',
+                      title: { label: '列是否固定', tip: 'fixed | 列是否固定' },
+                      description:
+                        '（IE 下无效）列是否固定，可选 true (等效于 left) left right',
+                      defaultValue: '',
+                      propType: {
+                        type: 'oneOf',
+                        value: ['', 'left', 'right']
+                      },
+                      setter: [
+                        {
+                          componentName: 'RadioGroupSetter',
+                          props: {
+                            options: [
+                              {
+                                title: '不固定',
+                                value: ''
+                              },
+                              {
+                                title: '固定在左侧',
+                                value: 'left'
+                              },
+                              {
+                                title: '固定在右侧',
+                                value: 'right'
+                              }
+                            ]
+                          }
+                        },
+                        'VariableSetter'
+                      ]
+                    },
                     {
-                      "label": "false",
-                      "value": false
+                      name: 'className',
+                      title: {
+                        label: '列样式类名',
+                        tip: 'className | 列样式类名'
+                      },
+                      propType: 'string',
+                      setter: 'StringSetter'
+                    },
+                    {
+                      name: 'sorter',
+                      title: {
+                        label: '排序规则',
+                        tip: 'sorter | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true'
+                      },
+                      propType: { type: 'oneOfType', value: ['bool', 'func'] },
+                      setter: ['BoolSetter', 'FunctionSetter', 'VariableSetter']
+                    },
+                    {
+                      name: 'key',
+                      title: {
+                        label: 'React key',
+                        tip: 'key | React需要的key'
+                      },
+                      propType: 'string',
+                      setter: 'StringSetter'
+                    },
+                    {
+                      name: 'order',
+                      title: {
+                        label: '排序',
+                        tip: 'order | 查询表单中的权重，权重大排序靠前'
+                      },
+                      propType: 'number',
+                      setter: 'NumberSetter'
+                    },
+                    {
+                      name: 'hideInSearch',
+                      title: {
+                        label: '隐藏搜索列',
+                        tip: 'hideInSearch | 在查询表单中不展示此项'
+                      },
+                      propType: 'bool',
+                      setter: 'BoolSetter'
+                    },
+                    {
+                      name: 'hideInTable',
+                      title: {
+                        label: '隐藏列',
+                        tip: 'hideInTable | 在 Table 中不展示此列'
+                      },
+                      propType: 'bool',
+                      setter: 'BoolSetter'
+                    },
+                    {
+                      name: 'filters',
+                      title: {
+                        label: '筛选菜单项',
+                        tip: 'filters | 表头的筛选菜单项'
+                      },
+                      propType: 'object',
+                      setter: 'JsonSetter'
+                    },
+                    {
+                      name: 'fieldProps.showSearch',
+                      title: {
+                        label: '下拉框支持搜索',
+                        tip: 'fieldProps.showSearch | 下拉框支持搜索'
+                      },
+                      propType: 'bool',
+                      setter: 'BoolSetter'
+                    },
+                    {
+                      name: 'render',
+                      title: {
+                        label: '自定义渲染',
+                        tip: 'render | 插槽内的物料表达式可通过this.record获取当前行数据，this.index获取索引'
+                      },
+                      propType: 'func',
+                      setter: [
+                        {
+                          componentName: 'SlotSetter',
+                          title: '单元格插槽',
+                          initialValue: {
+                            type: 'JSSlot',
+                            params: ['text', 'record', 'index'],
+                            value: []
+                          }
+                        },
+                        'VariableSetter'
+                      ]
                     }
                   ]
-                },
-                "initialValue": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "footer",
-            "zh-CN": "footer"
-          }
-        },
-        "name": "footer",
-        "setter": {
-          "componentName": "FunctionSetter",
-          "isRequired": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "summary",
-            "zh-CN": "summary"
-          }
-        },
-        "name": "summary",
-        "setter": {
-          "componentName": "FunctionSetter",
-          "isRequired": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "title",
-            "zh-CN": "title"
-          }
-        },
-        "name": "title",
-        "setter": {
-          "componentName": "FunctionSetter",
-          "isRequired": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "scroll",
-            "zh-CN": "scroll"
-          }
-        },
-        "name": "scroll",
-        "setter": {
-          "componentName": "ObjectSetter",
-          "props": {
-            "config": {
-              "extraSetter": {
-                "componentName": "MixedSetter",
-                "isRequired": false,
-                "props": {}
-              }
-            }
-          },
-          "isRequired": false,
-          "initialValue": {}
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "expandedRowKeys",
-            "zh-CN": "@deprecate"
-          },
-          "tip": "expandedRowKeys | @deprecated Use `expandable.expandedRowKeys` instead"
-        },
-        "name": "expandedRowKeys",
-        "description": "@deprecated Use `expandable.expandedRowKeys` instead",
-        "setter": {
-          "componentName": "ArraySetter",
-          "props": {
-            "itemSetter": {
-              "componentName": "MixedSetter",
-              "props": {
-                "setters": [
-                  {
-                    "componentName": "StringSetter",
-                    "isRequired": false,
-                    "initialValue": ""
-                  },
-                  {
-                    "componentName": "NumberSetter",
-                    "isRequired": false,
-                    "initialValue": 0
-                  }
-                ]
-              }
-            }
-          },
-          "initialValue": []
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "defaultExpandedRowKeys",
-            "zh-CN": "@deprecate"
-          },
-          "tip": "defaultExpandedRowKeys | @deprecated Use `expandable.defaultExpandedRowKeys` instead"
-        },
-        "name": "defaultExpandedRowKeys",
-        "description": "@deprecated Use `expandable.defaultExpandedRowKeys` instead",
-        "setter": {
-          "componentName": "ArraySetter",
-          "props": {
-            "itemSetter": {
-              "componentName": "MixedSetter",
-              "props": {
-                "setters": [
-                  {
-                    "componentName": "StringSetter",
-                    "isRequired": false,
-                    "initialValue": ""
-                  },
-                  {
-                    "componentName": "NumberSetter",
-                    "isRequired": false,
-                    "initialValue": 0
-                  }
-                ]
-              }
-            }
-          },
-          "initialValue": []
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "expandedRowRender",
-            "zh-CN": "@deprecate"
-          },
-          "tip": "expandedRowRender | @deprecated Use `expandable.expandedRowRender` instead"
-        },
-        "name": "expandedRowRender",
-        "description": "@deprecated Use `expandable.expandedRowRender` instead",
-        "setter": {
-          "componentName": "FunctionSetter",
-          "isRequired": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "expandRowByClick",
-            "zh-CN": "@deprecate"
-          },
-          "tip": "expandRowByClick | @deprecated Use `expandable.expandRowByClick` instead"
-        },
-        "name": "expandRowByClick",
-        "description": "@deprecated Use `expandable.expandRowByClick` instead",
-        "setter": {
-          "componentName": "BoolSetter",
-          "isRequired": false,
-          "initialValue": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "expandIcon",
-            "zh-CN": "@deprecate"
-          },
-          "tip": "expandIcon | @deprecated Use `expandable.expandIcon` instead"
-        },
-        "name": "expandIcon",
-        "description": "@deprecated Use `expandable.expandIcon` instead",
-        "setter": {
-          "componentName": "FunctionSetter",
-          "isRequired": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "onExpandedRowsChange",
-            "zh-CN": "@deprecate"
-          },
-          "tip": "onExpandedRowsChange | @deprecated Use `expandable.onExpandedRowsChange` instead"
-        },
-        "name": "onExpandedRowsChange",
-        "description": "@deprecated Use `expandable.onExpandedRowsChange` instead",
-        "setter": {
-          "componentName": "FunctionSetter"
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "defaultExpandAllRows",
-            "zh-CN": "@deprecate"
-          },
-          "tip": "defaultExpandAllRows | @deprecated Use `expandable.defaultExpandAllRows` instead"
-        },
-        "name": "defaultExpandAllRows",
-        "description": "@deprecated Use `expandable.defaultExpandAllRows` instead",
-        "setter": {
-          "componentName": "BoolSetter",
-          "isRequired": false,
-          "initialValue": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "indentSize",
-            "zh-CN": "indentSize"
-          }
-        },
-        "name": "indentSize",
-        "setter": {
-          "componentName": "NumberSetter",
-          "isRequired": false,
-          "initialValue": 0
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "expandIconColumnIndex",
-            "zh-CN": "@deprecate"
-          },
-          "tip": "expandIconColumnIndex | @deprecated Use `expandable.expandIconColumnIndex` instead"
-        },
-        "name": "expandIconColumnIndex",
-        "description": "@deprecated Use `expandable.expandIconColumnIndex` instead",
-        "setter": {
-          "componentName": "NumberSetter",
-          "isRequired": false,
-          "initialValue": 0
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "expandedRowClassName",
-            "zh-CN": "@deprecate"
-          },
-          "tip": "expandedRowClassName | @deprecated Use `expandable.expandedRowClassName` instead"
-        },
-        "name": "expandedRowClassName",
-        "description": "@deprecated Use `expandable.expandedRowClassName` instead",
-        "setter": {
-          "componentName": "FunctionSetter",
-          "isRequired": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "childrenColumnName",
-            "zh-CN": "@deprecate"
-          },
-          "tip": "childrenColumnName | @deprecated Use `expandable.childrenColumnName` instead"
-        },
-        "name": "childrenColumnName",
-        "description": "@deprecated Use `expandable.childrenColumnName` instead",
-        "setter": {
-          "componentName": "StringSetter",
-          "isRequired": false,
-          "initialValue": ""
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "prefixCls",
-            "zh-CN": "prefixCls"
-          }
-        },
-        "name": "prefixCls",
-        "setter": {
-          "componentName": "StringSetter",
-          "isRequired": false,
-          "initialValue": ""
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "rowKey",
-            "zh-CN": "rowKey"
-          }
-        },
-        "name": "rowKey",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "StringSetter",
-                "isRequired": false,
-                "initialValue": ""
-              },
-              {
-                "componentName": "FunctionSetter",
-                "isRequired": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "tableLayout",
-            "zh-CN": "tableLayout"
-          }
-        },
-        "name": "tableLayout",
-        "setter": {
-          "componentName": "RadioGroupSetter",
-          "props": {
-            "dataSource": [
-              {
-                "label": "fixed",
-                "value": "fixed"
-              },
-              {
-                "label": "auto",
-                "value": "auto"
-              }
-            ],
-            "options": [
-              {
-                "label": "fixed",
-                "value": "fixed"
-              },
-              {
-                "label": "auto",
-                "value": "auto"
-              }
-            ]
-          },
-          "initialValue": "fixed"
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "expandable",
-            "zh-CN": "Config exp"
-          },
-          "tip": "expandable | Config expand rows"
-        },
-        "name": "expandable",
-        "description": "Config expand rows",
-        "setter": {
-          "componentName": "ObjectSetter",
-          "props": {
-            "config": {
-              "items": [
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "RecordType",
-                      "zh-CN": "RecordType"
-                    }
-                  },
-                  "name": "RecordType",
-                  "setter": {
-                    "componentName": "MixedSetter",
-                    "isRequired": true,
-                    "props": {}
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "expandedRowKeys",
-                      "zh-CN": "expandedRowKeys"
-                    }
-                  },
-                  "name": "expandedRowKeys",
-                  "setter": {
-                    "componentName": "ArraySetter",
-                    "props": {
-                      "itemSetter": {
-                        "componentName": "MixedSetter",
-                        "props": {
-                          "setters": [
-                            {
-                              "componentName": "StringSetter",
-                              "isRequired": false,
-                              "initialValue": ""
-                            },
-                            {
-                              "componentName": "NumberSetter",
-                              "isRequired": false,
-                              "initialValue": 0
-                            }
-                          ]
-                        }
-                      }
-                    },
-                    "initialValue": []
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "defaultExpandedRowKeys",
-                      "zh-CN": "defaultExpandedRowKeys"
-                    }
-                  },
-                  "name": "defaultExpandedRowKeys",
-                  "setter": {
-                    "componentName": "ArraySetter",
-                    "props": {
-                      "itemSetter": {
-                        "componentName": "MixedSetter",
-                        "props": {
-                          "setters": [
-                            {
-                              "componentName": "StringSetter",
-                              "isRequired": false,
-                              "initialValue": ""
-                            },
-                            {
-                              "componentName": "NumberSetter",
-                              "isRequired": false,
-                              "initialValue": 0
-                            }
-                          ]
-                        }
-                      }
-                    },
-                    "initialValue": []
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "expandedRowRender",
-                      "zh-CN": "expandedRowRender"
-                    }
-                  },
-                  "name": "expandedRowRender",
-                  "setter": {
-                    "componentName": "FunctionSetter",
-                    "isRequired": false
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "columnTitle",
-                      "zh-CN": "columnTitle"
-                    }
-                  },
-                  "name": "columnTitle",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "expandRowByClick",
-                      "zh-CN": "expandRowByClick"
-                    }
-                  },
-                  "name": "expandRowByClick",
-                  "setter": {
-                    "componentName": "BoolSetter",
-                    "isRequired": false,
-                    "initialValue": false
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "expandIcon",
-                      "zh-CN": "expandIcon"
-                    }
-                  },
-                  "name": "expandIcon",
-                  "setter": {
-                    "componentName": "FunctionSetter",
-                    "isRequired": false
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "onExpand",
-                      "zh-CN": "onExpand"
-                    }
-                  },
-                  "name": "onExpand",
-                  "setter": {
-                    "componentName": "FunctionSetter"
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "onExpandedRowsChange",
-                      "zh-CN": "onExpandedRowsChange"
-                    }
-                  },
-                  "name": "onExpandedRowsChange",
-                  "setter": {
-                    "componentName": "FunctionSetter"
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "defaultExpandAllRows",
-                      "zh-CN": "defaultExpandAllRows"
-                    }
-                  },
-                  "name": "defaultExpandAllRows",
-                  "setter": {
-                    "componentName": "BoolSetter",
-                    "isRequired": false,
-                    "initialValue": false
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "indentSize",
-                      "zh-CN": "indentSize"
-                    }
-                  },
-                  "name": "indentSize",
-                  "setter": {
-                    "componentName": "NumberSetter",
-                    "isRequired": false,
-                    "initialValue": 0
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "expandIconColumnIndex",
-                      "zh-CN": "expandIconColumnIndex"
-                    }
-                  },
-                  "name": "expandIconColumnIndex",
-                  "setter": {
-                    "componentName": "NumberSetter",
-                    "isRequired": false,
-                    "initialValue": 0
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "showExpandColumn",
-                      "zh-CN": "showExpandColumn"
-                    }
-                  },
-                  "name": "showExpandColumn",
-                  "setter": {
-                    "componentName": "BoolSetter",
-                    "isRequired": false,
-                    "initialValue": false
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "expandedRowClassName",
-                      "zh-CN": "expandedRowClassName"
-                    }
-                  },
-                  "name": "expandedRowClassName",
-                  "setter": {
-                    "componentName": "FunctionSetter",
-                    "isRequired": false
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "childrenColumnName",
-                      "zh-CN": "childrenColumnName"
-                    }
-                  },
-                  "name": "childrenColumnName",
-                  "setter": {
-                    "componentName": "StringSetter",
-                    "isRequired": false,
-                    "initialValue": ""
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "rowExpandable",
-                      "zh-CN": "rowExpandable"
-                    }
-                  },
-                  "name": "rowExpandable",
-                  "setter": {
-                    "componentName": "FunctionSetter"
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "columnWidth",
-                      "zh-CN": "columnWidth"
-                    }
-                  },
-                  "name": "columnWidth",
-                  "setter": {
-                    "componentName": "MixedSetter",
-                    "props": {
-                      "setters": [
-                        {
-                          "componentName": "StringSetter",
-                          "isRequired": false,
-                          "initialValue": ""
-                        },
-                        {
-                          "componentName": "NumberSetter",
-                          "isRequired": false,
-                          "initialValue": 0
-                        }
-                      ]
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "fixed",
-                      "zh-CN": "fixed"
-                    }
-                  },
-                  "name": "fixed",
-                  "setter": {
-                    "componentName": "MixedSetter",
-                    "props": {
-                      "setters": [
-                        {
-                          "componentName": "BoolSetter",
-                          "isRequired": false,
-                          "initialValue": false
-                        },
-                        {
-                          "componentName": "RadioGroupSetter",
-                          "props": {
-                            "dataSource": [
-                              {
-                                "label": "left",
-                                "value": "left"
-                              },
-                              {
-                                "label": "right",
-                                "value": "right"
-                              }
-                            ],
-                            "options": [
-                              {
-                                "label": "left",
-                                "value": "left"
-                              },
-                              {
-                                "label": "right",
-                                "value": "right"
-                              }
-                            ]
-                          },
-                          "initialValue": "left"
-                        }
-                      ]
-                    }
-                  }
-                }
-              ],
-              "extraSetter": {
-                "componentName": "MixedSetter",
-                "isRequired": false,
-                "props": {}
-              }
-            }
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "rowClassName",
-            "zh-CN": "rowClassName"
-          }
-        },
-        "name": "rowClassName",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "StringSetter",
-                "isRequired": false,
-                "initialValue": ""
-              },
-              {
-                "componentName": "FunctionSetter",
-                "isRequired": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "id",
-            "zh-CN": "id"
-          }
-        },
-        "name": "id",
-        "setter": {
-          "componentName": "StringSetter",
-          "isRequired": false,
-          "initialValue": ""
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "showHeader",
-            "zh-CN": "showHeader"
-          }
-        },
-        "name": "showHeader",
-        "setter": {
-          "componentName": "BoolSetter",
-          "isRequired": false,
-          "initialValue": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "components",
-            "zh-CN": "components"
-          }
-        },
-        "name": "components",
-        "setter": {
-          "componentName": "ObjectSetter",
-          "props": {
-            "config": {
-              "items": [
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "RecordType",
-                      "zh-CN": "RecordType"
-                    }
-                  },
-                  "name": "RecordType",
-                  "setter": {
-                    "componentName": "MixedSetter",
-                    "isRequired": true,
-                    "props": {}
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "table",
-                      "zh-CN": "table"
-                    }
-                  },
-                  "name": "table",
-                  "setter": {
-                    "componentName": "MixedSetter",
-                    "props": {
-                      "setters": [
-                        {
-                          "componentName": "ObjectSetter",
-                          "props": {
-                            "config": {
-                              "extraSetter": {
-                                "componentName": "MixedSetter",
-                                "isRequired": false,
-                                "props": {}
-                              }
-                            }
-                          },
-                          "isRequired": false,
-                          "initialValue": {}
-                        },
-                        {
-                          "componentName": "SelectSetter",
-                          "props": {
-                            "dataSource": [
-                              {
-                                "label": "object",
-                                "value": "object"
-                              },
-                              {
-                                "label": "a",
-                                "value": "a"
-                              },
-                              {
-                                "label": "abbr",
-                                "value": "abbr"
-                              },
-                              {
-                                "label": "address",
-                                "value": "address"
-                              },
-                              {
-                                "label": "area",
-                                "value": "area"
-                              },
-                              {
-                                "label": "article",
-                                "value": "article"
-                              },
-                              {
-                                "label": "aside",
-                                "value": "aside"
-                              },
-                              {
-                                "label": "audio",
-                                "value": "audio"
-                              },
-                              {
-                                "label": "b",
-                                "value": "b"
-                              },
-                              {
-                                "label": "base",
-                                "value": "base"
-                              },
-                              {
-                                "label": "bdi",
-                                "value": "bdi"
-                              },
-                              {
-                                "label": "bdo",
-                                "value": "bdo"
-                              },
-                              {
-                                "label": "big",
-                                "value": "big"
-                              },
-                              {
-                                "label": "blockquote",
-                                "value": "blockquote"
-                              },
-                              {
-                                "label": "body",
-                                "value": "body"
-                              },
-                              {
-                                "label": "br",
-                                "value": "br"
-                              },
-                              {
-                                "label": "button",
-                                "value": "button"
-                              },
-                              {
-                                "label": "canvas",
-                                "value": "canvas"
-                              },
-                              {
-                                "label": "caption",
-                                "value": "caption"
-                              },
-                              {
-                                "label": "cite",
-                                "value": "cite"
-                              },
-                              {
-                                "label": "code",
-                                "value": "code"
-                              },
-                              {
-                                "label": "col",
-                                "value": "col"
-                              },
-                              {
-                                "label": "colgroup",
-                                "value": "colgroup"
-                              },
-                              {
-                                "label": "data",
-                                "value": "data"
-                              },
-                              {
-                                "label": "datalist",
-                                "value": "datalist"
-                              },
-                              {
-                                "label": "dd",
-                                "value": "dd"
-                              },
-                              {
-                                "label": "del",
-                                "value": "del"
-                              },
-                              {
-                                "label": "details",
-                                "value": "details"
-                              },
-                              {
-                                "label": "dfn",
-                                "value": "dfn"
-                              },
-                              {
-                                "label": "dialog",
-                                "value": "dialog"
-                              },
-                              {
-                                "label": "div",
-                                "value": "div"
-                              },
-                              {
-                                "label": "dl",
-                                "value": "dl"
-                              },
-                              {
-                                "label": "dt",
-                                "value": "dt"
-                              },
-                              {
-                                "label": "em",
-                                "value": "em"
-                              },
-                              {
-                                "label": "embed",
-                                "value": "embed"
-                              },
-                              {
-                                "label": "fieldset",
-                                "value": "fieldset"
-                              },
-                              {
-                                "label": "figcaption",
-                                "value": "figcaption"
-                              },
-                              {
-                                "label": "figure",
-                                "value": "figure"
-                              },
-                              {
-                                "label": "footer",
-                                "value": "footer"
-                              },
-                              {
-                                "label": "form",
-                                "value": "form"
-                              },
-                              {
-                                "label": "h1",
-                                "value": "h1"
-                              },
-                              {
-                                "label": "h2",
-                                "value": "h2"
-                              },
-                              {
-                                "label": "h3",
-                                "value": "h3"
-                              },
-                              {
-                                "label": "h4",
-                                "value": "h4"
-                              },
-                              {
-                                "label": "h5",
-                                "value": "h5"
-                              },
-                              {
-                                "label": "h6",
-                                "value": "h6"
-                              },
-                              {
-                                "label": "head",
-                                "value": "head"
-                              },
-                              {
-                                "label": "header",
-                                "value": "header"
-                              },
-                              {
-                                "label": "hgroup",
-                                "value": "hgroup"
-                              },
-                              {
-                                "label": "hr",
-                                "value": "hr"
-                              },
-                              {
-                                "label": "html",
-                                "value": "html"
-                              },
-                              {
-                                "label": "i",
-                                "value": "i"
-                              },
-                              {
-                                "label": "iframe",
-                                "value": "iframe"
-                              },
-                              {
-                                "label": "img",
-                                "value": "img"
-                              },
-                              {
-                                "label": "input",
-                                "value": "input"
-                              },
-                              {
-                                "label": "ins",
-                                "value": "ins"
-                              },
-                              {
-                                "label": "kbd",
-                                "value": "kbd"
-                              },
-                              {
-                                "label": "keygen",
-                                "value": "keygen"
-                              },
-                              {
-                                "label": "label",
-                                "value": "label"
-                              },
-                              {
-                                "label": "legend",
-                                "value": "legend"
-                              },
-                              {
-                                "label": "li",
-                                "value": "li"
-                              },
-                              {
-                                "label": "link",
-                                "value": "link"
-                              },
-                              {
-                                "label": "main",
-                                "value": "main"
-                              },
-                              {
-                                "label": "map",
-                                "value": "map"
-                              },
-                              {
-                                "label": "mark",
-                                "value": "mark"
-                              },
-                              {
-                                "label": "menu",
-                                "value": "menu"
-                              },
-                              {
-                                "label": "menuitem",
-                                "value": "menuitem"
-                              },
-                              {
-                                "label": "meta",
-                                "value": "meta"
-                              },
-                              {
-                                "label": "meter",
-                                "value": "meter"
-                              },
-                              {
-                                "label": "nav",
-                                "value": "nav"
-                              },
-                              {
-                                "label": "noscript",
-                                "value": "noscript"
-                              },
-                              {
-                                "label": "ol",
-                                "value": "ol"
-                              },
-                              {
-                                "label": "optgroup",
-                                "value": "optgroup"
-                              },
-                              {
-                                "label": "option",
-                                "value": "option"
-                              },
-                              {
-                                "label": "output",
-                                "value": "output"
-                              },
-                              {
-                                "label": "p",
-                                "value": "p"
-                              },
-                              {
-                                "label": "param",
-                                "value": "param"
-                              },
-                              {
-                                "label": "picture",
-                                "value": "picture"
-                              },
-                              {
-                                "label": "pre",
-                                "value": "pre"
-                              },
-                              {
-                                "label": "progress",
-                                "value": "progress"
-                              },
-                              {
-                                "label": "q",
-                                "value": "q"
-                              },
-                              {
-                                "label": "rp",
-                                "value": "rp"
-                              },
-                              {
-                                "label": "rt",
-                                "value": "rt"
-                              },
-                              {
-                                "label": "ruby",
-                                "value": "ruby"
-                              },
-                              {
-                                "label": "s",
-                                "value": "s"
-                              },
-                              {
-                                "label": "samp",
-                                "value": "samp"
-                              },
-                              {
-                                "label": "slot",
-                                "value": "slot"
-                              },
-                              {
-                                "label": "script",
-                                "value": "script"
-                              },
-                              {
-                                "label": "section",
-                                "value": "section"
-                              },
-                              {
-                                "label": "select",
-                                "value": "select"
-                              },
-                              {
-                                "label": "small",
-                                "value": "small"
-                              },
-                              {
-                                "label": "source",
-                                "value": "source"
-                              },
-                              {
-                                "label": "span",
-                                "value": "span"
-                              },
-                              {
-                                "label": "strong",
-                                "value": "strong"
-                              },
-                              {
-                                "label": "style",
-                                "value": "style"
-                              },
-                              {
-                                "label": "sub",
-                                "value": "sub"
-                              },
-                              {
-                                "label": "summary",
-                                "value": "summary"
-                              },
-                              {
-                                "label": "sup",
-                                "value": "sup"
-                              },
-                              {
-                                "label": "table",
-                                "value": "table"
-                              },
-                              {
-                                "label": "template",
-                                "value": "template"
-                              },
-                              {
-                                "label": "tbody",
-                                "value": "tbody"
-                              },
-                              {
-                                "label": "td",
-                                "value": "td"
-                              },
-                              {
-                                "label": "textarea",
-                                "value": "textarea"
-                              },
-                              {
-                                "label": "tfoot",
-                                "value": "tfoot"
-                              },
-                              {
-                                "label": "th",
-                                "value": "th"
-                              },
-                              {
-                                "label": "thead",
-                                "value": "thead"
-                              },
-                              {
-                                "label": "time",
-                                "value": "time"
-                              },
-                              {
-                                "label": "title",
-                                "value": "title"
-                              },
-                              {
-                                "label": "tr",
-                                "value": "tr"
-                              },
-                              {
-                                "label": "track",
-                                "value": "track"
-                              },
-                              {
-                                "label": "u",
-                                "value": "u"
-                              },
-                              {
-                                "label": "ul",
-                                "value": "ul"
-                              },
-                              {
-                                "label": "var",
-                                "value": "var"
-                              },
-                              {
-                                "label": "video",
-                                "value": "video"
-                              },
-                              {
-                                "label": "wbr",
-                                "value": "wbr"
-                              },
-                              {
-                                "label": "webview",
-                                "value": "webview"
-                              }
-                            ],
-                            "options": [
-                              {
-                                "label": "object",
-                                "value": "object"
-                              },
-                              {
-                                "label": "a",
-                                "value": "a"
-                              },
-                              {
-                                "label": "abbr",
-                                "value": "abbr"
-                              },
-                              {
-                                "label": "address",
-                                "value": "address"
-                              },
-                              {
-                                "label": "area",
-                                "value": "area"
-                              },
-                              {
-                                "label": "article",
-                                "value": "article"
-                              },
-                              {
-                                "label": "aside",
-                                "value": "aside"
-                              },
-                              {
-                                "label": "audio",
-                                "value": "audio"
-                              },
-                              {
-                                "label": "b",
-                                "value": "b"
-                              },
-                              {
-                                "label": "base",
-                                "value": "base"
-                              },
-                              {
-                                "label": "bdi",
-                                "value": "bdi"
-                              },
-                              {
-                                "label": "bdo",
-                                "value": "bdo"
-                              },
-                              {
-                                "label": "big",
-                                "value": "big"
-                              },
-                              {
-                                "label": "blockquote",
-                                "value": "blockquote"
-                              },
-                              {
-                                "label": "body",
-                                "value": "body"
-                              },
-                              {
-                                "label": "br",
-                                "value": "br"
-                              },
-                              {
-                                "label": "button",
-                                "value": "button"
-                              },
-                              {
-                                "label": "canvas",
-                                "value": "canvas"
-                              },
-                              {
-                                "label": "caption",
-                                "value": "caption"
-                              },
-                              {
-                                "label": "cite",
-                                "value": "cite"
-                              },
-                              {
-                                "label": "code",
-                                "value": "code"
-                              },
-                              {
-                                "label": "col",
-                                "value": "col"
-                              },
-                              {
-                                "label": "colgroup",
-                                "value": "colgroup"
-                              },
-                              {
-                                "label": "data",
-                                "value": "data"
-                              },
-                              {
-                                "label": "datalist",
-                                "value": "datalist"
-                              },
-                              {
-                                "label": "dd",
-                                "value": "dd"
-                              },
-                              {
-                                "label": "del",
-                                "value": "del"
-                              },
-                              {
-                                "label": "details",
-                                "value": "details"
-                              },
-                              {
-                                "label": "dfn",
-                                "value": "dfn"
-                              },
-                              {
-                                "label": "dialog",
-                                "value": "dialog"
-                              },
-                              {
-                                "label": "div",
-                                "value": "div"
-                              },
-                              {
-                                "label": "dl",
-                                "value": "dl"
-                              },
-                              {
-                                "label": "dt",
-                                "value": "dt"
-                              },
-                              {
-                                "label": "em",
-                                "value": "em"
-                              },
-                              {
-                                "label": "embed",
-                                "value": "embed"
-                              },
-                              {
-                                "label": "fieldset",
-                                "value": "fieldset"
-                              },
-                              {
-                                "label": "figcaption",
-                                "value": "figcaption"
-                              },
-                              {
-                                "label": "figure",
-                                "value": "figure"
-                              },
-                              {
-                                "label": "footer",
-                                "value": "footer"
-                              },
-                              {
-                                "label": "form",
-                                "value": "form"
-                              },
-                              {
-                                "label": "h1",
-                                "value": "h1"
-                              },
-                              {
-                                "label": "h2",
-                                "value": "h2"
-                              },
-                              {
-                                "label": "h3",
-                                "value": "h3"
-                              },
-                              {
-                                "label": "h4",
-                                "value": "h4"
-                              },
-                              {
-                                "label": "h5",
-                                "value": "h5"
-                              },
-                              {
-                                "label": "h6",
-                                "value": "h6"
-                              },
-                              {
-                                "label": "head",
-                                "value": "head"
-                              },
-                              {
-                                "label": "header",
-                                "value": "header"
-                              },
-                              {
-                                "label": "hgroup",
-                                "value": "hgroup"
-                              },
-                              {
-                                "label": "hr",
-                                "value": "hr"
-                              },
-                              {
-                                "label": "html",
-                                "value": "html"
-                              },
-                              {
-                                "label": "i",
-                                "value": "i"
-                              },
-                              {
-                                "label": "iframe",
-                                "value": "iframe"
-                              },
-                              {
-                                "label": "img",
-                                "value": "img"
-                              },
-                              {
-                                "label": "input",
-                                "value": "input"
-                              },
-                              {
-                                "label": "ins",
-                                "value": "ins"
-                              },
-                              {
-                                "label": "kbd",
-                                "value": "kbd"
-                              },
-                              {
-                                "label": "keygen",
-                                "value": "keygen"
-                              },
-                              {
-                                "label": "label",
-                                "value": "label"
-                              },
-                              {
-                                "label": "legend",
-                                "value": "legend"
-                              },
-                              {
-                                "label": "li",
-                                "value": "li"
-                              },
-                              {
-                                "label": "link",
-                                "value": "link"
-                              },
-                              {
-                                "label": "main",
-                                "value": "main"
-                              },
-                              {
-                                "label": "map",
-                                "value": "map"
-                              },
-                              {
-                                "label": "mark",
-                                "value": "mark"
-                              },
-                              {
-                                "label": "menu",
-                                "value": "menu"
-                              },
-                              {
-                                "label": "menuitem",
-                                "value": "menuitem"
-                              },
-                              {
-                                "label": "meta",
-                                "value": "meta"
-                              },
-                              {
-                                "label": "meter",
-                                "value": "meter"
-                              },
-                              {
-                                "label": "nav",
-                                "value": "nav"
-                              },
-                              {
-                                "label": "noscript",
-                                "value": "noscript"
-                              },
-                              {
-                                "label": "ol",
-                                "value": "ol"
-                              },
-                              {
-                                "label": "optgroup",
-                                "value": "optgroup"
-                              },
-                              {
-                                "label": "option",
-                                "value": "option"
-                              },
-                              {
-                                "label": "output",
-                                "value": "output"
-                              },
-                              {
-                                "label": "p",
-                                "value": "p"
-                              },
-                              {
-                                "label": "param",
-                                "value": "param"
-                              },
-                              {
-                                "label": "picture",
-                                "value": "picture"
-                              },
-                              {
-                                "label": "pre",
-                                "value": "pre"
-                              },
-                              {
-                                "label": "progress",
-                                "value": "progress"
-                              },
-                              {
-                                "label": "q",
-                                "value": "q"
-                              },
-                              {
-                                "label": "rp",
-                                "value": "rp"
-                              },
-                              {
-                                "label": "rt",
-                                "value": "rt"
-                              },
-                              {
-                                "label": "ruby",
-                                "value": "ruby"
-                              },
-                              {
-                                "label": "s",
-                                "value": "s"
-                              },
-                              {
-                                "label": "samp",
-                                "value": "samp"
-                              },
-                              {
-                                "label": "slot",
-                                "value": "slot"
-                              },
-                              {
-                                "label": "script",
-                                "value": "script"
-                              },
-                              {
-                                "label": "section",
-                                "value": "section"
-                              },
-                              {
-                                "label": "select",
-                                "value": "select"
-                              },
-                              {
-                                "label": "small",
-                                "value": "small"
-                              },
-                              {
-                                "label": "source",
-                                "value": "source"
-                              },
-                              {
-                                "label": "span",
-                                "value": "span"
-                              },
-                              {
-                                "label": "strong",
-                                "value": "strong"
-                              },
-                              {
-                                "label": "style",
-                                "value": "style"
-                              },
-                              {
-                                "label": "sub",
-                                "value": "sub"
-                              },
-                              {
-                                "label": "summary",
-                                "value": "summary"
-                              },
-                              {
-                                "label": "sup",
-                                "value": "sup"
-                              },
-                              {
-                                "label": "table",
-                                "value": "table"
-                              },
-                              {
-                                "label": "template",
-                                "value": "template"
-                              },
-                              {
-                                "label": "tbody",
-                                "value": "tbody"
-                              },
-                              {
-                                "label": "td",
-                                "value": "td"
-                              },
-                              {
-                                "label": "textarea",
-                                "value": "textarea"
-                              },
-                              {
-                                "label": "tfoot",
-                                "value": "tfoot"
-                              },
-                              {
-                                "label": "th",
-                                "value": "th"
-                              },
-                              {
-                                "label": "thead",
-                                "value": "thead"
-                              },
-                              {
-                                "label": "time",
-                                "value": "time"
-                              },
-                              {
-                                "label": "title",
-                                "value": "title"
-                              },
-                              {
-                                "label": "tr",
-                                "value": "tr"
-                              },
-                              {
-                                "label": "track",
-                                "value": "track"
-                              },
-                              {
-                                "label": "u",
-                                "value": "u"
-                              },
-                              {
-                                "label": "ul",
-                                "value": "ul"
-                              },
-                              {
-                                "label": "var",
-                                "value": "var"
-                              },
-                              {
-                                "label": "video",
-                                "value": "video"
-                              },
-                              {
-                                "label": "wbr",
-                                "value": "wbr"
-                              },
-                              {
-                                "label": "webview",
-                                "value": "webview"
-                              }
-                            ]
-                          },
-                          "initialValue": "object"
-                        }
-                      ]
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "header",
-                      "zh-CN": "header"
-                    }
-                  },
-                  "name": "header",
-                  "setter": {
-                    "componentName": "ObjectSetter",
-                    "props": {
-                      "config": {
-                        "items": [
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "wrapper",
-                                "zh-CN": "wrapper"
-                              }
-                            },
-                            "name": "wrapper",
-                            "setter": {
-                              "componentName": "MixedSetter",
-                              "props": {
-                                "setters": [
-                                  {
-                                    "componentName": "ObjectSetter",
-                                    "props": {
-                                      "config": {
-                                        "extraSetter": {
-                                          "componentName": "MixedSetter",
-                                          "isRequired": false,
-                                          "props": {}
-                                        }
-                                      }
-                                    },
-                                    "isRequired": false,
-                                    "initialValue": {}
-                                  },
-                                  {
-                                    "componentName": "SelectSetter",
-                                    "props": {
-                                      "dataSource": [
-                                        {
-                                          "label": "object",
-                                          "value": "object"
-                                        },
-                                        {
-                                          "label": "a",
-                                          "value": "a"
-                                        },
-                                        {
-                                          "label": "abbr",
-                                          "value": "abbr"
-                                        },
-                                        {
-                                          "label": "address",
-                                          "value": "address"
-                                        },
-                                        {
-                                          "label": "area",
-                                          "value": "area"
-                                        },
-                                        {
-                                          "label": "article",
-                                          "value": "article"
-                                        },
-                                        {
-                                          "label": "aside",
-                                          "value": "aside"
-                                        },
-                                        {
-                                          "label": "audio",
-                                          "value": "audio"
-                                        },
-                                        {
-                                          "label": "b",
-                                          "value": "b"
-                                        },
-                                        {
-                                          "label": "base",
-                                          "value": "base"
-                                        },
-                                        {
-                                          "label": "bdi",
-                                          "value": "bdi"
-                                        },
-                                        {
-                                          "label": "bdo",
-                                          "value": "bdo"
-                                        },
-                                        {
-                                          "label": "big",
-                                          "value": "big"
-                                        },
-                                        {
-                                          "label": "blockquote",
-                                          "value": "blockquote"
-                                        },
-                                        {
-                                          "label": "body",
-                                          "value": "body"
-                                        },
-                                        {
-                                          "label": "br",
-                                          "value": "br"
-                                        },
-                                        {
-                                          "label": "button",
-                                          "value": "button"
-                                        },
-                                        {
-                                          "label": "canvas",
-                                          "value": "canvas"
-                                        },
-                                        {
-                                          "label": "caption",
-                                          "value": "caption"
-                                        },
-                                        {
-                                          "label": "cite",
-                                          "value": "cite"
-                                        },
-                                        {
-                                          "label": "code",
-                                          "value": "code"
-                                        },
-                                        {
-                                          "label": "col",
-                                          "value": "col"
-                                        },
-                                        {
-                                          "label": "colgroup",
-                                          "value": "colgroup"
-                                        },
-                                        {
-                                          "label": "data",
-                                          "value": "data"
-                                        },
-                                        {
-                                          "label": "datalist",
-                                          "value": "datalist"
-                                        },
-                                        {
-                                          "label": "dd",
-                                          "value": "dd"
-                                        },
-                                        {
-                                          "label": "del",
-                                          "value": "del"
-                                        },
-                                        {
-                                          "label": "details",
-                                          "value": "details"
-                                        },
-                                        {
-                                          "label": "dfn",
-                                          "value": "dfn"
-                                        },
-                                        {
-                                          "label": "dialog",
-                                          "value": "dialog"
-                                        },
-                                        {
-                                          "label": "div",
-                                          "value": "div"
-                                        },
-                                        {
-                                          "label": "dl",
-                                          "value": "dl"
-                                        },
-                                        {
-                                          "label": "dt",
-                                          "value": "dt"
-                                        },
-                                        {
-                                          "label": "em",
-                                          "value": "em"
-                                        },
-                                        {
-                                          "label": "embed",
-                                          "value": "embed"
-                                        },
-                                        {
-                                          "label": "fieldset",
-                                          "value": "fieldset"
-                                        },
-                                        {
-                                          "label": "figcaption",
-                                          "value": "figcaption"
-                                        },
-                                        {
-                                          "label": "figure",
-                                          "value": "figure"
-                                        },
-                                        {
-                                          "label": "footer",
-                                          "value": "footer"
-                                        },
-                                        {
-                                          "label": "form",
-                                          "value": "form"
-                                        },
-                                        {
-                                          "label": "h1",
-                                          "value": "h1"
-                                        },
-                                        {
-                                          "label": "h2",
-                                          "value": "h2"
-                                        },
-                                        {
-                                          "label": "h3",
-                                          "value": "h3"
-                                        },
-                                        {
-                                          "label": "h4",
-                                          "value": "h4"
-                                        },
-                                        {
-                                          "label": "h5",
-                                          "value": "h5"
-                                        },
-                                        {
-                                          "label": "h6",
-                                          "value": "h6"
-                                        },
-                                        {
-                                          "label": "head",
-                                          "value": "head"
-                                        },
-                                        {
-                                          "label": "header",
-                                          "value": "header"
-                                        },
-                                        {
-                                          "label": "hgroup",
-                                          "value": "hgroup"
-                                        },
-                                        {
-                                          "label": "hr",
-                                          "value": "hr"
-                                        },
-                                        {
-                                          "label": "html",
-                                          "value": "html"
-                                        },
-                                        {
-                                          "label": "i",
-                                          "value": "i"
-                                        },
-                                        {
-                                          "label": "iframe",
-                                          "value": "iframe"
-                                        },
-                                        {
-                                          "label": "img",
-                                          "value": "img"
-                                        },
-                                        {
-                                          "label": "input",
-                                          "value": "input"
-                                        },
-                                        {
-                                          "label": "ins",
-                                          "value": "ins"
-                                        },
-                                        {
-                                          "label": "kbd",
-                                          "value": "kbd"
-                                        },
-                                        {
-                                          "label": "keygen",
-                                          "value": "keygen"
-                                        },
-                                        {
-                                          "label": "label",
-                                          "value": "label"
-                                        },
-                                        {
-                                          "label": "legend",
-                                          "value": "legend"
-                                        },
-                                        {
-                                          "label": "li",
-                                          "value": "li"
-                                        },
-                                        {
-                                          "label": "link",
-                                          "value": "link"
-                                        },
-                                        {
-                                          "label": "main",
-                                          "value": "main"
-                                        },
-                                        {
-                                          "label": "map",
-                                          "value": "map"
-                                        },
-                                        {
-                                          "label": "mark",
-                                          "value": "mark"
-                                        },
-                                        {
-                                          "label": "menu",
-                                          "value": "menu"
-                                        },
-                                        {
-                                          "label": "menuitem",
-                                          "value": "menuitem"
-                                        },
-                                        {
-                                          "label": "meta",
-                                          "value": "meta"
-                                        },
-                                        {
-                                          "label": "meter",
-                                          "value": "meter"
-                                        },
-                                        {
-                                          "label": "nav",
-                                          "value": "nav"
-                                        },
-                                        {
-                                          "label": "noscript",
-                                          "value": "noscript"
-                                        },
-                                        {
-                                          "label": "ol",
-                                          "value": "ol"
-                                        },
-                                        {
-                                          "label": "optgroup",
-                                          "value": "optgroup"
-                                        },
-                                        {
-                                          "label": "option",
-                                          "value": "option"
-                                        },
-                                        {
-                                          "label": "output",
-                                          "value": "output"
-                                        },
-                                        {
-                                          "label": "p",
-                                          "value": "p"
-                                        },
-                                        {
-                                          "label": "param",
-                                          "value": "param"
-                                        },
-                                        {
-                                          "label": "picture",
-                                          "value": "picture"
-                                        },
-                                        {
-                                          "label": "pre",
-                                          "value": "pre"
-                                        },
-                                        {
-                                          "label": "progress",
-                                          "value": "progress"
-                                        },
-                                        {
-                                          "label": "q",
-                                          "value": "q"
-                                        },
-                                        {
-                                          "label": "rp",
-                                          "value": "rp"
-                                        },
-                                        {
-                                          "label": "rt",
-                                          "value": "rt"
-                                        },
-                                        {
-                                          "label": "ruby",
-                                          "value": "ruby"
-                                        },
-                                        {
-                                          "label": "s",
-                                          "value": "s"
-                                        },
-                                        {
-                                          "label": "samp",
-                                          "value": "samp"
-                                        },
-                                        {
-                                          "label": "slot",
-                                          "value": "slot"
-                                        },
-                                        {
-                                          "label": "script",
-                                          "value": "script"
-                                        },
-                                        {
-                                          "label": "section",
-                                          "value": "section"
-                                        },
-                                        {
-                                          "label": "select",
-                                          "value": "select"
-                                        },
-                                        {
-                                          "label": "small",
-                                          "value": "small"
-                                        },
-                                        {
-                                          "label": "source",
-                                          "value": "source"
-                                        },
-                                        {
-                                          "label": "span",
-                                          "value": "span"
-                                        },
-                                        {
-                                          "label": "strong",
-                                          "value": "strong"
-                                        },
-                                        {
-                                          "label": "style",
-                                          "value": "style"
-                                        },
-                                        {
-                                          "label": "sub",
-                                          "value": "sub"
-                                        },
-                                        {
-                                          "label": "summary",
-                                          "value": "summary"
-                                        },
-                                        {
-                                          "label": "sup",
-                                          "value": "sup"
-                                        },
-                                        {
-                                          "label": "table",
-                                          "value": "table"
-                                        },
-                                        {
-                                          "label": "template",
-                                          "value": "template"
-                                        },
-                                        {
-                                          "label": "tbody",
-                                          "value": "tbody"
-                                        },
-                                        {
-                                          "label": "td",
-                                          "value": "td"
-                                        },
-                                        {
-                                          "label": "textarea",
-                                          "value": "textarea"
-                                        },
-                                        {
-                                          "label": "tfoot",
-                                          "value": "tfoot"
-                                        },
-                                        {
-                                          "label": "th",
-                                          "value": "th"
-                                        },
-                                        {
-                                          "label": "thead",
-                                          "value": "thead"
-                                        },
-                                        {
-                                          "label": "time",
-                                          "value": "time"
-                                        },
-                                        {
-                                          "label": "title",
-                                          "value": "title"
-                                        },
-                                        {
-                                          "label": "tr",
-                                          "value": "tr"
-                                        },
-                                        {
-                                          "label": "track",
-                                          "value": "track"
-                                        },
-                                        {
-                                          "label": "u",
-                                          "value": "u"
-                                        },
-                                        {
-                                          "label": "ul",
-                                          "value": "ul"
-                                        },
-                                        {
-                                          "label": "var",
-                                          "value": "var"
-                                        },
-                                        {
-                                          "label": "video",
-                                          "value": "video"
-                                        },
-                                        {
-                                          "label": "wbr",
-                                          "value": "wbr"
-                                        },
-                                        {
-                                          "label": "webview",
-                                          "value": "webview"
-                                        }
-                                      ],
-                                      "options": [
-                                        {
-                                          "label": "object",
-                                          "value": "object"
-                                        },
-                                        {
-                                          "label": "a",
-                                          "value": "a"
-                                        },
-                                        {
-                                          "label": "abbr",
-                                          "value": "abbr"
-                                        },
-                                        {
-                                          "label": "address",
-                                          "value": "address"
-                                        },
-                                        {
-                                          "label": "area",
-                                          "value": "area"
-                                        },
-                                        {
-                                          "label": "article",
-                                          "value": "article"
-                                        },
-                                        {
-                                          "label": "aside",
-                                          "value": "aside"
-                                        },
-                                        {
-                                          "label": "audio",
-                                          "value": "audio"
-                                        },
-                                        {
-                                          "label": "b",
-                                          "value": "b"
-                                        },
-                                        {
-                                          "label": "base",
-                                          "value": "base"
-                                        },
-                                        {
-                                          "label": "bdi",
-                                          "value": "bdi"
-                                        },
-                                        {
-                                          "label": "bdo",
-                                          "value": "bdo"
-                                        },
-                                        {
-                                          "label": "big",
-                                          "value": "big"
-                                        },
-                                        {
-                                          "label": "blockquote",
-                                          "value": "blockquote"
-                                        },
-                                        {
-                                          "label": "body",
-                                          "value": "body"
-                                        },
-                                        {
-                                          "label": "br",
-                                          "value": "br"
-                                        },
-                                        {
-                                          "label": "button",
-                                          "value": "button"
-                                        },
-                                        {
-                                          "label": "canvas",
-                                          "value": "canvas"
-                                        },
-                                        {
-                                          "label": "caption",
-                                          "value": "caption"
-                                        },
-                                        {
-                                          "label": "cite",
-                                          "value": "cite"
-                                        },
-                                        {
-                                          "label": "code",
-                                          "value": "code"
-                                        },
-                                        {
-                                          "label": "col",
-                                          "value": "col"
-                                        },
-                                        {
-                                          "label": "colgroup",
-                                          "value": "colgroup"
-                                        },
-                                        {
-                                          "label": "data",
-                                          "value": "data"
-                                        },
-                                        {
-                                          "label": "datalist",
-                                          "value": "datalist"
-                                        },
-                                        {
-                                          "label": "dd",
-                                          "value": "dd"
-                                        },
-                                        {
-                                          "label": "del",
-                                          "value": "del"
-                                        },
-                                        {
-                                          "label": "details",
-                                          "value": "details"
-                                        },
-                                        {
-                                          "label": "dfn",
-                                          "value": "dfn"
-                                        },
-                                        {
-                                          "label": "dialog",
-                                          "value": "dialog"
-                                        },
-                                        {
-                                          "label": "div",
-                                          "value": "div"
-                                        },
-                                        {
-                                          "label": "dl",
-                                          "value": "dl"
-                                        },
-                                        {
-                                          "label": "dt",
-                                          "value": "dt"
-                                        },
-                                        {
-                                          "label": "em",
-                                          "value": "em"
-                                        },
-                                        {
-                                          "label": "embed",
-                                          "value": "embed"
-                                        },
-                                        {
-                                          "label": "fieldset",
-                                          "value": "fieldset"
-                                        },
-                                        {
-                                          "label": "figcaption",
-                                          "value": "figcaption"
-                                        },
-                                        {
-                                          "label": "figure",
-                                          "value": "figure"
-                                        },
-                                        {
-                                          "label": "footer",
-                                          "value": "footer"
-                                        },
-                                        {
-                                          "label": "form",
-                                          "value": "form"
-                                        },
-                                        {
-                                          "label": "h1",
-                                          "value": "h1"
-                                        },
-                                        {
-                                          "label": "h2",
-                                          "value": "h2"
-                                        },
-                                        {
-                                          "label": "h3",
-                                          "value": "h3"
-                                        },
-                                        {
-                                          "label": "h4",
-                                          "value": "h4"
-                                        },
-                                        {
-                                          "label": "h5",
-                                          "value": "h5"
-                                        },
-                                        {
-                                          "label": "h6",
-                                          "value": "h6"
-                                        },
-                                        {
-                                          "label": "head",
-                                          "value": "head"
-                                        },
-                                        {
-                                          "label": "header",
-                                          "value": "header"
-                                        },
-                                        {
-                                          "label": "hgroup",
-                                          "value": "hgroup"
-                                        },
-                                        {
-                                          "label": "hr",
-                                          "value": "hr"
-                                        },
-                                        {
-                                          "label": "html",
-                                          "value": "html"
-                                        },
-                                        {
-                                          "label": "i",
-                                          "value": "i"
-                                        },
-                                        {
-                                          "label": "iframe",
-                                          "value": "iframe"
-                                        },
-                                        {
-                                          "label": "img",
-                                          "value": "img"
-                                        },
-                                        {
-                                          "label": "input",
-                                          "value": "input"
-                                        },
-                                        {
-                                          "label": "ins",
-                                          "value": "ins"
-                                        },
-                                        {
-                                          "label": "kbd",
-                                          "value": "kbd"
-                                        },
-                                        {
-                                          "label": "keygen",
-                                          "value": "keygen"
-                                        },
-                                        {
-                                          "label": "label",
-                                          "value": "label"
-                                        },
-                                        {
-                                          "label": "legend",
-                                          "value": "legend"
-                                        },
-                                        {
-                                          "label": "li",
-                                          "value": "li"
-                                        },
-                                        {
-                                          "label": "link",
-                                          "value": "link"
-                                        },
-                                        {
-                                          "label": "main",
-                                          "value": "main"
-                                        },
-                                        {
-                                          "label": "map",
-                                          "value": "map"
-                                        },
-                                        {
-                                          "label": "mark",
-                                          "value": "mark"
-                                        },
-                                        {
-                                          "label": "menu",
-                                          "value": "menu"
-                                        },
-                                        {
-                                          "label": "menuitem",
-                                          "value": "menuitem"
-                                        },
-                                        {
-                                          "label": "meta",
-                                          "value": "meta"
-                                        },
-                                        {
-                                          "label": "meter",
-                                          "value": "meter"
-                                        },
-                                        {
-                                          "label": "nav",
-                                          "value": "nav"
-                                        },
-                                        {
-                                          "label": "noscript",
-                                          "value": "noscript"
-                                        },
-                                        {
-                                          "label": "ol",
-                                          "value": "ol"
-                                        },
-                                        {
-                                          "label": "optgroup",
-                                          "value": "optgroup"
-                                        },
-                                        {
-                                          "label": "option",
-                                          "value": "option"
-                                        },
-                                        {
-                                          "label": "output",
-                                          "value": "output"
-                                        },
-                                        {
-                                          "label": "p",
-                                          "value": "p"
-                                        },
-                                        {
-                                          "label": "param",
-                                          "value": "param"
-                                        },
-                                        {
-                                          "label": "picture",
-                                          "value": "picture"
-                                        },
-                                        {
-                                          "label": "pre",
-                                          "value": "pre"
-                                        },
-                                        {
-                                          "label": "progress",
-                                          "value": "progress"
-                                        },
-                                        {
-                                          "label": "q",
-                                          "value": "q"
-                                        },
-                                        {
-                                          "label": "rp",
-                                          "value": "rp"
-                                        },
-                                        {
-                                          "label": "rt",
-                                          "value": "rt"
-                                        },
-                                        {
-                                          "label": "ruby",
-                                          "value": "ruby"
-                                        },
-                                        {
-                                          "label": "s",
-                                          "value": "s"
-                                        },
-                                        {
-                                          "label": "samp",
-                                          "value": "samp"
-                                        },
-                                        {
-                                          "label": "slot",
-                                          "value": "slot"
-                                        },
-                                        {
-                                          "label": "script",
-                                          "value": "script"
-                                        },
-                                        {
-                                          "label": "section",
-                                          "value": "section"
-                                        },
-                                        {
-                                          "label": "select",
-                                          "value": "select"
-                                        },
-                                        {
-                                          "label": "small",
-                                          "value": "small"
-                                        },
-                                        {
-                                          "label": "source",
-                                          "value": "source"
-                                        },
-                                        {
-                                          "label": "span",
-                                          "value": "span"
-                                        },
-                                        {
-                                          "label": "strong",
-                                          "value": "strong"
-                                        },
-                                        {
-                                          "label": "style",
-                                          "value": "style"
-                                        },
-                                        {
-                                          "label": "sub",
-                                          "value": "sub"
-                                        },
-                                        {
-                                          "label": "summary",
-                                          "value": "summary"
-                                        },
-                                        {
-                                          "label": "sup",
-                                          "value": "sup"
-                                        },
-                                        {
-                                          "label": "table",
-                                          "value": "table"
-                                        },
-                                        {
-                                          "label": "template",
-                                          "value": "template"
-                                        },
-                                        {
-                                          "label": "tbody",
-                                          "value": "tbody"
-                                        },
-                                        {
-                                          "label": "td",
-                                          "value": "td"
-                                        },
-                                        {
-                                          "label": "textarea",
-                                          "value": "textarea"
-                                        },
-                                        {
-                                          "label": "tfoot",
-                                          "value": "tfoot"
-                                        },
-                                        {
-                                          "label": "th",
-                                          "value": "th"
-                                        },
-                                        {
-                                          "label": "thead",
-                                          "value": "thead"
-                                        },
-                                        {
-                                          "label": "time",
-                                          "value": "time"
-                                        },
-                                        {
-                                          "label": "title",
-                                          "value": "title"
-                                        },
-                                        {
-                                          "label": "tr",
-                                          "value": "tr"
-                                        },
-                                        {
-                                          "label": "track",
-                                          "value": "track"
-                                        },
-                                        {
-                                          "label": "u",
-                                          "value": "u"
-                                        },
-                                        {
-                                          "label": "ul",
-                                          "value": "ul"
-                                        },
-                                        {
-                                          "label": "var",
-                                          "value": "var"
-                                        },
-                                        {
-                                          "label": "video",
-                                          "value": "video"
-                                        },
-                                        {
-                                          "label": "wbr",
-                                          "value": "wbr"
-                                        },
-                                        {
-                                          "label": "webview",
-                                          "value": "webview"
-                                        }
-                                      ]
-                                    },
-                                    "initialValue": "object"
-                                  }
-                                ]
-                              }
-                            }
-                          },
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "row",
-                                "zh-CN": "row"
-                              }
-                            },
-                            "name": "row",
-                            "setter": {
-                              "componentName": "MixedSetter",
-                              "props": {
-                                "setters": [
-                                  {
-                                    "componentName": "ObjectSetter",
-                                    "props": {
-                                      "config": {
-                                        "extraSetter": {
-                                          "componentName": "MixedSetter",
-                                          "isRequired": false,
-                                          "props": {}
-                                        }
-                                      }
-                                    },
-                                    "isRequired": false,
-                                    "initialValue": {}
-                                  },
-                                  {
-                                    "componentName": "SelectSetter",
-                                    "props": {
-                                      "dataSource": [
-                                        {
-                                          "label": "object",
-                                          "value": "object"
-                                        },
-                                        {
-                                          "label": "a",
-                                          "value": "a"
-                                        },
-                                        {
-                                          "label": "abbr",
-                                          "value": "abbr"
-                                        },
-                                        {
-                                          "label": "address",
-                                          "value": "address"
-                                        },
-                                        {
-                                          "label": "area",
-                                          "value": "area"
-                                        },
-                                        {
-                                          "label": "article",
-                                          "value": "article"
-                                        },
-                                        {
-                                          "label": "aside",
-                                          "value": "aside"
-                                        },
-                                        {
-                                          "label": "audio",
-                                          "value": "audio"
-                                        },
-                                        {
-                                          "label": "b",
-                                          "value": "b"
-                                        },
-                                        {
-                                          "label": "base",
-                                          "value": "base"
-                                        },
-                                        {
-                                          "label": "bdi",
-                                          "value": "bdi"
-                                        },
-                                        {
-                                          "label": "bdo",
-                                          "value": "bdo"
-                                        },
-                                        {
-                                          "label": "big",
-                                          "value": "big"
-                                        },
-                                        {
-                                          "label": "blockquote",
-                                          "value": "blockquote"
-                                        },
-                                        {
-                                          "label": "body",
-                                          "value": "body"
-                                        },
-                                        {
-                                          "label": "br",
-                                          "value": "br"
-                                        },
-                                        {
-                                          "label": "button",
-                                          "value": "button"
-                                        },
-                                        {
-                                          "label": "canvas",
-                                          "value": "canvas"
-                                        },
-                                        {
-                                          "label": "caption",
-                                          "value": "caption"
-                                        },
-                                        {
-                                          "label": "cite",
-                                          "value": "cite"
-                                        },
-                                        {
-                                          "label": "code",
-                                          "value": "code"
-                                        },
-                                        {
-                                          "label": "col",
-                                          "value": "col"
-                                        },
-                                        {
-                                          "label": "colgroup",
-                                          "value": "colgroup"
-                                        },
-                                        {
-                                          "label": "data",
-                                          "value": "data"
-                                        },
-                                        {
-                                          "label": "datalist",
-                                          "value": "datalist"
-                                        },
-                                        {
-                                          "label": "dd",
-                                          "value": "dd"
-                                        },
-                                        {
-                                          "label": "del",
-                                          "value": "del"
-                                        },
-                                        {
-                                          "label": "details",
-                                          "value": "details"
-                                        },
-                                        {
-                                          "label": "dfn",
-                                          "value": "dfn"
-                                        },
-                                        {
-                                          "label": "dialog",
-                                          "value": "dialog"
-                                        },
-                                        {
-                                          "label": "div",
-                                          "value": "div"
-                                        },
-                                        {
-                                          "label": "dl",
-                                          "value": "dl"
-                                        },
-                                        {
-                                          "label": "dt",
-                                          "value": "dt"
-                                        },
-                                        {
-                                          "label": "em",
-                                          "value": "em"
-                                        },
-                                        {
-                                          "label": "embed",
-                                          "value": "embed"
-                                        },
-                                        {
-                                          "label": "fieldset",
-                                          "value": "fieldset"
-                                        },
-                                        {
-                                          "label": "figcaption",
-                                          "value": "figcaption"
-                                        },
-                                        {
-                                          "label": "figure",
-                                          "value": "figure"
-                                        },
-                                        {
-                                          "label": "footer",
-                                          "value": "footer"
-                                        },
-                                        {
-                                          "label": "form",
-                                          "value": "form"
-                                        },
-                                        {
-                                          "label": "h1",
-                                          "value": "h1"
-                                        },
-                                        {
-                                          "label": "h2",
-                                          "value": "h2"
-                                        },
-                                        {
-                                          "label": "h3",
-                                          "value": "h3"
-                                        },
-                                        {
-                                          "label": "h4",
-                                          "value": "h4"
-                                        },
-                                        {
-                                          "label": "h5",
-                                          "value": "h5"
-                                        },
-                                        {
-                                          "label": "h6",
-                                          "value": "h6"
-                                        },
-                                        {
-                                          "label": "head",
-                                          "value": "head"
-                                        },
-                                        {
-                                          "label": "header",
-                                          "value": "header"
-                                        },
-                                        {
-                                          "label": "hgroup",
-                                          "value": "hgroup"
-                                        },
-                                        {
-                                          "label": "hr",
-                                          "value": "hr"
-                                        },
-                                        {
-                                          "label": "html",
-                                          "value": "html"
-                                        },
-                                        {
-                                          "label": "i",
-                                          "value": "i"
-                                        },
-                                        {
-                                          "label": "iframe",
-                                          "value": "iframe"
-                                        },
-                                        {
-                                          "label": "img",
-                                          "value": "img"
-                                        },
-                                        {
-                                          "label": "input",
-                                          "value": "input"
-                                        },
-                                        {
-                                          "label": "ins",
-                                          "value": "ins"
-                                        },
-                                        {
-                                          "label": "kbd",
-                                          "value": "kbd"
-                                        },
-                                        {
-                                          "label": "keygen",
-                                          "value": "keygen"
-                                        },
-                                        {
-                                          "label": "label",
-                                          "value": "label"
-                                        },
-                                        {
-                                          "label": "legend",
-                                          "value": "legend"
-                                        },
-                                        {
-                                          "label": "li",
-                                          "value": "li"
-                                        },
-                                        {
-                                          "label": "link",
-                                          "value": "link"
-                                        },
-                                        {
-                                          "label": "main",
-                                          "value": "main"
-                                        },
-                                        {
-                                          "label": "map",
-                                          "value": "map"
-                                        },
-                                        {
-                                          "label": "mark",
-                                          "value": "mark"
-                                        },
-                                        {
-                                          "label": "menu",
-                                          "value": "menu"
-                                        },
-                                        {
-                                          "label": "menuitem",
-                                          "value": "menuitem"
-                                        },
-                                        {
-                                          "label": "meta",
-                                          "value": "meta"
-                                        },
-                                        {
-                                          "label": "meter",
-                                          "value": "meter"
-                                        },
-                                        {
-                                          "label": "nav",
-                                          "value": "nav"
-                                        },
-                                        {
-                                          "label": "noscript",
-                                          "value": "noscript"
-                                        },
-                                        {
-                                          "label": "ol",
-                                          "value": "ol"
-                                        },
-                                        {
-                                          "label": "optgroup",
-                                          "value": "optgroup"
-                                        },
-                                        {
-                                          "label": "option",
-                                          "value": "option"
-                                        },
-                                        {
-                                          "label": "output",
-                                          "value": "output"
-                                        },
-                                        {
-                                          "label": "p",
-                                          "value": "p"
-                                        },
-                                        {
-                                          "label": "param",
-                                          "value": "param"
-                                        },
-                                        {
-                                          "label": "picture",
-                                          "value": "picture"
-                                        },
-                                        {
-                                          "label": "pre",
-                                          "value": "pre"
-                                        },
-                                        {
-                                          "label": "progress",
-                                          "value": "progress"
-                                        },
-                                        {
-                                          "label": "q",
-                                          "value": "q"
-                                        },
-                                        {
-                                          "label": "rp",
-                                          "value": "rp"
-                                        },
-                                        {
-                                          "label": "rt",
-                                          "value": "rt"
-                                        },
-                                        {
-                                          "label": "ruby",
-                                          "value": "ruby"
-                                        },
-                                        {
-                                          "label": "s",
-                                          "value": "s"
-                                        },
-                                        {
-                                          "label": "samp",
-                                          "value": "samp"
-                                        },
-                                        {
-                                          "label": "slot",
-                                          "value": "slot"
-                                        },
-                                        {
-                                          "label": "script",
-                                          "value": "script"
-                                        },
-                                        {
-                                          "label": "section",
-                                          "value": "section"
-                                        },
-                                        {
-                                          "label": "select",
-                                          "value": "select"
-                                        },
-                                        {
-                                          "label": "small",
-                                          "value": "small"
-                                        },
-                                        {
-                                          "label": "source",
-                                          "value": "source"
-                                        },
-                                        {
-                                          "label": "span",
-                                          "value": "span"
-                                        },
-                                        {
-                                          "label": "strong",
-                                          "value": "strong"
-                                        },
-                                        {
-                                          "label": "style",
-                                          "value": "style"
-                                        },
-                                        {
-                                          "label": "sub",
-                                          "value": "sub"
-                                        },
-                                        {
-                                          "label": "summary",
-                                          "value": "summary"
-                                        },
-                                        {
-                                          "label": "sup",
-                                          "value": "sup"
-                                        },
-                                        {
-                                          "label": "table",
-                                          "value": "table"
-                                        },
-                                        {
-                                          "label": "template",
-                                          "value": "template"
-                                        },
-                                        {
-                                          "label": "tbody",
-                                          "value": "tbody"
-                                        },
-                                        {
-                                          "label": "td",
-                                          "value": "td"
-                                        },
-                                        {
-                                          "label": "textarea",
-                                          "value": "textarea"
-                                        },
-                                        {
-                                          "label": "tfoot",
-                                          "value": "tfoot"
-                                        },
-                                        {
-                                          "label": "th",
-                                          "value": "th"
-                                        },
-                                        {
-                                          "label": "thead",
-                                          "value": "thead"
-                                        },
-                                        {
-                                          "label": "time",
-                                          "value": "time"
-                                        },
-                                        {
-                                          "label": "title",
-                                          "value": "title"
-                                        },
-                                        {
-                                          "label": "tr",
-                                          "value": "tr"
-                                        },
-                                        {
-                                          "label": "track",
-                                          "value": "track"
-                                        },
-                                        {
-                                          "label": "u",
-                                          "value": "u"
-                                        },
-                                        {
-                                          "label": "ul",
-                                          "value": "ul"
-                                        },
-                                        {
-                                          "label": "var",
-                                          "value": "var"
-                                        },
-                                        {
-                                          "label": "video",
-                                          "value": "video"
-                                        },
-                                        {
-                                          "label": "wbr",
-                                          "value": "wbr"
-                                        },
-                                        {
-                                          "label": "webview",
-                                          "value": "webview"
-                                        }
-                                      ],
-                                      "options": [
-                                        {
-                                          "label": "object",
-                                          "value": "object"
-                                        },
-                                        {
-                                          "label": "a",
-                                          "value": "a"
-                                        },
-                                        {
-                                          "label": "abbr",
-                                          "value": "abbr"
-                                        },
-                                        {
-                                          "label": "address",
-                                          "value": "address"
-                                        },
-                                        {
-                                          "label": "area",
-                                          "value": "area"
-                                        },
-                                        {
-                                          "label": "article",
-                                          "value": "article"
-                                        },
-                                        {
-                                          "label": "aside",
-                                          "value": "aside"
-                                        },
-                                        {
-                                          "label": "audio",
-                                          "value": "audio"
-                                        },
-                                        {
-                                          "label": "b",
-                                          "value": "b"
-                                        },
-                                        {
-                                          "label": "base",
-                                          "value": "base"
-                                        },
-                                        {
-                                          "label": "bdi",
-                                          "value": "bdi"
-                                        },
-                                        {
-                                          "label": "bdo",
-                                          "value": "bdo"
-                                        },
-                                        {
-                                          "label": "big",
-                                          "value": "big"
-                                        },
-                                        {
-                                          "label": "blockquote",
-                                          "value": "blockquote"
-                                        },
-                                        {
-                                          "label": "body",
-                                          "value": "body"
-                                        },
-                                        {
-                                          "label": "br",
-                                          "value": "br"
-                                        },
-                                        {
-                                          "label": "button",
-                                          "value": "button"
-                                        },
-                                        {
-                                          "label": "canvas",
-                                          "value": "canvas"
-                                        },
-                                        {
-                                          "label": "caption",
-                                          "value": "caption"
-                                        },
-                                        {
-                                          "label": "cite",
-                                          "value": "cite"
-                                        },
-                                        {
-                                          "label": "code",
-                                          "value": "code"
-                                        },
-                                        {
-                                          "label": "col",
-                                          "value": "col"
-                                        },
-                                        {
-                                          "label": "colgroup",
-                                          "value": "colgroup"
-                                        },
-                                        {
-                                          "label": "data",
-                                          "value": "data"
-                                        },
-                                        {
-                                          "label": "datalist",
-                                          "value": "datalist"
-                                        },
-                                        {
-                                          "label": "dd",
-                                          "value": "dd"
-                                        },
-                                        {
-                                          "label": "del",
-                                          "value": "del"
-                                        },
-                                        {
-                                          "label": "details",
-                                          "value": "details"
-                                        },
-                                        {
-                                          "label": "dfn",
-                                          "value": "dfn"
-                                        },
-                                        {
-                                          "label": "dialog",
-                                          "value": "dialog"
-                                        },
-                                        {
-                                          "label": "div",
-                                          "value": "div"
-                                        },
-                                        {
-                                          "label": "dl",
-                                          "value": "dl"
-                                        },
-                                        {
-                                          "label": "dt",
-                                          "value": "dt"
-                                        },
-                                        {
-                                          "label": "em",
-                                          "value": "em"
-                                        },
-                                        {
-                                          "label": "embed",
-                                          "value": "embed"
-                                        },
-                                        {
-                                          "label": "fieldset",
-                                          "value": "fieldset"
-                                        },
-                                        {
-                                          "label": "figcaption",
-                                          "value": "figcaption"
-                                        },
-                                        {
-                                          "label": "figure",
-                                          "value": "figure"
-                                        },
-                                        {
-                                          "label": "footer",
-                                          "value": "footer"
-                                        },
-                                        {
-                                          "label": "form",
-                                          "value": "form"
-                                        },
-                                        {
-                                          "label": "h1",
-                                          "value": "h1"
-                                        },
-                                        {
-                                          "label": "h2",
-                                          "value": "h2"
-                                        },
-                                        {
-                                          "label": "h3",
-                                          "value": "h3"
-                                        },
-                                        {
-                                          "label": "h4",
-                                          "value": "h4"
-                                        },
-                                        {
-                                          "label": "h5",
-                                          "value": "h5"
-                                        },
-                                        {
-                                          "label": "h6",
-                                          "value": "h6"
-                                        },
-                                        {
-                                          "label": "head",
-                                          "value": "head"
-                                        },
-                                        {
-                                          "label": "header",
-                                          "value": "header"
-                                        },
-                                        {
-                                          "label": "hgroup",
-                                          "value": "hgroup"
-                                        },
-                                        {
-                                          "label": "hr",
-                                          "value": "hr"
-                                        },
-                                        {
-                                          "label": "html",
-                                          "value": "html"
-                                        },
-                                        {
-                                          "label": "i",
-                                          "value": "i"
-                                        },
-                                        {
-                                          "label": "iframe",
-                                          "value": "iframe"
-                                        },
-                                        {
-                                          "label": "img",
-                                          "value": "img"
-                                        },
-                                        {
-                                          "label": "input",
-                                          "value": "input"
-                                        },
-                                        {
-                                          "label": "ins",
-                                          "value": "ins"
-                                        },
-                                        {
-                                          "label": "kbd",
-                                          "value": "kbd"
-                                        },
-                                        {
-                                          "label": "keygen",
-                                          "value": "keygen"
-                                        },
-                                        {
-                                          "label": "label",
-                                          "value": "label"
-                                        },
-                                        {
-                                          "label": "legend",
-                                          "value": "legend"
-                                        },
-                                        {
-                                          "label": "li",
-                                          "value": "li"
-                                        },
-                                        {
-                                          "label": "link",
-                                          "value": "link"
-                                        },
-                                        {
-                                          "label": "main",
-                                          "value": "main"
-                                        },
-                                        {
-                                          "label": "map",
-                                          "value": "map"
-                                        },
-                                        {
-                                          "label": "mark",
-                                          "value": "mark"
-                                        },
-                                        {
-                                          "label": "menu",
-                                          "value": "menu"
-                                        },
-                                        {
-                                          "label": "menuitem",
-                                          "value": "menuitem"
-                                        },
-                                        {
-                                          "label": "meta",
-                                          "value": "meta"
-                                        },
-                                        {
-                                          "label": "meter",
-                                          "value": "meter"
-                                        },
-                                        {
-                                          "label": "nav",
-                                          "value": "nav"
-                                        },
-                                        {
-                                          "label": "noscript",
-                                          "value": "noscript"
-                                        },
-                                        {
-                                          "label": "ol",
-                                          "value": "ol"
-                                        },
-                                        {
-                                          "label": "optgroup",
-                                          "value": "optgroup"
-                                        },
-                                        {
-                                          "label": "option",
-                                          "value": "option"
-                                        },
-                                        {
-                                          "label": "output",
-                                          "value": "output"
-                                        },
-                                        {
-                                          "label": "p",
-                                          "value": "p"
-                                        },
-                                        {
-                                          "label": "param",
-                                          "value": "param"
-                                        },
-                                        {
-                                          "label": "picture",
-                                          "value": "picture"
-                                        },
-                                        {
-                                          "label": "pre",
-                                          "value": "pre"
-                                        },
-                                        {
-                                          "label": "progress",
-                                          "value": "progress"
-                                        },
-                                        {
-                                          "label": "q",
-                                          "value": "q"
-                                        },
-                                        {
-                                          "label": "rp",
-                                          "value": "rp"
-                                        },
-                                        {
-                                          "label": "rt",
-                                          "value": "rt"
-                                        },
-                                        {
-                                          "label": "ruby",
-                                          "value": "ruby"
-                                        },
-                                        {
-                                          "label": "s",
-                                          "value": "s"
-                                        },
-                                        {
-                                          "label": "samp",
-                                          "value": "samp"
-                                        },
-                                        {
-                                          "label": "slot",
-                                          "value": "slot"
-                                        },
-                                        {
-                                          "label": "script",
-                                          "value": "script"
-                                        },
-                                        {
-                                          "label": "section",
-                                          "value": "section"
-                                        },
-                                        {
-                                          "label": "select",
-                                          "value": "select"
-                                        },
-                                        {
-                                          "label": "small",
-                                          "value": "small"
-                                        },
-                                        {
-                                          "label": "source",
-                                          "value": "source"
-                                        },
-                                        {
-                                          "label": "span",
-                                          "value": "span"
-                                        },
-                                        {
-                                          "label": "strong",
-                                          "value": "strong"
-                                        },
-                                        {
-                                          "label": "style",
-                                          "value": "style"
-                                        },
-                                        {
-                                          "label": "sub",
-                                          "value": "sub"
-                                        },
-                                        {
-                                          "label": "summary",
-                                          "value": "summary"
-                                        },
-                                        {
-                                          "label": "sup",
-                                          "value": "sup"
-                                        },
-                                        {
-                                          "label": "table",
-                                          "value": "table"
-                                        },
-                                        {
-                                          "label": "template",
-                                          "value": "template"
-                                        },
-                                        {
-                                          "label": "tbody",
-                                          "value": "tbody"
-                                        },
-                                        {
-                                          "label": "td",
-                                          "value": "td"
-                                        },
-                                        {
-                                          "label": "textarea",
-                                          "value": "textarea"
-                                        },
-                                        {
-                                          "label": "tfoot",
-                                          "value": "tfoot"
-                                        },
-                                        {
-                                          "label": "th",
-                                          "value": "th"
-                                        },
-                                        {
-                                          "label": "thead",
-                                          "value": "thead"
-                                        },
-                                        {
-                                          "label": "time",
-                                          "value": "time"
-                                        },
-                                        {
-                                          "label": "title",
-                                          "value": "title"
-                                        },
-                                        {
-                                          "label": "tr",
-                                          "value": "tr"
-                                        },
-                                        {
-                                          "label": "track",
-                                          "value": "track"
-                                        },
-                                        {
-                                          "label": "u",
-                                          "value": "u"
-                                        },
-                                        {
-                                          "label": "ul",
-                                          "value": "ul"
-                                        },
-                                        {
-                                          "label": "var",
-                                          "value": "var"
-                                        },
-                                        {
-                                          "label": "video",
-                                          "value": "video"
-                                        },
-                                        {
-                                          "label": "wbr",
-                                          "value": "wbr"
-                                        },
-                                        {
-                                          "label": "webview",
-                                          "value": "webview"
-                                        }
-                                      ]
-                                    },
-                                    "initialValue": "object"
-                                  }
-                                ]
-                              }
-                            }
-                          },
-                          {
-                            "title": {
-                              "label": {
-                                "type": "i18n",
-                                "en-US": "cell",
-                                "zh-CN": "cell"
-                              }
-                            },
-                            "name": "cell",
-                            "setter": {
-                              "componentName": "MixedSetter",
-                              "props": {
-                                "setters": [
-                                  {
-                                    "componentName": "ObjectSetter",
-                                    "props": {
-                                      "config": {
-                                        "extraSetter": {
-                                          "componentName": "MixedSetter",
-                                          "isRequired": false,
-                                          "props": {}
-                                        }
-                                      }
-                                    },
-                                    "isRequired": false,
-                                    "initialValue": {}
-                                  },
-                                  {
-                                    "componentName": "SelectSetter",
-                                    "props": {
-                                      "dataSource": [
-                                        {
-                                          "label": "object",
-                                          "value": "object"
-                                        },
-                                        {
-                                          "label": "a",
-                                          "value": "a"
-                                        },
-                                        {
-                                          "label": "abbr",
-                                          "value": "abbr"
-                                        },
-                                        {
-                                          "label": "address",
-                                          "value": "address"
-                                        },
-                                        {
-                                          "label": "area",
-                                          "value": "area"
-                                        },
-                                        {
-                                          "label": "article",
-                                          "value": "article"
-                                        },
-                                        {
-                                          "label": "aside",
-                                          "value": "aside"
-                                        },
-                                        {
-                                          "label": "audio",
-                                          "value": "audio"
-                                        },
-                                        {
-                                          "label": "b",
-                                          "value": "b"
-                                        },
-                                        {
-                                          "label": "base",
-                                          "value": "base"
-                                        },
-                                        {
-                                          "label": "bdi",
-                                          "value": "bdi"
-                                        },
-                                        {
-                                          "label": "bdo",
-                                          "value": "bdo"
-                                        },
-                                        {
-                                          "label": "big",
-                                          "value": "big"
-                                        },
-                                        {
-                                          "label": "blockquote",
-                                          "value": "blockquote"
-                                        },
-                                        {
-                                          "label": "body",
-                                          "value": "body"
-                                        },
-                                        {
-                                          "label": "br",
-                                          "value": "br"
-                                        },
-                                        {
-                                          "label": "button",
-                                          "value": "button"
-                                        },
-                                        {
-                                          "label": "canvas",
-                                          "value": "canvas"
-                                        },
-                                        {
-                                          "label": "caption",
-                                          "value": "caption"
-                                        },
-                                        {
-                                          "label": "cite",
-                                          "value": "cite"
-                                        },
-                                        {
-                                          "label": "code",
-                                          "value": "code"
-                                        },
-                                        {
-                                          "label": "col",
-                                          "value": "col"
-                                        },
-                                        {
-                                          "label": "colgroup",
-                                          "value": "colgroup"
-                                        },
-                                        {
-                                          "label": "data",
-                                          "value": "data"
-                                        },
-                                        {
-                                          "label": "datalist",
-                                          "value": "datalist"
-                                        },
-                                        {
-                                          "label": "dd",
-                                          "value": "dd"
-                                        },
-                                        {
-                                          "label": "del",
-                                          "value": "del"
-                                        },
-                                        {
-                                          "label": "details",
-                                          "value": "details"
-                                        },
-                                        {
-                                          "label": "dfn",
-                                          "value": "dfn"
-                                        },
-                                        {
-                                          "label": "dialog",
-                                          "value": "dialog"
-                                        },
-                                        {
-                                          "label": "div",
-                                          "value": "div"
-                                        },
-                                        {
-                                          "label": "dl",
-                                          "value": "dl"
-                                        },
-                                        {
-                                          "label": "dt",
-                                          "value": "dt"
-                                        },
-                                        {
-                                          "label": "em",
-                                          "value": "em"
-                                        },
-                                        {
-                                          "label": "embed",
-                                          "value": "embed"
-                                        },
-                                        {
-                                          "label": "fieldset",
-                                          "value": "fieldset"
-                                        },
-                                        {
-                                          "label": "figcaption",
-                                          "value": "figcaption"
-                                        },
-                                        {
-                                          "label": "figure",
-                                          "value": "figure"
-                                        },
-                                        {
-                                          "label": "footer",
-                                          "value": "footer"
-                                        },
-                                        {
-                                          "label": "form",
-                                          "value": "form"
-                                        },
-                                        {
-                                          "label": "h1",
-                                          "value": "h1"
-                                        },
-                                        {
-                                          "label": "h2",
-                                          "value": "h2"
-                                        },
-                                        {
-                                          "label": "h3",
-                                          "value": "h3"
-                                        },
-                                        {
-                                          "label": "h4",
-                                          "value": "h4"
-                                        },
-                                        {
-                                          "label": "h5",
-                                          "value": "h5"
-                                        },
-                                        {
-                                          "label": "h6",
-                                          "value": "h6"
-                                        },
-                                        {
-                                          "label": "head",
-                                          "value": "head"
-                                        },
-                                        {
-                                          "label": "header",
-                                          "value": "header"
-                                        },
-                                        {
-                                          "label": "hgroup",
-                                          "value": "hgroup"
-                                        },
-                                        {
-                                          "label": "hr",
-                                          "value": "hr"
-                                        },
-                                        {
-                                          "label": "html",
-                                          "value": "html"
-                                        },
-                                        {
-                                          "label": "i",
-                                          "value": "i"
-                                        },
-                                        {
-                                          "label": "iframe",
-                                          "value": "iframe"
-                                        },
-                                        {
-                                          "label": "img",
-                                          "value": "img"
-                                        },
-                                        {
-                                          "label": "input",
-                                          "value": "input"
-                                        },
-                                        {
-                                          "label": "ins",
-                                          "value": "ins"
-                                        },
-                                        {
-                                          "label": "kbd",
-                                          "value": "kbd"
-                                        },
-                                        {
-                                          "label": "keygen",
-                                          "value": "keygen"
-                                        },
-                                        {
-                                          "label": "label",
-                                          "value": "label"
-                                        },
-                                        {
-                                          "label": "legend",
-                                          "value": "legend"
-                                        },
-                                        {
-                                          "label": "li",
-                                          "value": "li"
-                                        },
-                                        {
-                                          "label": "link",
-                                          "value": "link"
-                                        },
-                                        {
-                                          "label": "main",
-                                          "value": "main"
-                                        },
-                                        {
-                                          "label": "map",
-                                          "value": "map"
-                                        },
-                                        {
-                                          "label": "mark",
-                                          "value": "mark"
-                                        },
-                                        {
-                                          "label": "menu",
-                                          "value": "menu"
-                                        },
-                                        {
-                                          "label": "menuitem",
-                                          "value": "menuitem"
-                                        },
-                                        {
-                                          "label": "meta",
-                                          "value": "meta"
-                                        },
-                                        {
-                                          "label": "meter",
-                                          "value": "meter"
-                                        },
-                                        {
-                                          "label": "nav",
-                                          "value": "nav"
-                                        },
-                                        {
-                                          "label": "noscript",
-                                          "value": "noscript"
-                                        },
-                                        {
-                                          "label": "ol",
-                                          "value": "ol"
-                                        },
-                                        {
-                                          "label": "optgroup",
-                                          "value": "optgroup"
-                                        },
-                                        {
-                                          "label": "option",
-                                          "value": "option"
-                                        },
-                                        {
-                                          "label": "output",
-                                          "value": "output"
-                                        },
-                                        {
-                                          "label": "p",
-                                          "value": "p"
-                                        },
-                                        {
-                                          "label": "param",
-                                          "value": "param"
-                                        },
-                                        {
-                                          "label": "picture",
-                                          "value": "picture"
-                                        },
-                                        {
-                                          "label": "pre",
-                                          "value": "pre"
-                                        },
-                                        {
-                                          "label": "progress",
-                                          "value": "progress"
-                                        },
-                                        {
-                                          "label": "q",
-                                          "value": "q"
-                                        },
-                                        {
-                                          "label": "rp",
-                                          "value": "rp"
-                                        },
-                                        {
-                                          "label": "rt",
-                                          "value": "rt"
-                                        },
-                                        {
-                                          "label": "ruby",
-                                          "value": "ruby"
-                                        },
-                                        {
-                                          "label": "s",
-                                          "value": "s"
-                                        },
-                                        {
-                                          "label": "samp",
-                                          "value": "samp"
-                                        },
-                                        {
-                                          "label": "slot",
-                                          "value": "slot"
-                                        },
-                                        {
-                                          "label": "script",
-                                          "value": "script"
-                                        },
-                                        {
-                                          "label": "section",
-                                          "value": "section"
-                                        },
-                                        {
-                                          "label": "select",
-                                          "value": "select"
-                                        },
-                                        {
-                                          "label": "small",
-                                          "value": "small"
-                                        },
-                                        {
-                                          "label": "source",
-                                          "value": "source"
-                                        },
-                                        {
-                                          "label": "span",
-                                          "value": "span"
-                                        },
-                                        {
-                                          "label": "strong",
-                                          "value": "strong"
-                                        },
-                                        {
-                                          "label": "style",
-                                          "value": "style"
-                                        },
-                                        {
-                                          "label": "sub",
-                                          "value": "sub"
-                                        },
-                                        {
-                                          "label": "summary",
-                                          "value": "summary"
-                                        },
-                                        {
-                                          "label": "sup",
-                                          "value": "sup"
-                                        },
-                                        {
-                                          "label": "table",
-                                          "value": "table"
-                                        },
-                                        {
-                                          "label": "template",
-                                          "value": "template"
-                                        },
-                                        {
-                                          "label": "tbody",
-                                          "value": "tbody"
-                                        },
-                                        {
-                                          "label": "td",
-                                          "value": "td"
-                                        },
-                                        {
-                                          "label": "textarea",
-                                          "value": "textarea"
-                                        },
-                                        {
-                                          "label": "tfoot",
-                                          "value": "tfoot"
-                                        },
-                                        {
-                                          "label": "th",
-                                          "value": "th"
-                                        },
-                                        {
-                                          "label": "thead",
-                                          "value": "thead"
-                                        },
-                                        {
-                                          "label": "time",
-                                          "value": "time"
-                                        },
-                                        {
-                                          "label": "title",
-                                          "value": "title"
-                                        },
-                                        {
-                                          "label": "tr",
-                                          "value": "tr"
-                                        },
-                                        {
-                                          "label": "track",
-                                          "value": "track"
-                                        },
-                                        {
-                                          "label": "u",
-                                          "value": "u"
-                                        },
-                                        {
-                                          "label": "ul",
-                                          "value": "ul"
-                                        },
-                                        {
-                                          "label": "var",
-                                          "value": "var"
-                                        },
-                                        {
-                                          "label": "video",
-                                          "value": "video"
-                                        },
-                                        {
-                                          "label": "wbr",
-                                          "value": "wbr"
-                                        },
-                                        {
-                                          "label": "webview",
-                                          "value": "webview"
-                                        }
-                                      ],
-                                      "options": [
-                                        {
-                                          "label": "object",
-                                          "value": "object"
-                                        },
-                                        {
-                                          "label": "a",
-                                          "value": "a"
-                                        },
-                                        {
-                                          "label": "abbr",
-                                          "value": "abbr"
-                                        },
-                                        {
-                                          "label": "address",
-                                          "value": "address"
-                                        },
-                                        {
-                                          "label": "area",
-                                          "value": "area"
-                                        },
-                                        {
-                                          "label": "article",
-                                          "value": "article"
-                                        },
-                                        {
-                                          "label": "aside",
-                                          "value": "aside"
-                                        },
-                                        {
-                                          "label": "audio",
-                                          "value": "audio"
-                                        },
-                                        {
-                                          "label": "b",
-                                          "value": "b"
-                                        },
-                                        {
-                                          "label": "base",
-                                          "value": "base"
-                                        },
-                                        {
-                                          "label": "bdi",
-                                          "value": "bdi"
-                                        },
-                                        {
-                                          "label": "bdo",
-                                          "value": "bdo"
-                                        },
-                                        {
-                                          "label": "big",
-                                          "value": "big"
-                                        },
-                                        {
-                                          "label": "blockquote",
-                                          "value": "blockquote"
-                                        },
-                                        {
-                                          "label": "body",
-                                          "value": "body"
-                                        },
-                                        {
-                                          "label": "br",
-                                          "value": "br"
-                                        },
-                                        {
-                                          "label": "button",
-                                          "value": "button"
-                                        },
-                                        {
-                                          "label": "canvas",
-                                          "value": "canvas"
-                                        },
-                                        {
-                                          "label": "caption",
-                                          "value": "caption"
-                                        },
-                                        {
-                                          "label": "cite",
-                                          "value": "cite"
-                                        },
-                                        {
-                                          "label": "code",
-                                          "value": "code"
-                                        },
-                                        {
-                                          "label": "col",
-                                          "value": "col"
-                                        },
-                                        {
-                                          "label": "colgroup",
-                                          "value": "colgroup"
-                                        },
-                                        {
-                                          "label": "data",
-                                          "value": "data"
-                                        },
-                                        {
-                                          "label": "datalist",
-                                          "value": "datalist"
-                                        },
-                                        {
-                                          "label": "dd",
-                                          "value": "dd"
-                                        },
-                                        {
-                                          "label": "del",
-                                          "value": "del"
-                                        },
-                                        {
-                                          "label": "details",
-                                          "value": "details"
-                                        },
-                                        {
-                                          "label": "dfn",
-                                          "value": "dfn"
-                                        },
-                                        {
-                                          "label": "dialog",
-                                          "value": "dialog"
-                                        },
-                                        {
-                                          "label": "div",
-                                          "value": "div"
-                                        },
-                                        {
-                                          "label": "dl",
-                                          "value": "dl"
-                                        },
-                                        {
-                                          "label": "dt",
-                                          "value": "dt"
-                                        },
-                                        {
-                                          "label": "em",
-                                          "value": "em"
-                                        },
-                                        {
-                                          "label": "embed",
-                                          "value": "embed"
-                                        },
-                                        {
-                                          "label": "fieldset",
-                                          "value": "fieldset"
-                                        },
-                                        {
-                                          "label": "figcaption",
-                                          "value": "figcaption"
-                                        },
-                                        {
-                                          "label": "figure",
-                                          "value": "figure"
-                                        },
-                                        {
-                                          "label": "footer",
-                                          "value": "footer"
-                                        },
-                                        {
-                                          "label": "form",
-                                          "value": "form"
-                                        },
-                                        {
-                                          "label": "h1",
-                                          "value": "h1"
-                                        },
-                                        {
-                                          "label": "h2",
-                                          "value": "h2"
-                                        },
-                                        {
-                                          "label": "h3",
-                                          "value": "h3"
-                                        },
-                                        {
-                                          "label": "h4",
-                                          "value": "h4"
-                                        },
-                                        {
-                                          "label": "h5",
-                                          "value": "h5"
-                                        },
-                                        {
-                                          "label": "h6",
-                                          "value": "h6"
-                                        },
-                                        {
-                                          "label": "head",
-                                          "value": "head"
-                                        },
-                                        {
-                                          "label": "header",
-                                          "value": "header"
-                                        },
-                                        {
-                                          "label": "hgroup",
-                                          "value": "hgroup"
-                                        },
-                                        {
-                                          "label": "hr",
-                                          "value": "hr"
-                                        },
-                                        {
-                                          "label": "html",
-                                          "value": "html"
-                                        },
-                                        {
-                                          "label": "i",
-                                          "value": "i"
-                                        },
-                                        {
-                                          "label": "iframe",
-                                          "value": "iframe"
-                                        },
-                                        {
-                                          "label": "img",
-                                          "value": "img"
-                                        },
-                                        {
-                                          "label": "input",
-                                          "value": "input"
-                                        },
-                                        {
-                                          "label": "ins",
-                                          "value": "ins"
-                                        },
-                                        {
-                                          "label": "kbd",
-                                          "value": "kbd"
-                                        },
-                                        {
-                                          "label": "keygen",
-                                          "value": "keygen"
-                                        },
-                                        {
-                                          "label": "label",
-                                          "value": "label"
-                                        },
-                                        {
-                                          "label": "legend",
-                                          "value": "legend"
-                                        },
-                                        {
-                                          "label": "li",
-                                          "value": "li"
-                                        },
-                                        {
-                                          "label": "link",
-                                          "value": "link"
-                                        },
-                                        {
-                                          "label": "main",
-                                          "value": "main"
-                                        },
-                                        {
-                                          "label": "map",
-                                          "value": "map"
-                                        },
-                                        {
-                                          "label": "mark",
-                                          "value": "mark"
-                                        },
-                                        {
-                                          "label": "menu",
-                                          "value": "menu"
-                                        },
-                                        {
-                                          "label": "menuitem",
-                                          "value": "menuitem"
-                                        },
-                                        {
-                                          "label": "meta",
-                                          "value": "meta"
-                                        },
-                                        {
-                                          "label": "meter",
-                                          "value": "meter"
-                                        },
-                                        {
-                                          "label": "nav",
-                                          "value": "nav"
-                                        },
-                                        {
-                                          "label": "noscript",
-                                          "value": "noscript"
-                                        },
-                                        {
-                                          "label": "ol",
-                                          "value": "ol"
-                                        },
-                                        {
-                                          "label": "optgroup",
-                                          "value": "optgroup"
-                                        },
-                                        {
-                                          "label": "option",
-                                          "value": "option"
-                                        },
-                                        {
-                                          "label": "output",
-                                          "value": "output"
-                                        },
-                                        {
-                                          "label": "p",
-                                          "value": "p"
-                                        },
-                                        {
-                                          "label": "param",
-                                          "value": "param"
-                                        },
-                                        {
-                                          "label": "picture",
-                                          "value": "picture"
-                                        },
-                                        {
-                                          "label": "pre",
-                                          "value": "pre"
-                                        },
-                                        {
-                                          "label": "progress",
-                                          "value": "progress"
-                                        },
-                                        {
-                                          "label": "q",
-                                          "value": "q"
-                                        },
-                                        {
-                                          "label": "rp",
-                                          "value": "rp"
-                                        },
-                                        {
-                                          "label": "rt",
-                                          "value": "rt"
-                                        },
-                                        {
-                                          "label": "ruby",
-                                          "value": "ruby"
-                                        },
-                                        {
-                                          "label": "s",
-                                          "value": "s"
-                                        },
-                                        {
-                                          "label": "samp",
-                                          "value": "samp"
-                                        },
-                                        {
-                                          "label": "slot",
-                                          "value": "slot"
-                                        },
-                                        {
-                                          "label": "script",
-                                          "value": "script"
-                                        },
-                                        {
-                                          "label": "section",
-                                          "value": "section"
-                                        },
-                                        {
-                                          "label": "select",
-                                          "value": "select"
-                                        },
-                                        {
-                                          "label": "small",
-                                          "value": "small"
-                                        },
-                                        {
-                                          "label": "source",
-                                          "value": "source"
-                                        },
-                                        {
-                                          "label": "span",
-                                          "value": "span"
-                                        },
-                                        {
-                                          "label": "strong",
-                                          "value": "strong"
-                                        },
-                                        {
-                                          "label": "style",
-                                          "value": "style"
-                                        },
-                                        {
-                                          "label": "sub",
-                                          "value": "sub"
-                                        },
-                                        {
-                                          "label": "summary",
-                                          "value": "summary"
-                                        },
-                                        {
-                                          "label": "sup",
-                                          "value": "sup"
-                                        },
-                                        {
-                                          "label": "table",
-                                          "value": "table"
-                                        },
-                                        {
-                                          "label": "template",
-                                          "value": "template"
-                                        },
-                                        {
-                                          "label": "tbody",
-                                          "value": "tbody"
-                                        },
-                                        {
-                                          "label": "td",
-                                          "value": "td"
-                                        },
-                                        {
-                                          "label": "textarea",
-                                          "value": "textarea"
-                                        },
-                                        {
-                                          "label": "tfoot",
-                                          "value": "tfoot"
-                                        },
-                                        {
-                                          "label": "th",
-                                          "value": "th"
-                                        },
-                                        {
-                                          "label": "thead",
-                                          "value": "thead"
-                                        },
-                                        {
-                                          "label": "time",
-                                          "value": "time"
-                                        },
-                                        {
-                                          "label": "title",
-                                          "value": "title"
-                                        },
-                                        {
-                                          "label": "tr",
-                                          "value": "tr"
-                                        },
-                                        {
-                                          "label": "track",
-                                          "value": "track"
-                                        },
-                                        {
-                                          "label": "u",
-                                          "value": "u"
-                                        },
-                                        {
-                                          "label": "ul",
-                                          "value": "ul"
-                                        },
-                                        {
-                                          "label": "var",
-                                          "value": "var"
-                                        },
-                                        {
-                                          "label": "video",
-                                          "value": "video"
-                                        },
-                                        {
-                                          "label": "wbr",
-                                          "value": "wbr"
-                                        },
-                                        {
-                                          "label": "webview",
-                                          "value": "webview"
-                                        }
-                                      ]
-                                    },
-                                    "initialValue": "object"
-                                  }
-                                ]
-                              }
-                            }
-                          }
-                        ],
-                        "extraSetter": {
-                          "componentName": "MixedSetter",
-                          "isRequired": false,
-                          "props": {}
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "body",
-                      "zh-CN": "body"
-                    }
-                  },
-                  "name": "body",
-                  "setter": {
-                    "componentName": "MixedSetter",
-                    "props": {
-                      "setters": [
-                        {
-                          "componentName": "FunctionSetter",
-                          "isRequired": false
-                        },
-                        {
-                          "componentName": "ObjectSetter",
-                          "props": {
-                            "config": {
-                              "items": [
-                                {
-                                  "title": {
-                                    "label": {
-                                      "type": "i18n",
-                                      "en-US": "wrapper",
-                                      "zh-CN": "wrapper"
-                                    }
-                                  },
-                                  "name": "wrapper",
-                                  "setter": {
-                                    "componentName": "MixedSetter",
-                                    "props": {
-                                      "setters": [
-                                        {
-                                          "componentName": "ObjectSetter",
-                                          "props": {
-                                            "config": {
-                                              "extraSetter": {
-                                                "componentName": "MixedSetter",
-                                                "isRequired": false,
-                                                "props": {}
-                                              }
-                                            }
-                                          },
-                                          "isRequired": false,
-                                          "initialValue": {}
-                                        },
-                                        {
-                                          "componentName": "SelectSetter",
-                                          "props": {
-                                            "dataSource": [
-                                              {
-                                                "label": "object",
-                                                "value": "object"
-                                              },
-                                              {
-                                                "label": "a",
-                                                "value": "a"
-                                              },
-                                              {
-                                                "label": "abbr",
-                                                "value": "abbr"
-                                              },
-                                              {
-                                                "label": "address",
-                                                "value": "address"
-                                              },
-                                              {
-                                                "label": "area",
-                                                "value": "area"
-                                              },
-                                              {
-                                                "label": "article",
-                                                "value": "article"
-                                              },
-                                              {
-                                                "label": "aside",
-                                                "value": "aside"
-                                              },
-                                              {
-                                                "label": "audio",
-                                                "value": "audio"
-                                              },
-                                              {
-                                                "label": "b",
-                                                "value": "b"
-                                              },
-                                              {
-                                                "label": "base",
-                                                "value": "base"
-                                              },
-                                              {
-                                                "label": "bdi",
-                                                "value": "bdi"
-                                              },
-                                              {
-                                                "label": "bdo",
-                                                "value": "bdo"
-                                              },
-                                              {
-                                                "label": "big",
-                                                "value": "big"
-                                              },
-                                              {
-                                                "label": "blockquote",
-                                                "value": "blockquote"
-                                              },
-                                              {
-                                                "label": "body",
-                                                "value": "body"
-                                              },
-                                              {
-                                                "label": "br",
-                                                "value": "br"
-                                              },
-                                              {
-                                                "label": "button",
-                                                "value": "button"
-                                              },
-                                              {
-                                                "label": "canvas",
-                                                "value": "canvas"
-                                              },
-                                              {
-                                                "label": "caption",
-                                                "value": "caption"
-                                              },
-                                              {
-                                                "label": "cite",
-                                                "value": "cite"
-                                              },
-                                              {
-                                                "label": "code",
-                                                "value": "code"
-                                              },
-                                              {
-                                                "label": "col",
-                                                "value": "col"
-                                              },
-                                              {
-                                                "label": "colgroup",
-                                                "value": "colgroup"
-                                              },
-                                              {
-                                                "label": "data",
-                                                "value": "data"
-                                              },
-                                              {
-                                                "label": "datalist",
-                                                "value": "datalist"
-                                              },
-                                              {
-                                                "label": "dd",
-                                                "value": "dd"
-                                              },
-                                              {
-                                                "label": "del",
-                                                "value": "del"
-                                              },
-                                              {
-                                                "label": "details",
-                                                "value": "details"
-                                              },
-                                              {
-                                                "label": "dfn",
-                                                "value": "dfn"
-                                              },
-                                              {
-                                                "label": "dialog",
-                                                "value": "dialog"
-                                              },
-                                              {
-                                                "label": "div",
-                                                "value": "div"
-                                              },
-                                              {
-                                                "label": "dl",
-                                                "value": "dl"
-                                              },
-                                              {
-                                                "label": "dt",
-                                                "value": "dt"
-                                              },
-                                              {
-                                                "label": "em",
-                                                "value": "em"
-                                              },
-                                              {
-                                                "label": "embed",
-                                                "value": "embed"
-                                              },
-                                              {
-                                                "label": "fieldset",
-                                                "value": "fieldset"
-                                              },
-                                              {
-                                                "label": "figcaption",
-                                                "value": "figcaption"
-                                              },
-                                              {
-                                                "label": "figure",
-                                                "value": "figure"
-                                              },
-                                              {
-                                                "label": "footer",
-                                                "value": "footer"
-                                              },
-                                              {
-                                                "label": "form",
-                                                "value": "form"
-                                              },
-                                              {
-                                                "label": "h1",
-                                                "value": "h1"
-                                              },
-                                              {
-                                                "label": "h2",
-                                                "value": "h2"
-                                              },
-                                              {
-                                                "label": "h3",
-                                                "value": "h3"
-                                              },
-                                              {
-                                                "label": "h4",
-                                                "value": "h4"
-                                              },
-                                              {
-                                                "label": "h5",
-                                                "value": "h5"
-                                              },
-                                              {
-                                                "label": "h6",
-                                                "value": "h6"
-                                              },
-                                              {
-                                                "label": "head",
-                                                "value": "head"
-                                              },
-                                              {
-                                                "label": "header",
-                                                "value": "header"
-                                              },
-                                              {
-                                                "label": "hgroup",
-                                                "value": "hgroup"
-                                              },
-                                              {
-                                                "label": "hr",
-                                                "value": "hr"
-                                              },
-                                              {
-                                                "label": "html",
-                                                "value": "html"
-                                              },
-                                              {
-                                                "label": "i",
-                                                "value": "i"
-                                              },
-                                              {
-                                                "label": "iframe",
-                                                "value": "iframe"
-                                              },
-                                              {
-                                                "label": "img",
-                                                "value": "img"
-                                              },
-                                              {
-                                                "label": "input",
-                                                "value": "input"
-                                              },
-                                              {
-                                                "label": "ins",
-                                                "value": "ins"
-                                              },
-                                              {
-                                                "label": "kbd",
-                                                "value": "kbd"
-                                              },
-                                              {
-                                                "label": "keygen",
-                                                "value": "keygen"
-                                              },
-                                              {
-                                                "label": "label",
-                                                "value": "label"
-                                              },
-                                              {
-                                                "label": "legend",
-                                                "value": "legend"
-                                              },
-                                              {
-                                                "label": "li",
-                                                "value": "li"
-                                              },
-                                              {
-                                                "label": "link",
-                                                "value": "link"
-                                              },
-                                              {
-                                                "label": "main",
-                                                "value": "main"
-                                              },
-                                              {
-                                                "label": "map",
-                                                "value": "map"
-                                              },
-                                              {
-                                                "label": "mark",
-                                                "value": "mark"
-                                              },
-                                              {
-                                                "label": "menu",
-                                                "value": "menu"
-                                              },
-                                              {
-                                                "label": "menuitem",
-                                                "value": "menuitem"
-                                              },
-                                              {
-                                                "label": "meta",
-                                                "value": "meta"
-                                              },
-                                              {
-                                                "label": "meter",
-                                                "value": "meter"
-                                              },
-                                              {
-                                                "label": "nav",
-                                                "value": "nav"
-                                              },
-                                              {
-                                                "label": "noscript",
-                                                "value": "noscript"
-                                              },
-                                              {
-                                                "label": "ol",
-                                                "value": "ol"
-                                              },
-                                              {
-                                                "label": "optgroup",
-                                                "value": "optgroup"
-                                              },
-                                              {
-                                                "label": "option",
-                                                "value": "option"
-                                              },
-                                              {
-                                                "label": "output",
-                                                "value": "output"
-                                              },
-                                              {
-                                                "label": "p",
-                                                "value": "p"
-                                              },
-                                              {
-                                                "label": "param",
-                                                "value": "param"
-                                              },
-                                              {
-                                                "label": "picture",
-                                                "value": "picture"
-                                              },
-                                              {
-                                                "label": "pre",
-                                                "value": "pre"
-                                              },
-                                              {
-                                                "label": "progress",
-                                                "value": "progress"
-                                              },
-                                              {
-                                                "label": "q",
-                                                "value": "q"
-                                              },
-                                              {
-                                                "label": "rp",
-                                                "value": "rp"
-                                              },
-                                              {
-                                                "label": "rt",
-                                                "value": "rt"
-                                              },
-                                              {
-                                                "label": "ruby",
-                                                "value": "ruby"
-                                              },
-                                              {
-                                                "label": "s",
-                                                "value": "s"
-                                              },
-                                              {
-                                                "label": "samp",
-                                                "value": "samp"
-                                              },
-                                              {
-                                                "label": "slot",
-                                                "value": "slot"
-                                              },
-                                              {
-                                                "label": "script",
-                                                "value": "script"
-                                              },
-                                              {
-                                                "label": "section",
-                                                "value": "section"
-                                              },
-                                              {
-                                                "label": "select",
-                                                "value": "select"
-                                              },
-                                              {
-                                                "label": "small",
-                                                "value": "small"
-                                              },
-                                              {
-                                                "label": "source",
-                                                "value": "source"
-                                              },
-                                              {
-                                                "label": "span",
-                                                "value": "span"
-                                              },
-                                              {
-                                                "label": "strong",
-                                                "value": "strong"
-                                              },
-                                              {
-                                                "label": "style",
-                                                "value": "style"
-                                              },
-                                              {
-                                                "label": "sub",
-                                                "value": "sub"
-                                              },
-                                              {
-                                                "label": "summary",
-                                                "value": "summary"
-                                              },
-                                              {
-                                                "label": "sup",
-                                                "value": "sup"
-                                              },
-                                              {
-                                                "label": "table",
-                                                "value": "table"
-                                              },
-                                              {
-                                                "label": "template",
-                                                "value": "template"
-                                              },
-                                              {
-                                                "label": "tbody",
-                                                "value": "tbody"
-                                              },
-                                              {
-                                                "label": "td",
-                                                "value": "td"
-                                              },
-                                              {
-                                                "label": "textarea",
-                                                "value": "textarea"
-                                              },
-                                              {
-                                                "label": "tfoot",
-                                                "value": "tfoot"
-                                              },
-                                              {
-                                                "label": "th",
-                                                "value": "th"
-                                              },
-                                              {
-                                                "label": "thead",
-                                                "value": "thead"
-                                              },
-                                              {
-                                                "label": "time",
-                                                "value": "time"
-                                              },
-                                              {
-                                                "label": "title",
-                                                "value": "title"
-                                              },
-                                              {
-                                                "label": "tr",
-                                                "value": "tr"
-                                              },
-                                              {
-                                                "label": "track",
-                                                "value": "track"
-                                              },
-                                              {
-                                                "label": "u",
-                                                "value": "u"
-                                              },
-                                              {
-                                                "label": "ul",
-                                                "value": "ul"
-                                              },
-                                              {
-                                                "label": "var",
-                                                "value": "var"
-                                              },
-                                              {
-                                                "label": "video",
-                                                "value": "video"
-                                              },
-                                              {
-                                                "label": "wbr",
-                                                "value": "wbr"
-                                              },
-                                              {
-                                                "label": "webview",
-                                                "value": "webview"
-                                              }
-                                            ],
-                                            "options": [
-                                              {
-                                                "label": "object",
-                                                "value": "object"
-                                              },
-                                              {
-                                                "label": "a",
-                                                "value": "a"
-                                              },
-                                              {
-                                                "label": "abbr",
-                                                "value": "abbr"
-                                              },
-                                              {
-                                                "label": "address",
-                                                "value": "address"
-                                              },
-                                              {
-                                                "label": "area",
-                                                "value": "area"
-                                              },
-                                              {
-                                                "label": "article",
-                                                "value": "article"
-                                              },
-                                              {
-                                                "label": "aside",
-                                                "value": "aside"
-                                              },
-                                              {
-                                                "label": "audio",
-                                                "value": "audio"
-                                              },
-                                              {
-                                                "label": "b",
-                                                "value": "b"
-                                              },
-                                              {
-                                                "label": "base",
-                                                "value": "base"
-                                              },
-                                              {
-                                                "label": "bdi",
-                                                "value": "bdi"
-                                              },
-                                              {
-                                                "label": "bdo",
-                                                "value": "bdo"
-                                              },
-                                              {
-                                                "label": "big",
-                                                "value": "big"
-                                              },
-                                              {
-                                                "label": "blockquote",
-                                                "value": "blockquote"
-                                              },
-                                              {
-                                                "label": "body",
-                                                "value": "body"
-                                              },
-                                              {
-                                                "label": "br",
-                                                "value": "br"
-                                              },
-                                              {
-                                                "label": "button",
-                                                "value": "button"
-                                              },
-                                              {
-                                                "label": "canvas",
-                                                "value": "canvas"
-                                              },
-                                              {
-                                                "label": "caption",
-                                                "value": "caption"
-                                              },
-                                              {
-                                                "label": "cite",
-                                                "value": "cite"
-                                              },
-                                              {
-                                                "label": "code",
-                                                "value": "code"
-                                              },
-                                              {
-                                                "label": "col",
-                                                "value": "col"
-                                              },
-                                              {
-                                                "label": "colgroup",
-                                                "value": "colgroup"
-                                              },
-                                              {
-                                                "label": "data",
-                                                "value": "data"
-                                              },
-                                              {
-                                                "label": "datalist",
-                                                "value": "datalist"
-                                              },
-                                              {
-                                                "label": "dd",
-                                                "value": "dd"
-                                              },
-                                              {
-                                                "label": "del",
-                                                "value": "del"
-                                              },
-                                              {
-                                                "label": "details",
-                                                "value": "details"
-                                              },
-                                              {
-                                                "label": "dfn",
-                                                "value": "dfn"
-                                              },
-                                              {
-                                                "label": "dialog",
-                                                "value": "dialog"
-                                              },
-                                              {
-                                                "label": "div",
-                                                "value": "div"
-                                              },
-                                              {
-                                                "label": "dl",
-                                                "value": "dl"
-                                              },
-                                              {
-                                                "label": "dt",
-                                                "value": "dt"
-                                              },
-                                              {
-                                                "label": "em",
-                                                "value": "em"
-                                              },
-                                              {
-                                                "label": "embed",
-                                                "value": "embed"
-                                              },
-                                              {
-                                                "label": "fieldset",
-                                                "value": "fieldset"
-                                              },
-                                              {
-                                                "label": "figcaption",
-                                                "value": "figcaption"
-                                              },
-                                              {
-                                                "label": "figure",
-                                                "value": "figure"
-                                              },
-                                              {
-                                                "label": "footer",
-                                                "value": "footer"
-                                              },
-                                              {
-                                                "label": "form",
-                                                "value": "form"
-                                              },
-                                              {
-                                                "label": "h1",
-                                                "value": "h1"
-                                              },
-                                              {
-                                                "label": "h2",
-                                                "value": "h2"
-                                              },
-                                              {
-                                                "label": "h3",
-                                                "value": "h3"
-                                              },
-                                              {
-                                                "label": "h4",
-                                                "value": "h4"
-                                              },
-                                              {
-                                                "label": "h5",
-                                                "value": "h5"
-                                              },
-                                              {
-                                                "label": "h6",
-                                                "value": "h6"
-                                              },
-                                              {
-                                                "label": "head",
-                                                "value": "head"
-                                              },
-                                              {
-                                                "label": "header",
-                                                "value": "header"
-                                              },
-                                              {
-                                                "label": "hgroup",
-                                                "value": "hgroup"
-                                              },
-                                              {
-                                                "label": "hr",
-                                                "value": "hr"
-                                              },
-                                              {
-                                                "label": "html",
-                                                "value": "html"
-                                              },
-                                              {
-                                                "label": "i",
-                                                "value": "i"
-                                              },
-                                              {
-                                                "label": "iframe",
-                                                "value": "iframe"
-                                              },
-                                              {
-                                                "label": "img",
-                                                "value": "img"
-                                              },
-                                              {
-                                                "label": "input",
-                                                "value": "input"
-                                              },
-                                              {
-                                                "label": "ins",
-                                                "value": "ins"
-                                              },
-                                              {
-                                                "label": "kbd",
-                                                "value": "kbd"
-                                              },
-                                              {
-                                                "label": "keygen",
-                                                "value": "keygen"
-                                              },
-                                              {
-                                                "label": "label",
-                                                "value": "label"
-                                              },
-                                              {
-                                                "label": "legend",
-                                                "value": "legend"
-                                              },
-                                              {
-                                                "label": "li",
-                                                "value": "li"
-                                              },
-                                              {
-                                                "label": "link",
-                                                "value": "link"
-                                              },
-                                              {
-                                                "label": "main",
-                                                "value": "main"
-                                              },
-                                              {
-                                                "label": "map",
-                                                "value": "map"
-                                              },
-                                              {
-                                                "label": "mark",
-                                                "value": "mark"
-                                              },
-                                              {
-                                                "label": "menu",
-                                                "value": "menu"
-                                              },
-                                              {
-                                                "label": "menuitem",
-                                                "value": "menuitem"
-                                              },
-                                              {
-                                                "label": "meta",
-                                                "value": "meta"
-                                              },
-                                              {
-                                                "label": "meter",
-                                                "value": "meter"
-                                              },
-                                              {
-                                                "label": "nav",
-                                                "value": "nav"
-                                              },
-                                              {
-                                                "label": "noscript",
-                                                "value": "noscript"
-                                              },
-                                              {
-                                                "label": "ol",
-                                                "value": "ol"
-                                              },
-                                              {
-                                                "label": "optgroup",
-                                                "value": "optgroup"
-                                              },
-                                              {
-                                                "label": "option",
-                                                "value": "option"
-                                              },
-                                              {
-                                                "label": "output",
-                                                "value": "output"
-                                              },
-                                              {
-                                                "label": "p",
-                                                "value": "p"
-                                              },
-                                              {
-                                                "label": "param",
-                                                "value": "param"
-                                              },
-                                              {
-                                                "label": "picture",
-                                                "value": "picture"
-                                              },
-                                              {
-                                                "label": "pre",
-                                                "value": "pre"
-                                              },
-                                              {
-                                                "label": "progress",
-                                                "value": "progress"
-                                              },
-                                              {
-                                                "label": "q",
-                                                "value": "q"
-                                              },
-                                              {
-                                                "label": "rp",
-                                                "value": "rp"
-                                              },
-                                              {
-                                                "label": "rt",
-                                                "value": "rt"
-                                              },
-                                              {
-                                                "label": "ruby",
-                                                "value": "ruby"
-                                              },
-                                              {
-                                                "label": "s",
-                                                "value": "s"
-                                              },
-                                              {
-                                                "label": "samp",
-                                                "value": "samp"
-                                              },
-                                              {
-                                                "label": "slot",
-                                                "value": "slot"
-                                              },
-                                              {
-                                                "label": "script",
-                                                "value": "script"
-                                              },
-                                              {
-                                                "label": "section",
-                                                "value": "section"
-                                              },
-                                              {
-                                                "label": "select",
-                                                "value": "select"
-                                              },
-                                              {
-                                                "label": "small",
-                                                "value": "small"
-                                              },
-                                              {
-                                                "label": "source",
-                                                "value": "source"
-                                              },
-                                              {
-                                                "label": "span",
-                                                "value": "span"
-                                              },
-                                              {
-                                                "label": "strong",
-                                                "value": "strong"
-                                              },
-                                              {
-                                                "label": "style",
-                                                "value": "style"
-                                              },
-                                              {
-                                                "label": "sub",
-                                                "value": "sub"
-                                              },
-                                              {
-                                                "label": "summary",
-                                                "value": "summary"
-                                              },
-                                              {
-                                                "label": "sup",
-                                                "value": "sup"
-                                              },
-                                              {
-                                                "label": "table",
-                                                "value": "table"
-                                              },
-                                              {
-                                                "label": "template",
-                                                "value": "template"
-                                              },
-                                              {
-                                                "label": "tbody",
-                                                "value": "tbody"
-                                              },
-                                              {
-                                                "label": "td",
-                                                "value": "td"
-                                              },
-                                              {
-                                                "label": "textarea",
-                                                "value": "textarea"
-                                              },
-                                              {
-                                                "label": "tfoot",
-                                                "value": "tfoot"
-                                              },
-                                              {
-                                                "label": "th",
-                                                "value": "th"
-                                              },
-                                              {
-                                                "label": "thead",
-                                                "value": "thead"
-                                              },
-                                              {
-                                                "label": "time",
-                                                "value": "time"
-                                              },
-                                              {
-                                                "label": "title",
-                                                "value": "title"
-                                              },
-                                              {
-                                                "label": "tr",
-                                                "value": "tr"
-                                              },
-                                              {
-                                                "label": "track",
-                                                "value": "track"
-                                              },
-                                              {
-                                                "label": "u",
-                                                "value": "u"
-                                              },
-                                              {
-                                                "label": "ul",
-                                                "value": "ul"
-                                              },
-                                              {
-                                                "label": "var",
-                                                "value": "var"
-                                              },
-                                              {
-                                                "label": "video",
-                                                "value": "video"
-                                              },
-                                              {
-                                                "label": "wbr",
-                                                "value": "wbr"
-                                              },
-                                              {
-                                                "label": "webview",
-                                                "value": "webview"
-                                              }
-                                            ]
-                                          },
-                                          "initialValue": "object"
-                                        }
-                                      ]
-                                    }
-                                  }
-                                },
-                                {
-                                  "title": {
-                                    "label": {
-                                      "type": "i18n",
-                                      "en-US": "row",
-                                      "zh-CN": "row"
-                                    }
-                                  },
-                                  "name": "row",
-                                  "setter": {
-                                    "componentName": "MixedSetter",
-                                    "props": {
-                                      "setters": [
-                                        {
-                                          "componentName": "ObjectSetter",
-                                          "props": {
-                                            "config": {
-                                              "extraSetter": {
-                                                "componentName": "MixedSetter",
-                                                "isRequired": false,
-                                                "props": {}
-                                              }
-                                            }
-                                          },
-                                          "isRequired": false,
-                                          "initialValue": {}
-                                        },
-                                        {
-                                          "componentName": "SelectSetter",
-                                          "props": {
-                                            "dataSource": [
-                                              {
-                                                "label": "object",
-                                                "value": "object"
-                                              },
-                                              {
-                                                "label": "a",
-                                                "value": "a"
-                                              },
-                                              {
-                                                "label": "abbr",
-                                                "value": "abbr"
-                                              },
-                                              {
-                                                "label": "address",
-                                                "value": "address"
-                                              },
-                                              {
-                                                "label": "area",
-                                                "value": "area"
-                                              },
-                                              {
-                                                "label": "article",
-                                                "value": "article"
-                                              },
-                                              {
-                                                "label": "aside",
-                                                "value": "aside"
-                                              },
-                                              {
-                                                "label": "audio",
-                                                "value": "audio"
-                                              },
-                                              {
-                                                "label": "b",
-                                                "value": "b"
-                                              },
-                                              {
-                                                "label": "base",
-                                                "value": "base"
-                                              },
-                                              {
-                                                "label": "bdi",
-                                                "value": "bdi"
-                                              },
-                                              {
-                                                "label": "bdo",
-                                                "value": "bdo"
-                                              },
-                                              {
-                                                "label": "big",
-                                                "value": "big"
-                                              },
-                                              {
-                                                "label": "blockquote",
-                                                "value": "blockquote"
-                                              },
-                                              {
-                                                "label": "body",
-                                                "value": "body"
-                                              },
-                                              {
-                                                "label": "br",
-                                                "value": "br"
-                                              },
-                                              {
-                                                "label": "button",
-                                                "value": "button"
-                                              },
-                                              {
-                                                "label": "canvas",
-                                                "value": "canvas"
-                                              },
-                                              {
-                                                "label": "caption",
-                                                "value": "caption"
-                                              },
-                                              {
-                                                "label": "cite",
-                                                "value": "cite"
-                                              },
-                                              {
-                                                "label": "code",
-                                                "value": "code"
-                                              },
-                                              {
-                                                "label": "col",
-                                                "value": "col"
-                                              },
-                                              {
-                                                "label": "colgroup",
-                                                "value": "colgroup"
-                                              },
-                                              {
-                                                "label": "data",
-                                                "value": "data"
-                                              },
-                                              {
-                                                "label": "datalist",
-                                                "value": "datalist"
-                                              },
-                                              {
-                                                "label": "dd",
-                                                "value": "dd"
-                                              },
-                                              {
-                                                "label": "del",
-                                                "value": "del"
-                                              },
-                                              {
-                                                "label": "details",
-                                                "value": "details"
-                                              },
-                                              {
-                                                "label": "dfn",
-                                                "value": "dfn"
-                                              },
-                                              {
-                                                "label": "dialog",
-                                                "value": "dialog"
-                                              },
-                                              {
-                                                "label": "div",
-                                                "value": "div"
-                                              },
-                                              {
-                                                "label": "dl",
-                                                "value": "dl"
-                                              },
-                                              {
-                                                "label": "dt",
-                                                "value": "dt"
-                                              },
-                                              {
-                                                "label": "em",
-                                                "value": "em"
-                                              },
-                                              {
-                                                "label": "embed",
-                                                "value": "embed"
-                                              },
-                                              {
-                                                "label": "fieldset",
-                                                "value": "fieldset"
-                                              },
-                                              {
-                                                "label": "figcaption",
-                                                "value": "figcaption"
-                                              },
-                                              {
-                                                "label": "figure",
-                                                "value": "figure"
-                                              },
-                                              {
-                                                "label": "footer",
-                                                "value": "footer"
-                                              },
-                                              {
-                                                "label": "form",
-                                                "value": "form"
-                                              },
-                                              {
-                                                "label": "h1",
-                                                "value": "h1"
-                                              },
-                                              {
-                                                "label": "h2",
-                                                "value": "h2"
-                                              },
-                                              {
-                                                "label": "h3",
-                                                "value": "h3"
-                                              },
-                                              {
-                                                "label": "h4",
-                                                "value": "h4"
-                                              },
-                                              {
-                                                "label": "h5",
-                                                "value": "h5"
-                                              },
-                                              {
-                                                "label": "h6",
-                                                "value": "h6"
-                                              },
-                                              {
-                                                "label": "head",
-                                                "value": "head"
-                                              },
-                                              {
-                                                "label": "header",
-                                                "value": "header"
-                                              },
-                                              {
-                                                "label": "hgroup",
-                                                "value": "hgroup"
-                                              },
-                                              {
-                                                "label": "hr",
-                                                "value": "hr"
-                                              },
-                                              {
-                                                "label": "html",
-                                                "value": "html"
-                                              },
-                                              {
-                                                "label": "i",
-                                                "value": "i"
-                                              },
-                                              {
-                                                "label": "iframe",
-                                                "value": "iframe"
-                                              },
-                                              {
-                                                "label": "img",
-                                                "value": "img"
-                                              },
-                                              {
-                                                "label": "input",
-                                                "value": "input"
-                                              },
-                                              {
-                                                "label": "ins",
-                                                "value": "ins"
-                                              },
-                                              {
-                                                "label": "kbd",
-                                                "value": "kbd"
-                                              },
-                                              {
-                                                "label": "keygen",
-                                                "value": "keygen"
-                                              },
-                                              {
-                                                "label": "label",
-                                                "value": "label"
-                                              },
-                                              {
-                                                "label": "legend",
-                                                "value": "legend"
-                                              },
-                                              {
-                                                "label": "li",
-                                                "value": "li"
-                                              },
-                                              {
-                                                "label": "link",
-                                                "value": "link"
-                                              },
-                                              {
-                                                "label": "main",
-                                                "value": "main"
-                                              },
-                                              {
-                                                "label": "map",
-                                                "value": "map"
-                                              },
-                                              {
-                                                "label": "mark",
-                                                "value": "mark"
-                                              },
-                                              {
-                                                "label": "menu",
-                                                "value": "menu"
-                                              },
-                                              {
-                                                "label": "menuitem",
-                                                "value": "menuitem"
-                                              },
-                                              {
-                                                "label": "meta",
-                                                "value": "meta"
-                                              },
-                                              {
-                                                "label": "meter",
-                                                "value": "meter"
-                                              },
-                                              {
-                                                "label": "nav",
-                                                "value": "nav"
-                                              },
-                                              {
-                                                "label": "noscript",
-                                                "value": "noscript"
-                                              },
-                                              {
-                                                "label": "ol",
-                                                "value": "ol"
-                                              },
-                                              {
-                                                "label": "optgroup",
-                                                "value": "optgroup"
-                                              },
-                                              {
-                                                "label": "option",
-                                                "value": "option"
-                                              },
-                                              {
-                                                "label": "output",
-                                                "value": "output"
-                                              },
-                                              {
-                                                "label": "p",
-                                                "value": "p"
-                                              },
-                                              {
-                                                "label": "param",
-                                                "value": "param"
-                                              },
-                                              {
-                                                "label": "picture",
-                                                "value": "picture"
-                                              },
-                                              {
-                                                "label": "pre",
-                                                "value": "pre"
-                                              },
-                                              {
-                                                "label": "progress",
-                                                "value": "progress"
-                                              },
-                                              {
-                                                "label": "q",
-                                                "value": "q"
-                                              },
-                                              {
-                                                "label": "rp",
-                                                "value": "rp"
-                                              },
-                                              {
-                                                "label": "rt",
-                                                "value": "rt"
-                                              },
-                                              {
-                                                "label": "ruby",
-                                                "value": "ruby"
-                                              },
-                                              {
-                                                "label": "s",
-                                                "value": "s"
-                                              },
-                                              {
-                                                "label": "samp",
-                                                "value": "samp"
-                                              },
-                                              {
-                                                "label": "slot",
-                                                "value": "slot"
-                                              },
-                                              {
-                                                "label": "script",
-                                                "value": "script"
-                                              },
-                                              {
-                                                "label": "section",
-                                                "value": "section"
-                                              },
-                                              {
-                                                "label": "select",
-                                                "value": "select"
-                                              },
-                                              {
-                                                "label": "small",
-                                                "value": "small"
-                                              },
-                                              {
-                                                "label": "source",
-                                                "value": "source"
-                                              },
-                                              {
-                                                "label": "span",
-                                                "value": "span"
-                                              },
-                                              {
-                                                "label": "strong",
-                                                "value": "strong"
-                                              },
-                                              {
-                                                "label": "style",
-                                                "value": "style"
-                                              },
-                                              {
-                                                "label": "sub",
-                                                "value": "sub"
-                                              },
-                                              {
-                                                "label": "summary",
-                                                "value": "summary"
-                                              },
-                                              {
-                                                "label": "sup",
-                                                "value": "sup"
-                                              },
-                                              {
-                                                "label": "table",
-                                                "value": "table"
-                                              },
-                                              {
-                                                "label": "template",
-                                                "value": "template"
-                                              },
-                                              {
-                                                "label": "tbody",
-                                                "value": "tbody"
-                                              },
-                                              {
-                                                "label": "td",
-                                                "value": "td"
-                                              },
-                                              {
-                                                "label": "textarea",
-                                                "value": "textarea"
-                                              },
-                                              {
-                                                "label": "tfoot",
-                                                "value": "tfoot"
-                                              },
-                                              {
-                                                "label": "th",
-                                                "value": "th"
-                                              },
-                                              {
-                                                "label": "thead",
-                                                "value": "thead"
-                                              },
-                                              {
-                                                "label": "time",
-                                                "value": "time"
-                                              },
-                                              {
-                                                "label": "title",
-                                                "value": "title"
-                                              },
-                                              {
-                                                "label": "tr",
-                                                "value": "tr"
-                                              },
-                                              {
-                                                "label": "track",
-                                                "value": "track"
-                                              },
-                                              {
-                                                "label": "u",
-                                                "value": "u"
-                                              },
-                                              {
-                                                "label": "ul",
-                                                "value": "ul"
-                                              },
-                                              {
-                                                "label": "var",
-                                                "value": "var"
-                                              },
-                                              {
-                                                "label": "video",
-                                                "value": "video"
-                                              },
-                                              {
-                                                "label": "wbr",
-                                                "value": "wbr"
-                                              },
-                                              {
-                                                "label": "webview",
-                                                "value": "webview"
-                                              }
-                                            ],
-                                            "options": [
-                                              {
-                                                "label": "object",
-                                                "value": "object"
-                                              },
-                                              {
-                                                "label": "a",
-                                                "value": "a"
-                                              },
-                                              {
-                                                "label": "abbr",
-                                                "value": "abbr"
-                                              },
-                                              {
-                                                "label": "address",
-                                                "value": "address"
-                                              },
-                                              {
-                                                "label": "area",
-                                                "value": "area"
-                                              },
-                                              {
-                                                "label": "article",
-                                                "value": "article"
-                                              },
-                                              {
-                                                "label": "aside",
-                                                "value": "aside"
-                                              },
-                                              {
-                                                "label": "audio",
-                                                "value": "audio"
-                                              },
-                                              {
-                                                "label": "b",
-                                                "value": "b"
-                                              },
-                                              {
-                                                "label": "base",
-                                                "value": "base"
-                                              },
-                                              {
-                                                "label": "bdi",
-                                                "value": "bdi"
-                                              },
-                                              {
-                                                "label": "bdo",
-                                                "value": "bdo"
-                                              },
-                                              {
-                                                "label": "big",
-                                                "value": "big"
-                                              },
-                                              {
-                                                "label": "blockquote",
-                                                "value": "blockquote"
-                                              },
-                                              {
-                                                "label": "body",
-                                                "value": "body"
-                                              },
-                                              {
-                                                "label": "br",
-                                                "value": "br"
-                                              },
-                                              {
-                                                "label": "button",
-                                                "value": "button"
-                                              },
-                                              {
-                                                "label": "canvas",
-                                                "value": "canvas"
-                                              },
-                                              {
-                                                "label": "caption",
-                                                "value": "caption"
-                                              },
-                                              {
-                                                "label": "cite",
-                                                "value": "cite"
-                                              },
-                                              {
-                                                "label": "code",
-                                                "value": "code"
-                                              },
-                                              {
-                                                "label": "col",
-                                                "value": "col"
-                                              },
-                                              {
-                                                "label": "colgroup",
-                                                "value": "colgroup"
-                                              },
-                                              {
-                                                "label": "data",
-                                                "value": "data"
-                                              },
-                                              {
-                                                "label": "datalist",
-                                                "value": "datalist"
-                                              },
-                                              {
-                                                "label": "dd",
-                                                "value": "dd"
-                                              },
-                                              {
-                                                "label": "del",
-                                                "value": "del"
-                                              },
-                                              {
-                                                "label": "details",
-                                                "value": "details"
-                                              },
-                                              {
-                                                "label": "dfn",
-                                                "value": "dfn"
-                                              },
-                                              {
-                                                "label": "dialog",
-                                                "value": "dialog"
-                                              },
-                                              {
-                                                "label": "div",
-                                                "value": "div"
-                                              },
-                                              {
-                                                "label": "dl",
-                                                "value": "dl"
-                                              },
-                                              {
-                                                "label": "dt",
-                                                "value": "dt"
-                                              },
-                                              {
-                                                "label": "em",
-                                                "value": "em"
-                                              },
-                                              {
-                                                "label": "embed",
-                                                "value": "embed"
-                                              },
-                                              {
-                                                "label": "fieldset",
-                                                "value": "fieldset"
-                                              },
-                                              {
-                                                "label": "figcaption",
-                                                "value": "figcaption"
-                                              },
-                                              {
-                                                "label": "figure",
-                                                "value": "figure"
-                                              },
-                                              {
-                                                "label": "footer",
-                                                "value": "footer"
-                                              },
-                                              {
-                                                "label": "form",
-                                                "value": "form"
-                                              },
-                                              {
-                                                "label": "h1",
-                                                "value": "h1"
-                                              },
-                                              {
-                                                "label": "h2",
-                                                "value": "h2"
-                                              },
-                                              {
-                                                "label": "h3",
-                                                "value": "h3"
-                                              },
-                                              {
-                                                "label": "h4",
-                                                "value": "h4"
-                                              },
-                                              {
-                                                "label": "h5",
-                                                "value": "h5"
-                                              },
-                                              {
-                                                "label": "h6",
-                                                "value": "h6"
-                                              },
-                                              {
-                                                "label": "head",
-                                                "value": "head"
-                                              },
-                                              {
-                                                "label": "header",
-                                                "value": "header"
-                                              },
-                                              {
-                                                "label": "hgroup",
-                                                "value": "hgroup"
-                                              },
-                                              {
-                                                "label": "hr",
-                                                "value": "hr"
-                                              },
-                                              {
-                                                "label": "html",
-                                                "value": "html"
-                                              },
-                                              {
-                                                "label": "i",
-                                                "value": "i"
-                                              },
-                                              {
-                                                "label": "iframe",
-                                                "value": "iframe"
-                                              },
-                                              {
-                                                "label": "img",
-                                                "value": "img"
-                                              },
-                                              {
-                                                "label": "input",
-                                                "value": "input"
-                                              },
-                                              {
-                                                "label": "ins",
-                                                "value": "ins"
-                                              },
-                                              {
-                                                "label": "kbd",
-                                                "value": "kbd"
-                                              },
-                                              {
-                                                "label": "keygen",
-                                                "value": "keygen"
-                                              },
-                                              {
-                                                "label": "label",
-                                                "value": "label"
-                                              },
-                                              {
-                                                "label": "legend",
-                                                "value": "legend"
-                                              },
-                                              {
-                                                "label": "li",
-                                                "value": "li"
-                                              },
-                                              {
-                                                "label": "link",
-                                                "value": "link"
-                                              },
-                                              {
-                                                "label": "main",
-                                                "value": "main"
-                                              },
-                                              {
-                                                "label": "map",
-                                                "value": "map"
-                                              },
-                                              {
-                                                "label": "mark",
-                                                "value": "mark"
-                                              },
-                                              {
-                                                "label": "menu",
-                                                "value": "menu"
-                                              },
-                                              {
-                                                "label": "menuitem",
-                                                "value": "menuitem"
-                                              },
-                                              {
-                                                "label": "meta",
-                                                "value": "meta"
-                                              },
-                                              {
-                                                "label": "meter",
-                                                "value": "meter"
-                                              },
-                                              {
-                                                "label": "nav",
-                                                "value": "nav"
-                                              },
-                                              {
-                                                "label": "noscript",
-                                                "value": "noscript"
-                                              },
-                                              {
-                                                "label": "ol",
-                                                "value": "ol"
-                                              },
-                                              {
-                                                "label": "optgroup",
-                                                "value": "optgroup"
-                                              },
-                                              {
-                                                "label": "option",
-                                                "value": "option"
-                                              },
-                                              {
-                                                "label": "output",
-                                                "value": "output"
-                                              },
-                                              {
-                                                "label": "p",
-                                                "value": "p"
-                                              },
-                                              {
-                                                "label": "param",
-                                                "value": "param"
-                                              },
-                                              {
-                                                "label": "picture",
-                                                "value": "picture"
-                                              },
-                                              {
-                                                "label": "pre",
-                                                "value": "pre"
-                                              },
-                                              {
-                                                "label": "progress",
-                                                "value": "progress"
-                                              },
-                                              {
-                                                "label": "q",
-                                                "value": "q"
-                                              },
-                                              {
-                                                "label": "rp",
-                                                "value": "rp"
-                                              },
-                                              {
-                                                "label": "rt",
-                                                "value": "rt"
-                                              },
-                                              {
-                                                "label": "ruby",
-                                                "value": "ruby"
-                                              },
-                                              {
-                                                "label": "s",
-                                                "value": "s"
-                                              },
-                                              {
-                                                "label": "samp",
-                                                "value": "samp"
-                                              },
-                                              {
-                                                "label": "slot",
-                                                "value": "slot"
-                                              },
-                                              {
-                                                "label": "script",
-                                                "value": "script"
-                                              },
-                                              {
-                                                "label": "section",
-                                                "value": "section"
-                                              },
-                                              {
-                                                "label": "select",
-                                                "value": "select"
-                                              },
-                                              {
-                                                "label": "small",
-                                                "value": "small"
-                                              },
-                                              {
-                                                "label": "source",
-                                                "value": "source"
-                                              },
-                                              {
-                                                "label": "span",
-                                                "value": "span"
-                                              },
-                                              {
-                                                "label": "strong",
-                                                "value": "strong"
-                                              },
-                                              {
-                                                "label": "style",
-                                                "value": "style"
-                                              },
-                                              {
-                                                "label": "sub",
-                                                "value": "sub"
-                                              },
-                                              {
-                                                "label": "summary",
-                                                "value": "summary"
-                                              },
-                                              {
-                                                "label": "sup",
-                                                "value": "sup"
-                                              },
-                                              {
-                                                "label": "table",
-                                                "value": "table"
-                                              },
-                                              {
-                                                "label": "template",
-                                                "value": "template"
-                                              },
-                                              {
-                                                "label": "tbody",
-                                                "value": "tbody"
-                                              },
-                                              {
-                                                "label": "td",
-                                                "value": "td"
-                                              },
-                                              {
-                                                "label": "textarea",
-                                                "value": "textarea"
-                                              },
-                                              {
-                                                "label": "tfoot",
-                                                "value": "tfoot"
-                                              },
-                                              {
-                                                "label": "th",
-                                                "value": "th"
-                                              },
-                                              {
-                                                "label": "thead",
-                                                "value": "thead"
-                                              },
-                                              {
-                                                "label": "time",
-                                                "value": "time"
-                                              },
-                                              {
-                                                "label": "title",
-                                                "value": "title"
-                                              },
-                                              {
-                                                "label": "tr",
-                                                "value": "tr"
-                                              },
-                                              {
-                                                "label": "track",
-                                                "value": "track"
-                                              },
-                                              {
-                                                "label": "u",
-                                                "value": "u"
-                                              },
-                                              {
-                                                "label": "ul",
-                                                "value": "ul"
-                                              },
-                                              {
-                                                "label": "var",
-                                                "value": "var"
-                                              },
-                                              {
-                                                "label": "video",
-                                                "value": "video"
-                                              },
-                                              {
-                                                "label": "wbr",
-                                                "value": "wbr"
-                                              },
-                                              {
-                                                "label": "webview",
-                                                "value": "webview"
-                                              }
-                                            ]
-                                          },
-                                          "initialValue": "object"
-                                        }
-                                      ]
-                                    }
-                                  }
-                                },
-                                {
-                                  "title": {
-                                    "label": {
-                                      "type": "i18n",
-                                      "en-US": "cell",
-                                      "zh-CN": "cell"
-                                    }
-                                  },
-                                  "name": "cell",
-                                  "setter": {
-                                    "componentName": "MixedSetter",
-                                    "props": {
-                                      "setters": [
-                                        {
-                                          "componentName": "ObjectSetter",
-                                          "props": {
-                                            "config": {
-                                              "extraSetter": {
-                                                "componentName": "MixedSetter",
-                                                "isRequired": false,
-                                                "props": {}
-                                              }
-                                            }
-                                          },
-                                          "isRequired": false,
-                                          "initialValue": {}
-                                        },
-                                        {
-                                          "componentName": "SelectSetter",
-                                          "props": {
-                                            "dataSource": [
-                                              {
-                                                "label": "object",
-                                                "value": "object"
-                                              },
-                                              {
-                                                "label": "a",
-                                                "value": "a"
-                                              },
-                                              {
-                                                "label": "abbr",
-                                                "value": "abbr"
-                                              },
-                                              {
-                                                "label": "address",
-                                                "value": "address"
-                                              },
-                                              {
-                                                "label": "area",
-                                                "value": "area"
-                                              },
-                                              {
-                                                "label": "article",
-                                                "value": "article"
-                                              },
-                                              {
-                                                "label": "aside",
-                                                "value": "aside"
-                                              },
-                                              {
-                                                "label": "audio",
-                                                "value": "audio"
-                                              },
-                                              {
-                                                "label": "b",
-                                                "value": "b"
-                                              },
-                                              {
-                                                "label": "base",
-                                                "value": "base"
-                                              },
-                                              {
-                                                "label": "bdi",
-                                                "value": "bdi"
-                                              },
-                                              {
-                                                "label": "bdo",
-                                                "value": "bdo"
-                                              },
-                                              {
-                                                "label": "big",
-                                                "value": "big"
-                                              },
-                                              {
-                                                "label": "blockquote",
-                                                "value": "blockquote"
-                                              },
-                                              {
-                                                "label": "body",
-                                                "value": "body"
-                                              },
-                                              {
-                                                "label": "br",
-                                                "value": "br"
-                                              },
-                                              {
-                                                "label": "button",
-                                                "value": "button"
-                                              },
-                                              {
-                                                "label": "canvas",
-                                                "value": "canvas"
-                                              },
-                                              {
-                                                "label": "caption",
-                                                "value": "caption"
-                                              },
-                                              {
-                                                "label": "cite",
-                                                "value": "cite"
-                                              },
-                                              {
-                                                "label": "code",
-                                                "value": "code"
-                                              },
-                                              {
-                                                "label": "col",
-                                                "value": "col"
-                                              },
-                                              {
-                                                "label": "colgroup",
-                                                "value": "colgroup"
-                                              },
-                                              {
-                                                "label": "data",
-                                                "value": "data"
-                                              },
-                                              {
-                                                "label": "datalist",
-                                                "value": "datalist"
-                                              },
-                                              {
-                                                "label": "dd",
-                                                "value": "dd"
-                                              },
-                                              {
-                                                "label": "del",
-                                                "value": "del"
-                                              },
-                                              {
-                                                "label": "details",
-                                                "value": "details"
-                                              },
-                                              {
-                                                "label": "dfn",
-                                                "value": "dfn"
-                                              },
-                                              {
-                                                "label": "dialog",
-                                                "value": "dialog"
-                                              },
-                                              {
-                                                "label": "div",
-                                                "value": "div"
-                                              },
-                                              {
-                                                "label": "dl",
-                                                "value": "dl"
-                                              },
-                                              {
-                                                "label": "dt",
-                                                "value": "dt"
-                                              },
-                                              {
-                                                "label": "em",
-                                                "value": "em"
-                                              },
-                                              {
-                                                "label": "embed",
-                                                "value": "embed"
-                                              },
-                                              {
-                                                "label": "fieldset",
-                                                "value": "fieldset"
-                                              },
-                                              {
-                                                "label": "figcaption",
-                                                "value": "figcaption"
-                                              },
-                                              {
-                                                "label": "figure",
-                                                "value": "figure"
-                                              },
-                                              {
-                                                "label": "footer",
-                                                "value": "footer"
-                                              },
-                                              {
-                                                "label": "form",
-                                                "value": "form"
-                                              },
-                                              {
-                                                "label": "h1",
-                                                "value": "h1"
-                                              },
-                                              {
-                                                "label": "h2",
-                                                "value": "h2"
-                                              },
-                                              {
-                                                "label": "h3",
-                                                "value": "h3"
-                                              },
-                                              {
-                                                "label": "h4",
-                                                "value": "h4"
-                                              },
-                                              {
-                                                "label": "h5",
-                                                "value": "h5"
-                                              },
-                                              {
-                                                "label": "h6",
-                                                "value": "h6"
-                                              },
-                                              {
-                                                "label": "head",
-                                                "value": "head"
-                                              },
-                                              {
-                                                "label": "header",
-                                                "value": "header"
-                                              },
-                                              {
-                                                "label": "hgroup",
-                                                "value": "hgroup"
-                                              },
-                                              {
-                                                "label": "hr",
-                                                "value": "hr"
-                                              },
-                                              {
-                                                "label": "html",
-                                                "value": "html"
-                                              },
-                                              {
-                                                "label": "i",
-                                                "value": "i"
-                                              },
-                                              {
-                                                "label": "iframe",
-                                                "value": "iframe"
-                                              },
-                                              {
-                                                "label": "img",
-                                                "value": "img"
-                                              },
-                                              {
-                                                "label": "input",
-                                                "value": "input"
-                                              },
-                                              {
-                                                "label": "ins",
-                                                "value": "ins"
-                                              },
-                                              {
-                                                "label": "kbd",
-                                                "value": "kbd"
-                                              },
-                                              {
-                                                "label": "keygen",
-                                                "value": "keygen"
-                                              },
-                                              {
-                                                "label": "label",
-                                                "value": "label"
-                                              },
-                                              {
-                                                "label": "legend",
-                                                "value": "legend"
-                                              },
-                                              {
-                                                "label": "li",
-                                                "value": "li"
-                                              },
-                                              {
-                                                "label": "link",
-                                                "value": "link"
-                                              },
-                                              {
-                                                "label": "main",
-                                                "value": "main"
-                                              },
-                                              {
-                                                "label": "map",
-                                                "value": "map"
-                                              },
-                                              {
-                                                "label": "mark",
-                                                "value": "mark"
-                                              },
-                                              {
-                                                "label": "menu",
-                                                "value": "menu"
-                                              },
-                                              {
-                                                "label": "menuitem",
-                                                "value": "menuitem"
-                                              },
-                                              {
-                                                "label": "meta",
-                                                "value": "meta"
-                                              },
-                                              {
-                                                "label": "meter",
-                                                "value": "meter"
-                                              },
-                                              {
-                                                "label": "nav",
-                                                "value": "nav"
-                                              },
-                                              {
-                                                "label": "noscript",
-                                                "value": "noscript"
-                                              },
-                                              {
-                                                "label": "ol",
-                                                "value": "ol"
-                                              },
-                                              {
-                                                "label": "optgroup",
-                                                "value": "optgroup"
-                                              },
-                                              {
-                                                "label": "option",
-                                                "value": "option"
-                                              },
-                                              {
-                                                "label": "output",
-                                                "value": "output"
-                                              },
-                                              {
-                                                "label": "p",
-                                                "value": "p"
-                                              },
-                                              {
-                                                "label": "param",
-                                                "value": "param"
-                                              },
-                                              {
-                                                "label": "picture",
-                                                "value": "picture"
-                                              },
-                                              {
-                                                "label": "pre",
-                                                "value": "pre"
-                                              },
-                                              {
-                                                "label": "progress",
-                                                "value": "progress"
-                                              },
-                                              {
-                                                "label": "q",
-                                                "value": "q"
-                                              },
-                                              {
-                                                "label": "rp",
-                                                "value": "rp"
-                                              },
-                                              {
-                                                "label": "rt",
-                                                "value": "rt"
-                                              },
-                                              {
-                                                "label": "ruby",
-                                                "value": "ruby"
-                                              },
-                                              {
-                                                "label": "s",
-                                                "value": "s"
-                                              },
-                                              {
-                                                "label": "samp",
-                                                "value": "samp"
-                                              },
-                                              {
-                                                "label": "slot",
-                                                "value": "slot"
-                                              },
-                                              {
-                                                "label": "script",
-                                                "value": "script"
-                                              },
-                                              {
-                                                "label": "section",
-                                                "value": "section"
-                                              },
-                                              {
-                                                "label": "select",
-                                                "value": "select"
-                                              },
-                                              {
-                                                "label": "small",
-                                                "value": "small"
-                                              },
-                                              {
-                                                "label": "source",
-                                                "value": "source"
-                                              },
-                                              {
-                                                "label": "span",
-                                                "value": "span"
-                                              },
-                                              {
-                                                "label": "strong",
-                                                "value": "strong"
-                                              },
-                                              {
-                                                "label": "style",
-                                                "value": "style"
-                                              },
-                                              {
-                                                "label": "sub",
-                                                "value": "sub"
-                                              },
-                                              {
-                                                "label": "summary",
-                                                "value": "summary"
-                                              },
-                                              {
-                                                "label": "sup",
-                                                "value": "sup"
-                                              },
-                                              {
-                                                "label": "table",
-                                                "value": "table"
-                                              },
-                                              {
-                                                "label": "template",
-                                                "value": "template"
-                                              },
-                                              {
-                                                "label": "tbody",
-                                                "value": "tbody"
-                                              },
-                                              {
-                                                "label": "td",
-                                                "value": "td"
-                                              },
-                                              {
-                                                "label": "textarea",
-                                                "value": "textarea"
-                                              },
-                                              {
-                                                "label": "tfoot",
-                                                "value": "tfoot"
-                                              },
-                                              {
-                                                "label": "th",
-                                                "value": "th"
-                                              },
-                                              {
-                                                "label": "thead",
-                                                "value": "thead"
-                                              },
-                                              {
-                                                "label": "time",
-                                                "value": "time"
-                                              },
-                                              {
-                                                "label": "title",
-                                                "value": "title"
-                                              },
-                                              {
-                                                "label": "tr",
-                                                "value": "tr"
-                                              },
-                                              {
-                                                "label": "track",
-                                                "value": "track"
-                                              },
-                                              {
-                                                "label": "u",
-                                                "value": "u"
-                                              },
-                                              {
-                                                "label": "ul",
-                                                "value": "ul"
-                                              },
-                                              {
-                                                "label": "var",
-                                                "value": "var"
-                                              },
-                                              {
-                                                "label": "video",
-                                                "value": "video"
-                                              },
-                                              {
-                                                "label": "wbr",
-                                                "value": "wbr"
-                                              },
-                                              {
-                                                "label": "webview",
-                                                "value": "webview"
-                                              }
-                                            ],
-                                            "options": [
-                                              {
-                                                "label": "object",
-                                                "value": "object"
-                                              },
-                                              {
-                                                "label": "a",
-                                                "value": "a"
-                                              },
-                                              {
-                                                "label": "abbr",
-                                                "value": "abbr"
-                                              },
-                                              {
-                                                "label": "address",
-                                                "value": "address"
-                                              },
-                                              {
-                                                "label": "area",
-                                                "value": "area"
-                                              },
-                                              {
-                                                "label": "article",
-                                                "value": "article"
-                                              },
-                                              {
-                                                "label": "aside",
-                                                "value": "aside"
-                                              },
-                                              {
-                                                "label": "audio",
-                                                "value": "audio"
-                                              },
-                                              {
-                                                "label": "b",
-                                                "value": "b"
-                                              },
-                                              {
-                                                "label": "base",
-                                                "value": "base"
-                                              },
-                                              {
-                                                "label": "bdi",
-                                                "value": "bdi"
-                                              },
-                                              {
-                                                "label": "bdo",
-                                                "value": "bdo"
-                                              },
-                                              {
-                                                "label": "big",
-                                                "value": "big"
-                                              },
-                                              {
-                                                "label": "blockquote",
-                                                "value": "blockquote"
-                                              },
-                                              {
-                                                "label": "body",
-                                                "value": "body"
-                                              },
-                                              {
-                                                "label": "br",
-                                                "value": "br"
-                                              },
-                                              {
-                                                "label": "button",
-                                                "value": "button"
-                                              },
-                                              {
-                                                "label": "canvas",
-                                                "value": "canvas"
-                                              },
-                                              {
-                                                "label": "caption",
-                                                "value": "caption"
-                                              },
-                                              {
-                                                "label": "cite",
-                                                "value": "cite"
-                                              },
-                                              {
-                                                "label": "code",
-                                                "value": "code"
-                                              },
-                                              {
-                                                "label": "col",
-                                                "value": "col"
-                                              },
-                                              {
-                                                "label": "colgroup",
-                                                "value": "colgroup"
-                                              },
-                                              {
-                                                "label": "data",
-                                                "value": "data"
-                                              },
-                                              {
-                                                "label": "datalist",
-                                                "value": "datalist"
-                                              },
-                                              {
-                                                "label": "dd",
-                                                "value": "dd"
-                                              },
-                                              {
-                                                "label": "del",
-                                                "value": "del"
-                                              },
-                                              {
-                                                "label": "details",
-                                                "value": "details"
-                                              },
-                                              {
-                                                "label": "dfn",
-                                                "value": "dfn"
-                                              },
-                                              {
-                                                "label": "dialog",
-                                                "value": "dialog"
-                                              },
-                                              {
-                                                "label": "div",
-                                                "value": "div"
-                                              },
-                                              {
-                                                "label": "dl",
-                                                "value": "dl"
-                                              },
-                                              {
-                                                "label": "dt",
-                                                "value": "dt"
-                                              },
-                                              {
-                                                "label": "em",
-                                                "value": "em"
-                                              },
-                                              {
-                                                "label": "embed",
-                                                "value": "embed"
-                                              },
-                                              {
-                                                "label": "fieldset",
-                                                "value": "fieldset"
-                                              },
-                                              {
-                                                "label": "figcaption",
-                                                "value": "figcaption"
-                                              },
-                                              {
-                                                "label": "figure",
-                                                "value": "figure"
-                                              },
-                                              {
-                                                "label": "footer",
-                                                "value": "footer"
-                                              },
-                                              {
-                                                "label": "form",
-                                                "value": "form"
-                                              },
-                                              {
-                                                "label": "h1",
-                                                "value": "h1"
-                                              },
-                                              {
-                                                "label": "h2",
-                                                "value": "h2"
-                                              },
-                                              {
-                                                "label": "h3",
-                                                "value": "h3"
-                                              },
-                                              {
-                                                "label": "h4",
-                                                "value": "h4"
-                                              },
-                                              {
-                                                "label": "h5",
-                                                "value": "h5"
-                                              },
-                                              {
-                                                "label": "h6",
-                                                "value": "h6"
-                                              },
-                                              {
-                                                "label": "head",
-                                                "value": "head"
-                                              },
-                                              {
-                                                "label": "header",
-                                                "value": "header"
-                                              },
-                                              {
-                                                "label": "hgroup",
-                                                "value": "hgroup"
-                                              },
-                                              {
-                                                "label": "hr",
-                                                "value": "hr"
-                                              },
-                                              {
-                                                "label": "html",
-                                                "value": "html"
-                                              },
-                                              {
-                                                "label": "i",
-                                                "value": "i"
-                                              },
-                                              {
-                                                "label": "iframe",
-                                                "value": "iframe"
-                                              },
-                                              {
-                                                "label": "img",
-                                                "value": "img"
-                                              },
-                                              {
-                                                "label": "input",
-                                                "value": "input"
-                                              },
-                                              {
-                                                "label": "ins",
-                                                "value": "ins"
-                                              },
-                                              {
-                                                "label": "kbd",
-                                                "value": "kbd"
-                                              },
-                                              {
-                                                "label": "keygen",
-                                                "value": "keygen"
-                                              },
-                                              {
-                                                "label": "label",
-                                                "value": "label"
-                                              },
-                                              {
-                                                "label": "legend",
-                                                "value": "legend"
-                                              },
-                                              {
-                                                "label": "li",
-                                                "value": "li"
-                                              },
-                                              {
-                                                "label": "link",
-                                                "value": "link"
-                                              },
-                                              {
-                                                "label": "main",
-                                                "value": "main"
-                                              },
-                                              {
-                                                "label": "map",
-                                                "value": "map"
-                                              },
-                                              {
-                                                "label": "mark",
-                                                "value": "mark"
-                                              },
-                                              {
-                                                "label": "menu",
-                                                "value": "menu"
-                                              },
-                                              {
-                                                "label": "menuitem",
-                                                "value": "menuitem"
-                                              },
-                                              {
-                                                "label": "meta",
-                                                "value": "meta"
-                                              },
-                                              {
-                                                "label": "meter",
-                                                "value": "meter"
-                                              },
-                                              {
-                                                "label": "nav",
-                                                "value": "nav"
-                                              },
-                                              {
-                                                "label": "noscript",
-                                                "value": "noscript"
-                                              },
-                                              {
-                                                "label": "ol",
-                                                "value": "ol"
-                                              },
-                                              {
-                                                "label": "optgroup",
-                                                "value": "optgroup"
-                                              },
-                                              {
-                                                "label": "option",
-                                                "value": "option"
-                                              },
-                                              {
-                                                "label": "output",
-                                                "value": "output"
-                                              },
-                                              {
-                                                "label": "p",
-                                                "value": "p"
-                                              },
-                                              {
-                                                "label": "param",
-                                                "value": "param"
-                                              },
-                                              {
-                                                "label": "picture",
-                                                "value": "picture"
-                                              },
-                                              {
-                                                "label": "pre",
-                                                "value": "pre"
-                                              },
-                                              {
-                                                "label": "progress",
-                                                "value": "progress"
-                                              },
-                                              {
-                                                "label": "q",
-                                                "value": "q"
-                                              },
-                                              {
-                                                "label": "rp",
-                                                "value": "rp"
-                                              },
-                                              {
-                                                "label": "rt",
-                                                "value": "rt"
-                                              },
-                                              {
-                                                "label": "ruby",
-                                                "value": "ruby"
-                                              },
-                                              {
-                                                "label": "s",
-                                                "value": "s"
-                                              },
-                                              {
-                                                "label": "samp",
-                                                "value": "samp"
-                                              },
-                                              {
-                                                "label": "slot",
-                                                "value": "slot"
-                                              },
-                                              {
-                                                "label": "script",
-                                                "value": "script"
-                                              },
-                                              {
-                                                "label": "section",
-                                                "value": "section"
-                                              },
-                                              {
-                                                "label": "select",
-                                                "value": "select"
-                                              },
-                                              {
-                                                "label": "small",
-                                                "value": "small"
-                                              },
-                                              {
-                                                "label": "source",
-                                                "value": "source"
-                                              },
-                                              {
-                                                "label": "span",
-                                                "value": "span"
-                                              },
-                                              {
-                                                "label": "strong",
-                                                "value": "strong"
-                                              },
-                                              {
-                                                "label": "style",
-                                                "value": "style"
-                                              },
-                                              {
-                                                "label": "sub",
-                                                "value": "sub"
-                                              },
-                                              {
-                                                "label": "summary",
-                                                "value": "summary"
-                                              },
-                                              {
-                                                "label": "sup",
-                                                "value": "sup"
-                                              },
-                                              {
-                                                "label": "table",
-                                                "value": "table"
-                                              },
-                                              {
-                                                "label": "template",
-                                                "value": "template"
-                                              },
-                                              {
-                                                "label": "tbody",
-                                                "value": "tbody"
-                                              },
-                                              {
-                                                "label": "td",
-                                                "value": "td"
-                                              },
-                                              {
-                                                "label": "textarea",
-                                                "value": "textarea"
-                                              },
-                                              {
-                                                "label": "tfoot",
-                                                "value": "tfoot"
-                                              },
-                                              {
-                                                "label": "th",
-                                                "value": "th"
-                                              },
-                                              {
-                                                "label": "thead",
-                                                "value": "thead"
-                                              },
-                                              {
-                                                "label": "time",
-                                                "value": "time"
-                                              },
-                                              {
-                                                "label": "title",
-                                                "value": "title"
-                                              },
-                                              {
-                                                "label": "tr",
-                                                "value": "tr"
-                                              },
-                                              {
-                                                "label": "track",
-                                                "value": "track"
-                                              },
-                                              {
-                                                "label": "u",
-                                                "value": "u"
-                                              },
-                                              {
-                                                "label": "ul",
-                                                "value": "ul"
-                                              },
-                                              {
-                                                "label": "var",
-                                                "value": "var"
-                                              },
-                                              {
-                                                "label": "video",
-                                                "value": "video"
-                                              },
-                                              {
-                                                "label": "wbr",
-                                                "value": "wbr"
-                                              },
-                                              {
-                                                "label": "webview",
-                                                "value": "webview"
-                                              }
-                                            ]
-                                          },
-                                          "initialValue": "object"
-                                        }
-                                      ]
-                                    }
-                                  }
-                                }
-                              ],
-                              "extraSetter": {
-                                "componentName": "MixedSetter",
-                                "isRequired": false,
-                                "props": {}
-                              }
-                            }
-                          }
-                        }
-                      ]
-                    }
-                  }
-                }
-              ],
-              "extraSetter": {
-                "componentName": "MixedSetter",
-                "isRequired": false,
-                "props": {}
-              }
-            }
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "direction",
-            "zh-CN": "direction"
-          }
-        },
-        "name": "direction",
-        "setter": {
-          "componentName": "RadioGroupSetter",
-          "props": {
-            "dataSource": [
-              {
-                "label": "ltr",
-                "value": "ltr"
-              },
-              {
-                "label": "rtl",
-                "value": "rtl"
-              }
-            ],
-            "options": [
-              {
-                "label": "ltr",
-                "value": "ltr"
-              },
-              {
-                "label": "rtl",
-                "value": "rtl"
-              }
-            ]
-          },
-          "initialValue": "ltr"
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "sticky",
-            "zh-CN": "sticky"
-          }
-        },
-        "name": "sticky",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "BoolSetter",
-                "isRequired": false,
-                "initialValue": false
-              },
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "items": [
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "offsetHeader",
-                            "zh-CN": "offsetHeader"
-                          }
-                        },
-                        "name": "offsetHeader",
-                        "setter": {
-                          "componentName": "NumberSetter",
-                          "isRequired": false,
-                          "initialValue": 0
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "offsetSummary",
-                            "zh-CN": "offsetSummary"
-                          }
-                        },
-                        "name": "offsetSummary",
-                        "setter": {
-                          "componentName": "NumberSetter",
-                          "isRequired": false,
-                          "initialValue": 0
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "offsetScroll",
-                            "zh-CN": "offsetScroll"
-                          }
-                        },
-                        "name": "offsetScroll",
-                        "setter": {
-                          "componentName": "NumberSetter",
-                          "isRequired": false,
-                          "initialValue": 0
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "getContainer",
-                            "zh-CN": "getContainer"
-                          }
-                        },
-                        "name": "getContainer",
-                        "setter": {
-                          "componentName": "FunctionSetter",
-                          "isRequired": false
-                        }
-                      }
-                    ],
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "dropdownPrefixCls",
-            "zh-CN": "dropdownPrefixCls"
-          }
-        },
-        "name": "dropdownPrefixCls",
-        "setter": {
-          "componentName": "StringSetter",
-          "isRequired": false,
-          "initialValue": ""
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "dataSource",
-            "zh-CN": "dataSource"
-          }
-        },
-        "name": "dataSource",
-        "setter": {
-          "componentName": "ArraySetter",
-          "props": {
-            "itemSetter": {
-              "componentName": "ObjectSetter",
-              "props": {
-                "config": {
-                  "extraSetter": {
-                    "componentName": "MixedSetter",
-                    "isRequired": false,
-                    "props": {}
-                  }
                 }
               },
-              "isRequired": false,
-              "initialValue": {}
+              initialValue: { title: '标题' }
             }
-          },
-          "initialValue": []
+          }
         }
       },
       {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "pagination",
-            "zh-CN": "pagination"
-          }
-        },
-        "name": "pagination",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
+        title: '外观',
+        display: 'block',
+        type: 'group',
+        items: [
+          {
+            title: {
+              label: {
+                type: 'i18n',
+                'en-US': 'headerTitle',
+                'zh-CN': '表格名称'
+              }
+            },
+            name: 'headerTitle',
+            setter: {
+              componentName: 'StringSetter',
+              isRequired: false
+            }
+          },
+          {
+            name: 'showHeader',
+            title: { label: '显示表头', tip: 'showHeader | 是否显示表头' },
+            propType: 'bool',
+            setter: 'BoolSetter',
+            defaultValue: true
+          },
+          {
+            name: 'bordered',
+            title: {
+              label: '显示边框',
+              tip: 'bordered | 是否展示外边框和列边框'
+            },
+            propType: 'bool',
+            setter: 'BoolSetter'
+          },
+          {
+            name: 'size',
+            title: { label: '表格大小', tip: 'size | 表格大小' },
+            propType: {
+              type: 'oneOf',
+              value: ['default', 'middle', 'small']
+            },
+            setter: [
               {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "items": [
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "position",
-                            "zh-CN": "position"
-                          }
-                        },
-                        "name": "position",
-                        "setter": {
-                          "componentName": "ArraySetter",
-                          "props": {
-                            "itemSetter": {
-                              "componentName": "SelectSetter",
-                              "props": {
-                                "dataSource": [
-                                  {
-                                    "label": "bottomLeft",
-                                    "value": "bottomLeft"
-                                  },
-                                  {
-                                    "label": "bottomRight",
-                                    "value": "bottomRight"
-                                  },
-                                  {
-                                    "label": "topLeft",
-                                    "value": "topLeft"
-                                  },
-                                  {
-                                    "label": "topRight",
-                                    "value": "topRight"
-                                  },
-                                  {
-                                    "label": "topCenter",
-                                    "value": "topCenter"
-                                  },
-                                  {
-                                    "label": "bottomCenter",
-                                    "value": "bottomCenter"
-                                  }
-                                ],
-                                "options": [
-                                  {
-                                    "label": "bottomLeft",
-                                    "value": "bottomLeft"
-                                  },
-                                  {
-                                    "label": "bottomRight",
-                                    "value": "bottomRight"
-                                  },
-                                  {
-                                    "label": "topLeft",
-                                    "value": "topLeft"
-                                  },
-                                  {
-                                    "label": "topRight",
-                                    "value": "topRight"
-                                  },
-                                  {
-                                    "label": "topCenter",
-                                    "value": "topCenter"
-                                  },
-                                  {
-                                    "label": "bottomCenter",
-                                    "value": "bottomCenter"
-                                  }
-                                ]
-                              },
-                              "initialValue": "bottomLeft"
-                            }
-                          },
-                          "initialValue": []
-                        }
-                      }
-                    ],
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                }
-              },
-              {
-                "componentName": "RadioGroupSetter",
-                "props": {
-                  "dataSource": [
+                componentName: 'RadioGroupSetter',
+                props: {
+                  options: [
                     {
-                      "label": "false",
-                      "value": false
-                    }
-                  ],
-                  "options": [
+                      title: '默认',
+                      value: 'default'
+                    },
                     {
-                      "label": "false",
-                      "value": false
+                      title: '中',
+                      value: 'middle'
+                    },
+                    {
+                      title: '小',
+                      value: 'small'
                     }
                   ]
-                },
-                "initialValue": false
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "loading",
-            "zh-CN": "loading"
-          }
-        },
-        "name": "loading",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "BoolSetter",
-                "isRequired": false,
-                "initialValue": false
-              },
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "items": [
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "prefixCls",
-                            "zh-CN": "prefixCls"
-                          }
-                        },
-                        "name": "prefixCls",
-                        "setter": {
-                          "componentName": "StringSetter",
-                          "isRequired": false,
-                          "initialValue": ""
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "className",
-                            "zh-CN": "className"
-                          }
-                        },
-                        "name": "className",
-                        "setter": {
-                          "componentName": "StringSetter",
-                          "isRequired": false,
-                          "initialValue": ""
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "spinning",
-                            "zh-CN": "spinning"
-                          }
-                        },
-                        "name": "spinning",
-                        "setter": {
-                          "componentName": "BoolSetter",
-                          "isRequired": false,
-                          "initialValue": false
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "style",
-                            "zh-CN": "style"
-                          }
-                        },
-                        "name": "style",
-                        "setter": {
-                          "componentName": "ObjectSetter",
-                          "props": {
-                            "config": {
-                              "extraSetter": {
-                                "componentName": "MixedSetter",
-                                "isRequired": false,
-                                "props": {}
-                              }
-                            }
-                          },
-                          "isRequired": false,
-                          "initialValue": {}
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "size",
-                            "zh-CN": "size"
-                          }
-                        },
-                        "name": "size",
-                        "setter": {
-                          "componentName": "RadioGroupSetter",
-                          "props": {
-                            "dataSource": [
-                              {
-                                "label": "small",
-                                "value": "small"
-                              },
-                              {
-                                "label": "large",
-                                "value": "large"
-                              },
-                              {
-                                "label": "default",
-                                "value": "default"
-                              }
-                            ],
-                            "options": [
-                              {
-                                "label": "small",
-                                "value": "small"
-                              },
-                              {
-                                "label": "large",
-                                "value": "large"
-                              },
-                              {
-                                "label": "default",
-                                "value": "default"
-                              }
-                            ]
-                          },
-                          "initialValue": "small"
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "tip",
-                            "zh-CN": "tip"
-                          }
-                        },
-                        "name": "tip",
-                        "setter": {
-                          "componentName": "SlotSetter",
-                          "props": {
-                            "mode": "node"
-                          },
-                          "isRequired": false,
-                          "initialValue": {
-                            "type": "JSSlot",
-                            "value": []
-                          }
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "delay",
-                            "zh-CN": "delay"
-                          }
-                        },
-                        "name": "delay",
-                        "setter": {
-                          "componentName": "NumberSetter",
-                          "isRequired": false,
-                          "initialValue": 0
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "wrapperClassName",
-                            "zh-CN": "wrapperClassName"
-                          }
-                        },
-                        "name": "wrapperClassName",
-                        "setter": {
-                          "componentName": "StringSetter",
-                          "isRequired": false,
-                          "initialValue": ""
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "indicator",
-                            "zh-CN": "indicator"
-                          }
-                        },
-                        "name": "indicator",
-                        "setter": {
-                          "componentName": "ObjectSetter",
-                          "props": {
-                            "config": {
-                              "extraSetter": {
-                                "componentName": "MixedSetter",
-                                "isRequired": false,
-                                "props": {}
-                              }
-                            }
-                          },
-                          "isRequired": false,
-                          "initialValue": {}
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "children",
-                            "zh-CN": "children"
-                          }
-                        },
-                        "name": "children",
-                        "setter": {
-                          "componentName": "SlotSetter",
-                          "props": {
-                            "mode": "node"
-                          },
-                          "isRequired": false,
-                          "initialValue": {
-                            "type": "JSSlot",
-                            "value": []
-                          }
-                        }
-                      }
-                    ],
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
                 }
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "size",
-            "zh-CN": "size"
-          }
-        },
-        "name": "size",
-        "setter": {
-          "componentName": "RadioGroupSetter",
-          "props": {
-            "dataSource": [
-              {
-                "label": "small",
-                "value": "small"
               },
-              {
-                "label": "middle",
-                "value": "middle"
-              },
-              {
-                "label": "large",
-                "value": "large"
-              }
+              'VariableSetter'
             ],
-            "options": [
-              {
-                "label": "small",
-                "value": "small"
-              },
-              {
-                "label": "middle",
-                "value": "middle"
-              },
-              {
-                "label": "large",
-                "value": "large"
-              }
-            ]
+            defaultValue: 'default'
           },
-          "initialValue": "small"
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "bordered",
-            "zh-CN": "bordered"
-          }
-        },
-        "name": "bordered",
-        "setter": {
-          "componentName": "BoolSetter",
-          "isRequired": false,
-          "initialValue": false
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "locale",
-            "zh-CN": "locale"
-          }
-        },
-        "name": "locale",
-        "setter": {
-          "componentName": "ObjectSetter",
-          "props": {
-            "config": {
-              "items": [
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "filterTitle",
-                      "zh-CN": "filterTitle"
-                    }
-                  },
-                  "name": "filterTitle",
-                  "setter": {
-                    "componentName": "StringSetter",
-                    "isRequired": false,
-                    "initialValue": ""
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "filterConfirm",
-                      "zh-CN": "filterConfirm"
-                    }
-                  },
-                  "name": "filterConfirm",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
+          {
+            name: 'tableLayout',
+            title: { label: '表格布局', tip: 'tableLayout | 表格布局' },
+            defaultValue: '',
+            propType: {
+              type: 'oneOf',
+              value: ['', 'auto', 'fixed']
+            },
+            setter: [
+              {
+                componentName: 'RadioGroupSetter',
+                props: {
+                  options: [
+                    {
+                      title: '默认',
+                      value: ''
                     },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "filterReset",
-                      "zh-CN": "filterReset"
-                    }
-                  },
-                  "name": "filterReset",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
+                    {
+                      title: '自动',
+                      value: 'auto'
                     },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
+                    {
+                      title: '固定',
+                      value: 'fixed'
                     }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "filterEmptyText",
-                      "zh-CN": "filterEmptyText"
-                    }
-                  },
-                  "name": "filterEmptyText",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "filterCheckall",
-                      "zh-CN": "filterCheckall"
-                    }
-                  },
-                  "name": "filterCheckall",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "filterSearchPlaceholder",
-                      "zh-CN": "filterSearchPlaceholder"
-                    }
-                  },
-                  "name": "filterSearchPlaceholder",
-                  "setter": {
-                    "componentName": "StringSetter",
-                    "isRequired": false,
-                    "initialValue": ""
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "emptyText",
-                      "zh-CN": "emptyText"
-                    }
-                  },
-                  "name": "emptyText",
-                  "setter": {
-                    "componentName": "MixedSetter",
-                    "props": {
-                      "setters": [
-                        {
-                          "componentName": "StringSetter",
-                          "isRequired": false,
-                          "initialValue": ""
-                        },
-                        {
-                          "componentName": "NumberSetter",
-                          "isRequired": false,
-                          "initialValue": 0
-                        },
-                        {
-                          "componentName": "BoolSetter",
-                          "isRequired": false,
-                          "initialValue": false
-                        },
-                        {
-                          "componentName": "ObjectSetter",
-                          "props": {
-                            "config": {
-                              "extraSetter": {
-                                "componentName": "MixedSetter",
-                                "isRequired": false,
-                                "props": {}
-                              }
-                            }
-                          },
-                          "isRequired": false,
-                          "initialValue": {}
-                        },
-                        {
-                          "componentName": "ObjectSetter",
-                          "props": {
-                            "config": {
-                              "items": [
-                                {
-                                  "title": {
-                                    "label": {
-                                      "type": "i18n",
-                                      "en-US": "T",
-                                      "zh-CN": "T"
-                                    }
-                                  },
-                                  "name": "T",
-                                  "setter": {
-                                    "componentName": "MixedSetter",
-                                    "isRequired": true,
-                                    "props": {}
-                                  }
-                                },
-                                {
-                                  "title": {
-                                    "label": {
-                                      "type": "i18n",
-                                      "en-US": "__@iterator",
-                                      "zh-CN": "__@iterator"
-                                    }
-                                  },
-                                  "name": "__@iterator",
-                                  "setter": {
-                                    "componentName": "FunctionSetter",
-                                    "isRequired": true
-                                  }
-                                }
-                              ],
-                              "extraSetter": {
-                                "componentName": "MixedSetter",
-                                "isRequired": false,
-                                "props": {}
-                              }
-                            }
-                          }
-                        },
-                        {
-                          "componentName": "FunctionSetter",
-                          "isRequired": false
-                        }
-                      ]
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "selectAll",
-                      "zh-CN": "selectAll"
-                    }
-                  },
-                  "name": "selectAll",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "selectNone",
-                      "zh-CN": "selectNone"
-                    }
-                  },
-                  "name": "selectNone",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "selectInvert",
-                      "zh-CN": "selectInvert"
-                    }
-                  },
-                  "name": "selectInvert",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "selectionAll",
-                      "zh-CN": "selectionAll"
-                    }
-                  },
-                  "name": "selectionAll",
-                  "setter": {
-                    "componentName": "SlotSetter",
-                    "props": {
-                      "mode": "node"
-                    },
-                    "isRequired": false,
-                    "initialValue": {
-                      "type": "JSSlot",
-                      "value": []
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "sortTitle",
-                      "zh-CN": "sortTitle"
-                    }
-                  },
-                  "name": "sortTitle",
-                  "setter": {
-                    "componentName": "StringSetter",
-                    "isRequired": false,
-                    "initialValue": ""
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "expand",
-                      "zh-CN": "expand"
-                    }
-                  },
-                  "name": "expand",
-                  "setter": {
-                    "componentName": "StringSetter",
-                    "isRequired": false,
-                    "initialValue": ""
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "collapse",
-                      "zh-CN": "collapse"
-                    }
-                  },
-                  "name": "collapse",
-                  "setter": {
-                    "componentName": "StringSetter",
-                    "isRequired": false,
-                    "initialValue": ""
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "triggerDesc",
-                      "zh-CN": "triggerDesc"
-                    }
-                  },
-                  "name": "triggerDesc",
-                  "setter": {
-                    "componentName": "StringSetter",
-                    "isRequired": false,
-                    "initialValue": ""
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "triggerAsc",
-                      "zh-CN": "triggerAsc"
-                    }
-                  },
-                  "name": "triggerAsc",
-                  "setter": {
-                    "componentName": "StringSetter",
-                    "isRequired": false,
-                    "initialValue": ""
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "cancelSort",
-                      "zh-CN": "cancelSort"
-                    }
-                  },
-                  "name": "cancelSort",
-                  "setter": {
-                    "componentName": "StringSetter",
-                    "isRequired": false,
-                    "initialValue": ""
-                  }
+                  ]
                 }
-              ],
-              "extraSetter": {
-                "componentName": "MixedSetter",
-                "isRequired": false,
-                "props": {}
+              },
+              'VariableSetter'
+            ]
+          }
+        ]
+      },
+      {
+        title: '分页',
+        display: 'block',
+        type: 'group',
+        items: [
+          {
+            name: 'pagination',
+            title: { label: '显示分页', tip: 'pagination | 显示分页' },
+            propType: 'bool',
+            setter: 'BoolSetter',
+            extraProps: {
+              setValue: (target, value) => {
+                if (value) {
+                  target.parent.setPropValue('pagination', {
+                    defaultPageSize: 10
+                  })
+                }
               }
             }
+          },
+          {
+            name: 'pagination.defaultPageSize',
+            title: {
+              label: '默认每页条数',
+              tip: 'pagination.defaultPageSize | 默认每页条数'
+            },
+            propType: 'number',
+            setter: 'NumberSetter',
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("pagination")'
+            }
+          },
+          {
+            name: 'pagination.pageSize',
+            title: { label: '每页条数', tip: 'pagination.pageSize | 每页条数' },
+            propType: 'number',
+            setter: 'NumberSetter',
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("pagination")'
+            },
+            supportVariable: true
+          },
+          // {
+          //   name: 'pagination.total',
+          //   title: { label: '数据总数', tip: 'pagination.total | 数据总数' },
+          //   propType: 'number',
+          //   setter: 'NumberSetter',
+          //   condition: {
+          //     type: 'JSFunction',
+          //     value: 'target => !!target.getProps().getPropValue("pagination")'
+          //   }
+          // },
+          {
+            name: 'pagination.defaultCurrent',
+            title: {
+              label: '默认当前页',
+              tip: 'pagination.defaultCurrent | 默认的当前页数'
+            },
+            propType: 'number',
+            setter: 'NumberSetter',
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("pagination")'
+            }
+          },
+          // {
+          //   name: 'pagination.current',
+          //   title: { label: '当前页数', tip: 'pagination.current | 当前页数' },
+          //   propType: 'number',
+          //   setter: 'NumberSetter',
+          //   condition: {
+          //     type: 'JSFunction',
+          //     value: 'target => !!target.getProps().getPropValue("pagination")'
+          //   }
+          // },
+          // {
+          //   name: 'pagination.showTotal',
+          //   title: {
+          //     label: '显示总数',
+          //     tip: 'pagination.showTotal | 用于显示数据总量和当前数据顺序'
+          //   },
+          //   propType: 'func',
+          //   setter: [
+          //     {
+          //       componentName: 'FunctionSetter',
+          //       props: {
+          //         template:
+          //           'showTotal(total,range,${extParams}){\n// 用于格式化显示表格数据总量\nreturn `共 ${total} 条`;\n}'
+          //       }
+          //     },
+          //     'VariableSetter'
+          //   ],
+          //   condition: {
+          //     type: 'JSFunction',
+          //     value: 'target => !!target.getProps().getPropValue("pagination")'
+          //   }
+          // },
+          {
+            name: 'pagination.showSizeChanger',
+            title: {
+              label: '页数切换',
+              tip: 'pagination.showSizeChanger | 是否展示 pageSize 切换器'
+            },
+            propType: 'bool',
+            setter: 'BoolSetter',
+            defaultValue: false,
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("pagination")'
+            }
+          },
+          {
+            name: 'pagination.showQuickJumper',
+            title: {
+              label: '快速跳转',
+              tip: 'pagination.showQuickJumper | 是否可以快速跳转至某页'
+            },
+            propType: 'bool',
+            setter: 'BoolSetter',
+            defaultValue: false,
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("pagination")'
+            }
+          },
+          {
+            name: 'pagination.simple',
+            title: { label: '简单分页', tip: 'pagination.simple | 简单分页' },
+            propType: 'bool',
+            setter: 'BoolSetter',
+            defaultValue: false,
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("pagination")'
+            }
+          },
+          {
+            name: 'pagination.size',
+            title: { label: '分页尺寸', tip: 'pagination.size | 分页尺寸' },
+            propType: {
+              type: 'oneOf',
+              value: ['default', 'small']
+            },
+            setter: [
+              {
+                componentName: 'RadioGroupSetter',
+                props: {
+                  options: [
+                    {
+                      title: '默认',
+                      value: 'default'
+                    },
+                    {
+                      title: '小',
+                      value: 'small'
+                    }
+                  ]
+                }
+              },
+              'VariableSetter'
+            ],
+            defaultValue: 'default',
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("pagination")'
+            }
+          },
+          {
+            name: 'pagination.position',
+            title: { label: '分页位置', tip: 'pagination.position | 分页位置' },
+            setter: {
+              componentName: 'ArraySetter',
+              props: {
+                itemSetter: {
+                  componentName: 'SelectSetter',
+                  props: {
+                    options: [
+                      {
+                        title: '上左',
+                        value: 'topLeft'
+                      },
+                      {
+                        title: '上中',
+                        value: 'topCenter'
+                      },
+                      {
+                        title: '上右',
+                        value: 'topRight'
+                      },
+                      {
+                        title: '下左',
+                        value: 'bottomLeft'
+                      },
+                      {
+                        title: '下中',
+                        value: 'bottomCenter'
+                      },
+                      {
+                        title: '下右',
+                        value: 'bottomRight'
+                      }
+                    ]
+                  },
+                  initialValue: 'bottomRight'
+                }
+              }
+            },
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("pagination")'
+            }
           }
-        }
+        ]
       },
       {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "getPopupContainer",
-            "zh-CN": "getPopupContainer"
+        title: '滚动',
+        display: 'block',
+        type: 'group',
+        items: [
+          {
+            name: 'scroll.scrollToFirstRowOnChange',
+            title: {
+              label: '自动滚动',
+              tip: 'scroll.scrollToFirstRowOnChange | 是否自动滚动到表格顶部'
+            },
+            propType: 'bool',
+            setter: 'BoolSetter',
+            defaultValue: true
+          },
+          {
+            name: 'scroll.x',
+            title: {
+              label: '横向滚动',
+              tip: 'scroll.x | 	设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，true 和 max-content'
+            },
+            propType: { type: 'oneOfType', value: ['number', 'bool'] },
+            setter: ['NumberSetter', 'BoolSetter', 'VariableSetter']
+          },
+          {
+            name: 'scroll.y',
+            title: {
+              label: '纵向滚动',
+              tip: 'scroll.y | 	设置纵向滚动，也可用于指定滚动区域的高，可以设置为像素值'
+            },
+            propType: 'number',
+            setter: ['NumberSetter', 'VariableSetter']
           }
-        },
-        "name": "getPopupContainer",
-        "setter": {
-          "componentName": "FunctionSetter"
-        }
+        ]
       },
       {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "sortDirections",
-            "zh-CN": "sortDirections"
+        title: '行选择器',
+        display: 'block',
+        type: 'group',
+        items: [
+          {
+            name: 'rowSelection',
+            title: { label: '行选择', tip: 'rowSelection | 行选择' },
+            propType: 'bool',
+            setter: 'BoolSetter',
+            defaultValue: false,
+            extraProps: {
+              setValue: (target, value) => {
+                if (value) {
+                  target.parent.setPropValue('rowSelection', {
+                    type: 'radio'
+                  })
+                }
+              }
+            }
+          },
+          {
+            name: 'rowSelection.type',
+            title: {
+              label: '行选择类型',
+              tip: 'rowSelection.type | 多选/单选'
+            },
+            propType: {
+              type: 'oneOf',
+              value: ['checkbox', 'radio']
+            },
+            setter: [
+              {
+                componentName: 'RadioGroupSetter',
+                props: {
+                  options: [
+                    {
+                      title: '多选',
+                      value: 'checkbox'
+                    },
+                    {
+                      title: '单选',
+                      value: 'radio'
+                    }
+                  ]
+                }
+              },
+              'VariableSetter'
+            ],
+            condition: {
+              type: 'JSFunction',
+              value:
+                'target => !!target.getProps().getPropValue("rowSelection")'
+            }
+          },
+          {
+            name: 'rowSelection.preserveSelectedRowKeys',
+            title: {
+              label: '缓存选项',
+              tip: 'rowSelection.preserveSelectedRowKeys | 当数据被删除时仍然保留选项'
+            },
+            propType: 'bool',
+            setter: 'BoolSetter',
+            condition: {
+              type: 'JSFunction',
+              value:
+                'target => !!target.getProps().getPropValue("rowSelection")'
+            }
+          },
+          {
+            name: 'rowSelection.fixed',
+            title: {
+              label: '固定左边',
+              tip: 'rowSelection.fixed | 把选择框列固定在左边'
+            },
+            propType: 'bool',
+            setter: 'BoolSetter',
+            condition: {
+              type: 'JSFunction',
+              value:
+                'target => !!target.getProps().getPropValue("rowSelection")'
+            }
+          },
+          {
+            name: 'rowSelection.selectedRowKeys',
+            title: {
+              label: '选中行Key',
+              tip: 'rowSelection.selectedRowKeys | 指定选中项的 key 数组'
+            },
+            propType: 'object',
+            setter: 'JsonSetter',
+            condition: {
+              type: 'JSFunction',
+              value:
+                'target => !!target.getProps().getPropValue("rowSelection")'
+            }
+          },
+          {
+            name: 'rowSelection.getCheckboxProps',
+            title: {
+              label: '默认属性',
+              tip: 'rowSelection.getCheckboxProps | 选择框的默认属性配置'
+            },
+            propType: 'func',
+            setter: [
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'getCheckboxProps(record,${extParams}){\n// 选择框的默认属性配置\nreturn { disabled: false };\n}'
+                }
+              },
+              'VariableSetter'
+            ],
+            condition: {
+              type: 'JSFunction',
+              value:
+                'target => !!target.getProps().getPropValue("rowSelection")'
+            }
+          },
+          {
+            name: 'rowSelection.onChange',
+            title: {
+              label: 'onChange',
+              tip: 'rowSelection.onChange | 选中项发生变化时的回调'
+            },
+            propType: 'func',
+            setter: [
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'onChange(record,${extParams}){\n// 选择框的默认属性配置\nreturn { disabled: false };\n}'
+                }
+              },
+              'VariableSetter'
+            ],
+            condition: {
+              type: 'JSFunction',
+              value:
+                'target => !!target.getProps().getPropValue("rowSelection")'
+            }
+          },
+          {
+            name: 'rowSelection.onSelect',
+            title: {
+              label: 'onSelect',
+              tip: 'rowSelection.onSelect | 	用户手动选择/取消选择某行的回调'
+            },
+            propType: 'func',
+            setter: [
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'onSelect(record,${extParams}){\n// 选择框的默认属性配置\nreturn { disabled: false };\n}'
+                }
+              },
+              'VariableSetter'
+            ],
+            condition: {
+              type: 'JSFunction',
+              value:
+                'target => !!target.getProps().getPropValue("rowSelection")'
+            }
+          },
+          {
+            name: 'rowSelection.onSelectAll',
+            title: {
+              label: 'onSelectAll',
+              tip: 'rowSelection.onSelectAll | 	用户手动选择/取消选择所有行的回调'
+            },
+            propType: 'func',
+            setter: [
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'onSelectAll(record,${extParams}){\n// 选择框的默认属性配置\nreturn { disabled: false };\n}'
+                }
+              },
+              'VariableSetter'
+            ],
+            condition: {
+              type: 'JSFunction',
+              value:
+                'target => !!target.getProps().getPropValue("rowSelection")'
+            }
+          },
+          {
+            name: 'rowSelection.onSelectInvert',
+            title: {
+              label: 'onSelectInvert',
+              tip: 'rowSelection.onSelectInvert | 用户手动选择反选的回调'
+            },
+            propType: 'func',
+            setter: [
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'onSelectInvert(record,${extParams}){\n// 选择框的默认属性配置\nreturn { disabled: false };\n}'
+                }
+              },
+              'VariableSetter'
+            ],
+            condition: {
+              type: 'JSFunction',
+              value:
+                'target => !!target.getProps().getPropValue("rowSelection")'
+            }
+          },
+          {
+            name: 'rowSelection.onSelectNone',
+            title: {
+              label: 'onSelectNone',
+              tip: 'rowSelection.onSelectNone | 用户清空选择的回调'
+            },
+            propType: 'func',
+            setter: [
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'onSelectNone(record,${extParams}){\n// 选择框的默认属性配置\nreturn { disabled: false };\n}'
+                }
+              },
+              'VariableSetter'
+            ],
+            condition: {
+              type: 'JSFunction',
+              value:
+                'target => !!target.getProps().getPropValue("rowSelection")'
+            }
           }
-        },
-        "name": "sortDirections",
-        "setter": {
-          "componentName": "ArraySetter",
-          "props": {
-            "itemSetter": {
-              "componentName": "RadioGroupSetter",
-              "props": {
-                "dataSource": [
+        ]
+      },
+      {
+        title: '行展开',
+        display: 'block',
+        type: 'group',
+        items: [
+          {
+            name: 'expandable.expandedRowRender',
+            title: {
+              label: '展开行渲染',
+              tip: 'expandable.expandedRowRender | 额外的展开行'
+            },
+            propType: 'func',
+            setter: [
+              {
+                componentName: 'SlotSetter',
+                title: '展开行插槽',
+                initialValue: {
+                  type: 'JSSlot',
+                  params: ['record', 'index', 'indent', 'expanded'],
+                  value: []
+                }
+              },
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'expandedRowRender(record,index,indent,expanded,${extParams}){\n// 展开行渲染\nreturn `${record.id}`}'
+                }
+              },
+              'VariableSetter'
+            ]
+          },
+          {
+            name: 'expandable.rowExpandable',
+            title: {
+              label: '是否可展开',
+              tip: 'expandable.rowExpandable | 行是否可展开'
+            },
+            propType: 'func',
+            setter: [
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'rowExpandable(record,${extParams}){\n// 行是否可展开\nreturn true;\n}'
+                }
+              },
+              'VariableSetter'
+            ]
+          }
+        ]
+      },
+      {
+        title: '扩展',
+        display: 'block',
+        type: 'group',
+        items: [
+          {
+            name: 'toolBarRenderOpen',
+            title: {
+              label: '启用工具栏',
+              tip: 'toolBarRenderOpen | 是否启用工具栏',
+            },
+            propType: 'bool',
+            setter: 'BoolSetter',
+          },
+          {
+            name: 'toolBarRender',
+            title: { label: '工具栏操作', tip: 'toolbar | 工具栏操作' },
+            propType: 'func',
+            setter: [
+              {
+                componentName: 'SlotSetter',
+                title: '工具栏操作插槽',
+                initialValue: {
+                  type: 'JSSlot',
+                  params: ['currentPageData'],
+                  value: [],
+                },
+              },
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'renderToolBar(currentPageData,${extParams}){\n// 自定义渲染表格顶部\nreturn "表格顶部";\n}',
+                },
+              },
+              'VariableSetter',
+            ],
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("toolBarRenderOpen")',
+            },
+          },
+          {
+            name: 'toolbar.title',
+            title: {
+              label: '标题',
+              tip: 'toolbar.title | 自定义标题',
+            },
+            propType: 'string',
+            setter: 'StringSetter',
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("toolBarRenderOpen")',
+            },
+          },
+          {
+            name: 'toolbar.subTitle',
+            title: {
+              label: '子标题',
+              tip: 'toolbar.subTitle | 自定义子标题',
+            },
+            propType: 'string',
+            setter: 'StringSetter',
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("toolBarRenderOpen")',
+            },
+          },
+          {
+            name: 'title',
+            title: { label: '表格标题', tip: 'title | 表格标题' },
+            propType: 'func',
+            setter: [
+              {
+                componentName: 'SlotSetter',
+                title: '表格标题插槽',
+                initialValue: {
+                  type: 'JSSlot',
+                  params: ['currentPageData'],
+                  value: []
+                }
+              },
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'renderTitle(currentPageData,${extParams}){\n// 自定义渲染表格顶部\nreturn "表格顶部";\n}'
+                }
+              },
+              'VariableSetter'
+            ]
+          },
+          {
+            name: 'footer',
+            title: { label: '表格尾部', tip: 'footer | 表格尾部' },
+            propType: 'func',
+            setter: [
+              {
+                componentName: 'SlotSetter',
+                title: '表格尾部插槽',
+                initialValue: {
+                  type: 'JSSlot',
+                  params: ['currentPageData'],
+                  value: []
+                }
+              },
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'renderFooter(currentPageData,${extParams}){\n// 自定义渲染表格尾部\nreturn "表格尾部";\n}'
+                }
+              },
+              'VariableSetter'
+            ]
+          },
+          {
+            name: 'onHeaderRow',
+            title: { label: '头部行属性', tip: 'onHeaderRow | 设置头部行属性' },
+            propType: 'func',
+            setter: [
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'onHeaderRow(columns,index,${extParams}){\n// 设置头部行属性\nreturn {onClick:()=>{}};\n}'
+                }
+              },
+              'VariableSetter'
+            ]
+          },
+          {
+            name: 'onRow',
+            title: { label: '行属性', tip: 'onRow | 设置行属性' },
+            propType: 'func',
+            setter: [
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'onRow(record,index,${extParams}){\n// 设置行属性\nreturn {onClick:event=>{}};\n}'
+                }
+              },
+              'VariableSetter'
+            ]
+          },
+          {
+            name: 'rowClassName',
+            title: { label: '行类名', tip: 'rowClassName | 表格行的类名' },
+            propType: 'func',
+            setter: [
+              {
+                componentName: 'FunctionSetter',
+                props: {
+                  template:
+                    'rowClassName(record,index,${extParams}){\n// 表格行的类名\nreturn `className-${record.type}`;\n}'
+                }
+              },
+              'VariableSetter'
+            ]
+          }
+        ]
+      },
+      {
+        title: '搜索设置',
+        display: 'block',
+        type: 'group',
+        items: [
+          {
+            name: 'search',
+            title: { label: '搜索', tip: 'search | 搜索' },
+            propType: 'bool',
+            setter: 'BoolSetter',
+            defaultValue: true,
+            extraProps: {
+              setValue: (target, value) => {
+                if (value) {
+                  target.parent.setPropValue('search', {
+                    defaultCollapsed: true
+                  })
+                }
+              }
+            }
+          },
+          {
+            title: {
+              label: {
+                type: 'i18n',
+                'en-US': 'searchText',
+                'zh-CN': 'searchText'
+              },
+              tip: 'searchText | 查询按钮的文本'
+            },
+            name: 'search.searchText',
+            setter: {
+              componentName: 'StringSetter',
+              isRequired: false,
+              initialValue: ''
+            },
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("search")'
+            }
+          },
+          {
+            title: {
+              label: {
+                type: 'i18n',
+                'en-US': 'resetText',
+                'zh-CN': 'resetText'
+              },
+              tip: 'resetText | 重置按钮的文本'
+            },
+            name: 'search.resetText',
+            setter: {
+              componentName: 'StringSetter',
+              isRequired: false,
+              initialValue: ''
+            },
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("search")'
+            }
+          },
+          {
+            name: 'search.labelWidth',
+            title: {
+              label: '标签宽度',
+              tip: 'labelWidth | 标签宽度'
+            },
+            propType: 'number',
+            setter: ['StringSetter', 'NumberSetter', 'VariableSetter'],
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("search")'
+            }
+          },
+          {
+            name: 'search.span',
+            title: {
+              label: '所占列数',
+              tip: 'span | 所占列数'
+            },
+            propType: 'number',
+            setter: 'NumberSetter',
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("search")'
+            }
+          },
+          {
+            name: 'search.defaultCollapsed',
+            title: {
+              label: '默认是否收起',
+              tip: 'defaultCollapsed | 默认是否收起'
+            },
+            propType: 'bool',
+            setter: 'BoolSetter',
+            defaultValue: true,
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("search")'
+            }
+          }
+          // {
+          //   name: 'search.collapsed',
+          //   title: {
+          //     label: '是否收起',
+          //     tip: 'collapsed | 是否收起'
+          //   },
+          //   propType: 'bool',
+          //   setter: 'BoolSetter',
+          //   condition: {
+          //     type: 'JSFunction',
+          //     value: 'target => !!target.getProps().getPropValue("search")'
+          //   }
+          // },
+          // // {
+          // //   name: 'search.onCollapse',
+          // //   title: {
+          // //     label: '收起按钮的事件',
+          // //     tip: 'onCollapse | 收起按钮的事件'
+          // //   },
+          // //   propType: 'func',
+          // //   setter: [
+          // //     {
+          // //       componentName: 'FunctionSetter',
+          // //       props: {
+          // //         template:
+          // //           'onCollapse(collapsed,,${extParams}){\n// 设置行属性\nreturn {onClick:event=>{}};\n}'
+          // //       }
+          // //     },
+          // //     'VariableSetter'
+          // //   ],
+          // //   condition: {
+          // //     type: 'JSFunction',
+          // //     value: 'target => !!target.getProps().getPropValue("search")'
+          // //   }
+          // // }
+        ]
+      },
+      {
+        title: '高级',
+        display: 'block',
+        type: 'group',
+        items: [
+          {
+            title: {
+              label: {
+                type: 'i18n',
+                'en-US': 'polling',
+                'zh-CN': '轮询请求'
+              },
+              tip: '是否轮询 ProTable，它不会自动提交表单，如果你想自动提交表单的功能，需要在 onValueChange 中调用 formRef.current?.submit()'
+            },
+            name: 'polling',
+            description:
+              '是否轮询 ProTable 它不会自动提交表单，如果你想自动提交表单的功能，需要在 onValueChange 中调用 formRef.current?.submit()',
+            setter: {
+              componentName: 'MixedSetter',
+              props: {
+                setters: [
                   {
-                    "label": "descend",
-                    "value": "descend"
+                    componentName: 'NumberSetter',
+                    isRequired: false,
+                    initialValue: 0
                   },
                   {
-                    "label": "ascend",
-                    "value": "ascend"
-                  }
-                ],
-                "options": [
-                  {
-                    "label": "descend",
-                    "value": "descend"
-                  },
-                  {
-                    "label": "ascend",
-                    "value": "ascend"
+                    componentName: 'FunctionSetter',
+                    isRequired: false
                   }
                 ]
-              },
-              "initialValue": "descend"
+              }
             }
           },
-          "initialValue": []
-        }
+          {
+            name: 'dateFormatter',
+            title: {
+              label: '时间格式化',
+              tip: 'dateFormatter | number string 或自定义'
+            },
+            propType: { type: 'oneOfType', value: ['string', 'func'] },
+            setter: [
+              {
+                componentName: 'SelectSetter',
+                props: {
+                  options: [
+                    {
+                      title: '数字类型',
+                      value: 'number'
+                    },
+                    {
+                      title: '字符串类型',
+                      value: 'string'
+                    }
+                  ]
+                }
+              },
+              'FunctionSetter'
+            ],
+            defaultValue: 'string'
+          }
+        ]
       },
       {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "showSorterTooltip",
-            "zh-CN": "showSorterTooltip"
-          }
-        },
-        "name": "showSorterTooltip",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "BoolSetter",
-                "isRequired": false,
-                "initialValue": false
+        title: '国际化',
+        display: 'block',
+        type: 'group',
+        items: [
+          {
+            title: {
+              label: {
+                type: 'i18n',
+                'en-US': 'language',
+                'zh-CN': '语言'
               },
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "items": [
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "title",
-                            "zh-CN": "title"
-                          }
-                        },
-                        "name": "title",
-                        "setter": {
-                          "componentName": "MixedSetter",
-                          "props": {
-                            "setters": [
-                              {
-                                "componentName": "StringSetter",
-                                "isRequired": false,
-                                "initialValue": ""
-                              },
-                              {
-                                "componentName": "NumberSetter",
-                                "isRequired": false,
-                                "initialValue": 0
-                              },
-                              {
-                                "componentName": "BoolSetter",
-                                "isRequired": false,
-                                "initialValue": false
-                              },
-                              {
-                                "componentName": "ObjectSetter",
-                                "props": {
-                                  "config": {
-                                    "extraSetter": {
-                                      "componentName": "MixedSetter",
-                                      "isRequired": false,
-                                      "props": {}
-                                    }
-                                  }
-                                },
-                                "isRequired": false,
-                                "initialValue": {}
-                              },
-                              {
-                                "componentName": "ObjectSetter",
-                                "props": {
-                                  "config": {
-                                    "items": [
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "T",
-                                            "zh-CN": "T"
-                                          }
-                                        },
-                                        "name": "T",
-                                        "setter": {
-                                          "componentName": "MixedSetter",
-                                          "isRequired": true,
-                                          "props": {}
-                                        }
-                                      },
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "__@iterator",
-                                            "zh-CN": "__@iterator"
-                                          }
-                                        },
-                                        "name": "__@iterator",
-                                        "setter": {
-                                          "componentName": "FunctionSetter",
-                                          "isRequired": true
-                                        }
-                                      }
-                                    ],
-                                    "extraSetter": {
-                                      "componentName": "MixedSetter",
-                                      "isRequired": false,
-                                      "props": {}
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "componentName": "FunctionSetter",
-                                "isRequired": false
-                              }
-                            ]
-                          },
-                          "isRequired": true
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "overlay",
-                            "zh-CN": "overlay"
-                          }
-                        },
-                        "name": "overlay",
-                        "setter": {
-                          "componentName": "MixedSetter",
-                          "props": {
-                            "setters": [
-                              {
-                                "componentName": "StringSetter",
-                                "isRequired": false,
-                                "initialValue": ""
-                              },
-                              {
-                                "componentName": "NumberSetter",
-                                "isRequired": false,
-                                "initialValue": 0
-                              },
-                              {
-                                "componentName": "BoolSetter",
-                                "isRequired": false,
-                                "initialValue": false
-                              },
-                              {
-                                "componentName": "ObjectSetter",
-                                "props": {
-                                  "config": {
-                                    "extraSetter": {
-                                      "componentName": "MixedSetter",
-                                      "isRequired": false,
-                                      "props": {}
-                                    }
-                                  }
-                                },
-                                "isRequired": false,
-                                "initialValue": {}
-                              },
-                              {
-                                "componentName": "ObjectSetter",
-                                "props": {
-                                  "config": {
-                                    "items": [
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "T",
-                                            "zh-CN": "T"
-                                          }
-                                        },
-                                        "name": "T",
-                                        "setter": {
-                                          "componentName": "MixedSetter",
-                                          "isRequired": true,
-                                          "props": {}
-                                        }
-                                      },
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "__@iterator",
-                                            "zh-CN": "__@iterator"
-                                          }
-                                        },
-                                        "name": "__@iterator",
-                                        "setter": {
-                                          "componentName": "FunctionSetter",
-                                          "isRequired": true
-                                        }
-                                      }
-                                    ],
-                                    "extraSetter": {
-                                      "componentName": "MixedSetter",
-                                      "isRequired": false,
-                                      "props": {}
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "componentName": "FunctionSetter",
-                                "isRequired": false
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    ],
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
+              tip: '支持中文和英文'
+            },
+            name: 'intl',
+            setter: {
+              componentName: 'SelectSetter',
+              props: {
+                options: [
+                  {
+                    title: '简体中文',
+                    value: 'zhCNIntl'
+                  },
+                  {
+                    title: 'enUS',
+                    value: 'enUSIntl'
                   }
-                }
-              },
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "items": [
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "title",
-                            "zh-CN": "title"
-                          }
-                        },
-                        "name": "title",
-                        "setter": {
-                          "componentName": "MixedSetter",
-                          "props": {
-                            "setters": [
-                              {
-                                "componentName": "StringSetter",
-                                "isRequired": false,
-                                "initialValue": ""
-                              },
-                              {
-                                "componentName": "NumberSetter",
-                                "isRequired": false,
-                                "initialValue": 0
-                              },
-                              {
-                                "componentName": "BoolSetter",
-                                "isRequired": false,
-                                "initialValue": false
-                              },
-                              {
-                                "componentName": "ObjectSetter",
-                                "props": {
-                                  "config": {
-                                    "extraSetter": {
-                                      "componentName": "MixedSetter",
-                                      "isRequired": false,
-                                      "props": {}
-                                    }
-                                  }
-                                },
-                                "isRequired": false,
-                                "initialValue": {}
-                              },
-                              {
-                                "componentName": "ObjectSetter",
-                                "props": {
-                                  "config": {
-                                    "items": [
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "T",
-                                            "zh-CN": "T"
-                                          }
-                                        },
-                                        "name": "T",
-                                        "setter": {
-                                          "componentName": "MixedSetter",
-                                          "isRequired": true,
-                                          "props": {}
-                                        }
-                                      },
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "__@iterator",
-                                            "zh-CN": "__@iterator"
-                                          }
-                                        },
-                                        "name": "__@iterator",
-                                        "setter": {
-                                          "componentName": "FunctionSetter",
-                                          "isRequired": true
-                                        }
-                                      }
-                                    ],
-                                    "extraSetter": {
-                                      "componentName": "MixedSetter",
-                                      "isRequired": false,
-                                      "props": {}
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "componentName": "FunctionSetter",
-                                "isRequired": false
-                              }
-                            ]
-                          }
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "overlay",
-                            "zh-CN": "overlay"
-                          }
-                        },
-                        "name": "overlay",
-                        "setter": {
-                          "componentName": "MixedSetter",
-                          "props": {
-                            "setters": [
-                              {
-                                "componentName": "StringSetter",
-                                "isRequired": false,
-                                "initialValue": ""
-                              },
-                              {
-                                "componentName": "NumberSetter",
-                                "isRequired": false,
-                                "initialValue": 0
-                              },
-                              {
-                                "componentName": "BoolSetter",
-                                "isRequired": false,
-                                "initialValue": false
-                              },
-                              {
-                                "componentName": "ObjectSetter",
-                                "props": {
-                                  "config": {
-                                    "extraSetter": {
-                                      "componentName": "MixedSetter",
-                                      "isRequired": false,
-                                      "props": {}
-                                    }
-                                  }
-                                },
-                                "isRequired": false,
-                                "initialValue": {}
-                              },
-                              {
-                                "componentName": "ObjectSetter",
-                                "props": {
-                                  "config": {
-                                    "items": [
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "T",
-                                            "zh-CN": "T"
-                                          }
-                                        },
-                                        "name": "T",
-                                        "setter": {
-                                          "componentName": "MixedSetter",
-                                          "isRequired": true,
-                                          "props": {}
-                                        }
-                                      },
-                                      {
-                                        "title": {
-                                          "label": {
-                                            "type": "i18n",
-                                            "en-US": "__@iterator",
-                                            "zh-CN": "__@iterator"
-                                          }
-                                        },
-                                        "name": "__@iterator",
-                                        "setter": {
-                                          "componentName": "FunctionSetter",
-                                          "isRequired": true
-                                        }
-                                      }
-                                    ],
-                                    "extraSetter": {
-                                      "componentName": "MixedSetter",
-                                      "isRequired": false,
-                                      "props": {}
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                "componentName": "FunctionSetter",
-                                "isRequired": false
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    ],
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                }
+                ]
               }
-            ]
+            }
           }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "intl",
-            "zh-CN": "intl"
-          }
-        },
-        "name": "intl",
-        "setter": {
-          "componentName": "StringSetter",
-          "isRequired": false,
-          "initialValue": ""
-        }
+        ]
       }
     ],
-    "supports": {
-      "events": [
+    supports: {
+      events: [
+
+        
         {
-          "name": "onDragSortEnd",
-          "description": "@name 拖动排序完成回调"
+          name: 'onDragSortEnd',
+          description: '拖拽完成后的回调',
+          template:
+          'getRowKey(beforeIndex,afterIndex,newDataSource,${extParams}){\n// 通过函数获取信息 \nreturn \n}'
         },
         {
-          "name": "onLoad",
-          "description": "@name 数据加载完成后触发"
+          name: 'onLoad',
+          description: '数据加载完成后触发'
         },
         {
-          "name": "beforeSearchSubmit",
-          "description": "@name 格式化搜索表单提交数据"
+          name: 'beforeSearchSubmit',
+          description: '格式化搜索表单提交数据'
         },
         {
-          "name": "onSubmit",
-          "description": "@name 提交表单时触发"
+          name: 'onSubmit',
+          description: '提交表单时触发'
         },
         {
-          "name": "onReset",
-          "description": "@name 重置表单时触发"
+          name: 'onReset',
+          description: '重置表单时触发'
         },
         {
-          "name": "onDataSourceChange",
-          "description": "@name 可编辑表格修改数据的改变"
+          name: 'onDataSourceChange',
+          description: '可编辑表格修改数据的改变'
         },
         {
-          "name": "onExpand",
-          "description": "@deprecated Use `expandable.onExpand` instead"
+          name: 'onExpand',
+          description: '@deprecated Use `expandable.onExpand` instead'
         },
         {
-          "name": "onRow"
+          name: 'onRow'
         },
         {
-          "name": "onHeaderRow"
+          name: 'onHeaderRow'
         },
         {
-          "name": "onChange"
+          name: 'onChange'
         },
         {
-          "name": "onValuesChange"
+          name: 'onLoadingChange',
+          description: 'loading 被修改时触发，一般是网络请求导致的'
+        },
+        {
+          name: 'onRequestError',
+          description: '数据加载失败时触发'
+        },
+        {
+          name: 'onValuesChange',
+          description: 'Form onValuesChange'
         }
       ],
-      "style": true,
-      "className": true
+      style: true,
+      className: true
     },
-    "component": {}
+    component: {}
   }
-};
-const snippets: Snippet[] = [
-  {
-    "title": "DragSortTable",
-    "screenshot": "",
-    "schema": {
-      "componentName": "DragSortTable",
-      "props": {
-        "revalidateOnFocus": "true"
-      }
-    }
-  }
-];
+}
 
 export default {
-  ...DragSortTableMeta,
+  ...ProTableMeta,
   snippets
-};
+}
