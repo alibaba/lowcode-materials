@@ -136,3 +136,11 @@ export { default as customNav } from './components/custom-nav-menu';
 export type { ImgCropProps } from 'antd-img-crop'
 
 export { default as ImgCrop } from 'antd-img-crop'
+
+
+export { Layout } from 'antd';
+
+
+// export { default as Layout } from './components/layout';
+
+
