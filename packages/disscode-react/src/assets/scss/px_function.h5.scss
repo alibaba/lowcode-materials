@@ -1,0 +1,9 @@
+@use 'sass:math';
+
+@function px($px) {
+  // @return #{$px}px;
+  @if $px == 1 {
+    @return #{$px}PX;
+  }
+  @return #{$px}px;
+}

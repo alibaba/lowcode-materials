@@ -1,0 +1,30 @@
+.lc-sortable {
+  position: relative;
+
+  .lc-sortable-card {
+    box-sizing: border-box;
+    &:after,
+    &:before {
+      content: '';
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+
+    &.lc-dragging {
+      outline: 1px dashed var(--color-notice-1, lightblue);
+      outline-offset: -1px;
+      > * {
+        visibility: hidden;
+      }
+      border-color: transparent !important;
+      box-shadow: none !important;
+      background: var(--color-fill1-4) !important;
+    }
+  }
+
+  [draggable] {
+    cursor: ns-resize;
+  }
+}

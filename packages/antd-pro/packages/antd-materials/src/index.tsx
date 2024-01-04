@@ -1,9 +1,3 @@
-import './index.less'
-
-
-
-
-
 export type { IProTableProps } from './components/ProTable'
 export { default as ProTable } from './components/ProTable'
 

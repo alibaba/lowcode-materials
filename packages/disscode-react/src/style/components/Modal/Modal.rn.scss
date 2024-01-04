@@ -1,0 +1,52 @@
+.rq-modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  /*postcss-pxtransform rn eject enable*/
+  transition: background-color 0.2s;
+  /*postcss-pxtransform rn eject disable*/
+  &__main {
+    position: absolute;
+    opacity: 0;
+    /*postcss-pxtransform rn eject enable*/
+    transition: opacity 0.2s, transform 0.2s;
+    /*postcss-pxtransform rn eject disable*/
+    z-index: 10;
+    &--top {
+      left: 0;
+      right: 0;
+      top: 0;
+      transform: translate(0, -200px);
+    }
+    &--bottom {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: translate(0, 200px);
+    }
+    &--left {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      transform: translate(-200px, 0);
+    }
+    &--right {
+      top: 0;
+      bottom: 0;
+      right: 0;
+      transform: translate(200px, 0);
+    }
+    &--show {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+  &__other {
+    flex: 1;
+  }
+}
