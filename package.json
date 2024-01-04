@@ -7,6 +7,7 @@
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "f2elint-scan": "f2elint scan",
     "f2elint-fix": "f2elint fix",
+    "update-readme": "node scripts/update-readme.js",
     "prepublishOnly": "npm run build && npm run lowcode:build && npm run lowcode:antd:build"
   },
   "lint-staged": {
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "f2elint": "^2.2.0",
+    "glob": "^11.0.0",
     "lint-staged": "^10.5.3",
     "prettier": "^1.19.1",
     "typescript": "^3.9.3",
