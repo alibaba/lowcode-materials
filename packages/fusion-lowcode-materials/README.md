@@ -2,7 +2,7 @@
 
 [![NPM version][npm-image-fusion]][npm-url-fusion]
 
-### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.0.3/build/lowcode/index.html)
+### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.2.2/build/lowcode/index.html)
 
 ### 使用 / Usage
 #### NPM
@@ -17,7 +17,7 @@ material.setAssets(assets);
 #### CDN
 ```js
 // in GeneralWorkbench init
-const assets = await (await fetch(`https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.0.3/dist/assets.json`)).json();
+const assets = await (await fetch(`https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.1/dist/assets.json`)).json();
 material.setAssets(assets);
 ```
 
