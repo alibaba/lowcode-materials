@@ -21,7 +21,7 @@
 
 [![NPM version][npm-image-fusion]][npm-url-fusion]
 
-### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.1.0/build/lowcode/index.html)
+### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.1/build/lowcode/index.html)
 
 ### 使用 / Usage
 
@@ -40,7 +40,7 @@ material.setAssets(assets);
 ```js
 // in GeneralWorkbench init
 const assets = await fetch(
-  `https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.1.0/dist/assets.json`,
+  `https://alifd.alicdn.com/npm/@alilc/lowcode-materials@1.2.1/dist/assets.json`,
 ).then((res) => res.json());
 material.setAssets(assets);
 ```
@@ -52,7 +52,7 @@ material.setAssets(assets);
 
 [![NPM version][npm-image-antd]][npm-url-antd]
 
-### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.2.1/build/lowcode/index.html)
+### [在线示例 / DEMO](https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.2.2/build/lowcode/index.html)
 
 ### 使用 / Usage
 
@@ -71,7 +71,7 @@ material.setAssets(assets);
 ```js
 // in GeneralWorkbench init
 const assets = await fetch(
-  `https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.2.1/build/lowcode/assets-prod.json`,
+  `https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.2.2/build/lowcode/assets-prod.json`,
 ).then((res) => res.json());
 material.setAssets(assets);
 ```
@@ -113,13 +113,20 @@ npm run lowcode:build
 
 #### 源码 / ProCode
 
-```
+```bash
 npm start
 npm run build
+```
+
+#### 其他命令 / Other Commands
+
+```bash
+# 更新 README 中的版本号
+npm run update-readme
 ```
 
 ### 贡献者 / Contributors
 
 因无法保留开源前的提交记录，这里列出开源前的贡献者（花名）：
 
-@荣彬 @度城 @屹凡 @启剑 @春希 @梧忌 @褚天 @莫夭 @金禅 @默吉 @旅途 @斩鲌 @永元 @听鸿 @晓吉 @与白 @若泉 @独寒 @尤恩
+@荣彬 @度城 @屹凡 @启剑 @春希 @梧忌 @褚天 @莫夭 @金禅 @默吉 @旅途 @斩鲌 @永元 @听鸿 @晓吉 @与白 @若泉 @独寒 @尤恩 @馨焱
