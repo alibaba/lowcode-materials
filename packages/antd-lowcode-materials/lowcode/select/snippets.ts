@@ -6,7 +6,7 @@ export default [
       componentName: 'Select',
       props: {
         style: {
-          width: 200,
+          width: '100%',
         },
         options: [
           {

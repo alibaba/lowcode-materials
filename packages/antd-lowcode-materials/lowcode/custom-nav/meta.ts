@@ -30,6 +30,7 @@ const snippets = [
         triggerSubMenuAction: 'click',
         mode: "inline",
         theme: "light",
+        "icon.style":{width:"20px"},
         "icon.name": "icon-tuichu",
         "icon.url": [
           '//at.alicdn.com/t/font_1788044_0dwu4guekcwr.js', // icon-javascript, icon-java, icon-shoppingcart (overridden)
@@ -248,6 +249,11 @@ export default {
       propType: 'node',
     },
     {
+      name: 'svg',
+      title: { label: 'svg启用', tip: 'icon使用svg,icon配置失效' },
+      propType: 'node',
+    },
+    {
       title: 'icon配置',
       display: 'block',
       type: 'group',
@@ -259,31 +265,31 @@ export default {
         //     componentName: 'StringSetter',
         //   },
         // },
-        {
-          name: 'icon',
-          title: { label: 'icon地址', tip: '自定义 icon地址,iconfont.cn' },
-          setter: {
-            componentName: 'ObjectSetter',
-            props: {
-              config: {
-                items: [
-                  {
-                    name: 'url',
-                    title: { label: '地址', tip: '地址' },
-                    setter: {
-                      componentName: 'ArraySetter',
-                      props: {
-                        itemSetter: {
-                          componentName: 'StringSetter',
-                        }
-                      }
-                    },
-                  },
-                ],
-              },
-            },
-          },
-        },
+        // {
+        //   name: 'icon',
+        //   title: { label: 'icon地址', tip: '自定义 icon地址,iconfont.cn' },
+        //   setter: {
+        //     componentName: 'ObjectSetter',
+        //     props: {
+        //       config: {
+        //         items: [
+        //           {
+        //             name: 'url',
+        //             title: { label: '地址', tip: '地址' },
+        //             setter: {
+        //               componentName: 'ArraySetter',
+        //               props: {
+        //                 itemSetter: {
+        //                   componentName: 'StringSetter',
+        //                 }
+        //               }
+        //             },
+        //           },
+        //         ],
+        //       },
+        //     },
+        //   },
+        // },
 
 
 

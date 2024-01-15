@@ -1,6 +1,6 @@
 {
   "name": "@discode/antd",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Antd for Discode",
   "main": "lib/index.js",
   "scripts": {
@@ -80,7 +80,7 @@
     "react-dom": "^16.x"
   },
   "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@discode/antd@0.0.4/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@discode/antd@1.0.0/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
   "exports": {
