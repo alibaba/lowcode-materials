@@ -18,7 +18,7 @@ const customNav: any = (props: any, ref: Ref<any>) => {
 
   function renderMenuItems(data) {
 
-    if (!data || data.length === 0) {
+    if (!Array.isArray(data) || data.length === 0) {
       return null; // 或者返回一个默认的菜单项
     }
     
