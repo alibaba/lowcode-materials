@@ -1357,16 +1357,16 @@ const ProTableMeta = {
             title: { label: '搜索', tip: 'search | 搜索' },
             propType: 'bool',
             setter: 'BoolSetter',
-            defaultValue: true,
-            extraProps: {
-              setValue: (target, value) => {
-                if (value) {
-                  target.parent.setPropValue('search', {
-                    defaultCollapsed: true
-                  })
-                }
-              }
-            }
+            defaultValue: false,
+            // extraProps: {
+            //   setValue: (target, value) => {
+            //     if (value) {
+            //       target.parent.setPropValue('search', {
+            //         defaultCollapsed: true
+            //       })
+            //     }
+            //   }
+            // }
           },
           {
             title: {

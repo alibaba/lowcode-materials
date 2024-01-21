@@ -72,7 +72,9 @@
   },
   "dependencies": {
     "@alifd/next": "^1.25.27",
+    "@ant-design/pro-components": "^2.6.43",
     "antd": "^5.11.5",
+    "antd-img-crop": "^4.18.0",
     "moment": "^2.29.4",
     "prop-types": "^15.5.8",
     "react": "^16.x",

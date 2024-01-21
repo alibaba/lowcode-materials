@@ -139,8 +139,8 @@ export default {
                     value: 'danger',
                   },
                   {
-                    title: '链接按钮',
-                    value: 'link',
+                    title: '默认按钮',
+                    value: 'default',
                   },
                   {
                     title: '类文本按钮',

@@ -35,7 +35,7 @@ export default {
     // {
     //   name: 'expandIcon',
     //   title: { label: '自定义切换图标', tip: '自定义切换图标' },
-    //   propType: 'func',
+    //   propType: 'slot',
     // },
     {
       name: 'expandIconPosition',

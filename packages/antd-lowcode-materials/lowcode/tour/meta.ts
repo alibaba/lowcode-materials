@@ -5,6 +5,7 @@ const TourMeta: IPublicTypeComponentMetadata = {
   "componentName": "Tour",
   "title": "漫游引导",
   "docUrl": "",
+  category: '通用',
   "screenshot": "",
   "devMode": "proCode",
 
@@ -15,7 +16,7 @@ const TourMeta: IPublicTypeComponentMetadata = {
           "label": {
             "type": "i18n",
             "en-US": "steps",
-            "zh-CN": "steps"
+            "zh-CN": "步骤"
           }
         },
         "name": "steps",
@@ -27,6 +28,20 @@ const TourMeta: IPublicTypeComponentMetadata = {
               "props": {
                 "config": {
                   "items": [
+                    {
+                      "title": {
+                        "label": {
+                          "type": "i18n",
+                          "en-US": "arrow",
+                          "zh-CN": "箭头显示"
+                        }
+                      },
+                      "name": "arrow",
+                      "setter": {
+                        "componentName": "BoolSetter",
+
+                      }
+                    },
                     {
                       "title": {
                         "label": {
@@ -48,250 +63,186 @@ const TourMeta: IPublicTypeComponentMetadata = {
                         }
                       }
                     },
+                    // {
+                    //   "title": {
+                    //     "label": {
+                    //       "type": "i18n",
+                    //       "en-US": "type",
+                    //       "zh-CN": "类型"
+                    //     }
+                    //   },
+                    //   "name": "type",
+                    //   "setter": {
+                    //     "componentName": "RadioGroupSetter",
+                    //     "props": {
+                    //       "dataSource": [
+                    //         {
+                    //           "label": "primary",
+                    //           "value": "primary"
+                    //         },
+                    //         {
+                    //           "label": "default",
+                    //           "value": "default"
+                    //         }
+                    //       ],
+                    //       "options": [
+                    //         {
+                    //           "label": "primary",
+                    //           "value": "primary"
+                    //         },
+                    //         {
+                    //           "label": "default",
+                    //           "value": "default"
+                    //         }
+                    //       ]
+                    //     },
+                    //     "initialValue": "primary"
+                    //   }
+
+                    // },
                     {
                       "title": {
                         "label": {
                           "type": "i18n",
-                          "en-US": "nextButtonProps",
-                          "zh-CN": "nextButtonProps"
+                          "en-US": "title",
+                          "zh-CN": "标题"
                         }
                       },
-                      "name": "nextButtonProps",
+                      "name": "title",
                       "setter": {
-                        "componentName": "ObjectSetter",
+                        "componentName": "MixedSetter",
                         "props": {
-                          "config": {
-                            "items": [
-                              {
-                                "title": {
-                                  "label": {
-                                    "type": "i18n",
-                                    "en-US": "children",
-                                    "zh-CN": "children"
-                                  }
-                                },
-                                "name": "children",
-                                "setter": {
-                                  "componentName": "SlotSetter",
-                                  "props": {
-                                    "mode": "node"
-                                  },
-                                  "isRequired": false,
-                                  "initialValue": {
-                                    "type": "JSSlot",
-                                    "value": []
-                                  }
-                                }
-                              },
-                              {
-                                "title": {
-                                  "label": {
-                                    "type": "i18n",
-                                    "en-US": "onClick",
-                                    "zh-CN": "onClick"
-                                  }
-                                },
-                                "name": "onClick",
-                                "setter": {
-                                  "componentName": "FunctionSetter",
-                                  "isRequired": false
-                                }
-                              },
-                              {
-                                "title": {
-                                  "label": {
-                                    "type": "i18n",
-                                    "en-US": "className",
-                                    "zh-CN": "className"
-                                  }
-                                },
-                                "name": "className",
-                                "setter": {
-                                  "componentName": "StringSetter",
-                                  "isRequired": false,
-                                  "initialValue": ""
-                                }
-                              },
-                              {
-                                "title": {
-                                  "label": {
-                                    "type": "i18n",
-                                    "en-US": "style",
-                                    "zh-CN": "style"
-                                  }
-                                },
-                                "name": "style",
-                                "setter": {
-                                  "componentName": "ObjectSetter",
-                                  "props": {
-                                    "config": {
-                                      "extraSetter": {
-                                        "componentName": "MixedSetter",
-                                        "isRequired": false,
-                                        "props": {}
-                                      }
-                                    }
-                                  },
-                                  "isRequired": false,
-                                  "initialValue": {}
-                                }
-                              }
-                            ],
-                            "extraSetter": {
-                              "componentName": "MixedSetter",
-                              "isRequired": false,
-                              "props": {}
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "title": {
-                        "label": {
-                          "type": "i18n",
-                          "en-US": "prevButtonProps",
-                          "zh-CN": "prevButtonProps"
-                        }
-                      },
-                      "name": "prevButtonProps",
-                      "setter": {
-                        "componentName": "ObjectSetter",
-                        "props": {
-                          "config": {
-                            "items": [
-                              {
-                                "title": {
-                                  "label": {
-                                    "type": "i18n",
-                                    "en-US": "children",
-                                    "zh-CN": "children"
-                                  }
-                                },
-                                "name": "children",
-                                "setter": {
-                                  "componentName": "SlotSetter",
-                                  "props": {
-                                    "mode": "node"
-                                  },
-                                  "isRequired": false,
-                                  "initialValue": {
-                                    "type": "JSSlot",
-                                    "value": []
-                                  }
-                                }
-                              },
-                              {
-                                "title": {
-                                  "label": {
-                                    "type": "i18n",
-                                    "en-US": "onClick",
-                                    "zh-CN": "onClick"
-                                  }
-                                },
-                                "name": "onClick",
-                                "setter": {
-                                  "componentName": "FunctionSetter",
-                                  "isRequired": false
-                                }
-                              },
-                              {
-                                "title": {
-                                  "label": {
-                                    "type": "i18n",
-                                    "en-US": "className",
-                                    "zh-CN": "className"
-                                  }
-                                },
-                                "name": "className",
-                                "setter": {
-                                  "componentName": "StringSetter",
-                                  "isRequired": false,
-                                  "initialValue": ""
-                                }
-                              },
-                              {
-                                "title": {
-                                  "label": {
-                                    "type": "i18n",
-                                    "en-US": "style",
-                                    "zh-CN": "style"
-                                  }
-                                },
-                                "name": "style",
-                                "setter": {
-                                  "componentName": "ObjectSetter",
-                                  "props": {
-                                    "config": {
-                                      "extraSetter": {
-                                        "componentName": "MixedSetter",
-                                        "isRequired": false,
-                                        "props": {}
-                                      }
-                                    }
-                                  },
-                                  "isRequired": false,
-                                  "initialValue": {}
-                                }
-                              }
-                            ],
-                            "extraSetter": {
-                              "componentName": "MixedSetter",
-                              "isRequired": false,
-                              "props": {}
-                            }
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "title": {
-                        "label": {
-                          "type": "i18n",
-                          "en-US": "indicatorsRender",
-                          "zh-CN": "indicatorsRender"
-                        }
-                      },
-                      "name": "indicatorsRender",
-                      "setter": {
-                        "componentName": "FunctionSetter"
-                      }
-                    },
-                    {
-                      "title": {
-                        "label": {
-                          "type": "i18n",
-                          "en-US": "type",
-                          "zh-CN": "type"
-                        }
-                      },
-                      "name": "type",
-                      "setter": {
-                        "componentName": "RadioGroupSetter",
-                        "props": {
-                          "dataSource": [
+                          "setters": [
                             {
-                              "label": "primary",
-                              "value": "primary"
+                              "componentName": "StringSetter",
                             },
                             {
-                              "label": "default",
-                              "value": "default"
+                              "componentName": "SlotSetter",
+                              "initialValue": {
+                                "type": "JSSlot",
+                                "value": []
+                              }
                             }
-                          ],
+                          ]
+                        }
+                      }
+                      
+                    },
+                    {
+                      "title": {
+                        "label": {
+                          "type": "i18n",
+                          "en-US": "description",
+                          "zh-CN": "描述"
+                        }
+                      },
+                      "name": "description",
+
+                      "setter": {
+                        "componentName": "MixedSetter",
+                        "props": {
+                          "setters": [
+                            {
+                              "componentName": "StringSetter",
+                            },
+                            {
+                              "componentName": "SlotSetter",
+                              "initialValue": {
+                                "type": "JSSlot",
+                                "value": []
+                              }
+                            }
+                          ]
+                        }
+                      }
+
+                      
+                    },
+                    {
+                      "title": {
+                        "label": {
+                          "type": "i18n",
+                          "en-US": "placement",
+                          "zh-CN": "目标位置"
+                        }
+                      },
+                      "name": "placement",
+                      "setter": {
+                        "componentName": "SelectSetter",
+                        "props": {
+              
                           "options": [
                             {
-                              "label": "primary",
-                              "value": "primary"
+                              "label": "上",
+                              "value": "top"
                             },
                             {
-                              "label": "default",
-                              "value": "default"
+                              "label": "上左",
+                              "value": "topLeft"
+                            },
+                            {
+                              "label": "上右",
+                              "value": "topRight"
+                            },
+                            {
+                              "label": "下",
+                              "value": "bottom"
+                            },
+                            {
+                              "label": "下左",
+                              "value": "bottomLeft"
+                            },
+                            {
+                              "label": "右下",
+                              "value": "Rightbottom"
+                            },
+                            {
+                              "label": "中间",
+                              "value": "center"
+                            },
+                            {
+                              "label": "做",
+                              "value": "left"
+                            },
+                            {
+                              "label": "右",
+                              "value": "right"
+                            },
+                            {
+                              "label": "左上",
+                              "value": "leftTop"
+                            },
+                            {
+                              "label": "左下",
+                              "value": "leftBottom"
+                            },
+                            {
+                              "label": "右上",
+                              "value": "rightTop"
+                            },
+                            {
+                              "label": "右下",
+                              "value": "rightBottom"
                             }
                           ]
                         },
-                        "initialValue": "primary"
+                        "initialValue": "top"
                       }
+                    },
+                    {
+                      "title": {
+                        "label": {
+                          "type": "i18n",
+                          "en-US": "target",
+                          "zh-CN": "目标"
+                        }
+                      },
+                      "name": "target",
+                      "setter": {
+                        "componentName": "FunctionSetter",
+
+                      }
+                      
                     }
                   ],
                   "extraSetter": {
@@ -306,49 +257,37 @@ const TourMeta: IPublicTypeComponentMetadata = {
           "initialValue": []
         }
       },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "prefixCls",
-            "zh-CN": "prefixCls"
-          }
-        },
-        "name": "prefixCls",
-        "setter": {
-          "componentName": "StringSetter",
-          "isRequired": false,
-          "initialValue": ""
-        }
-      },
+
       {
         "title": {
           "label": {
             "type": "i18n",
             "en-US": "current",
-            "zh-CN": "current"
+            "zh-CN": "当前点"
           }
         },
         "name": "current",
         "setter": {
           "componentName": "NumberSetter",
-          "isRequired": false,
-          "initialValue": 0
         }
       },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "indicatorsRender",
-            "zh-CN": "indicatorsRender"
-          }
-        },
-        "name": "indicatorsRender",
-        "setter": {
-          "componentName": "FunctionSetter"
-        }
-      },
+      // {
+      //   "title": {
+      //     "label": {
+      //       "type": "i18n",
+      //       "en-US": "indicatorsRender",
+      //       "zh-CN": "自定义指示器"
+      //     }
+      //   },
+      //   "name": "indicatorsRender",
+      //   "setter": {
+      //     "componentName": "SlotSetter",
+      //     "initialValue": {
+      //       "type": "JSSlot",
+      //       "value": []
+      //     }
+      //   }
+      // },
       {
         "title": {
           "label": {
@@ -403,7 +342,7 @@ const TourMeta: IPublicTypeComponentMetadata = {
           "label": {
             "type": "i18n",
             "en-US": "open",
-            "zh-CN": "open"
+            "zh-CN": "打开"
           }
         },
         "name": "open",
@@ -413,202 +352,14 @@ const TourMeta: IPublicTypeComponentMetadata = {
           "initialValue": false
         }
       },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "placement",
-            "zh-CN": "placement"
-          }
-        },
-        "name": "placement",
-        "setter": {
-          "componentName": "SelectSetter",
-          "props": {
-            "dataSource": [
-              {
-                "label": "top",
-                "value": "top"
-              },
-              {
-                "label": "topLeft",
-                "value": "topLeft"
-              },
-              {
-                "label": "topRight",
-                "value": "topRight"
-              },
-              {
-                "label": "bottom",
-                "value": "bottom"
-              },
-              {
-                "label": "bottomLeft",
-                "value": "bottomLeft"
-              },
-              {
-                "label": "bottomRight",
-                "value": "bottomRight"
-              },
-              {
-                "label": "center",
-                "value": "center"
-              },
-              {
-                "label": "left",
-                "value": "left"
-              },
-              {
-                "label": "right",
-                "value": "right"
-              },
-              {
-                "label": "leftTop",
-                "value": "leftTop"
-              },
-              {
-                "label": "leftBottom",
-                "value": "leftBottom"
-              },
-              {
-                "label": "rightTop",
-                "value": "rightTop"
-              },
-              {
-                "label": "rightBottom",
-                "value": "rightBottom"
-              }
-            ],
-            "options": [
-              {
-                "label": "top",
-                "value": "top"
-              },
-              {
-                "label": "topLeft",
-                "value": "topLeft"
-              },
-              {
-                "label": "topRight",
-                "value": "topRight"
-              },
-              {
-                "label": "bottom",
-                "value": "bottom"
-              },
-              {
-                "label": "bottomLeft",
-                "value": "bottomLeft"
-              },
-              {
-                "label": "bottomRight",
-                "value": "bottomRight"
-              },
-              {
-                "label": "center",
-                "value": "center"
-              },
-              {
-                "label": "left",
-                "value": "left"
-              },
-              {
-                "label": "right",
-                "value": "right"
-              },
-              {
-                "label": "leftTop",
-                "value": "leftTop"
-              },
-              {
-                "label": "leftBottom",
-                "value": "leftBottom"
-              },
-              {
-                "label": "rightTop",
-                "value": "rightTop"
-              },
-              {
-                "label": "rightBottom",
-                "value": "rightBottom"
-              }
-            ]
-          },
-          "initialValue": "top"
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "arrow",
-            "zh-CN": "arrow"
-          }
-        },
-        "name": "arrow",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "BoolSetter",
-                "isRequired": false,
-                "initialValue": false
-              },
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "items": [
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "pointAtCenter",
-                            "zh-CN": "pointAtCenter"
-                          }
-                        },
-                        "name": "pointAtCenter",
-                        "setter": {
-                          "componentName": "BoolSetter",
-                          "isRequired": true,
-                          "initialValue": false
-                        }
-                      }
-                    ],
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "rootClassName",
-            "zh-CN": "rootClassName"
-          }
-        },
-        "name": "rootClassName",
-        "setter": {
-          "componentName": "StringSetter",
-          "isRequired": false,
-          "initialValue": ""
-        }
-      },
+
+
       {
         "title": {
           "label": {
             "type": "i18n",
             "en-US": "zIndex",
-            "zh-CN": "zIndex"
+            "zh-CN": "浮层"
           }
         },
         "name": "zIndex",
@@ -618,77 +369,13 @@ const TourMeta: IPublicTypeComponentMetadata = {
           "initialValue": 0
         }
       },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "gap",
-            "zh-CN": "gap"
-          }
-        },
-        "name": "gap",
-        "setter": {
-          "componentName": "ObjectSetter",
-          "props": {
-            "config": {
-              "items": [
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "offset",
-                      "zh-CN": "offset"
-                    }
-                  },
-                  "name": "offset",
-                  "setter": {
-                    "componentName": "MixedSetter",
-                    "props": {
-                      "setters": [
-                        {
-                          "componentName": "NumberSetter",
-                          "isRequired": false,
-                          "initialValue": 0
-                        },
-                        {
-                          "componentName": "MixedSetter",
-                          "props": {}
-                        }
-                      ]
-                    }
-                  }
-                },
-                {
-                  "title": {
-                    "label": {
-                      "type": "i18n",
-                      "en-US": "radius",
-                      "zh-CN": "radius"
-                    }
-                  },
-                  "name": "radius",
-                  "setter": {
-                    "componentName": "NumberSetter",
-                    "isRequired": false,
-                    "initialValue": 0
-                  }
-                }
-              ],
-              "extraSetter": {
-                "componentName": "MixedSetter",
-                "isRequired": false,
-                "props": {}
-              }
-            }
-          }
-        }
-      },
+
       {
         "title": {
           "label": {
             "type": "i18n",
             "en-US": "onClose",
-            "zh-CN": "onClose"
+            "zh-CN": "关闭"
           }
         },
         "name": "onClose",
@@ -696,25 +383,13 @@ const TourMeta: IPublicTypeComponentMetadata = {
           "componentName": "FunctionSetter"
         }
       },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "onPopupAlign",
-            "zh-CN": "onPopupAlign"
-          }
-        },
-        "name": "onPopupAlign",
-        "setter": {
-          "componentName": "FunctionSetter"
-        }
-      },
+
       {
         "title": {
           "label": {
             "type": "i18n",
             "en-US": "builtinPlacements",
-            "zh-CN": "builtinPlacements"
+            "zh-CN": "自定义关闭"
           }
         },
         "name": "builtinPlacements",
@@ -746,7 +421,7 @@ const TourMeta: IPublicTypeComponentMetadata = {
           "label": {
             "type": "i18n",
             "en-US": "closeIcon",
-            "zh-CN": "closeIcon"
+            "zh-CN": "自定义关闭"
           }
         },
         "name": "closeIcon",
@@ -762,63 +437,13 @@ const TourMeta: IPublicTypeComponentMetadata = {
           }
         }
       },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "animated",
-            "zh-CN": "animated"
-          }
-        },
-        "name": "animated",
-        "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "BoolSetter",
-                "isRequired": false,
-                "initialValue": false
-              },
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "items": [
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "placeholder",
-                            "zh-CN": "placeholder"
-                          }
-                        },
-                        "name": "placeholder",
-                        "setter": {
-                          "componentName": "BoolSetter",
-                          "isRequired": true,
-                          "initialValue": false
-                        }
-                      }
-                    ],
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        }
-      },
+
       {
         "title": {
           "label": {
             "type": "i18n",
             "en-US": "mask",
-            "zh-CN": "mask"
+            "zh-CN": "蒙层"
           }
         },
         "name": "mask",
@@ -836,71 +461,54 @@ const TourMeta: IPublicTypeComponentMetadata = {
                 "props": {
                   "config": {
                     "items": [
+
                       {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "style",
-                            "zh-CN": "style"
-                          }
+                        name: 'style',
+                        title: '样式',
+                        type: 'group',
+                        extraProps: {
+                          display: 'entry',
                         },
-                        "name": "style",
-                        "setter": {
-                          "componentName": "ObjectSetter",
-                          "props": {
-                            "config": {
-                              "extraSetter": {
-                                "componentName": "MixedSetter",
-                                "isRequired": false,
-                                "props": {}
-                              }
-                            }
+                        items: [
+                          {
+                            name: 'style',
+                            title: {
+                              label: '样式设置',
+                              tip: '自定义 icon样式',
+                            },
+                            setter: 'StyleSetter',
+                            extraProps: {
+                              display: 'block',
+                            },
                           },
-                          "isRequired": false,
-                          "initialValue": {}
-                        }
+                        ],
                       },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "color",
-                            "zh-CN": "color"
-                          }
-                        },
-                        "name": "color",
-                        "setter": {
-                          "componentName": "StringSetter",
-                          "isRequired": false,
-                          "initialValue": ""
-                        }
-                      }
+                      // {
+                      //   "title": {
+                      //     "label": {
+                      //       "type": "i18n",
+                      //       "en-US": "color",
+                      //       "zh-CN": "颜色"
+                      //     }
+                      //   },
+                      //   "name": "color",
+                      //   "setter": {
+                      //     "componentName": 'ColorSetter',
+                      //     "isRequired": false,
+                      //     "initialValue": ""
+                      //   }
+                      // }
                     ],
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
+                    // "extraSetter": {
+                    //   "componentName": "MixedSetter",
+                    //   "isRequired": false,
+                    //   "props": {}
+                    // }
                   }
                 }
               }
             ]
           }
-        }
-      },
-      {
-        "title": {
-          "label": {
-            "type": "i18n",
-            "en-US": "defaultCurrent",
-            "zh-CN": "defaultCurrent"
-          }
-        },
-        "name": "defaultCurrent",
-        "setter": {
-          "componentName": "NumberSetter",
-          "isRequired": false,
-          "initialValue": 0
         }
       },
       {
@@ -908,139 +516,12 @@ const TourMeta: IPublicTypeComponentMetadata = {
           "label": {
             "type": "i18n",
             "en-US": "scrollIntoViewOptions",
-            "zh-CN": "scrollIntoViewOptions"
+            "zh-CN": "滚动到视窗"
           }
         },
         "name": "scrollIntoViewOptions",
         "setter": {
-          "componentName": "MixedSetter",
-          "props": {
-            "setters": [
-              {
-                "componentName": "BoolSetter",
-                "isRequired": false,
-                "initialValue": false
-              },
-              {
-                "componentName": "ObjectSetter",
-                "props": {
-                  "config": {
-                    "items": [
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "block",
-                            "zh-CN": "block"
-                          }
-                        },
-                        "name": "block",
-                        "setter": {
-                          "componentName": "SelectSetter",
-                          "props": {
-                            "dataSource": [
-                              {
-                                "label": "center",
-                                "value": "center"
-                              },
-                              {
-                                "label": "end",
-                                "value": "end"
-                              },
-                              {
-                                "label": "start",
-                                "value": "start"
-                              },
-                              {
-                                "label": "nearest",
-                                "value": "nearest"
-                              }
-                            ],
-                            "options": [
-                              {
-                                "label": "center",
-                                "value": "center"
-                              },
-                              {
-                                "label": "end",
-                                "value": "end"
-                              },
-                              {
-                                "label": "start",
-                                "value": "start"
-                              },
-                              {
-                                "label": "nearest",
-                                "value": "nearest"
-                              }
-                            ]
-                          },
-                          "initialValue": "center"
-                        }
-                      },
-                      {
-                        "title": {
-                          "label": {
-                            "type": "i18n",
-                            "en-US": "inline",
-                            "zh-CN": "inline"
-                          }
-                        },
-                        "name": "inline",
-                        "setter": {
-                          "componentName": "SelectSetter",
-                          "props": {
-                            "dataSource": [
-                              {
-                                "label": "center",
-                                "value": "center"
-                              },
-                              {
-                                "label": "end",
-                                "value": "end"
-                              },
-                              {
-                                "label": "start",
-                                "value": "start"
-                              },
-                              {
-                                "label": "nearest",
-                                "value": "nearest"
-                              }
-                            ],
-                            "options": [
-                              {
-                                "label": "center",
-                                "value": "center"
-                              },
-                              {
-                                "label": "end",
-                                "value": "end"
-                              },
-                              {
-                                "label": "start",
-                                "value": "start"
-                              },
-                              {
-                                "label": "nearest",
-                                "value": "nearest"
-                              }
-                            ]
-                          },
-                          "initialValue": "center"
-                        }
-                      }
-                    ],
-                    "extraSetter": {
-                      "componentName": "MixedSetter",
-                      "isRequired": false,
-                      "props": {}
-                    }
-                  }
-                }
-              }
-            ]
-          }
+          "componentName": "BoolSetter",
         }
       }
     ],
@@ -1053,16 +534,25 @@ const TourMeta: IPublicTypeComponentMetadata = {
       ],
       "style": true
     },
-    "component": {}
+    "component": {isContainer:true}
   }
 };
 const snippets: IPublicTypeSnippet[] = [
   {
     "title": "漫游引导",
-    "screenshot": "",
+    "screenshot": "https://cdn.itq168.com/img/disscode-tour.svg",
     "schema": {
       "componentName": "Tour",
-      "props": {}
+      "props": {
+        mask:true,
+        open:true,
+        steps:[
+          {
+            title: 'disscode说明',
+            description: 'disscode说明',
+          },
+        ]
+      }
     }
   }
 ];

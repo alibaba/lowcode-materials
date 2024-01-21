@@ -11,21 +11,54 @@ export default {
       title: { label: '卡片标题', tip: '卡片标题' },
       propType: { type: 'oneOfType', value: ['string', 'node'] },
     },
-    // {
-    //   name: 'actions',
-    //   title: { label: '卡片操作组', tip: '卡片操作组，位置在卡片底部' },
-    //   propType: { type: 'arrayOf', value: 'node' },
-    // },
-    // {
-    //   name: 'headStyle',
-    //   title: { label: '标题区域样式', tip: '自定义标题区域样式' },
-    //   propType: 'object',
-    // },
-    // {
-    //   name: 'bodyStyle',
-    //   title: { label: '内容区域样式', tip: '内容区域自定义样式' },
-    //   propType: 'object',
-    // },
+    {
+      name: 'actions',
+      title: { label: '卡片操作组', tip: '卡片操作组，位置在卡片底部' },
+      propType: { type: 'arrayOf', value: 'node' },
+    },
+    {
+      name: 'headStyle',
+      title: '标题样式',
+      type: 'group',
+      extraProps: {
+        display: 'entry',
+      },
+      items: [
+        {
+          name: 'headStyle',
+          title: {
+            label: '标题样式',
+            tip: 'bodyStyle | 可用于设置 标题的样式',
+          },
+          setter: 'StyleSetter',
+          extraProps: {
+            display: 'block',
+          },
+        },
+      ],
+    },
+    {
+      name: 'bodyStyle',
+      title: '内容样式',
+      type: 'group',
+      extraProps: {
+        display: 'entry',
+      },
+      items: [
+        {
+          name: 'bodyStyle',
+          title: {
+            label: '内容样式',
+            tip: 'bodyStyle | 可用于设置 内容样式',
+          },
+          setter: 'StyleSetter',
+          extraProps: {
+            display: 'block',
+          },
+        },
+      ],
+    },
+
     {
       name: 'bordered',
       title: { label: '显示边框', tip: '是否有边框' },

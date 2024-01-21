@@ -33,6 +33,7 @@ const WebViewMeta: IPublicTypeComponentMetadata = {
           componentName: 'StringSetter',
         },
       },
+      
     ],
     supports: {
       className: false,

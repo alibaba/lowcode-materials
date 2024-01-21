@@ -62,7 +62,8 @@
   },
   "dependencies": {
     "@alifd/next": "^1.25.27",
-    "@xrenders/schema-builder": "^1.0.0-alpha.5",
+    "@xrenders/schema-builder": "^1.0.0-alpha.17",
+    "form-render": "^2.3.8",
     "moment": "^2.29.4",
     "prop-types": "^15.5.8",
     "react": "^16.x",

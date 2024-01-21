@@ -19,7 +19,44 @@ export default {
     //     tip: '自定义渲染日期单元格，返回内容会被追加到单元格',
     //   },
     //   propType: 'func',
+      
     // },
+    {
+      name: 'dateCellRender',
+      title: {
+        label: '自定义单元格的内容',
+        tip: '自定义单元格的内容',
+      },
+      propType: 'func',
+      setter: [
+        {
+          componentName: 'FunctionSetter',
+          props: {
+            template:
+              'function(date,${extParams}){\n// 设置不可选择的日期\nreturn "日期"\n}',
+          },
+        },
+        'VariableSetter',
+      ],
+
+      // setter: {
+      //   componentName: 'SlotSetter',
+      //   title: '关闭图标插槽',
+      //   initialValue: {
+      //     type: 'JSSlot',
+      //     value: [
+      //       {
+      //         componentName: 'Icon',
+      //         props: {
+      //           type: 'CloseOutlined',
+      //           size: 16
+      //         },
+      //       },
+      //     ],
+      //   },
+      // },
+      
+    },
     // {
     //   name: 'dateFullCellRender',
     //   title: {
@@ -90,6 +127,7 @@ export default {
       name: 'onChange',
       title: { label: '日期变化回调', tip: '日期变化回调' },
       propType: 'func',
+      
     },
     // {
     //   name: 'headerRender',
