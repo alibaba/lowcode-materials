@@ -51,7 +51,7 @@ export default {
     },
     {
       name: 'confirmLoading',
-      title: { label: '确定按钮loading', tip: '确定按钮loading' },
+      title: { label: '确定按钮 loading', tip: '确定按钮 loading' },
       propType: 'bool',
       defaultValue: false,
       setter: 'BoolSetter',
@@ -67,7 +67,7 @@ export default {
     },
     {
       name: 'forceRender',
-      title: { label: '强制渲染Modal', tip: '强制渲染Modal' },
+      title: { label: '强制渲染 Modal', tip: '强制渲染 Modal' },
       propType: 'bool',
       defaultValue: false,
       setter: 'BoolSetter',
@@ -75,7 +75,7 @@ export default {
     },
     {
       name: 'keyboard',
-      title: { label: 'esc关闭', tip: '是否支持键盘 esc 关闭' },
+      title: { label: 'esc 关闭', tip: '是否支持键盘 esc 关闭' },
       propType: 'bool',
       defaultValue: true,
       setter: 'BoolSetter',
@@ -155,7 +155,7 @@ export default {
     },
     {
       name: 'okButtonProps',
-      title: { label: '确认按钮props', tip: '确认按钮props' },
+      title: { label: '确认按钮 props', tip: '确认按钮 props' },
       propType: 'object',
       setter: {
         componentName: 'ObjectSetter',
@@ -183,7 +183,7 @@ export default {
     },
     {
       name: 'bodyStyle',
-      title: { label: 'body样式', tip: 'Modal body 样式' },
+      title: { label: 'body 样式', tip: 'Modal body 样式' },
       propType: 'object',
     },
     {
@@ -210,7 +210,7 @@ export default {
       name: 'getContainer',
       title: {
         label: '指定挂载节点',
-        tip: '指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom',
+        tip: '指定 Modal 挂载的 HTML 节点，false 为挂载在当前 dom',
       },
       propType: { type: 'oneOfType', value: ['node', 'func'] },
     },

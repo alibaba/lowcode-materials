@@ -20,11 +20,9 @@ export default [
     schema: {
       componentName: 'Modal',
       props: {
-        title: 'Basic Modal',
-        okText: '确认',
-        cancelText: '取消',
+        title: 'Hide Footer Modal',
         open: true,
-        footer: null,
+        footer: ()=> null,
         destroyOnClose: true,
       },
       children: [],
