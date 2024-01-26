@@ -30,7 +30,7 @@ export default {
         {
           name: 'rowKey',
           title: {
-            label: '行Key',
+            label: '行 Key',
             tip: 'rowKey | 当 renderItem 自定义渲染列表项有效时，自定义每一行的 key 的获取方式',
           },
           propType: {
@@ -60,11 +60,24 @@ export default {
         {
           name: 'itemLayout',
           title: {
-            label: '尺寸',
-            tip: 'itemLayout  | 设置 List.Item 布局, 设置成 vertical 则竖直样式显示, 默认横排',
+            label: '列表项布局',
+            tip: 'itemLayout  | 设置 List.Item 布局，设置成 vertical 则竖直样式显示，默认横排',
           },
           propType: { type: 'oneOf', value: ['horizontal', 'vertical'] },
           defaultValue: 'horizontal',
+          extraProps: {
+            setValue(target, value) {
+              const { node } = target;
+              
+              if (value === 'vertical') {
+                node.setPropValue('grid', undefined);
+                node.setPropValue('gridEnable', true);
+                node.setPropValue('grid', undefined);
+              }else if (value === 'horizontal') {
+                node.setPropValue('grid', { column: 4, gutter: 0 });
+              }
+            },
+          },
           setter: [
             {
               componentName: 'RadioGroupSetter',
@@ -132,6 +145,10 @@ export default {
       title: '栅格',
       display: 'block',
       type: 'group',
+      condition: {
+        type: 'JSFunction',
+        value: 'target => target.getProps().getPropValue("itemLayout") !== "vertical"',
+      },
       items: [
         {
           name: 'gridEnable',
@@ -140,9 +157,11 @@ export default {
           setter: 'BoolSetter',
           extraProps: {
             setValue(target, value) {
-              if (value === false) {
-                const { node } = target;
-                node.setPropValue('grid', false);
+              const { node } = target;
+              if (value === true) {
+                node.setPropValue('grid', { column: 4, gutter: 0 });
+              }else if(value === false){
+                node.setPropValue('grid', undefined)
               }
             },
           },
@@ -152,18 +171,16 @@ export default {
           title: { label: '列数', tip: 'grid.column | 栅格的列数' },
           propType: 'number',
           setter: 'NumberSetter',
-          defaultValue: 4,
           condition: {
             type: 'JSFunction',
             value: 'target => !!target.getProps().getPropValue("gridEnable")',
           },
         },
-        {
+          {
           name: 'grid.gutter',
           title: { label: '间隔', tip: 'grid.gutter | 栅格的间隔' },
           propType: 'number',
           setter: 'NumberSetter',
-          defaultValue: 0,
           condition: {
             type: 'JSFunction',
             value: 'target => !!target.getProps().getPropValue("gridEnable")',
@@ -209,26 +226,6 @@ export default {
             value: 'target => !!target.getProps().getPropValue("pagination")',
           },
         },
-        // {
-        //   name: 'pagination.defaultCurrent',
-        //   title: {
-        //     label: '默认当前页',
-        //     tip: 'pagination.defaultCurrent | 默认的当前页数',
-        //   },
-        //   setter: [
-        //     {
-        //       componentName: 'NumberSetter',
-        //       props: {
-        //         initialValue: 1,
-        //       },
-        //     },
-        //     'VariableSetter',
-        //   ],
-        //   condition: {
-        //     type: 'JSFunction',
-        //     value: 'target => !!target.getProps().getPropValue("pagination")',
-        //   },
-        // },
         {
           name: 'pagination.current',
           title: { label: '当前页数', tip: 'pagination.current | 当前页数' },
@@ -268,7 +265,6 @@ export default {
           },
           propType: 'bool',
           setter: 'BoolSetter',
-          defaultValue: false,
           condition: {
             type: 'JSFunction',
             value: 'target => !!target.getProps().getPropValue("pagination")',
@@ -282,7 +278,6 @@ export default {
           },
           propType: 'bool',
           setter: 'BoolSetter',
-          defaultValue: false,
           condition: {
             type: 'JSFunction',
             value: 'target => !!target.getProps().getPropValue("pagination")',
@@ -293,7 +288,6 @@ export default {
           title: { label: '简单分页', tip: 'pagination.simple | 简单分页' },
           propType: 'bool',
           setter: 'BoolSetter',
-          defaultValue: false,
           condition: {
             type: 'JSFunction',
             value: 'target => !!target.getProps().getPropValue("pagination")',
@@ -324,7 +318,6 @@ export default {
             },
             'VariableSetter',
           ],
-          defaultValue: 'default',
           condition: {
             type: 'JSFunction',
             value: 'target => !!target.getProps().getPropValue("pagination")',

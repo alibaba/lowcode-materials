@@ -73,7 +73,6 @@ export default {
       title: {
         label: {
           type: 'i18n',
-          zh_CN: '图标尺寸',
           en_US: 'Icon Size',
         },
         tip: {
