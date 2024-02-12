@@ -99,7 +99,7 @@ const ImageMeta: IPublicTypeComponentMetadata = {
       },
     ],
     supports: {
-      className: false,
+      className: true,
       style: true,
     },
     component: {},

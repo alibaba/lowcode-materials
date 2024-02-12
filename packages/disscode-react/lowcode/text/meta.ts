@@ -123,6 +123,7 @@ const TextMeta: ExtendComponentMetadata = {
     ],
     supports: {
       style: false,
+      className: true
     },
     component: {
       // isContainer: true,
