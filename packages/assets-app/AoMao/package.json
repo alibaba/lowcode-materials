@@ -99,7 +99,8 @@
   "componentConfig": {
     "name": "ExampleComponent",
     "title": "demo component",
-    "category": "Information"
+    "category": "Information",
+    "materialSchema": "https://unpkg.com/AoMao@0.1.0/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
   "homepage": "https://unpkg.com/AoMao@0.1.0/build/index.html"

@@ -291,5 +291,113 @@ export const snippets: Snippet[] = [
         intl: 'zhCNIntl'
       }
     }
-  }
+  },
+  {
+    title: '表格',
+    screenshot:
+      'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/table-1.png',
+    schema: {
+      componentName: 'ProTable',
+      props: {
+        cardBordered: true,
+        dataSource: getDataSource(),
+        columns: [
+          ...getColumns(),
+          {
+            title: '操作',
+            dataIndex: 'options',
+            valueType: 'option',
+            align: 'left',
+            fixed: '',
+            render: {
+              type: 'JSSlot',
+              params: ['text', 'record', 'index'],
+              value: [
+                {
+                  componentName: 'Button',
+                  props: {
+                    type: 'link',
+                    children: '编辑',
+                    htmlType: 'button',
+                    size: 'small',
+                    shape: 'default',
+                    block: false,
+                    danger: false,
+                    ghost: false,
+                    disabled: false,
+                    icon: ''
+                  }
+                },
+                {
+                  componentName: 'ProPopconfirm',
+                  props: {
+                    title: '确定删除?',
+                    okType: 'primary',
+                    okText: '确定',
+                    cancelText: '取消'
+                  },
+                  children: [
+                    {
+                      componentName: 'Button',
+                      props: {
+                        children: '删除',
+                        htmlType: 'button',
+                        type: 'link',
+                        size: 'small',
+                        shape: 'default',
+                        block: false,
+                        danger: true,
+                        ghost: false,
+                        disabled: false,
+                        icon: ''
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        rowKey: 'id',
+        pagination: {
+          defaultPageSize: 10
+        },
+        toolBarRender: {
+          type: 'JSSlot',
+          params: ['currentPageData'],
+          value: [
+            {
+              componentName: 'Button',
+              props: {
+                type: 'primary',
+                children: '新增',
+                htmlType: 'button',
+                size: 'middle',
+                shape: 'default',
+                icon: {
+                  type: 'JSSlot',
+                  value: [
+                    {
+                      componentName: 'Icon',
+                      props: {
+                        type: 'PlusOutlined',
+                        size: 16,
+                        rotate: 0,
+                        spin: false
+                      }
+                    }
+                  ]
+                },
+                block: false,
+                danger: false,
+                ghost: false,
+                disabled: false
+              }
+            }
+          ]
+        },
+        intl: 'zhCNIntl'
+      }
+    }
+  },
 ]

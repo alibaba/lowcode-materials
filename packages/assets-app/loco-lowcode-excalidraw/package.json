@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "@alifd/next": "^1.25.27",
-    "@excalidraw/excalidraw": "^0.14.2",
+    "@excalidraw/excalidraw": "^0.17.2",
     "moment": "^2.29.4",
     "react": "^16.x",
     "react-dom": "^16.x"
@@ -61,5 +61,10 @@
     "materialSchema": "https://unpkg.com/loco-lowcode-excalidraw@0.1.1/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/loco-lowcode-excalidraw@0.1.1/build/index.html"
+  "homepage": "https://unpkg.com/loco-lowcode-excalidraw@0.1.1/build/index.html",
+  "config": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  }
 }

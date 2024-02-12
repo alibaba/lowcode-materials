@@ -86,6 +86,10 @@ export { Typography } from 'antd';
 
 export { version } from 'antd';
 
+export { Tour } from 'antd';
+
+
+
 export { default as Skeleton } from './components/skeleton';
 
 export { default as Checkbox } from './components/checkbox';
