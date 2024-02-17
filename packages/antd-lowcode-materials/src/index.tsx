@@ -88,6 +88,7 @@ export { version } from 'antd';
 
 export { Tour } from 'antd';
 
+export { Segmented } from 'antd';
 
 
 export { default as Skeleton } from './components/skeleton';
@@ -136,6 +137,12 @@ export { default as AutoComplete } from './components/auto-complete';
 
 
 export { default as customNav } from './components/custom-nav-menu';
+
+
+export { default as customTree } from './components/custom-tree';
+
+
+export { default as CustomTreeSelect } from './components/custom-tree-select';
 
 export type { ImgCropProps } from 'antd-img-crop'
 

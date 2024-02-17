@@ -12,7 +12,7 @@ export default [
           componentName: 'Steps.Step',
           props: {
             title: '完成',
-            description: 'disscode前端低代码',
+            description: 'Appthen前端低代码',
           },
         },
         {
@@ -20,14 +20,14 @@ export default [
           props: {
             title: '处理中',
             subTitle: '等待 00:00:08',
-            description: 'disscode前端低代码.',
+            description: 'Appthen前端低代码.',
           },
         },
         {
           componentName: 'Steps.Step',
           props: {
             title: '等待',
-            description: 'disscode前端低代码.',
+            description: 'Appthen前端低代码.',
           },
         },
       ],

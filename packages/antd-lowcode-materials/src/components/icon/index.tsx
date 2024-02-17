@@ -23,6 +23,7 @@ const Icon = (props: IconProps, ref: Ref<any>) => {
     color,
   };
 
+
   if (!IconComp) {
     const IconFont = createFromIconfontCN();
     return <IconFont type={type} {...rest} style={style} ref={ref} />;

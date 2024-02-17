@@ -2,8 +2,8 @@ import snippets from './snippets';
 
 export default {
   snippets,
-  componentName: 'Tree',
-  title: '树形控件',
+  componentName: 'customTree',
+  title: '高级树形控件',
   category: '数据展示',
   props: [
     {
@@ -270,9 +270,38 @@ export default {
       propType: 'func',
     },
     {
-      name: 'icon',
-      title: { label: '自定义树节点图标', tip: '自定义树节点图标' },
-      propType: { type: 'oneOfType', value: ['node', 'func'] },
+      name: 'icon.rotate',
+      title: {
+        label: '旋转角度',
+        tip: '图标旋转角度',
+      },
+      propType: 'number',
+    },
+    {
+      name: 'icon.spin',
+      title: { label: '旋转动画', tip: '是否有旋转动画' },
+      propType: 'bool',
+    },
+    {
+      name: 'icon.style',
+      title: '图标样式',
+      type: 'group',
+      extraProps: {
+        display: 'entry',
+      },
+      items: [
+        {
+          name: 'icon.style',
+          title: {
+            label: '图标样式',
+            tip: 'icon.style | 用于设置 Drawer 头部的样式',
+          },
+          setter: 'StyleSetter',
+          extraProps: {
+            display: 'block',
+          },
+        },
+      ],
     },
   ],
   configure: {

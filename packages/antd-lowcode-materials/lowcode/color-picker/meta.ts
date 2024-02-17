@@ -2,7 +2,7 @@
 const snippets= [
   {
     "title": "颜色选择器",
-    "screenshot": "https://cdn.itq168.com/img/disscode-color.svg",
+    "screenshot": "https://cdn.itq168.com/img/Appthen-color.svg",
     "schema": {
       "componentName": "ColorPicker",
       "props": {}
@@ -15,7 +15,7 @@ snippets,
   "title": "颜色选择器",
   category: '反馈',
   "docUrl": "",
-  "screenshot": "https://cdn.itq168.com/img/disscode-color.svg",
+  "screenshot": "https://cdn.itq168.com/img/Appthen-color.svg",
   "configure": {
     "props": [
       {
@@ -51,7 +51,7 @@ snippets,
           "label": {
             "type": "i18n",
             "en-US": "value",
-            "zh-CN": "颜色值"
+            "zh-CN": "*颜色值"
           },
         },
         "name": "value",
@@ -216,7 +216,7 @@ snippets,
               },
               {
                 "label": "大",
-                "value": "small"
+                "value": "large"
               }
             ]
           },
@@ -317,7 +317,7 @@ snippets,
           "label": {
             "type": "i18n",
             "en-US": "allowClear",
-            "zh-CN": "允许选择的颜色"
+            "zh-CN": "允许清除颜色"
           }
         },
         "name": "allowClear",

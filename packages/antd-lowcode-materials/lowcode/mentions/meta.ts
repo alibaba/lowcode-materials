@@ -13,6 +13,12 @@ export default {
       setter: 'StringSetter'
     },
     {
+      name: 'options',
+      title: { label: '选项配置', tip: '选项配置' },
+      propType: 'string',
+      setter: 'JsonSetter'
+    },
+    {
       name: 'autoFocus',
       title: { label: '自动聚焦', tip: '自动获得焦点' },
       propType: 'bool',

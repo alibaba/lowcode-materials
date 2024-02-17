@@ -57,6 +57,31 @@ export default {
       setter: 'NumberSetter',
     },
     {
+      name: 'status',
+      title: { label: '校验状态', tip: '状态' },
+      setter: {
+        componentName: 'RadioGroupSetter',
+        props: {
+          options: [
+            {
+              title: '错误',
+              value: 'error',
+            },
+            {
+              title: '告警',
+              value: 'warning',
+            },
+            {
+              title: '空',
+              value: '',
+            }
+          ],
+        },
+      },
+      propType: { type: 'oneOf', value: ['error', 'warning'] },
+    },
+
+    {
       name: 'size',
       title: { label: '控件大小', tip: '控件大小' },
       setter: {
@@ -144,7 +169,7 @@ export default {
         {
           name: 'onChange',
           template:
-            "onChange(event,${extParams}){\n// 输入框内容变化时的回调\nconsole.log('onChange',event);}",
+            "onChange(event,${extParams}){\n// 输入框内容变化时的回调\nconsole.log('onChange',event.target.value);}",
         },
         {
           name: 'onPressEnter',

@@ -1,16 +1,11 @@
-import React, { Ref } from 'react';
-import { Menu } from 'antd';
-import type { MenuProps } from 'antd';
-// import Icon from '@ant-design/icons/lib/components/Icon';
+import React from 'react';
+import { TreeSelect as OriginTreeSelect } from 'antd';
 import * as icons from '@ant-design/icons';
 
+const CustomTreeSelect: any = (props: any) => {
+  const {icon,...otherProps} = props
 
-
-
-const customNav: any = (props: any, ref: Ref<any>) => {
-  const {icon,type,...otherProps} = props
-
-  const data = otherProps?.items ||[]
+  const data = otherProps?.treeData ||[]
 
   function processMenuItems(menuItems) {
     return menuItems?.map((menuItem) => {
@@ -32,20 +27,10 @@ const customNav: any = (props: any, ref: Ref<any>) => {
     });
   }
   const newdata = processMenuItems(data);
-  otherProps.items = newdata;
+  otherProps.treeData = newdata;
 
 
-
-  return (
-   <Menu
-    {...otherProps}
-    >
-      </Menu>
-
-  );
+  return <OriginTreeSelect {...props} />;
 };
 
-  
-
-  export default customNav;
-
+export default CustomTreeSelect;

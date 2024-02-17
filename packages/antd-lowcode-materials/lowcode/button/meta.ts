@@ -135,16 +135,16 @@ export default {
                     value: 'dashed',
                   },
                   {
-                    title: '危险按钮',
-                    value: 'danger',
-                  },
-                  {
                     title: '默认按钮',
                     value: 'default',
                   },
                   {
                     title: '类文本按钮',
                     value: 'text',
+                  },
+                  {
+                    title: '链接按钮',
+                    value: 'link',
                   },
                 ],
               },

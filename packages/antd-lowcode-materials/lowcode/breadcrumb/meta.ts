@@ -119,5 +119,18 @@ export default {
       ],
     },
   ],
-  configure: { supports: { style: true } },
+  configure: { supports: { style: true,
+    events:[
+      {
+        name: 'onClick',
+        title:"点击",
+        template:
+          "onClick(e,${extParams}){\n// 被选中时调用\nconsole.log('onClick',e);}",
+      },
+    ]
+
+
+
+  } 
+},
 };

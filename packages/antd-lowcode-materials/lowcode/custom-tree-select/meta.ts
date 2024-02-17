@@ -2,8 +2,8 @@ import snippets from './snippets';
 
 export default {
   snippets,
-  componentName: 'TreeSelect',
-  title: '树选择',
+  componentName: 'CustomTreeSelect',
+  title: '高级树选择',
   category: '表单',
   props: [
     {
@@ -195,16 +195,16 @@ export default {
       propType: 'bool',
       setter: 'BoolSetter'
     },
-    // {
-    //   name: 'suffixIcon',
-    //   title: {
-    //     label:
-    //       '暂废--自定义的选择框后缀图标, 多选模式下必须同时设置 `showArrow` 为 true',
-    //     tip:
-    //       '暂废--自定义的选择框后缀图标, 多选模式下必须同时设置 `showArrow` 为 true',
-    //   },
-    //   propType: 'node',
-    // },
+    {
+      name: 'suffixIcon',
+      title: {
+        label:
+          '自定义后缀图标',
+        tip:
+          '暂废--自定义的选择框后缀图标, 多选模式下必须同时设置 `showArrow` 为 true',
+      },
+      propType: 'node',
+    },
     {
       name: 'treeCheckable',
       title: { label: '显示勾选框', tip: '显示勾选框' },
@@ -222,28 +222,14 @@ export default {
     {
       name: 'treeDefaultExpandedKeys',
       title: { label: '默认展开的树节点', tip: '默认展开的树节点' },
-      propType: { type: 'arrayOf', value: 'string' },
-      setter: {
-        componentName: 'ArraySetter',
-        props: {
-          itemSetter: {
-            componentName: 'StringSetter',
-          }
-        }
-      }
+      propType: { type: 'arrayOf', value: 'object' },
+      setter: 'JsonSetter',
     },
     {
       name: 'treeExpandedKeys',
       title: { label: '设置展开的树节点', tip: '设置展开的树节点' },
-      propType: { type: 'arrayOf', value: 'string' },
-      setter: {
-        componentName: 'ArraySetter',
-        props: {
-          itemSetter: {
-            componentName: 'StringSetter',
-          }
-        }
-      }
+      propType: { type: 'arrayOf', value: 'object' },
+      setter: 'JsonSetter',
     },
     {
       name: 'virtual',
@@ -275,6 +261,58 @@ export default {
       title: { label: '展示节点时调用', tip: '展示节点时调用' },
       propType: 'func',
     },
+    {
+      name: 'treeIcon',
+      title: {
+        label: '图标显示',
+        tip: '是否显示图标',
+      },
+      propType: 'bool',
+      setter: 'BoolSetter'
+    },
+    {
+      name: 'treeLine',
+      title: {
+        label: '线条启用',
+        tip: '是否显示线条样式',
+      },
+      propType: 'bool',
+      setter: 'BoolSetter'
+    },
+    {
+      name: 'icon.rotate',
+      title: {
+        label: '旋转角度',
+        tip: '图标旋转角度',
+      },
+      propType: 'number',
+    },
+    {
+      name: 'icon.spin',
+      title: { label: '旋转动画', tip: '是否有旋转动画' },
+      propType: 'bool',
+    },
+    {
+      name: 'icon.style',
+      title: '图标样式',
+      type: 'group',
+      extraProps: {
+        display: 'entry',
+      },
+      items: [
+        {
+          name: 'icon.style',
+          title: {
+            label: '图标样式',
+            tip: 'icon.style | 用于设置 Drawer 头部的样式',
+          },
+          setter: 'StyleSetter',
+          extraProps: {
+            display: 'block',
+          },
+        },
+      ],
+    }
   ],
   configure: {
     supports: {

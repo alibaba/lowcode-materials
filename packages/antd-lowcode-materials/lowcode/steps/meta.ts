@@ -30,6 +30,18 @@ export default {
                     title: '标题',
                     setter: 'StringSetter',
                   },
+                  // {
+                  //   name: 'icon',
+                  //   title: '自定义图标',
+                  //   setter: {
+                  //     componentName: 'SlotSetter',
+                  //     title: '操作区域插槽',
+                  //     initialValue: {
+                  //       type: 'JSSlot',
+                  //       value: [],
+                  //     },
+                  //   },                  
+                  // },
                   {
                     name: 'subTitle',
                     title: '子标题',
@@ -53,6 +65,10 @@ export default {
                       componentName: 'RadioGroupSetter',
                       props: {
                         options: [
+                          {
+                            title: 'null',
+                            value: null,
+                          },
                           {
                             title: 'wait',
                             value: 'wait',

@@ -1,10 +1,21 @@
 export default [
   {
     title: '提及',
-    screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/mentions-1.png',
+    screenshot: 'https://cdn.itq168.com/img/appthen-Mentions.svg',
     schema: {
       componentName: 'Mentions',
-      props: {},
+      props: {
+        Options: [{
+          "value": "afc163",
+          "label": "afc163"
+      }, {
+          "value": "zombieJ",
+          "label": "zombieJ"
+      }, {
+          "value": "yesmeck",
+          "label": "yesmeck"
+      }]
+      },
     },
   },
 ];

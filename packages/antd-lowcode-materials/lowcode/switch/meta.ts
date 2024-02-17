@@ -10,14 +10,12 @@ export default {
       name: 'defaultChecked',
       title: { label: '默认选中', tip: '默认是否选中' },
       propType: 'bool',
-      defaultValue: false,
       setter: 'BoolSetter'
     },
     {
       name: 'checked',
-      title: { label: '是否选中', tip: '当前是否选中' },
+      title: { label: '是否选中', tip: '当前是否选中，不受控' },
       propType: 'bool',
-      defaultValue: false,
       setter: 'BoolSetter',
       supportVariable: true,
     },

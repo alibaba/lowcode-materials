@@ -1,6 +1,6 @@
 export default [
   {
-    title: '卡片',
+    title: '标签页',
     screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/tabs-1.jpg',
     schema: {
       componentName: 'Tabs',

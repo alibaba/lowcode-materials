@@ -85,16 +85,21 @@ export default {
     //   propType: 'bool',
     //   defaultValue: true,
     // },
-    // {
-    //   name: 'marks',
-    //   title: {
-    //     label:
-    //       '刻度标记，key 的类型必须为 `number` 且取值在闭区间 \\[min, max] 内，每个标签可以单独设置样式',
-    //     tip:
-    //       '刻度标记，key 的类型必须为 `number` 且取值在闭区间 \\[min, max] 内，每个标签可以单独设置样式',
-    //   },
-    //   propType: 'object',
-    // },
+    {
+      name: 'marks',
+      title: {
+        label:
+          '刻度标记',
+        tip:
+          '刻度标记，key 的类型必须为 `number` 且取值在闭区间 \\[min, max] 内，每个标签可以单独设置样式',
+      },
+      // propType: {
+      //   type: 'oneOfType',
+      //   value: ['json', { type: 'arrayOf', value: 'number' }],
+      // },
+      setter: 'JsonSetter'
+
+    },
     {
       name: 'max',
       title: { label: '最大值', tip: '最大值' },

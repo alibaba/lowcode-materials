@@ -5,7 +5,6 @@ export default [
     schema: {
       componentName: 'Switch',
       props: {
-        defaultChecked: true,
       },
     },
   },

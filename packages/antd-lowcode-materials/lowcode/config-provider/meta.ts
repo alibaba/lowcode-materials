@@ -48,11 +48,15 @@ export default {
       propType: 'object',
       setter: 'JsonSetter',
     },
-    // {
-    //   name: 'renderEmpty',
-    //   title: { label: '自定义组件空状态', tip: '自定义组件空状态' },
-    //   propType: 'func',
-    // },
+    {
+      name: 'renderEmpty',
+      title: { label: '自定义组件空状态', tip: '自定义组件空状态' },
+      propType: 'func',
+      props: {
+        template:
+          'renderEmpty(componentName}){\n// 展开行渲染\nreturn `空状态`\n}'
+      }
+    },
     {
       name: 'getPopupContainer',
       title: {
@@ -118,10 +122,21 @@ export default {
       defaultValue: true,
     },
     {
+      name: 'theme',
+      title: {
+        label: '全局主题',
+        tip: '主题',
+      },
+      setter: {
+        componentName: 'JsonSetter',
+
+      },        },
+    {
       name: 'dropdownMatchSelectWidth',
       title: { label: '下拉菜单和选择器同宽', tip: '下拉菜单和选择器同宽' },
       propType: { type: 'oneOfType', value: ['bool', 'number'] },
     },
   ],
-  configure: { component: { isContainer: true } },
+  configure: { 
+    component: { isContainer: true } },
 };

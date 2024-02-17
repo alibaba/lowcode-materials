@@ -268,11 +268,11 @@ const QRCodeMeta: IPublicTypeComponentMetadata = {
 const snippets: IPublicTypeSnippet[] = [
   {
     "title": "二维码",
-    "screenshot": "https://cdn.itq168.com/img/disscode-q.svg",
+    "screenshot": "https://cdn.itq168.com/img/Appthen-q.svg",
     "schema": {
       "componentName": "QRCode",
       "props": {
-        value:'www.disscode.com',
+        value:'www.Appthen.com',
         color:'#000000'
 
       }

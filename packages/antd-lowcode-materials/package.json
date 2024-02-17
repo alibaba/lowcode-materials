@@ -70,7 +70,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "@babel/runtime": "^7.0.0",
-    "antd": "^5.11.5",
+    "antd": "^5.14.0",
     "antd-img-crop": "^4.18.0",
     "moment": "^2.29.1"
   },
