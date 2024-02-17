@@ -1,21 +1,22 @@
+
 import { IPublicTypeComponentMetadata, IPublicTypeSnippet } from '@alilc/lowcode-types';
 
 const editorComponentMeta: IPublicTypeComponentMetadata = {
-  componentName: 'editorComponent',
+  "componentName": "editorComponent",
   title: '富文本编辑器',
   docUrl: '',
   screenshot: '',
-  group: '精选组件',
+  group: '高级组件',
   category: '编辑器',
-  devMode: 'proCode',
-  // npm: {
-  //   package: 'editorComponent',
-  //   version: '0.1.0',
-  //   exportName: 'default',
-  //   main: 'src/index.tsx',
-  //   destructuring: false,
-  //   subName: '',
-  // },
+  "devMode": "proCode",
+  "npm": {
+    "package": "loco-wangeditor",
+    "version": "0.1.4",
+    "exportName": "editorComponent",
+    "main": "src/index.tsx",
+    "destructuring": true,
+    "subName": ""
+  },
   configure: {
     props: [
       {
@@ -231,7 +232,10 @@ const snippets: IPublicTypeSnippet[] = [
         'picture.withCredentials': true,
         // 超时时间，默认为 10 秒
         'picture.timeout': 5 * 1000, // 5 秒
-        'picture.base64LimitSize': 10 * 1024, // 5kb
+        'picture.base64LimitSize': 10 * 1024, // 5kb,
+        style:{
+          height:'800px',
+        }
       },
     },
   },
@@ -239,5 +243,5 @@ const snippets: IPublicTypeSnippet[] = [
 
 export default {
   ...editorComponentMeta,
-  snippets,
+  snippets
 };

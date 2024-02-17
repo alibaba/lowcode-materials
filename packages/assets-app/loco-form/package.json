@@ -42,8 +42,8 @@
     "**/*.{css,scss,less,acss}": "f2elint exec stylelint"
   },
   "peerDependencies": {
-    "react": "^16.x",
-    "react-dom": "^16.x",
+    "react": "^17.x",
+    "react-dom": "^17.x",
     "moment": "latest"
   },
   "devDependencies": {
@@ -62,12 +62,11 @@
   },
   "dependencies": {
     "@alifd/next": "^1.25.27",
-    "@xrenders/schema-builder": "^1.0.0-alpha.17",
-    "form-render": "^2.3.8",
+    "@xrenders/schema-builder": "^1.0.0-alpha.18",
     "moment": "^2.29.4",
     "prop-types": "^15.5.8",
-    "react": "^16.x",
-    "react-dom": "^16.x"
+    "react": "^17.x",
+    "react-dom": "^17.x"
   },
   "acceptDependencies": {
     "webpack": "^4.46.x"

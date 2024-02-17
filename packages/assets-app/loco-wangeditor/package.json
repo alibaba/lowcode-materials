@@ -51,24 +51,24 @@
   ],
   "dependencies": {
     "@alifd/next": "^1.25.27",
+    "@babel/runtime": "^7.0.0",
     "@wangeditor/editor": "^5.1.23",
     "@wangeditor/editor-for-react": "^1.0.6",
     "@wangeditor/plugin-md": "^1.0.0",
-    "moment": "^2.29.4",
+    "moment": "latest",
     "react": "^16.x",
-    "react-dom": "^16.x",
-    "@babel/runtime": "^7.0.0"
+    "react-dom": "^16.x"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.3",
     "@alifd/build-plugin-lowcode": "^0.4.0",
     "@types/react": "^16.9.13",
     "@types/react-dom": "^16.9.4",
-    "build-plugin-fusion": "^0.1.0",
     "build-plugin-component": "^1.0.0",
-    "template-component-demo": "^2.0.3",
+    "build-plugin-fusion": "^0.1.0",
     "build-plugin-moment-locales": "^0.1.0",
-    "f2elint": "^1.2.0"
+    "f2elint": "^1.2.0",
+    "template-component-demo": "^2.0.3"
   },
   "peerDependencies": {
     "moment": "latest",

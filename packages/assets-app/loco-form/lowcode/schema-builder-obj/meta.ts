@@ -18,6 +18,13 @@ const SchemaBuilderObjMeta: ComponentMetadata = {
   "configure": {
     "props": [
       {
+        "title": "高度",
+        "name": "heightData",
+        "setter": 'StringSetter',
+        supportVariable: true,
+        defaultValue:'90vh',
+      },
+      {
         "title": "导入按钮",
         "name": "importBtn",
         "setter": 'BoolSetter',
