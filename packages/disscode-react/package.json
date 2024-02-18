@@ -1,7 +1,7 @@
 {
-  "name": "@disscode/react",
-  "version": "1.0.15",
-  "description": "UI KIT for React",
+  "name": "@appthen/react",
+  "version": "1.0.1",
+  "description": "Appthen Base UI KIT for React",
   "main": "lib/index.js",
   "sideEffects": [
     "*.scss",
@@ -9,7 +9,7 @@
   ],
   "types": "./types/index.d.ts",
   "keywords": [
-    "disscode",
+    "appthen",
     "lowcode",
     "ui"
   ],
@@ -20,8 +20,8 @@
     "utils",
     "types"
   ],
-  "author": "disscode",
-  "homepage": "https://unpkg.com/@disscode/react@1.0.15/build/index.html",
+  "author": "appthen",
+  "homepage": "https://unpkg.com/@appthen/react@1.0.1/build/index.html",
   "license": "MIT",
   "publishConfig": {
     "tag": "next"
@@ -98,7 +98,7 @@
   },
   "componentConfig": {
     "isComponentLibrary": true,
-    "materialSchema": "https://unpkg.com/@disscode/react@1.0.13/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@appthen/react@1.0.1/build/lowcode/assets-prod.json"
   },
   "gitHead": "536691349f62f978d99a1318690690246cc584fa"
 }

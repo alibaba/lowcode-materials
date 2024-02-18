@@ -272,7 +272,7 @@ const snippets: IPublicTypeSnippet[] = [
     "schema": {
       "componentName": "QRCode",
       "props": {
-        value:'www.disscode.com',
+        value:'www.appthen.com',
         color:'#000000'
 
       }

@@ -8,7 +8,7 @@ const SafeViewMeta: IPublicTypeComponentMetadata = {
   "screenshot": "",
   "devMode": "proCode",
   "npm": {
-    "package": "@disscode/react",
+    "package": "@appthen/react",
     "version": "0.0.4",
     "exportName": "SafeView",
     "main": "src/index.tsx",

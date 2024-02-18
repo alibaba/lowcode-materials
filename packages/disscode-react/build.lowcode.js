@@ -7,7 +7,7 @@ module.exports = {
     [
       '@alifd/build-plugin-lowcode',
       {
-        library: 'Disscode',
+        library: 'AppthenReact',
         noParse: true,
         engineScope: '@alilc',
       },

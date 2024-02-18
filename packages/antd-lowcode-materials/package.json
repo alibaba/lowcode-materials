@@ -1,7 +1,7 @@
 {
-  "name": "@discode/antd",
-  "version": "1.0.0",
-  "description": "Antd for Discode",
+  "name": "@appthen/antd",
+  "version": "1.0.2",
+  "description": "Antd for AppThen",
   "main": "lib/index.js",
   "scripts": {
     "start": "npm run dumi",
@@ -27,37 +27,34 @@
     "**/*.{js,jsx,ts,tsx,vue}": "f2elint exec eslint",
     "**/*.{css,scss,less,acss}": "f2elint exec stylelint"
   },
-  "author": "fusion-team",
+  "author": "appthen-team",
   "keywords": [
-    "Fusion"
+    "Antd"
   ],
   "files": [
     "es/",
     "lib/",
     "dist/",
-    "build/",
-    "lowcode/",
-    "lowcode_lib/",
-    "lowcode_es/"
+    "build/"
   ],
   "devDependencies": {
     "@alib/build-scripts": "^0.1.3",
     "@alifd/build-plugin-lowcode": "^0.3.0",
+    "@alilc/lowcode-react-renderer": "^1.2.2",
+    "@alilc/lowcode-utils": "^1.2.2",
+    "@ant-design/icons": "^5.2.6",
+    "@types/lodash": "^4.14.181",
     "@types/react": "^16.9.13",
     "@types/react-dom": "^16.9.4",
     "build-plugin-component": "^1.0.0",
     "build-plugin-fusion": "^0.1.0",
     "build-plugin-moment-locales": "^0.1.0",
     "f2elint": "^1.2.0",
-    "template-component-demo": "^2.0.3",
-    "@alilc/lowcode-react-renderer": "^1.2.2",
-    "@alilc/lowcode-utils": "^1.2.2",
-    "@ant-design/icons": "^5.2.6",
-    "@types/lodash": "^4.14.181",
     "lodash": "^4.17.21",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "style-loader": "^2.0.0",
+    "template-component-demo": "^2.0.3",
     "tsconfig-paths-webpack-plugin": "^3.3.0",
     "typescript": "^3.9.3",
     "yorkie": "^2.0.0"
@@ -72,15 +69,13 @@
     "@babel/runtime": "^7.0.0",
     "antd": "^5.11.5",
     "antd-img-crop": "^4.18.0",
+    "antd-style": "^3.6.1",
     "moment": "^2.29.1"
   },
   "peerDependencies": {
     "moment": "latest",
     "react": "^16.x",
     "react-dom": "^16.x"
-  },
-  "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@discode/antd@1.0.0/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
   "exports": {
@@ -100,5 +95,8 @@
   "resolutions": {
     "webpack": "^4.46.x"
   },
-  "homepage": "https://unpkg.com/@discode/antd@0.0.5/build/index.html"
+  "homepage": "https://unpkg.com/@appthen/antd@1.0.2/build/index.html",
+  "componentConfig": {
+    "materialSchema": "https://alifd.alicdn.com/npm/@appthen/antd@1.0.2/build/lowcode/assets-prod.json"
+  }
 }

@@ -548,8 +548,8 @@ const snippets: IPublicTypeSnippet[] = [
         open:true,
         steps:[
           {
-            title: 'disscode说明',
-            description: 'disscode说明',
+            title: 'Appthen Studio',
+            description: 'Appthen Studio',
           },
         ]
       }

@@ -112,7 +112,7 @@ const WatermarkMeta: IPublicTypeComponentMetadata = {
             "setters": [
               {
                 "componentName": "StringSetter",
-                "initialValue": "disscode"
+                "initialValue": "appthen"
               },
               {
                 "componentName": "ArraySetter",
@@ -121,7 +121,7 @@ const WatermarkMeta: IPublicTypeComponentMetadata = {
                     "componentName": "StringSetter",
                   }
                 },
-                "initialValue": [ "disscode"]
+                "initialValue": [ "appthen"]
               }
             ]
           }
@@ -209,7 +209,7 @@ const snippets: IPublicTypeSnippet[] = [
     "schema": {
       "componentName": "Watermark",
       "props": {
-        "content":'disscode前端低代码'
+        "content":'Appthen Studio'
       }
     }
   }

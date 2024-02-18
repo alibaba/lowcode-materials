@@ -7,7 +7,7 @@ const ImageBackgroundMeta: IPublicTypeComponentMetadata = {
   screenshot: '',
   devMode: 'proCode',
   npm: {
-    package: '@disscode/react',
+    package: '@appthen/react',
     version: '0.0.5',
     exportName: 'ImageBackground',
     main: '',

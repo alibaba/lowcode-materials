@@ -7,7 +7,7 @@ const AtNoticebarMeta: IPublicTypeComponentMetadata = {
   screenshot: '',
   devMode: 'proCode',
   npm: {
-    package: '@disscode/react',
+    package: '@appthen/react',
     version: '0.0.4',
     exportName: 'AtNoticebar',
     main: '',

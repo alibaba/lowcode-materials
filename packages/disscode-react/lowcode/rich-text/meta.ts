@@ -17,7 +17,7 @@ const RichTextMeta: IPublicTypeComponentMetadata = {
   screenshot: '',
   devMode: 'proCode',
   npm: {
-    package: '@disscode/react',
+    package: '@appthen/react',
     version: '',
     exportName: 'RichText',
     main: '',

@@ -7,7 +7,7 @@ const CanvasMeta: IPublicTypeComponentMetadata = {
   screenshot: '',
   devMode: 'proCode',
   npm: {
-    package: '@disscode/react',
+    package: '@appthen/react',
     version: '3.0.0',
     exportName: 'Canvas',
     main: '',

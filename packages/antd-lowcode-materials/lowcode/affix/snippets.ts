@@ -11,7 +11,7 @@ export default [
         {
           componentName: 'Button',
           props: {
-            children: 'disscode',
+            children: 'Affix',
           },
         },
       ],
