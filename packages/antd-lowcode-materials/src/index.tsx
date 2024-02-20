@@ -64,7 +64,7 @@ export { Pagination } from 'antd';
 
 export { Popconfirm } from 'antd';
 
-export { Popover } from 'antd';
+export { default as Popover } from './components/popover';
 
 export { Progress } from 'antd';
 
