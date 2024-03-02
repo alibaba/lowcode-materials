@@ -2,6 +2,7 @@ import {
   Video as TVideo,
   WebView as TWebView,
   Canvas as TCanvas,
+  RichText as TRichText,
 } from '@tarojs/components';
 
 import { configure } from 'mobx';
@@ -67,6 +68,7 @@ export { SlotRender } from './components/slot-render';
 export const Video = TVideo;
 export const WebView = TWebView;
 export const Canvas = TCanvas;
+export const RichText = TRichText;
 
 export { addPortal, removePortal, registerPartalComponent, showComponentModal, renderComponentPortal, renderComponent } from './components/root-portal/auto-portal';
 

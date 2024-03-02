@@ -63,7 +63,6 @@ let uuid = 0;
 export const addPortal = (element: React.ReactNode) => {
   uuid++;
   const id = String(uuid);
-  console.log('addPortal: ', id);
   $event.$emit('PORTAL_CONTROL', {
     action: 'add',
     id,
@@ -91,11 +90,13 @@ export const registerPartalComponent = function (componentMap) {
 
 export const renderComponentPortal = (componentName: string, props?: Record<string, any>) => {
   const PartalComponent = portalRef.componentMap[componentName];
+  if (!PartalComponent) throw new Error(`${componentName} is not registered`);
   return addPortal(<PartalComponent {...props} />);
 };
 
 export const renderComponent = (componentName: string, props?: Record<string, any>) => {
   const PartalComponent = portalRef.componentMap[componentName];
+  if (!PartalComponent) throw new Error(`${componentName} is not registered`);
   return <PartalComponent {...props} />;
 };
 
@@ -110,6 +111,7 @@ export const showComponentModal = (
   },
 ) => {
   const PartalComponent = portalRef.componentMap[componentName];
+  if (!PartalComponent) throw new Error(`${componentName} is not registered`);
   if (PartalComponent) {
     let modal;
     const destory = addPortal(

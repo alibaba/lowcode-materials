@@ -12,7 +12,7 @@
     "f2elint-fix": "f2elint fix",
     "dumi": "cross-env APP_ROOT=docs dumi dev",
     "dumi:build": "cross-env APP_ROOT=docs dumi build",
-    "prepublishOnly": "npm run build && npm run lowcode:build && npm run dumi:build"
+    "prepublishOnly": "npm run build && npm run lowcode:build"
   },
   "directories": {
     "test": "test"
@@ -80,7 +80,7 @@
     "react-dom": "^16.x"
   },
   "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@discode/antd@1.0.0/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@discode/antd@0.0.4/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
   "exports": {

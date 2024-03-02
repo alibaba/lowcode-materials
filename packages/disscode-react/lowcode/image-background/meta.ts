@@ -121,7 +121,7 @@ const ImageBackgroundMeta: IPublicTypeComponentMetadata = {
       },
     ],
     supports: {
-      // className: true,
+      className: true,
       style: false,
     },
     component: { isContainer: true },

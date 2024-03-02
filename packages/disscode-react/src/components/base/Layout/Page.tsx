@@ -34,7 +34,6 @@ class Page extends React.PureComponent<IProps> {
     // if (Taro.getEnv() === Taro.ENV_TYPE.WEB) {
     //   runtimeClass = `cross-page__web M-flexbox-vertical M-height-fill ${absolute ? 'cross-page__absolute' : ''}`;
     // }
-    console.log('isRootNode: ', 111);
     return (
       <PageContext.Provider
         value={{

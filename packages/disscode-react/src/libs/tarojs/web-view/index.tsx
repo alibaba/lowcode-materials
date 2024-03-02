@@ -13,7 +13,6 @@ class WebView extends React.Component<WebViewProp> {
   iframeRef: any = null;
 
   onLoad = (e: Event) => {
-    console.log('[webview load] ', e);
     const { onLoad } = this.props;
     onLoad && onLoad(e);
     // 通知h5
@@ -23,7 +22,6 @@ class WebView extends React.Component<WebViewProp> {
   };
 
   onError = (e: Event) => {
-    console.log('[webview error] ', e);
     const { onError } = this.props;
     onError && onError(e);
   };
@@ -62,10 +60,9 @@ class WebView extends React.Component<WebViewProp> {
   };
 
   onMessage = (event: MessageEvent) => {
-    console.log('receive bridge msg:', event.data);
+    // console.log('receive bridge msg:', event.data);
     if (!event) return;
     try {
-      console.log(1, event.data);
       let message = JSON.parse(event.data);
       switch (message.taskName) {
         case 'execCallback':
@@ -80,7 +77,6 @@ class WebView extends React.Component<WebViewProp> {
             if (res && res.then && typeof res.then === 'function') {
               res
                 .then((ret: any) => {
-                  console.log('resolve', ret);
                   this.taskCallback(message.taskKey, {
                     onSuccess: ret || {},
                   });
@@ -103,7 +99,6 @@ class WebView extends React.Component<WebViewProp> {
 
   render() {
     const { src, ...other } = this.props;
-    console.log('[src] ', src);
     return (
       <iframe
         ref={(ref) => (this.iframeRef = ref)}
