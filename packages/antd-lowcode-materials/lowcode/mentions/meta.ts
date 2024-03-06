@@ -134,28 +134,40 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"值改变时触发",
+
           template: "onChange(text,${extParams}){\n// 值改变时触发\nconsole.log('onChange',text);}",
         },
         {
           name: 'onSelect',
+          description:"选择选项时触发",
+
           template:
             "onSelect(option,prefix,${extParams}){\n// 选择选项时触发\nconsole.log('onSelect',option,prefix);}",
         },
         {
           name: 'onSearch',
+          description:"搜索时触发",
+
           template:
             "onSearch(text,prefix,${extParams}){\n// 搜索时触发\nconsole.log('onSearch',text,prefix);}",
         },
         {
           name: 'onFocus',
+          description:"获得焦点时触发",
+
           template: "onFocus(${extParams}){\n// 获得焦点时触发\nconsole.log('onFocus');}",
         },
         {
           name: 'onBlur',
+          description:"失去焦点时触发",
+
           template: "onBlur(${extParams}){\n// 失去焦点时触发\nconsole.log('onBlur');}",
         },
         {
           name: 'onResize',
+          description:"回调",
+
           template:
             "onResize({width,height},${extParams}){\n// resize 回调\nconsole.log('onResize',width,height);}",
         },

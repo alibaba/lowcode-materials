@@ -65,6 +65,8 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"变化时回调函数",
+
           template:
             "onChange(event,${extParams}){\n// 变化时回调函数\nconsole.log('onChange', event);}",
         },

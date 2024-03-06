@@ -269,21 +269,29 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:" 选项在两栏之间转移时的回调函数",
+
           template:
             "onChange(targetKeys,direction,moveKeys,${extParams}){\n// 选项在两栏之间转移时的回调函数\nconsole.log('onChange',targetKeys,direction,moveKeys);}",
         },
         {
           name: 'onScroll',
+          description:" 选项列表滚动时的回调函数",
+
           template:
             "onScroll(direction,event,${extParams}){\n// 选项列表滚动时的回调函数\nconsole.log('onScroll',direction,event);}",
         },
         {
           name: 'onSearch',
+          description:" 搜索框内容时改变时的回调函数",
+
           template:
             "onSearch(direction,value,${extParams}){\n// 搜索框内容时改变时的回调函数\nconsole.log('onSearch',direction,value);}",
         },
         {
           name: 'onSelectChange',
+          description:" 选中项发生改变时的回调函数",
+
           template:
             "onSelectChange(sourceSelectedKeys,targetSelectedKeys,${extParams}){\n// 选中项发生改变时的回调函数\nconsole.log('onSelectChange',sourceSelectedKeys,targetSelectedKeys);}",
         },

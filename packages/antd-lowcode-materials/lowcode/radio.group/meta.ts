@@ -193,6 +193,8 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"选项变化时的回调函数",
+
           template:
             "onChange(event,${extParams}){\n// 选项变化时的回调函数\nconsole.log('onChange',event);}",
         },

@@ -291,21 +291,29 @@ export default {
       events: [
         {
           name: 'onClick',
+          description:"点击 MenuItem 调用此函数",
+
           template:
             "onClick({item,key,keyPath,domEvent},${extParams}){\n// 点击 MenuItem 调用此函数\nconsole.log('onClick',item,key,keyPath,domEvent);}",
         },
         {
           name: 'onDeselect',
+          description:"取消选中时调用",
+
           template:
             "onDeselect({item,key,keyPath,selectedKeys,domEvent},${extParams}){\n// 取消选中时调用，仅在 multiple 生效\nconsole.log('onDeselect',item,key,keyPath,selectedKeys,domEvent);}",
         },
         {
           name: 'onOpenChange',
+          description:"展开/关闭的回调",
+
           template:
             "onOpenChange(openKeys,${extParams}){\n// SubMenu 展开/关闭的回调\nconsole.log('onOpenChange',openKeys);}",
         },
         {
           name: 'onSelect',
+          description:"被选中时调用",
+
           template:
             "onSelect({item,key,keyPath,selectedKeys,domEvent},${extParams}){\n// 被选中时调用\nconsole.log('onSelect',item,key,keyPath,selectedKeys,domEvent);}",
         },

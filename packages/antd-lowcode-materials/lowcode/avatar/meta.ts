@@ -61,6 +61,7 @@ export default {
       events: [
         {
           name: 'onError',
+          description:"图片加载失败的事件",
           template: "onError(${extParams}){\n// 图片加载失败的事件\nconsole.log('onError');}",
         },
       ],

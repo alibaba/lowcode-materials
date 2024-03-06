@@ -8,15 +8,11 @@ export default [
         routes: [
           {
             path: 'a',
-            breadcrumbName: 'Home',
+            breadcrumbName: '首页',
           },
           {
             path: 'center',
-            breadcrumbName: 'Application Center',
-          },
-          {
-            path: 'app',
-            breadcrumbName: 'An Application',
+            breadcrumbName: '应用中心',
           },
         ],
         // itemRender: {

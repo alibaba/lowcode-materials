@@ -35,6 +35,8 @@ const customNav: any = (props: any, ref: Ref<any>) => {
   otherProps.items = newdata;
 
 
+  
+
 
   return (
    <Menu

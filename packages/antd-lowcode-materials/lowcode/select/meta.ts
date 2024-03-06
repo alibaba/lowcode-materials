@@ -361,52 +361,73 @@ export default {
       events: [
         {
           name: 'onBlur',
+          description:"失去焦点时回调",
+
           template: "onBlur(${extParams}){\n// 失去焦点时回调\nconsole.log('onBlur');}",
         },
         {
           name: 'onChange',
+          description:"选中 option，或 input 的 value 变化时",
+
           template:
             "onChange(value,option,${extParams}){\n// 选中 option，或 input 的 value 变化时，调用此函数\nconsole.log('onChange',value,option);}",
         },
         {
           name: 'onDeselect',
+          description:"取消选中时调用",
+
           template:
             "onDeselect(value,${extParams}){\n// 取消选中时调用\nconsole.log('onDeselect',value);}",
         },
         {
           name: 'onFocus',
+          description:"获得焦点时回调",
+
           template: "onFocus(${extParams}){\n// 获得焦点时回调\nconsole.log('onFocus');}",
         },
         {
           name: 'onInputKeyDown',
+          description:"按键按下时回调",
+
           template:
             "onInputKeyDown(${extParams}){\n// 按键按下时回调\nconsole.log('onInputKeyDown');}",
         },
         {
           name: 'onMouseEnter',
+          description:"鼠标移入时回调",
+
           template: "onMouseEnter(${extParams}){\n// 鼠标移入时回调\nconsole.log('onMouseEnter');}",
         },
         {
           name: 'onMouseLeave',
+          description:"鼠标移出时回调",
+
           template: "onMouseLeave(${extParams}){\n// 鼠标移出时回调\nconsole.log('onMouseLeave');}",
         },
         {
           name: 'onPopupScroll',
+          description:"下拉列表滚动时的回调",
+
           template:
             "onPopupScroll(${extParams}){\n// 下拉列表滚动时的回调\nconsole.log('onPopupScroll');}",
         },
         {
           name: 'onSearch',
+          description:"文本框值变化时回调",
+
           template:
             "onSearch(value,${extParams}){\n// 文本框值变化时回调\nconsole.log('onSearch',value);}",
         },
         {
           name: 'onSelect',
+          description:"被选中时调用",
           template:
             "onSelect(value,option,${extParams}){\n// 被选中时调用\nconsole.log('onSelect',value,option);}",
         },
         {
           name: 'onDropdownVisibleChange',
+          description:"展开下拉菜单的回调",
+
           template:
             "onDropdownVisibleChange(open,${extParams}){\n// 展开下拉菜单的回调\nconsole.log('onDropdownVisibleChange',open);}",
         },

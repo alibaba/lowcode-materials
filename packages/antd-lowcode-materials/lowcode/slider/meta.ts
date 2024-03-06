@@ -198,11 +198,15 @@ export default {
       events: [
         {
           name: 'onAfterChange',
+          description:"与 onmouseup 触发时机一致",
+
           template:
             "onAfterChange(value,${extParams}){\n// 与 onmouseup 触发时机一致\nconsole.log('onAfterChange',value);}",
         },
         {
           name: 'onChange',
+          description:"当 Slider 的值发生改变时触发回调",
+
           template:
             "onChange(value,${extParams}){\n// 当 Slider 的值发生改变时触发回调\nconsole.log('onChange',value);}",
         },

@@ -39,6 +39,7 @@ export default {
       events: [
         {
           name: 'onClick',
+          description:"点击按钮的回调函数",
           template: "onClick(${extParams}){\n// 点击按钮的回调函数\nconsole.log('onClick');}",
         },
       ],

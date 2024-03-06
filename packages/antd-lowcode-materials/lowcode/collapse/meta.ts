@@ -199,6 +199,8 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"切换面板的回调",
+
           template: "onChange(${extParams}){\n// 切换面板的回调\nconsole.log('onChange');}",
         },
       ],

@@ -160,6 +160,8 @@ export default {
       events: [
         {
           name: 'onConfirm',
+          description:"点击确认的回调",
+
           template: "onConfirm(${extParams}){\n// 点击确认的回调\nconsole.log('onConfirm');}",
         },
         'onCancel','onPopupClick'

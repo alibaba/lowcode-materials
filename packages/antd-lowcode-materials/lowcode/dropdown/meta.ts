@@ -150,6 +150,8 @@ export default {
       events: [
         {
           name: 'onOpenChange',
+          description:"菜单显示状态改变时调用",
+
           template:
             "onOpenChange(open,${extParams}){\n// 菜单显示状态改变时调用\nconsole.log('onOpenChange',open);}",
         },

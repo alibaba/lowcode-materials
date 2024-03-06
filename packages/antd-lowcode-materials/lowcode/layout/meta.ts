@@ -36,7 +36,7 @@ const LayoutMeta: IPublicTypeComponentMetadata = {
 const snippets: IPublicTypeSnippet[] = [
   {
     "title": "Layout布局",
-    "screenshot": "https://cdn.itq168.com/img/Appthen_layout.svg",
+    "screenshot": "https://cdn.disscode.com/assets/Appthen_layout.svg",
     "schema": {
       "componentName": "Layout",
       "props": {}

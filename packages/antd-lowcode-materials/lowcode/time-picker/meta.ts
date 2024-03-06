@@ -199,11 +199,15 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"时间发生变化的回调",
+
           template:
             "onChange(time,timeString,${extParams}){\n// 时间发生变化的回调\nconsole.log('onChange',time,timeString);}",
         },
         {
           name: 'onOpenChange',
+          description:" 面板打开/关闭时的回调",
+
           template:
             "onOpenChange(open,${extParams}){\n// 面板打开/关闭时的回调\nconsole.log('onOpenChange',open);}",
         },

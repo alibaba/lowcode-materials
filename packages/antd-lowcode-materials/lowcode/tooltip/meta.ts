@@ -286,6 +286,8 @@ export default {
       events: [
         {
           name: 'onOpenChange',
+          description:" 显示隐藏的回调",
+
           template:
             "onOpenChange(open,${extParams}){\n// 显示隐藏的回调\nconsole.log('onOpenChange',open);}",
         },

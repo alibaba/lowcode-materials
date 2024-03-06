@@ -150,11 +150,15 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"选择完成后的回调",
+
           template:
             "onChange(value,selectedOptions,${extParams}){\n// 选择完成后的回调\nconsole.log('onChange', value, selectedOptions);}",
         },
         {
           name: 'onPopupVisibleChange',
+          description:"隐藏浮层的回调",
+
           template:
             "onPopupVisibleChange(value,selectedOptions,${extParams}){\n// 显示/隐藏浮层的回调\nconsole.log('onPopupVisibleChange', value, selectedOptions);}",
         },

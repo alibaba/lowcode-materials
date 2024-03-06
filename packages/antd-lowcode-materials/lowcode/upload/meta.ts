@@ -405,21 +405,29 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"上传文件改变时的回调",
+
           template:
             "onChange({file,fileList,event},${extParams}){\n// 上传文件改变时的回调\nconsole.log('onChange',file,fileList,event);}",
         },
         {
           name: 'onPreview',
+          description:"文件链接或预览图标时的回调",
+
           template:
             "onPreview(file,${extParams}){\n// 点击文件链接或预览图标时的回调\nconsole.log('onPreview',file);}",
         },
         {
           name: 'onRemove',
+          description:"点击移除文件时的回调",
+
           template:
             "onRemove(file,${extParams}){\n// 点击移除文件时的回调\nconsole.log('onRemove',file);}",
         },
         {
           name: 'onDownload',
+          description:"点击下载文件时的回调",
+
           template:
             "onDownload(file,${extParams}){\n// 点击下载文件时的回调\nconsole.log('onDownload',file);}",
         },

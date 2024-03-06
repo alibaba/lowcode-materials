@@ -294,15 +294,21 @@ export default {
       events: [
         {
           name: 'afterClose',
+          description:"完全关闭后的回调",
+
           templete: "onCancel(${extParams}){\n// 完全关闭后的回调\nconsole.log('afterClose');}",
         },
         {
           name: 'onCancel',
+          description:"点击遮罩层或右上角叉或取消按钮的回调",
+
           template:
             "onCancel(${extParams}){\n// 点击遮罩层或右上角叉或取消按钮的回调\nconsole.log('onCancel');}",
         },
         {
           name: 'onOk',
+          description:"点击确定回调",
+
           template: "onOk(${extParams}){\n// 点击确定回调\nconsole.log('onOk');}",
         },
       ],

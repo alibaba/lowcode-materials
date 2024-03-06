@@ -58,6 +58,7 @@ export default {
       events: [
         {
           name: 'onClose',
+          description:"关闭时的回调",
           template: "onClose(event,${extParams}){\n// 关闭时的回调\nconsole.log('onClose',event);}",
         },
       ],

@@ -190,7 +190,7 @@ const AnchorMeta: IPublicTypeComponentMetadata = {
 const snippets: IPublicTypeSnippet[] = [
   {
     "title": "锚点",
-    "screenshot": "https://cdn.itq168.com/img/appthen-anchor.svg",
+    "screenshot": "https://cdn.disscode.com/assets/appthen-anchor.svg",
     "schema": {
       "componentName": "Anchor",
       "props": {

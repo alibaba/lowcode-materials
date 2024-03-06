@@ -95,24 +95,34 @@ export default {
       events: [
         {
           name: 'onBlur',
+          description:"失去焦点时的回调",
+
           template: "onBlur(${extParams}){\n// 失去焦点时的回调\nconsole.log('onBlur');}",
         },
         {
           name: 'onChange',
+          description:"选择时的回调",
+
           template:
             "onChange(value,${extParams}){\n// 选择时的回调\nconsole.log('onChange',value);}",
         },
         {
           name: 'onFocus',
+          description:"获取焦点时的回调",
+
           template: "onFocus(${extParams}){\n// 获取焦点时的回调\nconsole.log('onFocus');}",
         },
         {
           name: 'onHoverChange',
+          description:"鼠标经过时数值变化的回调",
+
           template:
             "onHoverChange(value,${extParams}){\n// 鼠标经过时数值变化的回调\nconsole.log('onHoverChange',value);}",
         },
         {
           name: 'onKeyDown',
+          description:"按键回调",
+
           template: "onKeyDown(event,${extParams}){\n// 按键回调\nconsole.log('onKeyDown',event);}",
         },
       ],

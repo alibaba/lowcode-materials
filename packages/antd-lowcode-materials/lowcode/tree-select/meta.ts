@@ -282,21 +282,28 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"选中树节点时调用此函数",
           template:
             "onChange(value,label,extra,${extParams}){\n// 选中树节点时调用此函数\nconsole.log('onChange',value,label,extra);}",
         },
         {
           name: 'onSearch',
+          description:"文本框值变化时回调",
+
           template:
             "onSearch(value,${extParams}){\n// 文本框值变化时回调\nconsole.log('onSearch',value);}",
         },
         {
           name: 'onSelect',
+          description:"被选中时调用",
+
           template:
             "onSelect(value,node,extra,${extParams}){\n// 被选中时调用\nconsole.log('onSelect',value,node,extra);}",
         },
         {
           name: 'onTreeExpand',
+          description:"展示节点时调用",
+
           template:
             "onTreeExpand(expandedKeys,${extParams}){\n// 展示节点时调用\nconsole.log('onTreeExpand',expandedKeys);}",
         },

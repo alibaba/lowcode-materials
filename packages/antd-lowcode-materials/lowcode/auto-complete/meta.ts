@@ -408,10 +408,13 @@ export default {
       events: [
         {
           name: 'onBlur',
+          description:"失去焦点时的回调",
           template: "onBlur(${extParams}){\n// 失去焦点时的回调\nconsole.log('onBlur');}",
         },
         {
           name: 'onChange',
+          description:"选中回调",
+
           template:
             "onChange(value,${extParams}){\n// 选中 option，或 input 的 value 变化时，调用此函数\nconsole.log('onChange', value);}",
         },
@@ -422,16 +425,22 @@ export default {
         },
         {
           name: 'onSearch',
+          description:"搜索补全项的时候调用",
+
           template:
             "onSearch(value,${extParams}){\n// 搜索补全项的时候调用\nconsole.log('onSearch',value);}",
         },
         {
           name: 'onSelect',
+          description:"被选中时调用",
+
           template:
             "onSelect(value,option,${extParams}){\n// 被选中时调用\nconsole.log('onSelect', value, option);}",
         },
         {
           name: 'onDropdownVisibleChange',
+          description:"展开下拉菜单的回调",
+
           template:
             "onDropdownVisibleChange(open,${extParams}){\n// 展开下拉菜单的回调\nconsole.log('onDropdownVisibleChange', open);}",
         },

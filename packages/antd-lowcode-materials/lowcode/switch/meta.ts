@@ -95,11 +95,15 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"变化时回调函数",
+
           template:
             "onChange(checked,event,${extParams}){\n// 变化时回调函数\nconsole.log('onChange',checked,event);}",
         },
         {
           name: 'onClick',
+          description:"点击时回调函数",
+
           template:
             "onClick(checked,event,${extParams}){\n// 点击时回调函数\nconsole.log('onClick',checked,event);}",
         },

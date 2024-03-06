@@ -251,16 +251,21 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"时间发生变化的回调",
           template:
             "onChange(date,dateString,${extParams}){\n// 时间发生变化的回调\nconsole.log('onChange',date,dateString);}",
         },
         {
           name: 'onOpenChange',
+          description:"弹出日历和关闭日历的回调",
+
           template:
             "onOpenChange(open,${extParams}){\n// 弹出日历和关闭日历的回调\nconsole.log('onOpenChange',open);}",
         },
         {
           name: 'onPanelChange',
+          description:"日历面板切换的回调",
+
           template:
             "onPanelChange(value,mode,${extParams}){\n// 日历面板切换的回调\nconsole.log('onPanelChange',value,mode);}",
         },

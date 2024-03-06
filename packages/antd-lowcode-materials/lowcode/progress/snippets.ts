@@ -5,8 +5,16 @@ export default [
     schema: {
       componentName: 'Progress',
       props: {
-        percent: 20,
-        status: 'active',
+        "percent": 20,
+        "status": "active",
+        "type": "line",
+        "showInfo": false,
+        "strokeWidth": 10,
+        "strokeColor": "#4a90e2",
+        "trailColor": "#f8e71c",
+        "steps": 0,
+        "gapDegree": 0,
+        "gapPosition": "top"
       },
     },
   },

@@ -281,56 +281,78 @@ export default {
       events: [
         {
           name: 'onCheck',
+          description:" 点击复选框触发",
+
           template:
             "onCheck(checkedKeys,event,${extParams}){\n// 点击复选框触发\nconsole.log('onCheck',checkedKeys,event);}",
         },
         {
           name: 'onDragEnd',
+          description:" dragend 触发时调用",
+
           template:
             "onDragEnd({event,node},${extParams}){\n// dragend 触发时调用\nconsole.log('onDragEnd',event,node);}",
         },
         {
           name: 'onDragEnter',
+          description:" dragenter 触发时调用",
+
           template:
             "onDragEnter({event,node,expandedKeys},${extParams}){\n// dragenter 触发时调用\nconsole.log('onDragEnter',event,node,expandedKeys);}",
         },
         {
           name: 'onDragLeave',
+          description:" dragleave 触发时调用",
+
           template:
             "onDragLeave({event,node},${extParams}){\n// dragleave 触发时调用\nconsole.log('onDragLeave',event,node);}",
         },
         {
           name: 'onDragOver',
+          description:" dragover 触发时调用",
+
           template:
             "onDragOver({event,node},${extParams}){\n// dragover 触发时调用\nconsole.log('onDragOver',event,node);}",
         },
         {
           name: 'onDragStart',
+          description:" 开始拖拽时调用",
+
           template:
             "onDragStart({event,node},${extParams}){\n// 开始拖拽时调用\nconsole.log('onDragStart',event,node);}",
         },
         {
           name: 'onDrop',
+          description:" 触发时调用",
+
           template:
             "onDrop({event,node,dragNode,dragNodesKeys},${extParams}){\n// drop 触发时调用\nconsole.log('onDrop',event,node,dragNode,dragNodesKeys);}",
         },
         {
           name: 'onExpand',
+          description:"  展开/收起节点时触发",
+
           template:
             "onExpand(expandedKeys,{expanded,node},${extParams}){\n// 展开/收起节点时触发\nconsole.log('onExpand',expandedKeys,expanded,node);}",
         },
         {
           name: 'onLoad',
+          description:" 节点加载完毕时触发",
+
           template:
             "onLoad(loadedKeys,{event,node},${extParams}){\n// 节点加载完毕时触发\nconsole.log('onLoad',loadedKeys,event,node);}",
         },
         {
           name: 'onRightClick',
+          description:" 响应右键点击",
+
           template:
             "onRightClick({event,node},${extParams}){\n// 响应右键点击\nconsole.log('onRightClick',event,node);}",
         },
         {
           name: 'onSelect',
+          description:" 点击树节点触发",
+
           template:
             "onSelect(selectedKeys,event,${extParams}){\n// 点击树节点触发\nconsole.log('onSelect',selectedKeys,event);}",
         },

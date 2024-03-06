@@ -178,7 +178,7 @@ const SegmentedMeta: IPublicTypeComponentMetadata = {
 const snippets: IPublicTypeSnippet[] = [
   {
     "title": "分段控制器",
-    "screenshot": "https://cdn.itq168.com/img/appthen-Segmented.svg",
+    "screenshot": "https://cdn.disscode.com/assets/appthen-Segmented.svg",
     "schema": {
       "componentName": "Segmented",
       "props": {

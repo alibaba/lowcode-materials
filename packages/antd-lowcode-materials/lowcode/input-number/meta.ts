@@ -167,33 +167,46 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"变化回调",
           template: "onChange(value,${extParams}){\n// 变化回调\nconsole.log('onChange',value);}",
         },
         {
           name: 'onPressEnter',
+          description:"按下回车的回调",
+
           template:
             "onPressEnter(event,${extParams}){\n// 按下回车的回调\nconsole.log('onPressEnter',event);}",
         },
         {
           name: 'onFocus',
+          description:"获取焦点回调",
+
           template: "onFocus(event,${extParams}){\n// 获取焦点回调\nconsole.log('onFocus',event);}",
         },
         {
           name: 'onKeyDown',
+          description:"按键按下时的回调",
+
           template:
             "onKeyDown(event,${extParams}){\n// 按键按下时的回调\nconsole.log('onKeyDown',event);}",
         },
         {
           name: 'onKeyPress',
+          description:"按键按下后的回调",
+
           template:
             "onKeyPress(event,${extParams}){\n// 按键按下后的回调\nconsole.log('onKeyPress',event);}",
         },
         {
           name: 'onKeyUp',
+          description:"按键释放回调",
+
           template: "onKeyUp(event,${extParams}){\n// 按键释放回调\nconsole.log('onKeyUp',event);}",
         },
         {
           name: 'onBlur',
+          description:"按键释放回调",
+
           template: "onBlur(event,${extParams}){\n// 按键释放回调\nconsole.log('onBlur',event);}",
         },
       ],

@@ -110,6 +110,7 @@ export default {
       events: [
         {
           name: 'onTabChange',
+          description:"页签切换的回调",
           template:
             "onTabChange(key,${extParams}){\n// 页签切换的回调\nconsole.log('onTabChange', key);}",
         },

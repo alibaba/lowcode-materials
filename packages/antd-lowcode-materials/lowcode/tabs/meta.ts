@@ -415,23 +415,30 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"切换面板的回调",
           template:
             "onChange(activeKey,${extParams}){\n// 切换面板的回调\nconsole.log('onChange',activeKey);}",
         },
         {
           name: 'onEdit',
+          description:"新增和删除页签的回调",
+
           template:
             "onEdit(targetKey,action,${extParams}){\n// 新增和删除页签的回调\nconsole.log('onEdit',targetKey,action);}",
         },
         {
           name: 'onTabClick',
+          description:"tab 被点击的回调",
+
           template:
             "onTabClick(key,event,${extParams}){\n// tab 被点击的回调\nconsole.log('onTabClick',key,event);}",
         },
         {
           name: 'onTabScroll',
+          description:"tab 滚动时触发",
+
           template:
-            "onTabScroll({direction},${extParams}){\n// tab 滚动时触\nconsole.log('onTabScroll',direction);}",
+            "onTabScroll({direction},${extParams}){\n// tab 滚动时触发\nconsole.log('onTabScroll',direction);}",
         },
       ],
     },

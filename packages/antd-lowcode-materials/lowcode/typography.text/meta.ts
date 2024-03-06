@@ -155,33 +155,47 @@ export default {
       events: [
         {
           name: 'copyable.onCopy',
+          description:"拷贝成功的回调函数",
+
           template: "onCopy(${extParams}){\n// 拷贝成功的回调函数\nconsole.log('onCopy');}",
         },
         {
           name: 'editable.onStart',
+          description:"进入编辑中状态时触发",
+
           template: "onStart(${extParams}){\n// 进入编辑中状态时触发\nconsole.log('onStart');}",
         },
         {
           name: 'editable.onChange',
+          description:"文本域编辑时触发",
+
           template:
             "onChange(event,${extParams}){\n// 文本域编辑时触发\nconsole.log('onChange', event);}",
         },
         {
           name: 'editable.onEnd',
+          description:"按 ENTER 结束编辑状态时触发",
+
           template: "onEnd(${extParams}){\n// 按 ENTER 结束编辑状态时触发\nconsole.log('onEnd');}",
         },
         {
           name: 'editable.onCancel',
+          description:" 按 ESC 退出编辑状态时触发",
+
           template:
             "onCancel(${extParams}){\n// 按 ESC 退出编辑状态时触发\nconsole.log('onCancel');}",
         },
         {
           name: 'ellipsis.onEllipsis',
+          description:"触发省略时的回调",
+
           template:
             "onEllipsis(ellipsis,${extParams}){\n// 触发省略时的回调\nconsole.log('onEllipsis', ellipsis);}",
         },
         {
           name: 'ellipsis.onExpand',
+          description:"点击展开时的回调",
+
           template:
             "onExpand(event,${extParams}){\n// 点击展开时的回调\nconsole.log('onExpand', event);}",
         },

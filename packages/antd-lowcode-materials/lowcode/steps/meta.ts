@@ -277,6 +277,8 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"点击切换步骤时触发",
+
           template:
             "onChange(current,${extParams}){\n// 点击切换步骤时触发\nconsole.log('onChange',current);}",
         },
