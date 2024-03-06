@@ -1,6 +1,6 @@
 const { name, version } = require("./package.json");
 
-const library = 'DiscodeAntd';
+const library = 'AppthenAntd';
 
 module.exports = {
   sourceMap: false,

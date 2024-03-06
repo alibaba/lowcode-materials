@@ -8,7 +8,7 @@ const PageMeta: ExtendComponentMetadata = {
   screenshot: '',
   devMode: 'proCode',
   npm: {
-    package: '@disscode/react',
+    package: '@appthen/react',
     version: '0.0.5',
     exportName: 'Page',
     main: '',

@@ -7,7 +7,7 @@ const AutoListMeta: IPublicTypeComponentMetadata = {
   screenshot: '',
   devMode: 'proCode',
   npm: {
-    package: '@disscode/react',
+    package: '@appthen/react',
     version: '0.0.5',
     exportName: 'AutoList',
     main: '',

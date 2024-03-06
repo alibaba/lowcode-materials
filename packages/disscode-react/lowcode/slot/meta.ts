@@ -2,7 +2,7 @@ module.exports = {
   componentName: 'SlotRender',
   title: '组件插槽',
   npm: {
-    package: '@disscode/react',
+    package: '@appthen/react',
     version: '0.0.5',
     exportName: 'SlotRender',
     main: '',
