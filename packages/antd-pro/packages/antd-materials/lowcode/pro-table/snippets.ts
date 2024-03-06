@@ -160,12 +160,7 @@ export const snippets: Snippet[] = [
         pagination: {
           defaultPageSize: 10
         },
-        search: {
-          defaultCollapsed: false,
-          resetText: '',
-          searchText: '',
-          labelWidth: 'auto'
-        },
+        search: false,
         toolBarRender: {
           type: 'JSSlot',
           params: ['currentPageData'],
@@ -218,12 +213,7 @@ export const snippets: Snippet[] = [
         pagination: {
           defaultPageSize: 10
         },
-        search: {
-          defaultCollapsed: false,
-          resetText: '',
-          searchText: '',
-          labelWidth: 'auto'
-        },
+        search: false,
         intl: 'zhCNIntl'
       }
     }

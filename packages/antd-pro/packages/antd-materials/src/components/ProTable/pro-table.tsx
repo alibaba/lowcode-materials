@@ -110,7 +110,11 @@ class ProTable extends Component<IProTableProps, any> {
     if (typeof pagination?.total === 'number') {
       delete pagination.total
     }
-    
+    let data = this.props.dataSource
+    if(!Array.isArray(this.props.dataSource)){
+      data = []
+    }
+    console.log(this.props)
     const toolBarRenderFunc = () => {
       if (toolBarRenderOpen) {
         if (toolBarRender === false) {
@@ -127,6 +131,7 @@ class ProTable extends Component<IProTableProps, any> {
       <ConfigProvider locale={intlMap[intl || 'zhCNIntl']}>
         <OriginalProTable
           {...this.props}
+          dataSource = {data}
           search={
             typeof this.props.search === 'boolean'
               ? this.props.search

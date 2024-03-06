@@ -122,6 +122,24 @@ const ProLayoutMeta: ComponentMetadata = {
         
       }
     },
+    // {
+    //   "title": {
+    //     "label": {
+    //       "type": "i18n",
+    //       "en-US": "menuItemRender",
+    //       "zh-CN": "自定义菜单渲染"
+    //     }
+    //   },
+    //   "name": "menuItemRender",
+    //   "setter": {
+    //     "componentName": "FunctionSetter",
+    //     props: {
+    //       template:
+    //         'menuItemRender(itemProps,props,${extParams}){\n// return "渲染" \n`}'
+    //     }
+    //   }
+    // },
+    
         {
           "title": {
             "label": {
@@ -740,7 +758,7 @@ const ProLayoutMeta: ComponentMetadata = {
 const snippets: Snippet[] = [
   {
     "title": "中台布局",
-    "screenshot": "https://cdn.itq168.com/img/layout.svg",
+    "screenshot": "https://cdn.disscode.com/assets/Appthen_layout.svg",
     "schema": {
       "componentName": "ProLayout",
       "props": {

@@ -122,12 +122,15 @@ class DragSortTable extends Component<IPsortTableProps, any> {
         return false;
       }
     };
-
+    let data = this.props.dataSource
+    if(!Array.isArray(this.props.dataSource)){
+      data = []
+    }
     return (
       <ConfigProvider locale={intlMap[intl || 'zhCNIntl']}>
         <OriginalProTable
           {...this.props}
-
+      dataSource={data}
           search={
             typeof this.props.search === 'boolean'
               ? this.props.search

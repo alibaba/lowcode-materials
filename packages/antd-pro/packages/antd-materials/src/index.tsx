@@ -40,6 +40,7 @@ export { default as EditableProTable } from './components/EditableProTable'
 
 export {  QueryFilter } from '@ant-design/pro-components'
 
+export {  LightFilter } from '@ant-design/pro-components'
 
 
 // export {  ProFormList } from '@ant-design/pro-components'

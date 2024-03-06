@@ -137,11 +137,15 @@ class EditableProTable extends Component<EditableProTableProps, any> {
         return false;
       }
     };
-
+    let data = this.props.dataSource
+    if(!Array.isArray(this.props.dataSource)){
+      data = []
+    }
     return (
       <ConfigProvider locale={intlMap[intl || 'zhCNIntl']}>
         <OriginalProTable
           {...this.props}
+          dataSource={data}
           // value={dataSource}
           // editable={{
           //   type: 'multiple',
@@ -189,7 +193,7 @@ class EditableProTable extends Component<EditableProTableProps, any> {
           value={this.props?.dataSource}
      
           columns={columns}
-          actionRef={this.actionRef}
+          // actionRef={this.actionRef}
           // formRef={this.formRef}
           editableFormRef={this.formRef}
           form={{ onValuesChange: onValuesChange }}

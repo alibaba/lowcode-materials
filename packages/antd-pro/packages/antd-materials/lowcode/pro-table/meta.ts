@@ -1233,7 +1233,17 @@ const ProTableMeta = {
               tip: 'toolbar.title | 自定义标题',
             },
             propType: 'string',
-            setter: 'StringSetter',
+            setter: [
+              'StringSetter',
+              {
+                componentName: 'SlotSetter',
+                title: '标题插槽',
+                initialValue: {
+                  type: 'JSSlot',
+                  value: []
+                }
+              },
+            ],
             condition: {
               type: 'JSFunction',
               value: 'target => !!target.getProps().getPropValue("toolBarRenderOpen")',
@@ -1246,7 +1256,16 @@ const ProTableMeta = {
               tip: 'toolbar.subTitle | 自定义子标题',
             },
             propType: 'string',
-            setter: 'StringSetter',
+            setter:[ 'StringSetter',
+            {
+              componentName: 'SlotSetter',
+              title: '子标题插槽',
+              initialValue: {
+                type: 'JSSlot',
+                value: []
+              }
+            },
+          ],
             condition: {
               type: 'JSFunction',
               value: 'target => !!target.getProps().getPropValue("toolBarRenderOpen")',
@@ -1348,143 +1367,163 @@ const ProTableMeta = {
         ]
       },
       {
-        title: '搜索设置',
-        display: 'block',
-        type: 'group',
-        items: [
+        name: 'search',
+        title: { label: '查询', tip: '关闭查询,需要手工操作一下' },
+        supportVariable: true,
+        defaultValue: false,
+
+        setter: [
+          "BoolSetter",
           {
-            name: 'search',
-            title: { label: '搜索', tip: 'search | 搜索' },
-            propType: 'bool',
-            setter: 'BoolSetter',
-            defaultValue: false,
-            // extraProps: {
-            //   setValue: (target, value) => {
-            //     if (value) {
-            //       target.parent.setPropValue('search', {
-            //         defaultCollapsed: true
-            //       })
-            //     }
-            //   }
-            // }
-          },
-          {
-            title: {
-              label: {
-                type: 'i18n',
-                'en-US': 'searchText',
-                'zh-CN': 'searchText'
+            componentName: 'ObjectSetter',
+            props: {
+              config: {
+                items: [
+                  {
+                    title: {
+                      label: {
+                        type: 'i18n',
+                        'en-US': 'searchText',
+                        'zh-CN': '查询文本'
+                      },
+                      tip: 'searchText | 查询按钮的文本'
+                    },
+                    name: 'searchText',
+                    setter: {
+                      componentName: 'StringSetter',
+                      isRequired: false,
+                      initialValue: ''
+                    },
+                    condition: {
+                      type: 'JSFunction',
+                      value: 'target => !!target.getProps().getPropValue("search")'
+                    }
+                  },
+                  {
+                    title: {
+                      label: {
+                        type: 'i18n',
+                        'en-US': 'filterType',
+                        'zh-CN': '过滤表单类型	'
+                      },
+                      tip: 'filterType | 过滤表单类型		'
+                    },
+                    name: 'filterType',
+                    setter: {
+                      componentName: 'SelectSetter',
+                      
+                      props: {
+                        options: [
+                          {
+                            title: 'query模式',
+                            value: 'query',
+                          },
+                          {
+                            title: 'light模式',
+                            value: 'light',
+                          }
+                        ],
+                      },
+                    },
+                    condition: {
+                      type: 'JSFunction',
+                      value: 'target => !!target.getProps().getPropValue("search")'
+                    }
+                  },
+                  {
+                    title: {
+                      label: {
+                        type: 'i18n',
+                        'en-US': 'resetText',
+                        'zh-CN': '重置文本'
+                      },
+                      tip: 'resetText | 重置按钮的文本'
+                    },
+                    name: 'resetText',
+                    setter: {
+                      componentName: 'StringSetter',
+                      isRequired: false,
+                      initialValue: ''
+                    },
+                    condition: {
+                      type: 'JSFunction',
+                      value: 'target => !!target.getProps().getPropValue("search")'
+                    }
+                  },
+                  
+                  {
+                    name: 'labelWidth',
+                    title: {
+                      label: '标签宽度',
+                      tip: 'labelWidth | 标签宽度'
+                    },
+                    propType: 'number',
+                    setter: ['StringSetter', 'NumberSetter', 'VariableSetter'],
+                    condition: {
+                      type: 'JSFunction',
+                      value: 'target => !!target.getProps().getPropValue("search")'
+                    }
+                  },
+                  {
+                    name: 'span',
+                    title: {
+                      label: '所占列数',
+                      tip: 'span | 所占列数'
+                    },
+                    propType: 'number',
+                    setter: 'NumberSetter',
+                    condition: {
+                      type: 'JSFunction',
+                      value: 'target => !!target.getProps().getPropValue("search")'
+                    }
+                  },
+                  
+                  {
+                    name: 'collapsed',
+                    title: {
+                      label: '是否收起',
+                      tip: 'collapsed | 是否收起'
+                    },
+                    propType: 'bool',
+                    setter: 'BoolSetter',
+                    condition: {
+                      type: 'JSFunction',
+                      value: 'target => !!target.getProps().getPropValue("search")'
+                    }
+                  },
+                  {
+                    name: 'defaultCollapsed',
+                    title: {
+                      label: '默认是否收起',
+                      tip: 'defaultCollapsed | 是否收起'
+                    },
+                    propType: 'bool',
+                    setter: 'BoolSetter',
+                    condition: {
+                      type: 'JSFunction',
+                      value: 'target => !!target.getProps().getPropValue("search")'
+                    }
+                  },
+                  {
+                    name: 'onCollapse',
+                    title: {
+                      label: '收起按钮的事件',
+                      tip: 'onCollapse | 收起按钮的事件	'
+                    },
+                    propType: 'bool',
+                    setter: 'FunctionSetter',
+                    condition: {
+                      type: 'JSFunction',
+                      value: 'target => !!target.getProps().getPropValue("search")'
+                    }
+                  },
+                ],
               },
-              tip: 'searchText | 查询按钮的文本'
             },
-            name: 'search.searchText',
-            setter: {
-              componentName: 'StringSetter',
-              isRequired: false,
-              initialValue: ''
-            },
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("search")'
-            }
-          },
-          {
-            title: {
-              label: {
-                type: 'i18n',
-                'en-US': 'resetText',
-                'zh-CN': 'resetText'
-              },
-              tip: 'resetText | 重置按钮的文本'
-            },
-            name: 'search.resetText',
-            setter: {
-              componentName: 'StringSetter',
-              isRequired: false,
-              initialValue: ''
-            },
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("search")'
-            }
-          },
-          {
-            name: 'search.labelWidth',
-            title: {
-              label: '标签宽度',
-              tip: 'labelWidth | 标签宽度'
-            },
-            propType: 'number',
-            setter: ['StringSetter', 'NumberSetter', 'VariableSetter'],
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("search")'
-            }
-          },
-          {
-            name: 'search.span',
-            title: {
-              label: '所占列数',
-              tip: 'span | 所占列数'
-            },
-            propType: 'number',
-            setter: 'NumberSetter',
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("search")'
-            }
-          },
-          {
-            name: 'search.defaultCollapsed',
-            title: {
-              label: '默认是否收起',
-              tip: 'defaultCollapsed | 默认是否收起'
-            },
-            propType: 'bool',
-            setter: 'BoolSetter',
-            defaultValue: true,
-            condition: {
-              type: 'JSFunction',
-              value: 'target => !!target.getProps().getPropValue("search")'
-            }
           }
-          // {
-          //   name: 'search.collapsed',
-          //   title: {
-          //     label: '是否收起',
-          //     tip: 'collapsed | 是否收起'
-          //   },
-          //   propType: 'bool',
-          //   setter: 'BoolSetter',
-          //   condition: {
-          //     type: 'JSFunction',
-          //     value: 'target => !!target.getProps().getPropValue("search")'
-          //   }
-          // },
-          // // {
-          // //   name: 'search.onCollapse',
-          // //   title: {
-          // //     label: '收起按钮的事件',
-          // //     tip: 'onCollapse | 收起按钮的事件'
-          // //   },
-          // //   propType: 'func',
-          // //   setter: [
-          // //     {
-          // //       componentName: 'FunctionSetter',
-          // //       props: {
-          // //         template:
-          // //           'onCollapse(collapsed,,${extParams}){\n// 设置行属性\nreturn {onClick:event=>{}};\n}'
-          // //       }
-          // //     },
-          // //     'VariableSetter'
-          // //   ],
-          // //   condition: {
-          // //     type: 'JSFunction',
-          // //     value: 'target => !!target.getProps().getPropValue("search")'
-          // //   }
-          // // }
         ]
       },
+
       {
         title: '高级',
         display: 'block',
