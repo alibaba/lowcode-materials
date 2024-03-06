@@ -8,6 +8,7 @@ interface EChartsProps {
   option?: Record<string, any>;
   className?: string;
   style?: React.CSSProperties;
+  advanced?: boolean;
 }
 
 export class ECharts extends React.Component<EChartsProps, {
@@ -34,9 +35,12 @@ export class ECharts extends React.Component<EChartsProps, {
 
   render(): React.ReactNode {
     const { init } = this.state;
-    const { option, ...props } = this.props;
+    const { advanced,option, ...props } = this.props;
     if (!init) return null;
     return (
+
+      <div>
+      {advanced ? (      
       <EChart
         // ref={(echart) => {
         //   this.chart = echart;
@@ -49,6 +53,23 @@ export class ECharts extends React.Component<EChartsProps, {
         // option={this.chartOption}
         {...props}
       />
+      ) : (
+        <EChart
+        // ref={(echart) => {
+        //   this.chart = echart;
+        // }}
+        option={this.props}
+        // canvasId={this.canvasId}
+        // onInit={(echart) => {
+        //   this.chart = echart;
+        // }}
+        // option={this.chartOption}
+        {...props}
+      />
+      )}
+    </div>
+
+
     )
   }
 }
