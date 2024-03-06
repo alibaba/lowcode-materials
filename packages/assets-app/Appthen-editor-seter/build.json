@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    [
+      "@alilc/build-plugin-alt",
+      {
+        "type": "setter"
+      }
+    ],
+    [
+      "build-plugin-fusion",
+      {
+        "themePackage": "@alifd/theme-lowcode-light"
+      }
+    ]
+  ]
+}

@@ -1,0 +1,43 @@
+node_modules/
+build/
+es/
+lib/
+.idea/
+.vscode/
+jsconfig.json
+typings.json
+typings/
+~*
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+ *.swp
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.lock
+package-lock.json
+.vdev

@@ -1,0 +1,6 @@
+dist/
+build/
+.*
+~*
+gulpfile.js
+node_modules/
