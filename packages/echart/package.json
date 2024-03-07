@@ -1,7 +1,7 @@
 {
-  "name": "lowcode-echarts",
-  "version": "0.1.4",
-  "description": "lowcode-echarts",
+  "name": "@appthen/echarts",
+  "version": "0.1.10",
+  "description": "@appthen/echarts",
   "main": "lib/index.js",
   "module": "es/index.js",
   "exports": {
@@ -104,9 +104,10 @@
   },
   "componentConfig": {
     "isComponentLibrary": true,
-    "materialSchema": "https://unpkg.com/lowcode-echarts@0.1.4/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@appthen/echarts@0.1.10/build/lowcode/assets-prod.json"
   },
   "lcMeta": {
     "type": "component"
-  }
+  },
+  "homepage": "https://unpkg.com/@appthen/echarts@0.1.10/build/index.html"
 }

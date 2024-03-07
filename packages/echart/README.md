@@ -1,4 +1,4 @@
-# lowcode-echarts
+# @appthen/echarts
 
 一个面向 PC 的业务组件库
 

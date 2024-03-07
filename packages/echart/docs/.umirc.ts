@@ -7,7 +7,7 @@ const { version } = JSON.parse(fs.readFileSync(join(__dirname, '../package.json'
 const productStyles =
   '.__dumi-default-menu{display:none} .__dumi-default-layout{padding-left:58px!important}';
 
-const productPath = `/lowcode-echarts@${version}/build/docs/`;
+const productPath = `/@appthen/echarts@${version}/build/docs/`;
 
 export default defineConfig({
   // other config entry
@@ -24,7 +24,7 @@ export default defineConfig({
     // 配置文件import alias
     memo.resolve.alias.set('@', join(__dirname, '../src'));
     memo.resolve.alias.set('@components', join(__dirname, '../src/components'));
-    memo.resolve.alias.set('lowcode-echarts', join(__dirname, '../src'));
+    memo.resolve.alias.set('@appthen/echarts', join(__dirname, '../src'));
   },
   logo: 'https://fusion.alicdn.com/images/jdSvK6gaqaWB.png',
   exportStatic: process.env.NODE_ENV === 'production' ? { htmlSuffix: true } : {},
@@ -39,7 +39,7 @@ export default defineConfig({
   alias: {
     '@': join(__dirname, '../src'),
     '@components': join(__dirname, '../src/components'),
-    'lowcode-echarts': join(__dirname, '../src'),
+    '@appthen/echarts': join(__dirname, '../src'),
   },
   apiParser: {
     propFilter: (prop) => {

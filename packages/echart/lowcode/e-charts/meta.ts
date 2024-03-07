@@ -228,7 +228,7 @@ const EChartsMeta: IPublicTypeComponentMetadata = {
   "screenshot": "",
   "devMode": "proCode",
   "npm": {
-    "package": "lowcode-echarts",
+    "package": "@appthen/echarts",
     "version": "0.1.0",
     "exportName": "ECharts",
     "main": "src/index.tsx",
