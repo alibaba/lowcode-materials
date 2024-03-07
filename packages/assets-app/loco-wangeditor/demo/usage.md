@@ -8,7 +8,7 @@ order: 1
 ```jsx
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import ExampleComponent from 'loco-wangeditor';
+import ExampleComponent from '@appthen/wangeditor';
 
 class App extends Component {
   render() {

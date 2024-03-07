@@ -16,7 +16,7 @@ export interface editorProps {
 }
 
 const editorComponent = (props: editorProps, ref: any) => {
-  const { onBeforeUpload,..._otherProps } = props;
+  const { onBeforeUpload,ToolBarStyle,ContentStyle,inContentStyle,toolbarConfig,editorConfig,..._otherProps } = props;
   const [editor, setEditor] = React.useState(null); // 存储 editor 实例
 
 
@@ -27,21 +27,21 @@ const editorComponent = (props: editorProps, ref: any) => {
     }
   }
    // 工具栏配置
-   const toolbarConfig: Partial<IToolbarConfig> = { }  // TS 语法
-   toolbarConfig.excludeKeys = [
-    'group-video',
-]
+//    const toolbarConfig: Partial<IToolbarConfig> = { }  // TS 语法
+//    toolbarConfig.excludeKeys = [
+//     'group-video',
+// ]
 
     // 编辑器配置
 // 初始化 MENU_CONF 属性
-  const editorConfig: Partial<IEditorConfig> = {  // TS 语法
-  // const editorConfig = {                       // JS 语法
-      MENU_CONF: {
-        'uploadImage':{..._otherProps.picture}
-      }
+  // const editorConfig: Partial<IEditorConfig> = {  // TS 语法
+  // // const editorConfig = {                       // JS 语法
+  //     MENU_CONF: {
+  //       'uploadImage':{..._otherProps.picture}
+  //     }
 
-      // 其他属性...
-  }
+
+  // }
 
   // 修改 uploadImage 菜单配置
   // editorConfig.MENU_CONF['uploadImage'] = {..._otherProps.picture}
@@ -50,19 +50,26 @@ const editorComponent = (props: editorProps, ref: any) => {
 
 
   return (
-    <div style={{ border: '1px solid #ccc', zIndex: 100, marginTop: '15px' }}>
+      <div>
       <Toolbar
          {..._otherProps}
          defaultConfig={toolbarConfig}
         editor={editor}
-        style={{ borderBottom: '1px solid #ccc' }}
+        style={ToolBarStyle}
       /> 
+      <div style={ContentStyle}>
+
+
+
       <Editor
         defaultConfig={editorConfig}
         onCreated={createEditor}
+
         {..._otherProps}
       />
-    </div>
+            </div>
+      </div>
+
   );
 };
 

@@ -1,7 +1,7 @@
 {
-  "name": "loco-wangeditor",
+  "name": "@appthen/wangeditor",
   "version": "0.1.4",
-  "description": "loco-wangeditor",
+  "description": "@appthen/wangeditor",
   "files": [
     "demo/",
     "es/",
@@ -79,11 +79,11 @@
     "name": "ExampleComponent",
     "title": "demo component",
     "category": "Information",
-    "materialSchema": "https://unpkg.com/loco-wangeditor@0.1.4/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@appthen/wangeditor@0.1.4/build/lowcode/assets-prod.json"
   },
   "lcMeta": {
     "type": "component"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/loco-wangeditor@0.1.4/build/index.html"
+  "homepage": "https://unpkg.com/@appthen/wangeditor@0.1.4/build/index.html"
 }
