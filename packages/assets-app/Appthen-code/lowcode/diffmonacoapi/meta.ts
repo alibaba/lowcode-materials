@@ -168,12 +168,12 @@ const diffmonacoapiMeta: IPublicTypeComponentMetadata = {
   },
   
 };
-const a = JSON.stringify({ a: '方块智连' }, null, 2);
-const b = JSON.stringify({ b: '方块智连' }, null, 2);
+const a = JSON.stringify({ a: 'appthen' }, null, 2);
+const b = JSON.stringify({ b: 'appthen平台' }, null, 2);
 const snippets: Snippet[] = [
   {
     title: 'code比对',
-    screenshot: 'http://cdn.itq168.com/img/20221213133810.png?imageslim',
+    screenshot: 'https://cdn.appthen.cn/editor/assets/appthen-code.svg',
     schema: {
       componentName: 'diffmonacoapi',
       props: {

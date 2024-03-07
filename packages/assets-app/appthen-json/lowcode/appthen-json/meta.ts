@@ -183,7 +183,7 @@ const AppthenJsonMeta: IPublicTypeComponentMetadata = {
 const snippets: IPublicTypeSnippet[] = [
   {
     title: 'json编辑器',
-    screenshot: 'http://cdn.itq168.com/img/20230105105333.png?imageslim',
+    screenshot: 'https://cdn.appthen.cn/editor/assets/20230105105333.png',
     schema: {
       componentName: 'AppthenJson',
       props: {},

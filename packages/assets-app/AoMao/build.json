@@ -1,5 +1,5 @@
 {
-  "library": "BizComp",
+  "library": "appthenAomao",
   "plugins": [
     "build-plugin-component",
     "build-plugin-fusion",

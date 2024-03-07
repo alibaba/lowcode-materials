@@ -99,5 +99,6 @@
   },
   "lcMeta": {
     "type": "component"
-  }
+  },
+  "homepage": "https://unpkg.com/@appthen/code@0.1.0/build/index.html"
 }

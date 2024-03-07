@@ -162,7 +162,7 @@ const monacoapiMeta: IPublicTypeComponentMetadata = {
 const snippets: IPublicTypeSnippet[] = [
   {
     title: 'code编辑器',
-    screenshot: 'http://cdn.itq168.com/img/20221212211319.png?imageslim',
+    screenshot: 'https://cdn.appthen.cn/editor/assets/appthen-difference.svg',
     schema: {
       componentName: 'monacoapi',
       props: {

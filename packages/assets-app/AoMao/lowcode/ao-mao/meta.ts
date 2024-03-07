@@ -10,7 +10,7 @@ const AoMaoMeta: IPublicTypeComponentMetadata = {
   "screenshot": "",
   "devMode": "proCode",
   "npm": {
-    "package": "AoMao",
+    "package": "@appthen/AoMao",
     "version": "0.1.0",
     "exportName": "default",
     "main": "src/index.tsx",
@@ -195,7 +195,7 @@ const AoMaoMeta: IPublicTypeComponentMetadata = {
 const snippets: IPublicTypeSnippet[] = [
   {
     "title": "AoMao编辑器",
-    screenshot: 'https://cdn.itq168.com/img/apmao%E7%BC%96%E8%BE%91%E5%99%A8.svg',
+    screenshot: 'https://cdn.appthen.cn/editor/assets/appthen-aomao.svg',
     "schema": {
       "componentName": "AoMao",
       "props": {
