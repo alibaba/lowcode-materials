@@ -8,7 +8,7 @@ const ProFormListMeta: IPublicTypeComponentMetadata = {
   "screenshot": "",
   "devMode": "proCode",
   "npm": {
-    package: '@disscode/antd-pro',
+    package: '@appthen/antd-pro',
     version: 'latest',
     "exportName": "ProFormList",
     "main": "src/index.tsx",

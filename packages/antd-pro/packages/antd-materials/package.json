@@ -1,6 +1,6 @@
 {
-  "name": "@disscode/antd-pro",
-  "version": "1.0.0-rc.36",
+  "name": "@appthen/antd-pro",
+  "version": "1.0.0-rc.37",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -43,7 +43,7 @@
     "@babel/runtime": "^7.0.0"
   },
   "componentConfig": {
-    "materialSchema": "https://unpkg.com/@disscode/antd-pro@1.0.0-rc.36/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@appthen/antd-pro@1.0.0-rc.37/build/lowcode/assets-prod.json"
   },
   "publishConfig": {
     "access": "public"

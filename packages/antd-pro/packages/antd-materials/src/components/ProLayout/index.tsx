@@ -5,7 +5,7 @@ import {
   QuestionCircleFilled,
   SearchOutlined,
 } from '@ant-design/icons';
-import {  ProLayout as ManProLayout, SettingDrawer } from '@ant-design/pro-components';
+import { ProLayout , SettingDrawer } from '@ant-design/pro-components';
 import { ProConfigProvider } from '@ant-design/pro-provider';
 import { useState } from 'react';
 
@@ -13,28 +13,32 @@ import type { ProSettings } from '@ant-design/pro-components';
 
 
 export default (props) => {
-  const [pathname, setPathname] = useState('/');
+  const [pathname, setPathname] = useState(props?.location?.pathname);
   const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(props?.settingsdata || {
   });
 
 
+  if (props?.layout === 'side'){
+
+  }
+console.log(props)
 
   const content = () => {
     return props?.content
   }
 
   return (
-    <ProConfigProvider  >
-      <ManProLayout
+    <ProConfigProvider   dark={props?.dark}>
+      <ProLayout
+                  prefixCls="my-prefix"
+
         {...props}
-
-
         {...settings}
         splitMenus
         location={{
           pathname,
         }}
-  
+
 
         menuItemRender={(item, dom) => (
           <a
@@ -57,7 +61,7 @@ export default (props) => {
             onSettingChange={(changeSetting) => {
               setSetting(changeSetting);
             }}
-            disableUrlParams={false}
+            // disableUrlParams={false}
           />
         )}
 
@@ -65,7 +69,7 @@ export default (props) => {
 
 
 
-      </ManProLayout>
+      </ProLayout>
     </ProConfigProvider>
   );
 };

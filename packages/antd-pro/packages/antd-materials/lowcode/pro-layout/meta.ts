@@ -10,7 +10,7 @@ const ProLayoutMeta: ComponentMetadata = {
   category: '布局类',
   "devMode": "proCode",
   "npm": {
-    "package": "@disscode/antd-pro",
+    "package": "@appthen/antd-pro",
     "version": "1.0.0-rc.30",
     "exportName": "ProLayout",
     "main": "src/index.tsx",
@@ -19,8 +19,190 @@ const ProLayoutMeta: ComponentMetadata = {
   },
   "configure": {
    "props":[
-    
+    {
+      title: 'LOGO配置',
+      display: 'block',
+      type: 'group',
+      items: [
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "title",
+              "zh-CN": "标题"
+            },
+            "tip": "layout 的左上角的 title	"
+          },
+          "name": "title",
+          "setter": [
+            'StringSetter',
+            {
+              "componentName": "SlotSetter",
+              initialValue: {
+                type: 'JSSlot',
+                value: []
+              }
+            }
+          ]
 
+        },
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "logo",
+              "zh-CN": "logo"
+            },
+            "tip": "layout 的左上角 logo 的 url	"
+          },
+          "name": "logo",
+          "setter": [
+            {
+              "componentName": "SlotSetter",
+              initialValue: {
+                type: 'JSSlot',
+                value: []
+              }
+            },            'FunctionSetter',
+          ]
+        },
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "appList",
+              "zh-CN": "应用列表"
+            }
+          },
+          "name": "appList",
+          "setter": {
+            "componentName": "JsonSetter",
+          }
+        },
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "appListRender",
+              "zh-CN": "自定义应用"
+            },
+            "tip": "自定义跨站点导航列表的 render 方法	"
+          },
+          "name": "appListRender",
+          "description": "@name 侧边菜单 title 和 logo 下面区域的渲染，一般会增加个搜索框",
+          "setter": {
+  
+            "componentName": "FunctionSetter",
+            props: {
+              template:
+                "appListRender(props,AppListProps,defaultDom,${extParams}){\n \n  return '';\n }"
+            }
+          }
+        },
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "menuHeaderRender",
+              "zh-CN": "header菜单"
+            },
+            "tip": "渲染 logo 和 title, 优先级比 headerTitleRender 更高	"
+          },
+          "name": "menuHeaderRender",
+          "description": "@name 菜单 logo 和 title 区域的渲染",
+          "setter": {
+            "componentName": "MixedSetter",
+            "props": {
+              "setters": [
+                {
+                  "componentName": "SlotSetter",
+                  initialValue: {
+                    type: 'JSSlot',
+                    params: ['logo','title'],
+                    value: []
+                  }
+                },
+                {
+  
+                  "componentName": "FunctionSetter",
+                  props: {
+                    template:
+                      "menuHeaderRender(logo,title,,${extParams}){\n// 插槽数据 \n   return '';\n}"
+                  }
+                }
+    
+              ]
+            }
+          }
+        },
+    
+      ]
+    },
+    {
+      name: 'avatarProps',
+      title: { label: '头像配置', tip: '工具提示' },
+      supportVariable: true,
+      setter: [
+        {
+          componentName: 'ObjectSetter',
+          props: {
+            config: {
+              items: [
+                {
+                  name: 'src',
+                  title: { label: '图片地址', tip: '图片地址' },
+                  setter: 'StringSetter',
+                },
+                {
+                  name: 'title',
+                  title: { label: '名称', tip: '名称' },
+                  setter: 'StringSetter',
+                },
+                {
+                  name: 'size',
+                  title: { label: '大小', tip: '大小' },
+                 "setter":{
+                  "componentName": "SelectSetter",
+                  "props": {
+                    "options": [
+                      {
+                        "label": "大",
+                        "value": "large"
+                      },
+                      {
+                        "label": "默认",
+                        "value": "default"
+                      },
+                      {
+                        "label": "小",
+                        "value": "small"
+                      },
+                    ]
+                  }
+                 }
+          
+                  
+                },
+                {
+                  name: 'render',
+                  title: { label: '渲染', tip: '渲染' },
+                  "setter": {
+                    "componentName": "SlotSetter",
+                    initialValue: {
+                      type: 'JSSlot',
+                      params: [''],
+                      value: []
+                    }
+                  }
+                  
+                },
+              ],
+            },
+          },
+        },
+      ]
+    },
+  
     {
       title: '菜单配置',
       display: 'block',
@@ -31,9 +213,9 @@ const ProLayoutMeta: ComponentMetadata = {
             "label": {
               "type": "i18n",
               "en-US": "menuExtraRender",
-              "zh-CN": "标题下方"
+              "zh-CN": "菜单下渲染"
             },
-            "tip": "menuExtraRender | @name 侧边菜单 title 和 logo 下面区域的渲染，一般会增加个搜索框"
+            "tip": "在菜单标题的下面渲染一个区域	"
           },
           "name": "menuExtraRender",
           "description": "@name 侧边菜单 title 和 logo 下面区域的渲染，一般会增加个搜索框",
@@ -45,6 +227,17 @@ const ProLayoutMeta: ComponentMetadata = {
               value: []
             }
           }
+        },
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
+              "en-US": "location.pathname",
+              "zh-CN": "默认路径"
+            },
+          },
+          "name": "location.pathname",
+          "setter":'StringSetter'
         },
         {
           "title": {
@@ -160,6 +353,19 @@ const ProLayoutMeta: ComponentMetadata = {
                     "title": {
                       "label": {
                         "type": "i18n",
+                        "en-US": "actionRef",
+                        "zh-CN": "国际化"
+                      }
+                    },
+                    "name": "actionRef",
+                    "setter": {
+                      "componentName": "StringSetter",
+                    }
+                  },
+                  {
+                    "title": {
+                      "label": {
+                        "type": "i18n",
                         "en-US": "locale",
                         "zh-CN": "国际化"
                       }
@@ -200,6 +406,7 @@ const ProLayoutMeta: ComponentMetadata = {
                       "initialValue": false
                     }
                   },
+
                   {
                     "title": {
                       "label": {
@@ -265,7 +472,8 @@ const ProLayoutMeta: ComponentMetadata = {
                       "componentName": "FunctionSetter",
                       props: {
                         template:
-                          'expandedRowRender(params,defaultMenuDat,${extParams}){\n// \n`}'
+
+                          "request(params,defaultMenuDat,,${extParams}){\n \n   return '';\n}"
                       }
                     }
                   },
@@ -274,7 +482,7 @@ const ProLayoutMeta: ComponentMetadata = {
                       "label": {
                         "type": "i18n",
                         "en-US": "type",
-                        "zh-CN": "type"
+                        "zh-CN": "菜单类型"
                       }
                     },
                     "name": "type",
@@ -283,11 +491,11 @@ const ProLayoutMeta: ComponentMetadata = {
                       "props": {
                         "dataSource": [
                           {
-                            "label": "sub",
+                            "label": "标准",
                             "value": "sub"
                           },
                           {
-                            "label": "group",
+                            "label": "分组",
                             "value": "group"
                           }
                         ],
@@ -361,55 +569,7 @@ const ProLayoutMeta: ComponentMetadata = {
       },
       
     },
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "menuHeaderRender",
-          "zh-CN": "header菜单"
-        },
-        "tip": "渲染 logo 和 title, 优先级比 headerTitleRender 更高	"
-      },
-      "name": "menuHeaderRender",
-      "description": "@name 菜单 logo 和 title 区域的渲染",
-      "setter": {
-        "componentName": "MixedSetter",
-        "props": {
-          "setters": [
-            {
-              "componentName": "SlotSetter",
-              initialValue: {
-                type: 'JSSlot',
-                params: ['logo','title'],
-                value: []
-              }
-            },
 
-          ]
-        }
-      }
-    },
-
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "appListRender",
-          "zh-CN": "自定义应用"
-        },
-        "tip": "自定义跨站点导航列表的 render 方法	"
-      },
-      "name": "appListRender",
-      "description": "@name 侧边菜单 title 和 logo 下面区域的渲染，一般会增加个搜索框",
-      "setter": {
-        "componentName": "SlotSetter",
-        initialValue: {
-          type: 'JSSlot',
-          params: ['props'],
-          value: []
-        }
-      }
-    },
 
 
     {
@@ -437,22 +597,18 @@ const ProLayoutMeta: ComponentMetadata = {
       display: 'block',
       type: 'group',
       items: [
-
-
-    {
-      "title": {
-        "label": {
-          "type": "i18n",
-          "en-US": "appList",
-          "zh-CN": "应用列表"
-        }
-      },
-      "name": "appList",
-      "setter": {
-        "componentName": "JsonSetter",
-        
-      }
-    },
+        {
+          name: 'fixedHeader',
+          title: { label: '固定header ', tip: '是否固定 header 到顶部	' },
+          propType: 'bool',
+          setter: 'BoolSetter',
+        },
+        {
+          name: 'fixSiderbar',
+          title: { label: '固定导航', tip: '固定导航	' },
+          propType: 'bool',
+          setter: 'BoolSetter',
+        },
     // {
     //   "title": {
     //     "label": {
@@ -587,21 +743,21 @@ const ProLayoutMeta: ComponentMetadata = {
             "props": {
               "dataSource": [
                 {
-                  "label": "Fluid",
+                  "label": "自适应",
                   "value": "Fluid"
                 },
                 {
-                  "label": "Fixed",
+                  "label": "定宽",
                   "value": "Fixed"
                 }
               ],
               "options": [
                 {
-                  "label": "Fluid",
+                  "label": "自适应",
                   "value": "Fluid"
                 },
                 {
-                  "label": "Fixed",
+                  "label": "定宽",
                   "value": "Fixed"
                 }
               ]
@@ -718,6 +874,20 @@ const ProLayoutMeta: ComponentMetadata = {
           "title": {
             "label": {
               "type": "i18n",
+              "en-US": "dark",
+              "zh-CN": "黑暗模式"
+            },
+            "tip": "黑暗模式"
+          },
+          "name": "dark",
+          "setter": {
+            "componentName": "BoolSetter",
+          }
+        },
+        {
+          "title": {
+            "label": {
+              "type": "i18n",
               "en-US": "token",
               "zh-CN": "token"
             }
@@ -743,10 +913,38 @@ const ProLayoutMeta: ComponentMetadata = {
       "style": true,
       "className": true,
       events:[
-        'menuDataRender',
-        'postMenuData',
-        'onMenuHeaderClick',
-       "onPageChange"
+
+  
+        {
+          name: 'menuDataRender',
+                    description:"自定义菜单数据	",
+          template:
+            "menuDataRender(menuData,${extParams}){\n  return menuData \n}",
+        },
+        {
+          name: 'postMenuData',
+                    description:"menu 菜单渲染前查看	",
+          template:
+            "postMenuData(menuData,${extParams}){\n  return menuData \n}",
+        },
+        {
+          name: 'onMenuHeaderClick',
+                    description:"menu 菜单的头部点击事件	",
+          template:
+            "onMenuHeaderClick(e,${extParams}){\n  \n}",
+        },
+        {
+          name: 'onTopMixMenuHeaderClick',
+         description:"mix 模式下顶部栏的头部点击事件	",
+          template:
+            "onTopMixMenuHeaderClick(e,${extParams}){\n  \n}",
+        },
+        {
+          name: 'onPageChange',
+         description:"页面切换时触发	",
+          template:
+            "onPageChange(location,${extParams}){\n  \n}",
+        },
       ]
     },
     "component": {
@@ -762,92 +960,91 @@ const snippets: Snippet[] = [
     "schema": {
       "componentName": "ProLayout",
       "props": {
-        avatarProps:{},
-        // avatarProps: {
-        //     src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-        //     size: 'small',
-        //     title: 'disscode',
-        //   },
+  
+        avatarProps: {
+            src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+            size: 'small',
+            title: 'Appthen',
+          },
         devops:false,
-        layout:'mix',
-        route:{
-          path: '/',
-          routes: [
+        // layout:'mi、x',
+        "route": {
+          "path": "/",
+          "routes": [
             {
-              path: '/welcome',
-              name: '欢迎',
-              component: './Welcome',
+              "path": "/admin",
+              "name": "管理页",
+              "access": "canAdmin",
+              "component": "./Admin",
+              "routes": [
+                {
+                  "path": "/admin/welcome",
+                  "name": "欢迎"
+                },
+                {
+                  "path": "/admin/sub-page1",
+                  "name": "一级页面",
+                  "icon": "https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg",
+                  "component": "./Welcome"
+                },
+                {
+                  "path": "/admin/sub-page2",
+                  "name": "二级页面",
+                  "component": "./Welcome"
+                },
+                {
+                  "path": "/admin/sub-page3",
+                  "name": "三级页面",
+                  "component": "./Welcome"
+                }
+              ]
             },
             {
-              path: '/admin',
-              name: '管理页',
-              access: 'canAdmin',
-              component: './Admin',
-              routes: [
+              "name": "列表页",
+              "path": "/list",
+              "component": "./ListTableList",
+              "routes": [
                 {
-                  path: '/admin/sub-page1',
-                  name: '一级页面',
-                  icon: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
-                  component: './Welcome',
-                },
-                {
-                  path: '/admin/sub-page2',
-                  name: '二级页面',
-                  component: './Welcome',
-                },
-                {
-                  path: '/admin/sub-page3',
-                  name: '三级页面',
-                  component: './Welcome',
-                },
-              ],
-            },
-            {
-              name: '列表页',
-              path: '/list',
-              component: './ListTableList',
-              routes: [
-                {
-                  path: '/list/sub-page',
-                  name: '列表页面',
-                  routes: [
+                  "path": "/list/sub-page",
+                  "name": "列表页面",
+                  "routes": [
                     {
-                      path: 'sub-sub-page1',
-                      name: '一一级列表页面',
-                      component: './Welcome',
+                      "path": "sub-sub-page1",
+                      "name": "一一级列表页面",
+                      "component": "./Welcome"
                     },
                     {
-                      path: 'sub-sub-page2',
-                      name: '一二级列表页面',
-                      component: './Welcome',
+                      "path": "sub-sub-page2",
+                      "name": "一二级列表页面",
+                      "component": "./Welcome"
                     },
                     {
-                      path: 'sub-sub-page3',
-                      name: '一三级列表页面',
-                      component: './Welcome',
-                    },
-                  ],
+                      "path": "sub-sub-page3",
+                      "name": "一三级列表页面",
+                      "component": "./Welcome"
+                    }
+                  ]
                 },
                 {
-                  path: '/list/sub-page2',
-                  name: '二级列表页面',
-                  component: './Welcome',
+                  "path": "/list/sub-page2",
+                  "name": "二级列表页面",
+                  "component": "./Welcome"
                 },
                 {
-                  path: '/list/sub-page3',
-                  name: '三级列表页面',
-                  component: './Welcome',
-                },
-              ],
+                  "path": "/list/sub-page3",
+                  "name": "三级列表页面",
+                  "component": "./Welcome"
+                }
+              ]
             },
             {
-              path: 'https://ant.design',
-              name: 'Ant Design 官网外链',
-            },
-          ],
+              "path": "https://ant.design",
+              "name": "Ant Design 官网外链"
+            }
+          ]
         },
         location: {
-          pathname: '/',
+          pathname: '/admin',
         },
         appList: [
           {

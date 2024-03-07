@@ -10,7 +10,7 @@ const ProLayoutMeta: ComponentMetadata = {
   category: '布局类',
   "devMode": "proCode",
   "npm": {
-    "package": "@disscode/antd-pro",
+    "package": "@appthen/antd-pro",
     "version": "1.0.0-rc.30",
     "exportName": "ProLayout",
     "main": "src/index.tsx",

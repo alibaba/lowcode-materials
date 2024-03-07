@@ -33,7 +33,7 @@ export default {
     }
   ],
   npm: {
-    package: '@disscode/antd-pro',
+    package: '@appthen/antd-pro',
     version: 'latest',
     exportName: 'ProPopconfirm',
     main: '',

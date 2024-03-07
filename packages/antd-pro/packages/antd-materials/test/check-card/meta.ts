@@ -8,7 +8,7 @@ const CheckCardMeta: ComponentMetadata = {
   "screenshot": "",
   "devMode": "proCode",
   "npm": {
-    "package": "@disscode/antd-pro",
+    "package": "@appthen/antd-pro",
     "version": "1.0.0-rc.30",
     "exportName": "CheckCard",
     "main": "src/index.tsx",

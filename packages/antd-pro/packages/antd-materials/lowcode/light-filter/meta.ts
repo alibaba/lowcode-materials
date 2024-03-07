@@ -9,7 +9,7 @@ const LightFilterMeta = {
   "screenshot": "",
   "devMode": "proCode",
   npm: {
-    package: '@disscode/antd-pro',
+    package: '@appthen/antd-pro',
     version: 'latest',
     exportName: 'LightFilter',
     main: '',

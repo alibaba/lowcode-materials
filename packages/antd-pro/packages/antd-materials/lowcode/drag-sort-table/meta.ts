@@ -10,7 +10,7 @@ const ProTableMeta = {
   group: '高级组件',
   category: '表格类',
   npm: {
-    package: '@disscode/antd-pro',
+    package: '@appthen/antd-pro',
     version: 'latest',
     exportName: 'DragSortTable',
     main: '',

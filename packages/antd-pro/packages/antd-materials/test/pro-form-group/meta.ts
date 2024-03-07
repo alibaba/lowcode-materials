@@ -10,7 +10,7 @@ const ProFormGroupMeta: IPublicTypeComponentMetadata = {
   category: '表单类',
   "devMode": "proCode",
   "npm": {
-    package: '@disscode/antd-pro',
+    package: '@appthen/antd-pro',
     "version": "0.1.0",
     "exportName": "ProFormGroup",
     "main": "src/index.tsx",

@@ -10,7 +10,7 @@ const ProContainerMeta: ComponentMetadata = {
   group: '高级组件',
   category: '布局类',
   npm: {
-    package: '@disscode/antd-pro',
+    package: '@appthen/antd-pro',
     version: 'latest',
     exportName: 'ProContainer',
     main: '',

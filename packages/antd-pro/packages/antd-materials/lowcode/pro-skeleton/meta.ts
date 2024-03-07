@@ -10,7 +10,7 @@ const ProSkeletonMeta: IPublicTypeComponentMetadata = {
   group: '高级组件',
   category: '布局类',
   "npm": {
-    "package": "@disscode/antd-pro",
+    "package": "@appthen/antd-pro",
     "version": "1.0.0-rc.32",
     "exportName": "ProSkeleton",
     "main": "src/index.tsx",
