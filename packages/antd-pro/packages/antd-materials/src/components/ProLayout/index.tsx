@@ -21,7 +21,6 @@ export default (props) => {
   if (props?.layout === 'side'){
 
   }
-console.log(props)
 
   const content = () => {
     return props?.content
