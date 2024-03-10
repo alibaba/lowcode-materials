@@ -609,35 +609,27 @@ const ProLayoutMeta: ComponentMetadata = {
           propType: 'bool',
           setter: 'BoolSetter',
         },
-    // {
-    //   "title": {
-    //     "label": {
-    //       "type": "i18n",
-    //       "en-US": "actionsRender",
-    //       "zh-CN": "自定义操作列表"
-    //     },
-    //     "tip": "侧边菜单底部的一些快捷链接"
-    //   },
-    //   "name": "actionsRender",
-    //   "description": "@name 侧边菜单底部的一些快捷链接",
-    //   "setter": {
-    //     "componentName": "ArraySetter",
-    //     "props": {
-    //       "itemSetter": {
-    //         "componentName": "SlotSetter",
-    //         "props": {
-    //           "mode": "node"
-    //         },
-            
-    //         "initialValue": {
-    //           "type": "JSSlot",
-    //           "value": []
-    //         }
-    //       }
-    //     },
-    //     "initialValue": []
-    //   }
-    // },
+    {
+      "title": {
+        "label": {
+          "type": "i18n",
+          "en-US": "actionsRender",
+          "zh-CN": "自定义操作列表"
+        },
+        "tip": "用户边上的操作"
+      },
+      "name": "actionsRender",
+      "setter":[
+        {
+          componentName: 'FunctionSetter',
+          props: {
+            template:
+              'layoutProps(layoutProps,${extParams}){\n// 展开行渲染\nreturn ["actionsRender渲染"] }'
+          }
+        },
+      ]
+      
+    },
     {
       "title": {
         "label": {
