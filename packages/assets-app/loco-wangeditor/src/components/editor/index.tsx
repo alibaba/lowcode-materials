@@ -16,7 +16,7 @@ export interface editorProps {
 }
 
 const editorComponent = (props: editorProps, ref: any) => {
-  const { onBeforeUpload,ToolBarStyle,ContentStyle,inContentStyle,toolbarConfig,editorConfig,..._otherProps } = props;
+  const { onBeforeUpload,ToolBarStyle,ContentStyle,inContentStyle,toolbarConfig,editorConfig,content,..._otherProps } = props;
   const [editor, setEditor] = React.useState(null); // 存储 editor 实例
 
 
@@ -46,8 +46,8 @@ const editorComponent = (props: editorProps, ref: any) => {
   // 修改 uploadImage 菜单配置
   // editorConfig.MENU_CONF['uploadImage'] = {..._otherProps.picture}
 
-   
 
+  
 
   return (
       <div>
@@ -57,10 +57,9 @@ const editorComponent = (props: editorProps, ref: any) => {
         editor={editor}
         style={ToolBarStyle}
       /> 
+
       <div style={ContentStyle}>
-
-
-
+      {content}
       <Editor
         defaultConfig={editorConfig}
         onCreated={createEditor}

@@ -93,6 +93,26 @@ const editorComponentMeta: IPublicTypeComponentMetadata = {
           }
         ]
       },
+      {
+        "title": {
+          "label": {
+            "type": "i18n",
+            "en-US": "content",
+            "zh-CN": "中间内容"
+          },
+          "tip": "header和内容之间的区域"
+        },
+        "name": "content",
+        "setter": {
+          "componentName": "SlotSetter",
+          title: '展开行插槽',
+          initialValue: {
+            type: 'JSSlot',
+            value: []
+          }
+        },
+        
+      },
 
 
       {
