@@ -1,8 +1,12 @@
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { createElement } from 'react';
+import * as echarts from 'echarts';
 
 import EChart from 'echarts-for-react';
+
+import ChinaDataset from './china.json';
+
 
 interface EChartsProps {
   option?: Record<string, any>;
@@ -21,6 +25,8 @@ export class ECharts extends React.Component<EChartsProps, {
     init: false,
   };
 
+
+
   componentDidMount(): void {
     // @ts-ignore
     if (this.props.__designMode === 'design' || this.props._leaf) {
@@ -35,8 +41,14 @@ export class ECharts extends React.Component<EChartsProps, {
 
   render(): React.ReactNode {
     const { init } = this.state;
-    const { advanced,option, ...props } = this.props;
+    const { advanced,option,mapName,mapData, ...props } = this.props;
     if (!init) return null;
+
+    if (mapName && mapData){
+      echarts.registerMap(mapName,mapData);
+    }
+
+
     return (
 
       <div>

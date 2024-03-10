@@ -1,6 +1,6 @@
 {
   "name": "@appthen/echarts",
-  "version": "0.1.10",
+  "version": "5.30.0",
   "description": "@appthen/echarts",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -104,7 +104,7 @@
   },
   "componentConfig": {
     "isComponentLibrary": true,
-    "materialSchema": "https://unpkg.com/@appthen/echarts@0.1.10/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@appthen/echarts@5.30.0/build/lowcode/assets-prod.json"
   },
   "lcMeta": {
     "type": "component"

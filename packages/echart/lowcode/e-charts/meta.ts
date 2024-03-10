@@ -274,6 +274,37 @@ const EChartsMeta: IPublicTypeComponentMetadata = {
          value: 'target => !!target.getProps().getPropValue("advanced")',
         },
       },
+      {
+        "title": {
+          "label": {
+            "type": "i18n",
+            "en-US": "mapName",
+            "zh-CN": "地图名称"
+          }
+        },
+        "name": "mapName",
+        "setter": [
+          {
+            "componentName": "StringSetter",
+          },
+        ],
+      },
+      {
+        "title": {
+          "label": {
+            "type": "i18n",
+            "en-US": "mapData",
+            "zh-CN": "地图数据"
+          }
+        },
+        
+        "name": "mapData",
+        "setter": [
+          {
+            "componentName": "JsonSetter",
+          },
+        ],
+      },
       // {
       //   name: 'tooltip',
       //   title: { label: '数据集', tip: '数据集' },
