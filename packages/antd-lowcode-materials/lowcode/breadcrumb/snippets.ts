@@ -5,35 +5,35 @@ export default [
     schema: {
       componentName: 'Breadcrumb',
       props: {
-        routes: [
+        items: [
           {
-            path: 'a',
-            breadcrumbName: '首页',
+            path: '/index',
+            title: 'home',
           },
           {
-            path: 'center',
-            breadcrumbName: '应用中心',
+            path: '/first',
+            title: 'first',
+            children: [
+              {
+                path: '/general',
+                title: 'General',
+              },
+              {
+                path: '/layout',
+                title: 'Layout',
+              },
+              {
+                path: '/navigation',
+                title: 'Navigation',
+              },
+            ],
           },
-        ],
-        // itemRender: {
-        //   type: 'JSSlot',
-        //   params: ['route', 'params', 'routes', 'paths'],
-        //   value: [
-        //     {
-        //       componentName: 'Typography.Link',
-        //       props: {
-        //         href: {
-        //           type: 'JSExpression',
-        //           value: 'this.route.path',
-        //         },
-        //         children: {
-        //           type: 'JSExpression',
-        //           value: 'this.route.breadcrumbName',
-        //         },
-        //       },
-        //     },
-        //   ],
-        // },
+          {
+            path: '/second',
+            title: 'second',
+          },
+        ]
+
       },
     },
   },

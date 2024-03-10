@@ -12,7 +12,7 @@ export default {
       type: 'group',
       items: [
         {
-          name: 'routes',
+          name: 'items',
           title: { label: '路由栈信息', tip: 'router 的路由栈信息' },
           propType: {
             type: 'arrayOf',
@@ -33,22 +33,41 @@ export default {
                   config: {
                     items: [
                       {
+                        name: 'title',
+                        title: { label: '名称', tip: '名称' },
+                        propType: 'string',
+                        setter: [
+                          'StringSetter',
+                          {
+                            "componentName": "SlotSetter",
+                            title: '展开行插槽',
+                            initialValue: {
+                              type: 'JSSlot',
+                              value: []
+                            }
+                          }
+                        ],
+                        isRequired: true
+                      },
+                      {
                         name: 'path',
-                        title: { label: '路由路径', tip: 'path | 路由路径' },
+                        title: { label: '路由路径', tip: '拼接路径，每一层都会拼接前一个 path 信息。不能和 href 共用' },
                         propType: 'string',
                         setter: 'StringSetter',
                         isRequired: true
                       },
                       {
-                        name: 'breadcrumbName',
+                        name: 'href',
                         title: {
-                          label: '路由名称',
-                          tip: 'breadcrumbName | 路由名称',
+                          label: '链接目的',
+                          tip: '链接的目的地，不能和 path 共用	',
                         },
                         propType: 'string',
                         setter: 'StringSetter',
                         isRequired: true
                       },
+                      
+
                     ],
                   },
                 },
