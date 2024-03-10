@@ -37,7 +37,6 @@ import Selectall from '@aomao/plugin-selectall';
 import Status, { StatusComponent } from '@aomao/plugin-status';
 import Heading from '@aomao/plugin-heading';
 import Italic from '@aomao/plugin-italic';
-import { Loading } from '@alifd/next';
 
 //缩进插件没有
 // import Indent from '@aomao/plugin-indent';
@@ -47,7 +46,8 @@ interface ComponentProps {
   title: string;
   // data:Object,
   saveField?(vditor: any): void;
-  Images: Object
+  Images: Object,
+  
 }
 const toolbarOptions: ToolbarOptions = {
   popup: {
@@ -70,11 +70,8 @@ const toolbarOptions: ToolbarOptions = {
 
 const ExampleComponent = (props: ComponentProps) => {
   const { saveField, Images, ..._otherProps } = props;
-  console.error("_otherProps", Images)
   const [engine, setEngine] = useState<EngineInterface>();
-
   const ref = useRef<HTMLDivElement | null>(null);
-  // const [content, setContent] = useState<string>('Hello word!');
 
   useEffect(() => {
     if (!ref.current) return;
@@ -138,53 +135,36 @@ const ExampleComponent = (props: ComponentProps) => {
             ...Images
           },
         }
-
-
-
-
-
-
-
       },
-      // cards: [CodeBlockComponent],
     });
+    engines.setValue(_otherProps?.data)
 
     if (saveField) {
       saveField(engines);
     }
-
-    // if (data){
-    //      engines.setValue(data);
-    // }
-    // engines.setValue(content);
-    // engines.on('change', () => {
-    //   const value = engines.getValue();
-    //   setContent(value);
-    //   console.log(`value:${value}`);
-    // });
-
-
-
     setEngine(engines);
   }, []);
 
-  return (
-    <Loading visible={_otherProps?.visible || false} shape="fusion-reactor" className='Aomao_loading'>
-      <div>
-        <div style={_otherProps?.navStyle} >
-          {engine && <Toolbar engine={engine} items={[['collapse'], ['undo', 'redo', 'removeformat', 'paintformat'],
-          ['heading', 'fontfamily', 'fontsize',], ['fontcolor', 'backcolor', 'image', 'bold', 'italic', 'strikethrough', 'underline', 'icon'],
-          ['orderedlist', 'unorderedlist', 'mention', 'lightblock', 'lineheight', 'code', 'alignment', 'tasklist', 'codeblock'], ['quote', 'status', 'selectall', 'hr', 'link']]} />}
-        
 
+
+
+  return (
+      <div>
+
+        <div style={_otherProps?.navStyle} >
+          {engine && <Toolbar engine={engine}  items={_otherProps?.items} />}
         </div>
 
+
+        {_otherProps?.slotContent}
+
+
+        
           <div style={_otherProps?.contentStyle} 
             ref={ref}
           />
-  
       </div>
-    </Loading>
+
   );
 };
 

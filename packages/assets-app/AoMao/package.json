@@ -1,6 +1,6 @@
 {
   "name": "@appthen/AoMao",
-  "version": "0.1.1",
+  "version": "2.10.0.1",
   "description": "@appthen/AoMao",
   "files": [
     "demo/",
@@ -100,7 +100,7 @@
     "name": "ExampleComponent",
     "title": "demo component",
     "category": "Information",
-    "materialSchema": "https://unpkg.com/@appthen/AoMao@0.1.1/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@appthen/AoMao@2.10.0.1/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
   "homepage": "https://unpkg.com/@appthen/AoMao@0.1.1/build/index.html"
