@@ -8,7 +8,9 @@ const CustomTreeSelect: any = (props: any) => {
   const data = otherProps?.treeData ||[]
 
   function processMenuItems(menuItems) {
-    return menuItems?.map((menuItem) => {
+    return menuItems?.map((item:any) => {
+
+      const menuItem={...item };
       // 处理当前菜单项
       if (menuItem?.icon) {
         const IconComp = ((icons || {}) as any)[menuItem?.icon];
