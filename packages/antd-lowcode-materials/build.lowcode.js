@@ -65,8 +65,8 @@ module.exports = {
                 version: '5.14.0',
                 urls: [
                   '//cdn.bootcdn.net/ajax/libs/dayjs/1.11.9/dayjs.min.js',
-                  `//cdn.bootcdn.net/ajax/libs/antd/5.14.0/antd.js`,
-                  `//cdn.bootcdn.net/ajax/libs/antd/5.14.0/reset.css`,
+                  `//cdn.bootcdn.net/ajax/libs/antd/5.15.0/antd.js`,
+                  `//cdn.bootcdn.net/ajax/libs/antd/5.15.0/reset.css`,
                 ],
                 library: 'antd',
               },
