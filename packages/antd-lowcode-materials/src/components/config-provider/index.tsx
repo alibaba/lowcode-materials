@@ -1,11 +1,11 @@
 import React from 'react';
-import { ConfigProvider as OriginalConfigProvider } from 'antd';
+import { ConfigProvider as OriginalConfigProvider, theme as AntdTheme } from 'antd';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import zhCN from 'antd/es/locale/zh_CN';
 
 const ConfigProvider = (props: any) => {
-  const { locale, ...rest } = props;
+  const { locale, theme,  ...rest } = props;
 
   let localeData = locale;
   if (typeof locale === 'string') {
@@ -19,7 +19,10 @@ const ConfigProvider = (props: any) => {
     }
   }
 
-  return <OriginalConfigProvider locale={localeData} {...rest} />;
+  return <OriginalConfigProvider locale={localeData} theme={{
+    ...theme,
+    algorithm: theme.algorithm === 'dark' ? AntdTheme.darkAlgorithm : AntdTheme.compactAlgorithm,
+  }} {...rest} />;
 };
 
 export default ConfigProvider;
