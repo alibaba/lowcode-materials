@@ -1,0 +1,43 @@
+{
+  "name": "@appthen/fetch-event-source",
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "@fortaine/fetch-event-source",
+    "appthen",
+    "typescript"
+  ],
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "author": "fork from @fortaine/fetch-event-source",
+  "license": "MIT",
+  "homepage": "https://github.com/appthen/fetch-event-source",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:appthen/fetch-event-source.git"
+  },
+  "scripts": {
+    "build:clean": "rm -rf dist && mkdir -p dist",
+    "build": "vite build && tsc -d --skipLibCheck --emitDeclarationOnly --esModuleInterop --declarationDir dist src/index.ts"
+  },
+  "devDependencies": {
+    "babel-preset-minify": "^0.5.2",
+    "eslint": "^8.34.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0"
+  },
+  "dependencies": {
+    "@fortaine/fetch-event-source": "^3.0.6"
+  }
+}

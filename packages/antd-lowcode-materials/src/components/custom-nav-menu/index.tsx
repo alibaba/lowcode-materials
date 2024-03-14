@@ -8,20 +8,23 @@ import * as icons from '@ant-design/icons';
 
 
 const customNav: any = (props: any, ref: Ref<any>) => {
+  console.log('customNav props: ', props);
   const {icon,type,...otherProps} = props
 
-  const data = otherProps?.items ||[]
+  const data = [...otherProps?.items]
 
   function processMenuItems(menuItems) {
-    return menuItems?.map((menuItem) => {
+    return menuItems?.map((item: any) => {
+      const menuItem = { ...item };
+      console.log('menuItem: ', menuItem?.icon, menuItem);
       // 处理当前菜单项
       if (menuItem?.icon) {
         const IconComp = ((icons || {}) as any)[menuItem?.icon];
+        console.log('IconComp: ', IconComp);
         if (IconComp){
           menuItem.icon =  <IconComp {...icon} />;
         }else{
           menuItem.icon =  '';
-
         }
       }
       // 处理子菜单项
