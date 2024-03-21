@@ -10,6 +10,7 @@ specifiers:
   '@alifd/theme-2': ^0.4.0
   '@alilc/lowcode-react-renderer': ^1.2.3
   '@alilc/lowcode-utils': ^1.2.3
+  '@babel/runtime': ^7.0.0
   '@types/react': ^16.14.24
   '@types/react-dom': ^16.9.4
   '@umijs/plugin-sass': ^1.1.1
@@ -33,6 +34,7 @@ specifiers:
 
 dependencies:
   '@alifd/next': 1.27.0_yxgsozpdvm7lxyayfvwuqe46uy
+  '@babel/runtime': 7.23.7
   antd-token-previewer: 2.0.5_drn6bkpwulqniyityvghcfrcla
   echarts: 5.4.3
   echarts-for-react: 3.0.2_tw7jkmvw5gvogqjqlssxxhxz2m

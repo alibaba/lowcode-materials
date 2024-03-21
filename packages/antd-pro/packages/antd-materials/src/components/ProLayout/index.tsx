@@ -1,13 +1,6 @@
-import {
-  GithubFilled,
-  InfoCircleFilled,
-  PlusCircleFilled,
-  QuestionCircleFilled,
-  SearchOutlined,
-} from '@ant-design/icons';
 import { ProLayout , SettingDrawer } from '@ant-design/pro-components';
 import { ProConfigProvider } from '@ant-design/pro-provider';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import type { ProSettings } from '@ant-design/pro-components';
 
@@ -17,28 +10,20 @@ export default (props) => {
   const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(props?.settingsdata || {
   });
 
-
-  if (props?.layout === 'side'){
-
-  }
-
   const content = () => {
     return props?.content
   }
 
   return (
-    <ProConfigProvider   dark={props?.dark}>
+    <ProConfigProvider dark={props?.dark}>
       <ProLayout
                   prefixCls="my-prefix"
-
         {...props}
         {...settings}
         splitMenus
         location={{
           pathname,
         }}
-
-
         menuItemRender={(item, dom) => (
           <a
             onClick={() => {
@@ -49,10 +34,7 @@ export default (props) => {
           </a>
         )}
       >
-
         {content()}
-
-
         {!props?.devops ? null : (
           <SettingDrawer
             pathname={pathname}
@@ -63,11 +45,6 @@ export default (props) => {
             // disableUrlParams={false}
           />
         )}
-
-
-
-
-
       </ProLayout>
     </ProConfigProvider>
   );

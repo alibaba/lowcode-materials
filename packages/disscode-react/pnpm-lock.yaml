@@ -35,6 +35,7 @@ specifiers:
   lodash: ^4.17.21
   mobx: ^4.8.0
   mobx-react: ^6.1.4
+  moment: ^2.30.1
   omit.js: ^2.0.2
   prop-types: ^15.7.2
   react: ^16.13.0
@@ -53,14 +54,15 @@ specifiers:
 
 dependencies:
   '@alilc/lowcode-datasource-engine': 1.1.4
-  '@alilc/lowcode-react-renderer': 1.2.5_wcqkhtmu7mswc6yz4uyexck3ty
-  '@alilc/lowcode-utils': 1.2.5_react-dom@16.14.0
+  '@alilc/lowcode-react-renderer': 1.2.5_yxgsozpdvm7lxyayfvwuqe46uy
+  '@alilc/lowcode-utils': 1.2.5_bdyc4bc5pzvjuqtpg7ei3eavl4
   async-validator: 4.2.5
   classnames: 2.5.1
   dayjs: 1.11.10
   lodash: 4.17.21
   mobx: 4.15.7
   mobx-react: 6.3.1_zqkty3y76n2seor4irtu65f4ja
+  moment: 2.30.1
   omit.js: 2.0.2
   prop-types: 15.8.1
   react-router-dom: 5.3.4_react@16.14.0
@@ -69,8 +71,8 @@ dependencies:
 
 devDependencies:
   '@alib/build-scripts': 0.1.32_typescript@3.9.10
-  '@alifd/build-plugin-lowcode': 0.3.18_ccrd4luiijsxnlhe6bgkvyy2z4
-  '@alifd/theme-2': 0.4.4_wcqkhtmu7mswc6yz4uyexck3ty
+  '@alifd/build-plugin-lowcode': 0.3.18_aqiepib6ow53rakjella4apw3i
+  '@alifd/theme-2': 0.4.4_yxgsozpdvm7lxyayfvwuqe46uy
   '@alilc/lowcode-types': 1.2.5
   '@rollup/plugin-commonjs': 11.1.0_rollup@2.79.1
   '@rollup/plugin-image': 3.0.3_rollup@2.79.1
@@ -87,7 +89,7 @@ devDependencies:
   '@types/react-dom': 16.9.24
   '@types/react-native': 0.64.38
   build-plugin-component: 1.12.2_ks77jk7gqjjlf4o5v5xgqwsbgq
-  build-plugin-component-multiple: 1.0.0-beta.53_ltvaqdpajdq3mcoz363oznxk3e
+  build-plugin-component-multiple: 1.0.0-beta.53_zdnb5sizvzlbruzenc4dqizjia
   camelize: 1.0.1
   react: 16.14.0
   react-dom: 16.14.0_react@16.14.0
@@ -137,14 +139,14 @@ packages:
       - webpack-command
     dev: true
 
-  /@alifd/build-plugin-lowcode/0.3.18_ccrd4luiijsxnlhe6bgkvyy2z4:
+  /@alifd/build-plugin-lowcode/0.3.18_aqiepib6ow53rakjella4apw3i:
     resolution: {integrity: sha512-G2v2B4/fw4el0BhJZAzjDN84/TSt03eMLNoOgzx0RuLtr9Cm3uiXom1D2BnFfwINGUGFVog+p2GzDBQWMRHSeg==}
     dependencies:
       '@alilc/lowcode-material-parser': 1.0.3
-      '@alilc/lowcode-rax-renderer': 1.2.5_gfvpvfshlsuocqt7ircuynid3e
-      '@alilc/lowcode-react-renderer': 1.2.5_wcqkhtmu7mswc6yz4uyexck3ty
+      '@alilc/lowcode-rax-renderer': 1.2.5_qatbl2vmmqo3nrwdcnlujntd64
+      '@alilc/lowcode-react-renderer': 1.2.5_yxgsozpdvm7lxyayfvwuqe46uy
       '@alilc/lowcode-types': 1.2.5
-      '@alilc/lowcode-utils': 1.2.5_react-dom@16.14.0
+      '@alilc/lowcode-utils': 1.2.5_bdyc4bc5pzvjuqtpg7ei3eavl4
       axios: 0.21.4
       build-scripts-config: 3.0.3_webpack@4.47.0
       chokidar: 3.5.3
@@ -282,7 +284,7 @@ packages:
       webpack-sources: 1.4.3
     dev: true
 
-  /@alifd/next/1.24.18_wcqkhtmu7mswc6yz4uyexck3ty:
+  /@alifd/next/1.24.18_yxgsozpdvm7lxyayfvwuqe46uy:
     resolution: {integrity: sha512-qfpkZxz/81WxloxAJ9ZR3YRwVh7oR9HM0GbChaSAYAJXaawkZcs7obvgmmePq285Qv5agOzmLpFdJwJ8oRTmIQ==}
     peerDependencies:
       '@alifd/meet-react': ^2.0.0
@@ -298,6 +300,7 @@ packages:
       dayjs: 1.11.10
       hoist-non-react-statics: 3.3.2
       lodash.clonedeep: 4.5.0
+      moment: 2.30.1
       prop-types: 15.8.1
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
@@ -307,7 +310,7 @@ packages:
       shallow-element-equals: 1.0.1
     dev: true
 
-  /@alifd/next/1.25.51_wcqkhtmu7mswc6yz4uyexck3ty:
+  /@alifd/next/1.25.51_yxgsozpdvm7lxyayfvwuqe46uy:
     resolution: {integrity: sha512-D2d7xzBw+lNrwJhcVge0pxzpWXyKS+mjns/yaaaFxznMeQf5uGJjyvsCyfKOZDhsGZp0snm1fb6nshEKQB/Qiw==}
     peerDependencies:
       '@alifd/meet-react': ^2.0.0
@@ -324,6 +327,7 @@ packages:
       dayjs: 1.11.10
       hoist-non-react-statics: 3.3.2
       lodash.clonedeep: 4.5.0
+      moment: 2.30.1
       prop-types: 15.8.1
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
@@ -333,7 +337,7 @@ packages:
       shallow-element-equals: 1.0.1
     dev: true
 
-  /@alifd/next/1.26.37_wcqkhtmu7mswc6yz4uyexck3ty:
+  /@alifd/next/1.26.37_yxgsozpdvm7lxyayfvwuqe46uy:
     resolution: {integrity: sha512-+sZgPM7apganmQEUE7fAI9zZr9j0hxGjkWmuzNQIRU+Sb+Jnmmu7eOHAvjkoCWpMCgQHKTnLdiyIbVoSh9I6mQ==}
     peerDependencies:
       '@alifd/meet-react': ^2.0.0
@@ -351,6 +355,7 @@ packages:
       dayjs: 1.11.10
       hoist-non-react-statics: 3.3.2
       lodash.clonedeep: 4.5.0
+      moment: 2.30.1
       prop-types: 15.8.1
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
@@ -370,28 +375,30 @@ packages:
     dependencies:
       resize-observer-polyfill: 1.5.1
 
-  /@alifd/theme-1/0.4.2_wcqkhtmu7mswc6yz4uyexck3ty:
+  /@alifd/theme-1/0.4.2_yxgsozpdvm7lxyayfvwuqe46uy:
     resolution: {integrity: sha512-AzT4B7a7gg4oowrlDx9CRanQ8mx/oLmXrIwn8k+ZiteGTDjUiIrQSF3qhHSpSYRSG3lbyIYWVy7QL0zdJAdOWQ==}
     peerDependencies:
       moment: ^2.22.1
       react: ^16.0.0
       react-dom: ^16.0.0
     dependencies:
-      '@alifd/next': 1.24.18_wcqkhtmu7mswc6yz4uyexck3ty
+      '@alifd/next': 1.24.18_yxgsozpdvm7lxyayfvwuqe46uy
+      moment: 2.30.1
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
     transitivePeerDependencies:
       - '@alifd/meet-react'
     dev: true
 
-  /@alifd/theme-2/0.4.4_wcqkhtmu7mswc6yz4uyexck3ty:
+  /@alifd/theme-2/0.4.4_yxgsozpdvm7lxyayfvwuqe46uy:
     resolution: {integrity: sha512-sApTo7Bz1iG//K6BUM1VuOWl6E85+Wg2tWHlMsFMmTKYkD+j/PZ3uUoX4SnuNbPdZJEUL7wMSbK1cy8gBeHaBQ==}
     peerDependencies:
       moment: ^2.22.1
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
     dependencies:
-      '@alifd/next': 1.25.51_wcqkhtmu7mswc6yz4uyexck3ty
+      '@alifd/next': 1.25.51_yxgsozpdvm7lxyayfvwuqe46uy
+      moment: 2.30.1
       react: 16.14.0
       react-dom: 16.14.0_react@16.14.0
     transitivePeerDependencies:
@@ -441,15 +448,15 @@ packages:
       - supports-color
     dev: true
 
-  /@alilc/lowcode-rax-renderer/1.2.5_gfvpvfshlsuocqt7ircuynid3e:
+  /@alilc/lowcode-rax-renderer/1.2.5_qatbl2vmmqo3nrwdcnlujntd64:
     resolution: {integrity: sha512-oz1fXyQG4eWw35w8Znlq1kjAxH8h47zBrHGjXk4M9wf7ubLJR91UpwDnYRh57HkFsVAljnVbtqepEJN/b9mrwQ==}
     engines: {npm: '>=3.0.0'}
     peerDependencies:
       prop-types: ^15.7.2
       rax: ^1.1.0
     dependencies:
-      '@alilc/lowcode-renderer-core': 1.2.5_react-dom@16.14.0
-      '@alilc/lowcode-utils': 1.2.5_react-dom@16.14.0
+      '@alilc/lowcode-renderer-core': 1.2.5_bdyc4bc5pzvjuqtpg7ei3eavl4
+      '@alilc/lowcode-utils': 1.2.5_bdyc4bc5pzvjuqtpg7ei3eavl4
       prop-types: 15.8.1
       rax-find-dom-node: 1.0.1
     transitivePeerDependencies:
@@ -461,11 +468,11 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@alilc/lowcode-react-renderer/1.2.5_wcqkhtmu7mswc6yz4uyexck3ty:
+  /@alilc/lowcode-react-renderer/1.2.5_yxgsozpdvm7lxyayfvwuqe46uy:
     resolution: {integrity: sha512-7IulGn7iuu10wgJ/JQlkf+Pkbg3i/w9YuWPnjccg36jMSUzAUOf1b3doxDhI3wRsEMIzRn65NmkV/vbpWn8exw==}
     dependencies:
-      '@alifd/next': 1.26.37_wcqkhtmu7mswc6yz4uyexck3ty
-      '@alilc/lowcode-renderer-core': 1.2.5_react-dom@16.14.0
+      '@alifd/next': 1.26.37_yxgsozpdvm7lxyayfvwuqe46uy
+      '@alilc/lowcode-renderer-core': 1.2.5_bdyc4bc5pzvjuqtpg7ei3eavl4
     transitivePeerDependencies:
       - '@alifd/meet-react'
       - bufferutil
@@ -475,12 +482,12 @@ packages:
       - supports-color
       - utf-8-validate
 
-  /@alilc/lowcode-renderer-core/1.2.5_react-dom@16.14.0:
+  /@alilc/lowcode-renderer-core/1.2.5_bdyc4bc5pzvjuqtpg7ei3eavl4:
     resolution: {integrity: sha512-qL3soZCgcqxobIk/8178N/VBjh6vLO2vRirYacOps4TFsRwjQVTKGvr0kdePmEg/Be65PFYxbc4WLT/cPj2ldQ==}
     dependencies:
       '@alilc/lowcode-datasource-engine': 1.1.4
       '@alilc/lowcode-types': 1.2.5
-      '@alilc/lowcode-utils': 1.2.5_react-dom@16.14.0
+      '@alilc/lowcode-utils': 1.2.5_bdyc4bc5pzvjuqtpg7ei3eavl4
       classnames: 2.5.1
       debug: 4.3.4
       fetch-jsonp: 1.3.0
@@ -506,10 +513,10 @@ packages:
       react: 16.14.0
       strict-event-emitter-types: 2.0.0
 
-  /@alilc/lowcode-utils/1.2.5_react-dom@16.14.0:
+  /@alilc/lowcode-utils/1.2.5_bdyc4bc5pzvjuqtpg7ei3eavl4:
     resolution: {integrity: sha512-aRjyGcLNYoqDIMckPWbuGzZssOkmncWbC9bqmjuS+q26UakAqeSYVobXnXTd2rAD81uMdEixZXjJ4N+NzPDslw==}
     dependencies:
-      '@alifd/next': 1.26.37_wcqkhtmu7mswc6yz4uyexck3ty
+      '@alifd/next': 1.26.37_yxgsozpdvm7lxyayfvwuqe46uy
       '@alilc/lowcode-types': 1.2.5
       lodash: 4.17.21
       mobx: 6.12.0
@@ -8133,15 +8140,15 @@ packages:
       isarray: 1.0.0
     dev: true
 
-  /build-plugin-component-multiple/1.0.0-beta.53_ltvaqdpajdq3mcoz363oznxk3e:
+  /build-plugin-component-multiple/1.0.0-beta.53_zdnb5sizvzlbruzenc4dqizjia:
     resolution: {integrity: sha512-Y7/YHkaNn3dRXDxNZaPYWBdrVihaKgi/5OObonhlxu+DRTkYHFyimzJKddxIP3CH5k6IYvfgtTLrouQBE0Qv3w==}
     dependencies:
       '@alifd/meet': 2.9.8_wcqkhtmu7mswc6yz4uyexck3ty
       '@alifd/meet-demo-layout': 0.1.11_jsx2mp-runtime@0.4.25
       '@alifd/next-theme-loader': 1.3.1
       '@alifd/next-theme-webpack-plugin': 1.0.2
-      '@alifd/theme-1': 0.4.2_wcqkhtmu7mswc6yz4uyexck3ty
-      '@alifd/theme-2': 0.4.4_wcqkhtmu7mswc6yz4uyexck3ty
+      '@alifd/theme-1': 0.4.2_yxgsozpdvm7lxyayfvwuqe46uy
+      '@alifd/theme-2': 0.4.4_yxgsozpdvm7lxyayfvwuqe46uy
       '@babel/core': 7.23.7
       '@babel/generator': 7.23.6
       '@babel/parser': 7.23.6
@@ -16630,6 +16637,9 @@ packages:
 
   /mobx/6.12.0:
     resolution: {integrity: sha512-Mn6CN6meXEnMa0a5u6a5+RKrqRedHBhZGd15AWLk9O6uFY4KYHzImdt8JI8WODo1bjTSRnwXhJox+FCUZhCKCQ==}
+
+  /moment/2.30.1:
+    resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
 
   /move-concurrently/1.0.1:
     resolution: {integrity: sha512-hdrFxZOycD/g6A6SoI2bB5NA/5NEqD0569+S47WZhPvm46sD50ZHdYaFmnua5lndde9rCHGjmfK7Z8BuCt/PcQ==}

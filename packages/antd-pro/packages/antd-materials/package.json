@@ -1,6 +1,6 @@
 {
   "name": "@appthen/antd-pro",
-  "version": "1.0.0-rc.37",
+  "version": "1.0.0-rc.40",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -40,10 +40,12 @@
     "lodash": "^4.17.21",
     "moment": "^2.30.1",
     "@types/react": "^18.0.14",
-    "@babel/runtime": "^7.0.0"
+    "@babel/runtime": "^7.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "componentConfig": {
-    "materialSchema": "https://unpkg.com/@appthen/antd-pro@1.0.0-rc.37/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@appthen/antd-pro@1.0.0-rc.40/build/lowcode/assets-prod.json"
   },
   "publishConfig": {
     "access": "public"

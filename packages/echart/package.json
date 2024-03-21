@@ -1,6 +1,6 @@
 {
   "name": "@appthen/echarts",
-  "version": "5.30.0",
+  "version": "5.30.4",
   "description": "@appthen/echarts",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -31,24 +31,21 @@
     "lowcode_es/"
   ],
   "scripts": {
-    "start": "npm run dumi",
     "build": "build-scripts build",
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
     "lowcode:build": "build-scripts build --config ./build.lowcode.js",
     "f2elint-scan": "f2elint scan",
     "f2elint-fix": "f2elint fix",
-    "dumi": "cross-env APP_ROOT=docs dumi dev",
-    "dumi:build": "cross-env APP_ROOT=docs dumi build",
-    "prepublishOnly": "npm run build && npm run lowcode:build && npm run dumi:build"
+    "prepublishOnly": "npm run build && npm run lowcode:build"
   },
   "directories": {
     "test": "test"
   },
   "keywords": [
-    "disscode",
+    "appthen",
     "echarts"
   ],
-  "author": "disscode-team",
+  "author": "appthen-team",
   "license": "MIT",
   "husky": {
     "hooks": {
@@ -104,10 +101,10 @@
   },
   "componentConfig": {
     "isComponentLibrary": true,
-    "materialSchema": "https://unpkg.com/@appthen/echarts@5.30.0/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@appthen/echarts@5.30.4/build/lowcode/assets-prod.json"
   },
   "lcMeta": {
     "type": "component"
   },
-  "homepage": "https://unpkg.com/@appthen/echarts@0.1.10/build/index.html"
+  "homepage": "https://unpkg.com/@appthen/echarts@5.30.4/build/index.html"
 }

@@ -13,7 +13,7 @@ const ProConfigProviderMeta: IPublicTypeComponentMetadata = {
     "package": "@appthen/antd-pro",
     "version": "1.0.0-rc.37",
     "exportName": "ProConfigProvider",
-    "main": "src/index.tsx",
+    "main": "",
     "destructuring": true,
     "subName": ""
   },

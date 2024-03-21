@@ -13,7 +13,7 @@ const ProLayoutMeta: ComponentMetadata = {
     "package": "@appthen/antd-pro",
     "version": "1.0.0-rc.30",
     "exportName": "ProLayout",
-    "main": "src/index.tsx",
+    "main": "",
     "destructuring": true,
     "subName": ""
   },

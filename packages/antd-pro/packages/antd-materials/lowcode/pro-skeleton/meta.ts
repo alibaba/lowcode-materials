@@ -13,7 +13,7 @@ const ProSkeletonMeta: IPublicTypeComponentMetadata = {
     "package": "@appthen/antd-pro",
     "version": "1.0.0-rc.32",
     "exportName": "ProSkeleton",
-    "main": "src/index.tsx",
+    "main": "",
     "destructuring": true,
     "subName": ""
   },

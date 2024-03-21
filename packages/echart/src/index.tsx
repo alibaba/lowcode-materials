@@ -1,12 +1,8 @@
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { createElement } from 'react';
 import * as echarts from 'echarts';
 
 import EChart from 'echarts-for-react';
-
-import ChinaDataset from './china.json';
-
 
 interface EChartsProps {
   option?: Record<string, any>;
@@ -15,17 +11,18 @@ interface EChartsProps {
   advanced?: boolean;
 }
 
-export class ECharts extends React.Component<EChartsProps, {
-  init: boolean;
-}> {
-  private chartRef =  React.createRef<ECharts>();
+export class ECharts extends React.Component<
+  EChartsProps,
+  {
+    init: boolean;
+  }
+> {
+  private chartRef = React.createRef<ECharts>();
   private chart: ECharts | null = null;
 
   state = {
     init: false,
   };
-
-
 
   componentDidMount(): void {
     // @ts-ignore
@@ -41,18 +38,14 @@ export class ECharts extends React.Component<EChartsProps, {
 
   render(): React.ReactNode {
     const { init } = this.state;
-    const { advanced,option,mapName,mapData, ...props } = this.props;
+    const { advanced, option, mapName, mapData, ...props } = this.props;
     if (!init) return null;
 
-    if (mapName && mapData){
-      echarts.registerMap(mapName,mapData);
+    if (mapName && mapData) {
+      echarts.registerMap(mapName, mapData);
     }
 
-
-    return (
-
-      <div>
-      {advanced ? (      
+    return advanced ? (
       <EChart
         // ref={(echart) => {
         //   this.chart = echart;
@@ -65,8 +58,8 @@ export class ECharts extends React.Component<EChartsProps, {
         // option={this.chartOption}
         {...props}
       />
-      ) : (
-        <EChart
+    ) : (
+      <EChart
         // ref={(echart) => {
         //   this.chart = echart;
         // }}
@@ -78,10 +71,6 @@ export class ECharts extends React.Component<EChartsProps, {
         // option={this.chartOption}
         {...props}
       />
-      )}
-    </div>
-
-
-    )
+    );
   }
 }

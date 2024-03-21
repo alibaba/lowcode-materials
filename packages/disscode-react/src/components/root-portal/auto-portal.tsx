@@ -80,7 +80,7 @@ export const removePortal = (id: string) => {
   });
 };
 
-const portalRef = {
+export const portalRef = {
   componentMap: {},
 };
 

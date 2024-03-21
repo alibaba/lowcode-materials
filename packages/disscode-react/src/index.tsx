@@ -8,6 +8,8 @@ import {
 import { configure } from 'mobx';
 import React from 'react';
 
+import { portalRef } from './components/root-portal/auto-portal';
+
 export { default as AtAvatar } from './components/avatar'
 export { default as AtBadge } from './components/badge'
 // export { default as AtDrawer } from './components/drawer'
@@ -71,6 +73,12 @@ export const Canvas = TCanvas;
 export const RichText = TRichText;
 
 export { addPortal, removePortal, registerPartalComponent, showComponentModal, renderComponentPortal, renderComponent } from './components/root-portal/auto-portal';
+
+export const getComponent = (componentName: string) => {
+  const PartalComponent = portalRef.componentMap[componentName];
+  if (!PartalComponent) throw new Error(`${componentName} is not registered`);
+  return PartalComponent;
+};
 
 export { event } from './utils/event';
 

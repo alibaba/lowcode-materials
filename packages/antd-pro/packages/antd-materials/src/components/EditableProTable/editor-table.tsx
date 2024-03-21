@@ -92,8 +92,8 @@ class EditableProTable extends Component<EditableProTableProps, any> {
     const { selectedRowKeys, collapsed } = this.state
 
 
-    if (this.props?.rowKey){
-    recordCreatorProps?.record[this.props?.rowKey] = (Math.random() * 10000000).toFixed(0)
+    if (this.props?.rowKey && recordCreatorProps.record){
+      recordCreatorProps.record[this.props?.rowKey] = (Math.random() * 10000000).toFixed(0)
     }
 
     console.log("recordCreatorProps",recordCreatorProps)

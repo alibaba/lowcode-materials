@@ -1,6 +1,6 @@
 {
-  "library": "LowcodeEcharts",
-  "sourceMap": true,
+  "library": "AppthenEcharts",
+  "sourceMap": false,
   "alias": {
     "@": "./src"
   },
