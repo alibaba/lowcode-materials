@@ -230,11 +230,21 @@ export default {
             }
           },
           {
+            name: 'showMessage',
+            title: '是否自定义错误信息提示',
+            propType: 'bool',
+            setter: 'BoolSetter',
+          },
+          {
             name: 'message',
             title: '错误信息提示',
             propType: 'string',
             setter: 'StringSetter',
-            supportVariable: true
+            supportVariable: true,
+            condition: {
+              type: 'JSFunction',
+              value: 'target => !!target.getProps().getPropValue("requiredobj")?.showMessage',
+            },
           },
         ],
       },

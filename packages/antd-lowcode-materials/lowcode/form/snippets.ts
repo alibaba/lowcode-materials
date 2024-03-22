@@ -77,6 +77,7 @@ export default [
             "valuePropName": "value",
             "requiredobj": {
               "required": null,
+              "showMessage":false,
               "message": null
             },
             "typeobj": {
