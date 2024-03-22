@@ -52,7 +52,12 @@ class Form extends Component<any, any> {
   const { name, requiredobj, typeobj, patternobj, lenobj, validator } = props;
 
   const rules = [];
+
   if (requiredobj && requiredobj.required) {
+    if (!requiredobj.showMessage) {
+      delete requiredobj.message;
+    }
+    delete requiredobj.showMessage;
     rules.push(requiredobj);
   }
   if (typeobj && typeobj.type) {
