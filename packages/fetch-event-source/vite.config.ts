@@ -7,7 +7,7 @@ export default defineConfig({
       entry: './src/*.ts',
       fileName: (format) => `index.${format}.js`,
       name: 'FetchEventSource',
-      formats: ["cjs", "umd"]
+      formats: ["cjs", "umd", 'es']
     },
     rollupOptions: {
       input: {

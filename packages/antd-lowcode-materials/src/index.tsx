@@ -136,10 +136,10 @@ export { default as Cascader } from './components/cascader';
 export { default as AutoComplete } from './components/auto-complete';
 
 
-export { default as customNav } from './components/custom-nav-menu';
+export { default as CustomNav } from './components/custom-nav-menu';
 
 
-export { default as customTree } from './components/custom-tree';
+export { default as CustomTree } from './components/custom-tree';
 
 
 export { default as CustomTreeSelect } from './components/custom-tree-select';

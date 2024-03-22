@@ -1,6 +1,6 @@
 {
   "name": "@appthen/antd",
-  "version": "5.14.0.2",
+  "version": "5.14.3",
   "description": "Antd for AppThen",
   "main": "lib/index.js",
   "scripts": {
@@ -78,7 +78,7 @@
     "react-dom": "^16.x"
   },
   "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@appthen/antd@5.14.0.2/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@appthen/antd@5.14.3/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
   "exports": {
@@ -98,5 +98,5 @@
   "resolutions": {
     "webpack": "^4.46.x"
   },
-  "homepage": "https://unpkg.com/@appthen/antd@1.0.2/build/index.html"
+  "homepage": "https://unpkg.com/@appthen/antd@5.14.3/build/index.html"
 }

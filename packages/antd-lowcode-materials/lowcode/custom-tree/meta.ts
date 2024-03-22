@@ -2,7 +2,7 @@ import snippets from './snippets';
 
 export default {
   snippets,
-  componentName: 'customTree',
+  componentName: 'CustomTree',
   title: '高级树形控件',
   category: '数据展示',
   props: [

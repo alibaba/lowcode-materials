@@ -74,8 +74,7 @@
           "conditionGroup": "",
           "children": [
             {
-              "componentName": "customNav",
-              "id": "node_oclqvzd6j51",
+              "componentName": "CustomNav",
               "props": {
                 "items": [
                   {

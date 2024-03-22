@@ -5,7 +5,7 @@ const snippets = [
     "title": "高级菜单",
     screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/menu-1.jpg',
     "schema": {
-      "componentName": "customNav",
+      "componentName": "CustomNav",
       "props": {
         items: [{
           "key": "1",
@@ -38,7 +38,7 @@ const snippets = [
 
 export default {
   snippets,
-  "componentName": "customNav",
+  "componentName": "CustomNav",
   "title": "高级菜单",
   "docUrl": "",
   screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/menu-1.jpg',
