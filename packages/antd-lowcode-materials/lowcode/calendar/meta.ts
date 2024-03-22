@@ -45,10 +45,20 @@ export default {
     //   propType: 'object',
     // },
     {
+      name:'showMode',
+      title:{label:"是否默认模式"},
+      setter:'BoolSetter',
+      defaultValue: false,
+    },
+    {
       name: 'mode',
       title: { label: '初始模式', tip: '初始模式' },
       propType: { type: 'oneOf', value: ['month', 'year'] },
       defaultValue: 'month',
+      condition: {
+        type: 'JSFunction',
+        value: 'target => !!target.getProps().getPropValue("showMode")',
+      },
     },
     // {
     //   name: 'monthCellRender',
