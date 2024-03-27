@@ -691,6 +691,20 @@ const EChartsMeta: IPublicTypeComponentMetadata = {
                         "title": {
                           "label": {
                             "type": "i18n",
+                            "en-US": "smooth",
+                            "zh-CN": "折线平滑曲线"
+                          }
+                        },
+                        "name": "smooth",
+                        initialValue: false,
+                        "setter": {
+                          "componentName": "BoolSetter",
+                        }
+                      },
+                      {
+                        "title": {
+                          "label": {
+                            "type": "i18n",
                             "en-US": "encode",
                             "zh-CN": "维度编码"
                           }
