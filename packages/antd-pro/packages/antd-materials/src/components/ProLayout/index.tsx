@@ -1,14 +1,14 @@
-import { ProLayout , SettingDrawer } from '@ant-design/pro-components';
-import { ProConfigProvider } from '@ant-design/pro-provider';
-import React, { useState } from 'react';
+import { ProLayout, SettingDrawer } from '@ant-design/pro-components'
+import { ProConfigProvider } from '@ant-design/pro-provider'
+import React, { useState } from 'react'
 
-import type { ProSettings } from '@ant-design/pro-components';
+import { ProSettings } from '@ant-design/pro-components'
 
-
-export default (props) => {
-  const [pathname, setPathname] = useState(props?.location?.pathname);
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(props?.settingsdata || {
-  });
+export default props => {
+  const [pathname, setPathname] = useState(props?.location?.pathname)
+  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(
+    props?.settingsdata || {}
+  )
 
   const content = () => {
     return props?.content
@@ -17,17 +17,17 @@ export default (props) => {
   return (
     <ProConfigProvider dark={props?.dark}>
       <ProLayout
-                  prefixCls="my-prefix"
+        prefixCls="my-prefix"
         {...props}
         {...settings}
         splitMenus
         location={{
-          pathname,
+          pathname
         }}
         menuItemRender={(item, dom) => (
           <a
             onClick={() => {
-              setPathname(item.path || '/welcome');
+              setPathname(item.path || '/welcome')
             }}
           >
             {dom}
@@ -39,13 +39,13 @@ export default (props) => {
           <SettingDrawer
             pathname={pathname}
             settings={settings}
-            onSettingChange={(changeSetting) => {
-              setSetting(changeSetting);
+            onSettingChange={changeSetting => {
+              setSetting(changeSetting)
             }}
             // disableUrlParams={false}
           />
         )}
       </ProLayout>
     </ProConfigProvider>
-  );
-};
+  )
+}
