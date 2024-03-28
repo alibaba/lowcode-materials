@@ -143,7 +143,7 @@ const LightFilterMeta = {
 const snippets = [
   {
     "title": "查询请求",
-    "screenshot": "https://cdn.disscode.com/assets/disscode-search%20(1).svg",
+    "screenshot": "https://cdn.appthen.com/assets/disscode-search%20(1).svg",
     "schema": {
       "componentName": "LightFilter",
       "props": {

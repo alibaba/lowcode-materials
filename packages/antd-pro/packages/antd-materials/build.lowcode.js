@@ -65,12 +65,12 @@ module.exports = {
                   
                 //   'https://cdn.scredit.sg/th/seada/live/antd-lowcode-materials@1.0.7/lowcode/view.js',
                 //   'https://cdn.scredit.sg/th/seada/live/antd-lowcode-materials@1.0.7/lowcode/view.css'
-                `https://cdn.disscode.com/material/118158/@discode/antd/0.0.5/view.js`,
-`https://cdn.disscode.com/material/118158/@discode/antd/0.0.5/view.css`
+                `https://cdn.appthen.com/material/118158/@discode/antd/0.0.5/view.js`,
+`https://cdn.appthen.com/material/118158/@discode/antd/0.0.5/view.css`
                 ],
                 editUrls: [
-                  `https://cdn.disscode.com/material/118158/@discode/antd/1.0.0/view.js`,
-                  `https://cdn.disscode.com/material/118158/@discode/antd/1.0.0/view.css`
+                  `https://cdn.appthen.com/material/118158/@discode/antd/1.0.0/view.js`,
+                  `https://cdn.appthen.com/material/118158/@discode/antd/1.0.0/view.css`
                 ]
               }
             ],
@@ -82,10 +82,10 @@ module.exports = {
                   version: '1.0.7'
                 },
                 // url: 'https://cdn.scredit.sg/th/seada/live/antd-lowcode-materials@1.0.7/lowcode/meta.js',
-                url:`https://cdn.disscode.com/material/118158/@discode/antd/1.0.0/meta.js`,
+                url:`https://cdn.appthen.com/material/118158/@discode/antd/1.0.0/meta.js`,
                 urls: {
                   default:
-                    'https://cdn.disscode.com/material/118158/@discode/antd/1.0.0/meta.js'
+                    'https://cdn.appthen.com/material/118158/@discode/antd/1.0.0/meta.js'
                 }
               }
             ],
