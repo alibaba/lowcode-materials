@@ -477,9 +477,11 @@ export default {
   configure: {
     supports: {
       style: true,
+      className: true ,
       events: [
         {
           name: 'pagination.onChange',
+          description:"页码或 pageSize 改变的回调",
           template: 'onChange(page,pageSize,${extParams}){\n// 页码或 pageSize 改变的回调\n}',
         },
       ],

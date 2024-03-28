@@ -1,0 +1,11 @@
+body.dark {
+  /* 这里写暗色覆盖主题 */
+  .fusion-ui-segment {
+    transition: 0.3s background-color;
+    background-color: var(--color-fill1-1, $color-fill1-1);
+    &-handler {
+      transition: 0.3s background-color;
+      background-color: var(--color-line1-2, $color-line1-2);
+    }
+  }
+}

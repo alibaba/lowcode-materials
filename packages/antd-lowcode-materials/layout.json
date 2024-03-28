@@ -1,0 +1,310 @@
+{
+  "componentName": "Page",
+  "id": "node_oclqop29ah1",
+  "props": {},
+  "docId": "doclqop29ah",
+  "hidden": false,
+  "title": "",
+  "isLocked": false,
+  "condition": true,
+  "conditionGroup": "",
+  "state": {
+    "status": {
+      "type": "JSExpression",
+      "value": "false"
+    }
+  },
+  "methods": {
+    "testFunc": {
+      "type": "JSFunction",
+      "value": "function testFunc() {\n  console.log('test aliLowcode func');\n  return /*#__PURE__*/React.createElement(\"div\", {\n    className: \"test-aliLowcode-func\"\n  }, this.state.test);\n}",
+      "source": "function testFunc() {\n  console.log('test aliLowcode func');\n  return <div className=\"test-aliLowcode-func\">\n        {this.state.test}\n      </div>;\n}"
+    },
+    "onClick": {
+      "type": "JSFunction",
+      "value": "function onClick() {\n  this.setState({\n    status: !this.state.status\n  });\n}",
+      "source": "function onClick() {\n  this.setState({\n    status: !this.state.status\n  });\n}"
+    }
+  },
+  "lifeCycles": {},
+  "originCode": "class Page extends Component {\n  \n  state = {\n    status:false\n\n  }\n  \n  // 你可以在这里编写函数，并且与组件的事件进行绑定，支持JSX语法\n  testFunc() {\n    console.log('test aliLowcode func');\n    return (\n      <div className=\"test-aliLowcode-func\">\n        {this.state.test}\n      </div>\n    );\n  }\n  \n\n\tonClick(){\n\n    this.setState({\n      status:!this.state.status\n    })\n\t}\n}",
+  "css": "",
+  "children": [
+    {
+      "componentName": "Layout",
+      "id": "node_oclquzv8fz1",
+      "props": {
+        "prefixCls": "",
+        "suffixCls": "",
+        "rootClassName": "",
+        "hasSider": true,
+        "style": {
+          "height": "100vh"
+        }
+      },
+      "docId": "doclquzv8fz",
+      "hidden": false,
+      "title": "",
+      "isLocked": false,
+      "condition": true,
+      "conditionGroup": "",
+      "children": [
+        {
+          "componentName": "Layout.Sider",
+          "id": "node_oclqvz9hxd1",
+          "props": {
+            "collapsible": true,
+            "collapsedWidth": 50,
+            "defaultCollapsed": false,
+            "reverseArrow": false,
+            "width": "200",
+            "breakpoint": "xxl",
+            "theme": "dark",
+            "collapsed": {
+              "type": "JSExpression",
+              "value": "this.state.status",
+              "mock": false
+            }
+          },
+          "docId": "doclqvz9hxd",
+          "hidden": false,
+          "title": "",
+          "isLocked": false,
+          "condition": true,
+          "conditionGroup": "",
+          "children": [
+            {
+              "componentName": "CustomNav",
+              "props": {
+                "items": [
+                  {
+                    "key": "1",
+                    "label": "菜单项1",
+                    "children": [
+                      {
+                        "key": "1-1",
+                        "label": "子菜单项1"
+                      },
+                      {
+                        "key": "1-2",
+                        "label": "子菜单项2"
+                      }
+                    ]
+                  },
+                  {
+                    "key": "2",
+                    "label": "菜单项2"
+                  }
+                ],
+                "triggerSubMenuAction": "click",
+                "mode": "inline",
+                "theme": "dark",
+                "icon.name": "icon-tuichu",
+                "icon.url": [
+                  "//at.alicdn.com/t/font_1788044_0dwu4guekcwr.js",
+                  "//at.alicdn.com/t/font_1788592_a5xf2bdic3u.js"
+                ],
+                "icon": {
+                  "name": "icon-tuichu",
+                  "url": [
+                    "//at.alicdn.com/t/font_1788044_0dwu4guekcwr.js",
+                    "//at.alicdn.com/t/font_1788592_a5xf2bdic3u.js"
+                  ]
+                },
+                "forceSubMenuRender": false,
+                "inlineCollapsed": false,
+                "inlineIndent": 0,
+                "multiple": false,
+                "selectable": false,
+                "subMenuCloseDelay": 0,
+                "subMenuOpenDelay": 0
+              },
+              "docId": "doclqvzd7nt",
+              "hidden": false,
+              "title": "",
+              "isLocked": false,
+              "condition": true,
+              "conditionGroup": ""
+            }
+          ]
+        },
+        {
+          "componentName": "Layout",
+          "id": "node_oclqvz9hxd2",
+          "props": {
+            "hasSider": false
+          },
+          "docId": "doclqvz9hxd",
+          "hidden": false,
+          "title": "",
+          "isLocked": false,
+          "condition": true,
+          "conditionGroup": "",
+          "children": [
+            {
+              "componentName": "Layout.Header",
+              "id": "node_oclqvzd6j52",
+              "props": {
+                "style": {
+                  "backgroundColor": "#b8e986",
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "alignItems": "center"
+                }
+              },
+              "docId": "doclqvzd7nt",
+              "hidden": false,
+              "title": "",
+              "isLocked": false,
+              "condition": true,
+              "conditionGroup": "",
+              "children": [
+                {
+                  "componentName": "Icon",
+                  "id": "node_oclqw0q8ar1",
+                  "props": {
+                    "type": "SmileOutlined",
+                    "size": 20,
+                    "rotate": 0,
+                    "spin": false,
+                    "__events": {
+                      "eventDataList": [
+                        {
+                          "type": "componentEvent",
+                          "name": "onClick",
+                          "relatedEventName": "onClick"
+                        }
+                      ],
+                      "eventList": [
+                        {
+                          "name": "onClick",
+                          "disabled": true
+                        }
+                      ]
+                    },
+                    "onClick": {
+                      "type": "JSFunction",
+                      "value": "function(){return this.onClick.apply(this,Array.prototype.slice.call(arguments).concat([])) }"
+                    }
+                  },
+                  "docId": "doclqw0q8x5",
+                  "hidden": false,
+                  "title": "",
+                  "isLocked": false,
+                  "condition": true,
+                  "conditionGroup": ""
+                },
+                {
+                  "componentName": "Typography.Text",
+                  "id": "node_oclqw0q6vt3",
+                  "props": {
+                    "children": "header",
+                    "code": false,
+                    "delete": false,
+                    "disabled": false,
+                    "mark": false,
+                    "keyboard": false,
+                    "underline": false,
+                    "strong": false
+                  },
+                  "docId": "doclqw0q8x5",
+                  "hidden": false,
+                  "title": "",
+                  "isLocked": false,
+                  "condition": true,
+                  "conditionGroup": ""
+                }
+              ]
+            },
+            {
+              "componentName": "Layout.Content",
+              "id": "node_oclqvzd6j53",
+              "props": {
+                "style": {
+                  "paddingLeft": "10px",
+                  "paddingTop": "10px",
+                  "paddingRight": "10px",
+                  "paddingBottom": "10px",
+                  "backgroundColor": "#ffffff",
+                  "marginLeft": "10px",
+                  "marginTop": "10px",
+                  "marginRight": "10px",
+                  "marginBottom": "10px"
+                }
+              },
+              "docId": "doclqvzd7nt",
+              "hidden": false,
+              "title": "",
+              "isLocked": false,
+              "condition": true,
+              "conditionGroup": "",
+              "children": [
+                {
+                  "componentName": "Typography.Text",
+                  "id": "node_oclqw0q6vt1",
+                  "props": {
+                    "children": "content",
+                    "code": false,
+                    "delete": false,
+                    "disabled": false,
+                    "mark": false,
+                    "keyboard": false,
+                    "underline": false,
+                    "strong": false
+                  },
+                  "docId": "doclqw0q8x5",
+                  "hidden": false,
+                  "title": "",
+                  "isLocked": false,
+                  "condition": true,
+                  "conditionGroup": ""
+                }
+              ]
+            },
+            {
+              "componentName": "Layout.Footer",
+              "id": "node_oclqw0nslm1",
+              "props": {
+                "style": {
+                  "display": "flex",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "alignItems": "center"
+                }
+              },
+              "docId": "doclqw0nslm",
+              "hidden": false,
+              "title": "",
+              "isLocked": false,
+              "condition": true,
+              "conditionGroup": "",
+              "children": [
+                {
+                  "componentName": "Typography.Text",
+                  "id": "node_oclqw0q6vt2",
+                  "props": {
+                    "children": "Footer",
+                    "code": false,
+                    "delete": false,
+                    "disabled": false,
+                    "mark": false,
+                    "keyboard": false,
+                    "underline": false,
+                    "strong": false
+                  },
+                  "docId": "doclqw0q8x5",
+                  "hidden": false,
+                  "title": "",
+                  "isLocked": false,
+                  "condition": true,
+                  "conditionGroup": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

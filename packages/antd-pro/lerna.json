@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0-rc.30",
+  "useWorkspaces": true,
+  "npmClient": "yarn",
+  "npmClientArgs": ["--ignore-engines", "--no-package-lock"],
+  "command": {
+    "version": {
+      "forcePublish": true,
+      "exact": true,
+      "message": "chore(versions): 😊 publish %s"
+    }
+  }
+}

@@ -35,7 +35,7 @@ export default {
     // {
     //   name: 'expandIcon',
     //   title: { label: '自定义切换图标', tip: '自定义切换图标' },
-    //   propType: 'func',
+    //   propType: 'slot',
     // },
     {
       name: 'expandIconPosition',
@@ -199,6 +199,8 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"切换面板的回调",
+
           template: "onChange(${extParams}){\n// 切换面板的回调\nconsole.log('onChange');}",
         },
       ],

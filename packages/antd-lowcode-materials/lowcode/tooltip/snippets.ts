@@ -7,6 +7,12 @@ export default [
       props: {
         title: '提示内容',
       },
+      children: {
+        componentName: 'Button',
+        props: {
+          children: '文字提示',
+        },
+      },
     },
   },
 ];

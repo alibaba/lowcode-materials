@@ -13,69 +13,8 @@ export default {
       name: 'items',
       title: '菜单项',
       setter: {
-        componentName: 'ArraySetter',
-        props: {
-          itemSetter: {
-            componentName: 'ObjectSetter',
-            props: {
-              config: {
-                items: [
-                  {
-                    name: 'key',
-                    title: 'key',
-                    setter: 'StringSetter',
-                    initialValue: (val) => val || uuid(),
-                  },
-                  {
-                    name: 'children',
-                    title: '菜单名称',
-                    setter: 'StringSetter',
-                  },
-                  {
-                    name: 'category',
-                    title: {
-                      label: '类型',
-                      tip: '菜单项类型',
-                    },
-                    propType: {
-                      type: 'oneOf',
-                      value: ['Menu.Item', 'Menu.SubMenu', 'Menu.ItemGroup'],
-                    },
-                    setter: [
-                      {
-                        componentName: 'RadioGroupSetter',
-                        props: {
-                          options: [
-                            {
-                              title: 'Item',
-                              value: 'Menu.Item',
-                            },
-                            {
-                              title: 'SubMenu',
-                              value: 'Menu.SubMenu',
-                            },
-                            {
-                              title: 'ItemGroup',
-                              value: 'Menu.ItemGroup',
-                            },
-                          ],
-                        },
-                      },
-                      'VariableSetter',
-                    ],
-                  },
-                ],
-              },
-            },
-            initialValue: () => {
-              return {
-                key: 'item-' + uuid(),
-                category: 'Menu.Item',
-                children: '菜单名',
-              };
-            },
-          },
-        },
+        componentName: 'JsonSetter',
+
       },
       extraProps: itemsExtraProps,
     },
@@ -85,12 +24,18 @@ export default {
         label: '初始展开菜单项',
         tip: '初始展开的 SubMenu 菜单项 key 数组',
       },
-      propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'JsonSetter',
+
+      },
     },
     {
       name: 'defaultSelectedKeys',
       title: { label: '初始选中的菜单项', tip: '初始选中的菜单项 key 数组' },
-      propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'JsonSetter',
+
+      },
     },
     {
       name: 'forceSubMenuRender',
@@ -117,7 +62,28 @@ export default {
         label: '菜单类型',
         tip: '菜单类型，现在支持垂直、水平、和内嵌模式三种',
       },
+      defaultValue:'inline',
+
       propType: { type: 'oneOf', value: ['vertical', 'horizontal', 'inline'] },
+      setter: {
+        componentName: 'SelectSetter',
+        props: {
+          options: [
+            {
+              title: '垂直',
+              value: 'vertical',
+            },
+            {
+              title: '水平',
+              value: 'horizontal',
+            },
+            {
+              title: '内嵌',
+              value: 'inline',
+            }
+          ],
+        },
+      },
     },
     {
       name: 'multiple',
@@ -131,7 +97,10 @@ export default {
         label: '当前展开的菜单项',
         tip: '当前展开的 SubMenu 菜单项 key 数组',
       },
-      propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'JsonSetter',
+
+      },
     },
     {
       name: 'selectable',
@@ -142,7 +111,11 @@ export default {
     {
       name: 'selectedKeys',
       title: { label: '当前选中项', tip: '当前选中的菜单项 key 数组' },
-      propType: { type: 'arrayOf', value: 'string' },
+      // propType: { type: 'arrayOf', value: 'string' },
+      setter: {
+        componentName: 'JsonSetter',
+
+      },
     },
     {
       name: 'style',
@@ -169,6 +142,21 @@ export default {
       name: 'theme',
       title: { label: '主题颜色', tip: '主题颜色' },
       propType: { type: 'oneOf', value: ['light', 'dark'] },
+      setter: {
+        componentName: 'SelectSetter',
+        props: {
+          options: [
+            {
+              title: '正常模式',
+              value: 'light',
+            },
+            {
+              title: '黑色模式',
+              value: 'dark',
+            }
+          ],
+        },
+      },
     },
     {
       name: 'onClick',
@@ -190,6 +178,21 @@ export default {
         tip: '展开/关闭的触发行为',
       },
       propType: { type: 'oneOf', value: ['hover', 'click'] },
+      setter: {
+        componentName: 'SelectSetter',
+        props: {
+          options: [
+            {
+              title: '触摸',
+              value: 'hover',
+            },
+            {
+              title: '点击',
+              value: 'click',
+            }
+          ],
+        },
+      },
     },
     {
       name: 'onOpenChange',
@@ -213,21 +216,29 @@ export default {
       events: [
         {
           name: 'onClick',
+          description:"点击 MenuItem 调用此函数",
+
           template:
             "onClick({item,key,keyPath,domEvent},${extParams}){\n// 点击 MenuItem 调用此函数\nconsole.log('onClick',item,key,keyPath,domEvent);}",
         },
         {
           name: 'onDeselect',
+          description:"取消选中时调用",
+
           template:
             "onDeselect({item,key,keyPath,selectedKeys,domEvent},${extParams}){\n// 取消选中时调用，仅在 multiple 生效\nconsole.log('onDeselect',item,key,keyPath,selectedKeys,domEvent);}",
         },
         {
           name: 'onOpenChange',
+          description:"展开/关闭的回调",
+
           template:
             "onOpenChange(openKeys,${extParams}){\n// SubMenu 展开/关闭的回调\nconsole.log('onOpenChange',openKeys);}",
         },
         {
           name: 'onSelect',
+          description:"被选中时调用",
+
           template:
             "onSelect({item,key,keyPath,selectedKeys,domEvent},${extParams}){\n// 被选中时调用\nconsole.log('onSelect',item,key,keyPath,selectedKeys,domEvent);}",
         },

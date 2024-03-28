@@ -1,0 +1,51 @@
+#{$biz-css-prefix}common-operations {
+  &.operation-container {
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+
+    & > * {
+      margin-left: 10px;
+    }
+
+    & > *:first-child {
+      margin-left: 0;
+    }
+
+    &-operation-item + &-operation-item {
+      margin-left: 10px;
+    }
+
+    &.operation-align-left {
+      justify-content: flex-start;
+    }
+
+    &.operation-align-center {
+      justify-content: center;
+    }
+
+    &.operation-align-right {
+      justify-content: flex-end;
+    }
+
+    &.operation-fixed {
+      width: calc(100vw - var(--sidebar-width, 0px));
+
+      position: fixed;
+      padding: 15px;
+      z-index: 999;
+      box-shadow: 0 -4px 10px 0 rgba(74, 91, 109, 0.1);
+      background-color: #fff;
+      bottom: 0;
+      left: var(--sidebar-width, 0);
+    }
+    &.operation-absolute {
+      width: 100%;
+      padding: 15px;
+      position: absolute;
+      background-color: #fff;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}

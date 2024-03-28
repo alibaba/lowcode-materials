@@ -206,11 +206,15 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"页码或 pageSize 改变的回调",
+
           template:
             "onChange(page,pageSize,${extParams}){\n// 页码或 pageSize 改变的回调\nconsole.log('onChange',page,pageSize);}",
         },
         {
           name: 'onShowSizeChange',
+          description:"pageSize 变化的回调",
+
           template:
             "onShowSizeChange(current,size,${extParams}){\n// pageSize 变化的回调\nconsole.log('onShowSizeChange',current,size);}",
         },

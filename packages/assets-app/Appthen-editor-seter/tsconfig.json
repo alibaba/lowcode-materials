@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "ES6",
+    "target": "ES5",
+    "jsx": "react",
+    "allowJs": false,
+    "moduleResolution": "node",
+    "lib": ["DOM", "ES6"],
+    "noImplicitAny": false,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

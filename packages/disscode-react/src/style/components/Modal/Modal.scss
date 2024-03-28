@@ -1,0 +1,94 @@
+@import '../../function/px_function.scss';
+
+
+.cs-dialog {
+
+  &__mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+  }
+
+  &__container {
+    position: absolute;
+    transition: all 0.4s ease;
+    z-index: -1;
+  }
+
+  &--pop {
+    .cs-dialog__container {
+      top: 50%;
+      left: 50%;
+      transition: all 0.2s ease;
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+  }
+
+  &--fade {
+    .cs-dialog__container {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+  }
+
+  &--slide-top {
+    .cs-dialog__container {
+      top: 0;
+      left: 0;
+      transform: translate(0, -150%);
+    }
+  }
+  &--slide-bottom {
+    .cs-dialog__container {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: translate(0, 150%);
+    }
+  }
+  &--slide-left {
+    .cs-dialog__container {
+      left: 0;
+      top: 0;
+      bottom: 0;
+      transform: translate(-150%, 0);
+    }
+  }
+  &--slide-right {
+    .cs-dialog__container {
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transform: translate(150%, 0);
+    }
+  }
+
+  &--show {
+    > .cs-dialog__container {
+      transform: translate(0, 0);
+      z-index: 100;
+    }
+    > .cs-dialog__mask {
+      display: block;
+    }
+
+    &.cs-dialog--pop {
+      > .cs-dialog__container {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+    &.cs-dialog--fade {
+      > .cs-dialog__container {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+    }
+  }
+}

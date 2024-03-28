@@ -1,0 +1,23 @@
+@import '../../../../assets/scss/px_function.scss';
+
+.cs-radio-widget {
+  width: px(40);
+  height: px(40);
+  border-radius: px(20);
+  background-color: #ccc;
+
+  &--active {
+    background-color: #78a5ff;
+  }
+
+  &__icon {
+    width: px(24);
+    height: px(24);
+  }
+
+  &__radio {
+    width: px(16);
+    height: px(16);
+    border-radius: px(8);
+  }
+}

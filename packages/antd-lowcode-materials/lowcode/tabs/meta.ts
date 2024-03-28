@@ -27,6 +27,21 @@ export default {
                     supportVariable: true
                   },
                   {
+                    name: 'closeIcon',
+                    title: '自定义关闭图标',
+                    setter: 'SlotSetter',
+                  },
+                  {
+                    name: 'icon',
+                    title: '自定义图标',
+                    setter: 'SlotSetter',
+                  },
+                  {
+                    name: 'destroyInactiveTabPane',
+                    title: '隐藏销毁',
+                    setter: 'BoolSetter',
+                  },
+                  {
                     name: 'label',
                     title: '标题',
                     setter: 'StringSetter',
@@ -68,6 +83,7 @@ export default {
                       },
                     },
                   },
+
                 ],
               },
             },
@@ -246,11 +262,11 @@ export default {
       setter: 'StringSetter',
       supportVariable: true
     },
-    // {
-    //   name: 'activeKey',
-    //   title: { label: '当前激活tab面板', tip: '当前激活tab面板，注意配置了这个属性就需要自己处理点击切换' },
-    //   propType: 'string',
-    // },
+    {
+      name: 'activeKey',
+      title: { label: '当前激活tab面板', tip: '当前激活tab面板，注意配置了这个属性就需要自己处理点击切换' },
+      propType: 'string',
+    },
     {
       name: 'hideAdd',
       title: {
@@ -297,11 +313,42 @@ export default {
       setter: 'NumberSetter',
       supportVariable: true
     },
+    {
+      name: 'moreIcon',
+      title: { label: '折叠ICON', tip: '自定义折叠 icon	' },
+      propType: 'node',
+    },
+    {
+      name: 'destroyInactiveTabPane',
+      title: { label: '隐藏销毁', tip: '隐藏销毁结构' },
+      propType: 'bool',
+    },
     // {
     //   name: 'tabBarStyle',
     //   title: { label: 'tab bar的样式对象', tip: 'tab bar的样式对象' },
     //   propType: 'object',
     // },
+    {
+      name: 'tabBarStyle',
+      title: 'tab bar 的样式对象',
+      type: 'group',
+      extraProps: {
+        display: 'entry',
+      },
+      items: [
+        {
+          name: 'tabBarStyle',
+          title: {
+            label: '样式设置',
+            tip: 'tab bar 的样式对象	',
+          },
+          setter: 'StyleSetter',
+          extraProps: {
+            display: 'block',
+          },
+        },
+      ],
+    },
     {
       name: 'tabPosition',
       title: {
@@ -368,23 +415,30 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"切换面板的回调",
           template:
             "onChange(activeKey,${extParams}){\n// 切换面板的回调\nconsole.log('onChange',activeKey);}",
         },
         {
           name: 'onEdit',
+          description:"新增和删除页签的回调",
+
           template:
             "onEdit(targetKey,action,${extParams}){\n// 新增和删除页签的回调\nconsole.log('onEdit',targetKey,action);}",
         },
         {
           name: 'onTabClick',
+          description:"tab 被点击的回调",
+
           template:
             "onTabClick(key,event,${extParams}){\n// tab 被点击的回调\nconsole.log('onTabClick',key,event);}",
         },
         {
           name: 'onTabScroll',
+          description:"tab 滚动时触发",
+
           template:
-            "onTabScroll({direction},${extParams}){\n// tab 滚动时触\nconsole.log('onTabScroll',direction);}",
+            "onTabScroll({direction},${extParams}){\n// tab 滚动时触发\nconsole.log('onTabScroll',direction);}",
         },
       ],
     },

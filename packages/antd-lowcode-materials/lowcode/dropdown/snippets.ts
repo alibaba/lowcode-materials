@@ -8,30 +8,7 @@ export default [
         overlay: {
           type: 'JSSlot',
           value: [
-            {
-              componentName: 'Menu',
-              props: {
-                items: [
-                  {
-                    key: 'timeLinei5wd',
-                    category: 'Item',
-                    title: '菜单名',
-                  },
-                ],
-              },
-              children: [
-                {
-                  componentName: 'Menu.Item',
-                  id: 'node_ocky01yzdq3',
-                  props: {
-                    key: 'timeLinei5wd',
-                    category: 'Item',
-                    title: '菜单名',
-                    children: '菜单名',
-                  },
-                },
-              ],
-            },
+
           ],
         },
       },
@@ -46,7 +23,7 @@ export default [
                 {
                   componentName: 'Typography.Text',
                   props: {
-                    children: 'Hover me',
+                    children: '下拉按钮',
                     style: {
                       color: 'inherit',
                     },

@@ -299,21 +299,29 @@ export default {
       events: [
         {
           name: 'onFinish',
+          description:"提交表单且数据验证成功后回调事件",
+
           template:
             "onFinish(values,${extParams}){\n// 提交表单且数据验证成功后回调事件\nconsole.log('onFinish',values);}",
         },
         {
           name: 'onFinishFailed',
+          description:"提交表单且数据验证失败后回调事件",
+
           template:
             "onFinishFailed({values,errorFields,outOfDate},${extParams}){\n// 提交表单且数据验证失败后回调事件\nconsole.log('onFinishFailed',values, errorFields, outOfDate);}",
         },
         {
           name: 'onFieldsChange',
+          description:"字段更新时触发回调事件",
+
           template:
             "onFieldsChange(changedFields,allFields,${extParams}){\n// 字段更新时触发回调事件\nconsole.log('onFieldsChange',changedFields,allFields);}",
         },
         {
           name: 'onValuesChange',
+          description:"字段值更新时触发回调事件",
+
           template:
             "onValuesChange(changedValues,allValues,${extParams}){\n// 字段值更新时触发回调事件\nconsole.log('onValuesChange',changedValues,allValues);}",
         },

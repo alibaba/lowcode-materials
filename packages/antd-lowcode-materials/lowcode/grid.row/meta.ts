@@ -102,6 +102,6 @@ export default {
   ],
   configure: {
     component: { isContainer: true, nestingRule: { childWhitelist: ['Col'] } },
-    supports: { style: true },
+    supports: { style: true,className: true  },
   },
 };

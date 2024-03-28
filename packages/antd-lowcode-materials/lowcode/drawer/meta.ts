@@ -395,11 +395,15 @@ export default {
       events: [
         {
           name: 'onClose',
+          description:"取消按钮的回调",
+
           template:
             "onClose(event,${extParams}){\n// 点击遮罩层或右上角叉或取消按钮的回调\nconsole.log('onClose',event);}",
         },
         {
           name: 'afterOpenChange',
+          description:"切换抽屉时动画结束后的回调",
+
           template:
             "afterOpenChange(open,${extParams}){\n// 切换抽屉时动画结束后的回调\nconsole.log('afterOpenChange',open);}",
         },

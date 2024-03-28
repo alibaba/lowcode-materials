@@ -1,0 +1,16 @@
+{
+  "library": "DiscodeEditorLibs",
+  "libraryTarget": "umd",
+  "sourceMap": true,
+  "alias": {
+    "@": "./src"
+  },
+  "plugins": [
+    [
+      "build-plugin-component",
+      {
+        "themePackage": "@alifd/theme-2"
+      }
+    ]
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "library": "AppthenEcharts",
+  "sourceMap": false,
+  "alias": {
+    "@": "./src"
+  },
+  "plugins": [
+    [
+      "build-plugin-component",
+      {
+        "themePackage": "@alifd/theme-2"
+      }
+    ]
+  ]
+}

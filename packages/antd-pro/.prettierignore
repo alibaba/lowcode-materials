@@ -1,0 +1,13 @@
+node_modules
+.umi
+.umi-production
+dist
+lib
+build
+umd
+es
+.cachefile
+deps.json
+package-lock.json
+yarn.lock
+miniapp/**/*.axml

@@ -1,0 +1,83 @@
+@import './theme-dark.scss';
+
+$fusion-ui-prefix: '.fusion-ui-menu';
+
+/* 这里写你漂亮的样式 */
+#{$fusion-ui-prefix} {
+  &.fusion-ui-ver {
+    padding: var(--s-2 $s-1, $s-2 $s-1);
+  }
+  #{$fusion-ui-prefix}-content {
+    position: relative;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none;
+  }
+  #{$fusion-ui-prefix}-item.fusion-ui-menu-item {
+    border-radius: var(--s-1, $s-1);
+    // 反选 hover 背景色覆盖
+    &.fusion-ui-selected {
+      background-color: var(--color-brand1-1, $color-brand1-1);
+
+      &:focus {
+        background-color: var(--color-brand1-1, $color-brand1-1);
+      }
+    }
+
+    .next-menu-item-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: var(--menu-font-size, 12px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      word-wrap: normal;
+      line-height: var(--menu-line-height, 32px);
+
+      #{$fusion-ui-prefix}-item-header {
+        flex: 1 1 0;
+        display: flex;
+        align-items: center;
+        // 多选状态下设置为 flex，为放置左侧 icon
+        .next-checkbox {
+          margin-right: 8px;
+        }
+        // 文本超出显示为省略号
+        .next-menu-item-text {
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      #{$fusion-ui-prefix}-item-footer {
+        #{$fusion-ui-prefix}-icon-right {
+          color: var(--color-line1-4, $color-line1-4);
+        }
+      }
+    }
+  }
+
+  &-loading {
+    height: 160px;
+    width: 100%;
+  }
+
+  &-error {
+    height: 160px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-content {
+      text-align: center;
+
+      &-text {
+        font-size: var(--font-size-body-1, $font-size-body-1);
+        line-height: 1.5;
+        color: var(--color-text1-3, $color-text1-3);
+        margin-bottom: 8px;
+      }
+    }
+  }
+}

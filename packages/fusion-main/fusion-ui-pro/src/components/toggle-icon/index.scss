@@ -1,0 +1,28 @@
+@import './theme-dark.scss';
+
+.fusion-ui-toggle-icon-group {
+  display: flex;
+  gap: var(--s-1, $s-1);
+  background-color: var(--color-fill1-2, $color-fill1-2);
+  border-radius: var(--s-1, $s-1);
+  padding: 2px $s-2;
+}
+
+.fusion-ui-toggle-icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: var(--s-7, $s-7);
+  height: var(--s-7, $s-7);
+  border-radius: var(--corner-2, $corner-2);
+  background-color: var(--color-fill1-2, $color-fill1-2);
+  &:hover {
+    background-color: #e6e8eb;
+    color: var(--color-brand1-6, $color-brand1-6);
+  }
+  &--active {
+    color: var(--color-brand1-6, $color-brand1-6);
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "name": "@appthen/echarts",
+  "version": "5.30.4",
+  "description": "@appthen/echarts",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "exports": {
+    "./*": "./*",
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./prototype": {
+      "require": "./lowcode_lib/meta.js",
+      "import": "./lowcode_es/meta.js"
+    },
+    "./prototypeView": {
+      "require": "./lowcode_lib/view.js",
+      "import": "./lowcode_es/view.js"
+    }
+  },
+  "typings": "types/index.d.ts",
+  "files": [
+    "build/",
+    "dist/",
+    "lib/",
+    "es/",
+    "types/",
+    "lowcode/",
+    "lowcode_lib/",
+    "lowcode_es/"
+  ],
+  "scripts": {
+    "build": "build-scripts build",
+    "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
+    "lowcode:build": "build-scripts build --config ./build.lowcode.js",
+    "f2elint-scan": "f2elint scan",
+    "f2elint-fix": "f2elint fix",
+    "prepublishOnly": "npm run build && npm run lowcode:build"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "appthen",
+    "echarts"
+  ],
+  "author": "appthen-team",
+  "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "f2elint commit-file-scan",
+      "commit-msg": "f2elint commit-msg-scan"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,vue}": "f2elint exec eslint",
+    "**/*.{css,scss,less,acss}": "f2elint exec stylelint"
+  },
+  "peerDependencies": {
+    "moment": "latest",
+    "react": "^16.x",
+    "react-dom": "^16.x"
+  },
+  "devDependencies": {
+    "@alib/build-scripts": "^0.1.3",
+    "@alifd/build-plugin-lowcode": "^0.4.0",
+    "@alifd/theme-2": "^0.4.0",
+    "@alilc/lowcode-react-renderer": "^1.2.3",
+    "@alilc/lowcode-utils": "^1.2.3",
+    "@types/react": "^16.14.24",
+    "@types/react-dom": "^16.9.4",
+    "@umijs/plugin-sass": "^1.1.1",
+    "antd": "5.9.0",
+    "build-plugin-component": "^1.12.1",
+    "build-plugin-fusion": "^0.1.0",
+    "cross-env": "^7.0.3",
+    "dumi": "^1.1.49",
+    "dumi-theme-default": "^1.1.24",
+    "f2elint": "^1.2.0",
+    "lodash": "^4.17.21",
+    "style-loader": "^1.3.0"
+  },
+  "dependencies": {
+    "@alifd/next": "^1.25.27",
+    "antd-token-previewer": "^2.0.5",
+    "echarts": "^5.4.3",
+    "echarts-for-react": "^3.0.2",
+    "echarts-taro3-react": "^1.0.13",
+    "moment": "^2.29.4",
+    "prop-types": "^15.5.8",
+    "react": "^16.x",
+    "react-dom": "^16.x",
+    "@babel/runtime": "^7.0.0"
+  },
+  "acceptDependencies": {
+    "webpack": "^4.46.x"
+  },
+  "resolutions": {
+    "webpack": "^4.46.x"
+  },
+  "componentConfig": {
+    "isComponentLibrary": true,
+    "materialSchema": "https://unpkg.com/@appthen/echarts@5.30.4/build/lowcode/assets-prod.json"
+  },
+  "lcMeta": {
+    "type": "component"
+  },
+  "homepage": "https://unpkg.com/@appthen/echarts@5.30.4/build/index.html"
+}

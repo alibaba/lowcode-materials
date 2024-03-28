@@ -1,0 +1,28 @@
+{
+  "library": "BizComps",
+  "libraryTarget": "umd",
+  "sourceMap": true,
+  "alias": {
+    "@": "./src/components"
+  },
+  "plugins": [
+    ["build-plugin-component-multiple", {
+      "themePackage": "@alifd/theme-2"
+    }]
+  ],
+  
+  "webpackLoaders": {
+    "css": {
+      "test": ".css$",
+      "loaders": {
+        "style-loader": {
+          "options": {
+            "loaderoption": true
+          },
+          "before": "less-loader"
+        }
+      }
+    }
+  }
+  
+}

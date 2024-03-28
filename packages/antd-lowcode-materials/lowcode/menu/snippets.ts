@@ -6,14 +6,26 @@ export default [
       componentName: 'Menu',
       props: {
         mode: 'inline',
-        defaultSelectedKeys: ['1'],
-        defaultOpenKeys: ['sub1'],
+        SelectedKeys: ['1'],
         theme: 'dark',
-        items: [
+        items:  [
           {
-            key: 'item-i5wd',
-            category: 'Menu.Item',
-            children: '菜单名',
+            key: '1',
+            label: '菜单项1',
+            children: [
+              {
+                key: '1-1',
+                label: '子菜单项1',
+              },
+              {
+                key: '1-2',
+                label: '子菜单项2',
+              },
+            ],
+          },
+          {
+            key: '2',
+            label: '菜单项2',
           },
         ],
       },

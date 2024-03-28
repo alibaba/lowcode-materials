@@ -7,13 +7,18 @@ export default {
   category: '数据展示',
   props: [
     {
-      name: 'src',
+      name: 'url',
       title: { label: '图片地址', tip: '图片地址' },
-      propType: { type: 'string', isRequired: true },
+      propType: { type: 'string' },
     },
     {
-      name: 'alt',
-      title: { label: '替换文本', tip: '替换文本' },
+      name: 'src',
+      title: { label: '图片描述', tip: '图片描述' },
+      propType: { type: 'string' },
+    },
+    {
+      name: 'fallback	',
+      title: { label: '容错地址', tip: '加载失败容错地址	' },
       propType: 'string',
     },
     {
@@ -23,9 +28,9 @@ export default {
       propType: 'bool',
     },
     {
-      name: 'fallback',
-      title: { label: '失败地址', tip: '加载失败容错地址' },
-      propType: 'string',
+      name: 'placeholder',
+      title: { label: '加载占位', tip: '加载占位，为 true 时使用默认占位	' },
+      propType: 'bool',
     },
     {
       name: 'width',
@@ -38,5 +43,10 @@ export default {
       propType: 'number',
     },
   ],
-  configure: { supports: { style: true } },
+  configure: { supports: { style: true },
+  className:true,events:[
+    'onError'
+  ]
+
+},
 };

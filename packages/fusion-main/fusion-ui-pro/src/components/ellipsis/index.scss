@@ -1,0 +1,26 @@
+@import './theme-dark.scss';
+
+/* 这里写你漂亮的样式 */
+.fusion-ui-ellipsis {
+  white-space: nowrap;
+  display: flex;
+  &-header {
+    flex: 1 1 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &-footer {
+    flex-shrink: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.fusion-ui-text-clip {
+  display: inline-flex;
+  &-inner {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

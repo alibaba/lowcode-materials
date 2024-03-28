@@ -135,16 +135,16 @@ export default {
                     value: 'dashed',
                   },
                   {
-                    title: '危险按钮',
-                    value: 'danger',
-                  },
-                  {
-                    title: '链接按钮',
-                    value: 'link',
+                    title: '默认按钮',
+                    value: 'default',
                   },
                   {
                     title: '类文本按钮',
                     value: 'text',
+                  },
+                  {
+                    title: '链接按钮',
+                    value: 'link',
                   },
                 ],
               },
@@ -217,20 +217,20 @@ export default {
           propType: 'node',
           setter: {
             componentName: 'SlotSetter',
-            initialValue: {
-              type: 'JSSlot',
-              value: [
-                {
-                  componentName: 'Icon',
-                  props: {
-                    type: 'SmileOutlined',
-                    size: 20,
-                    rotate: 0,
-                    spin: false,
-                  },
-                },
-              ],
-            },
+            // initialValue: {
+            //   type: 'JSSlot',
+            //   value: [
+            //     {
+            //       componentName: 'Icon',
+            //       props: {
+            //         type: 'SmileOutlined',
+            //         size: 20,
+            //         rotate: 0,
+            //         spin: false,
+            //       },
+            //     },
+            //   ],
+            // },
           },
         },
         {
@@ -290,11 +290,14 @@ export default {
       events: [
         {
           name: 'onClick',
+          description:"点击按钮时的回调",
           template:
             "onClick(event,${extParams}){\n// 点击按钮时的回调\nconsole.log('onClick', event);}",
         },
       ],
       style: true,
+      className: true,
+
     },
   },
   snippets,

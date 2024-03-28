@@ -1,0 +1,44 @@
+#{$biz-css-prefix}subForm-child-form {
+  &.one-column {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  background: #f5f5f5;
+  border-radius: 6px;
+  background-color: #f5f5f5;
+  padding: var(--s-4 $s-4 0 $s-4, $s-4 $s-4 0 $s-4);
+  margin-bottom: var(--s-4, $s-4);
+  &.empty-content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+}
+
+#{$biz-css-prefix}independent-child-form {
+  &.one-column {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .next-number-picker {
+    .next-input-control {
+      padding-right: 0 !important;
+    }
+  }
+
+  .next-form-item-label label[required]:before {
+    margin-right: 0;
+    content: '';
+  }
+  .next-form-item-label label[required]:after {
+    margin-left: 4px;
+    content: '*';
+    color: #ff3000;
+  }
+  &.empty-content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+}

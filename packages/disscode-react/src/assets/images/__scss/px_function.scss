@@ -1,0 +1,5 @@
+@use 'sass:math';
+
+@function px($px) {
+  @return #{calc($px / 2)}px;
+}

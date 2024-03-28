@@ -1,0 +1,37 @@
+.fusion-ui-pro-table {
+  .fusion-ui-pagination {
+    padding: var(--s-4 0 0, $s-4 0 0);
+    display: flex;
+    justify-content: flex-end;
+  }
+  &.fullscreen {
+    padding: var(--s-5 $s-5 0, $s-5 $s-5 0);
+    background: var(--color-white, $color-white);
+    overflow-y: auto;
+    .fusion-ui-pagination {
+      box-sizing: border-box;
+      position: sticky;
+      bottom: 0;
+      background-color: var(--color-white, $color-white);
+      border-radius: var(--corner-2, $corner-2);
+      z-index: 9;
+    }
+  }
+  &-expanded-child {
+    padding: var(--s-5 $s-5 $s-2 $s-5, $s-5 $s-5 $s-2 $s-5);
+    background-color: var(--color-fill1-2, $color-fill1-2);
+  }
+}
+
+.fusion-ui-pro-table-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4, $s-4);
+  .fusion-ui-pro-table-action-bar {
+    margin: 0;
+  }
+}
+
+.fusion-ui-pro-table-content {
+  position: relative;
+}

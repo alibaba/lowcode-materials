@@ -1,0 +1,68 @@
+////
+/// @module menu-button: 菜单按钮
+/// @tag MenuButton
+/// @category component
+/// @family general
+/// @varPrefix $menu-btn-
+/// @classPrefix {prefix}-menu-btn
+////
+
+// menu-button variables
+// --------------------------------------------------
+
+// prefix
+$menu-btn-prefix: '.fusion-ui-menu-btn';
+
+/// icon
+/// @namespace statement/disabled
+$menu-btn-disabled-icon-color: var(--color-text1-1, $color-text1-1) !default;
+
+/// ghost icon
+$menu-btn-ghost-light-disabled-icon-color: var(
+  --btn-ghost-light-color-disabled,
+  $btn-ghost-light-color-disabled
+) !default;
+
+/// ghost icon
+$menu-btn-ghost-dark-disabled-icon-color: var(
+  --btn-ghost-dark-color-disabled,
+  $btn-ghost-dark-color-disabled
+) !default;
+
+/// icon
+/// @namespace statement/normal
+$menu-btn-pure-text-normal-icon-color: var(--color-text1-2, $color-text1-2) !default;
+
+/// icon
+/// @namespace statement/normal
+$menu-btn-pure-text-primary-icon-color: var(--color-white, $color-white) !default;
+
+/// icon
+/// @namespace statement/normal
+$menu-btn-pure-text-secondary-icon-color: var(--color-brand1-6, $color-brand1-6) !default;
+
+/// icon
+/// @namespace statement/normal
+$menu-btn-text-text-normal-icon-color: var(--color-text1-4, $color-text1-4) !default;
+
+/// icon
+/// @namespace statement/primary
+$menu-btn-text-text-primary-icon-color: var(--color-link-1, $color-link-1) !default;
+
+/// icon
+/// @namespace statement/light
+$menu-btn-ghost-light-icon-color: var(--color-text1-4, $color-text1-4) !default;
+
+/// icon
+/// @namespace statement/dark
+$menu-btn-ghost-dark-icon-color: var(--color-white, $color-white) !default;
+
+/// fold icon
+/// @namespace statement/normal
+/// @type icon
+$menu-btn-fold-icon-content: var(--icon-content-arrow-down, $icon-content-arrow-down) !default;
+
+/// unfold icon
+/// @namespace statement/normal
+/// @type icon
+$menu-btn-unfold-icon-content: var(--icon-reset, $icon-reset) !default;

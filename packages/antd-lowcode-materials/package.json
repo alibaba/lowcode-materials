@@ -1,73 +1,87 @@
 {
-  "name": "@alilc/antd-lowcode-materials",
-  "version": "1.2.2",
-  "description": "Antd for LowCode",
+  "name": "@appthen/antd",
+  "version": "5.14.3",
+  "description": "Antd for AppThen",
   "main": "lib/index.js",
   "scripts": {
+    "start": "npm run dumi",
     "build": "build-scripts build",
     "lowcode:dev": "build-scripts start --config ./build.lowcode.js",
     "lowcode:build": "build-scripts build --config ./build.lowcode.js",
+    "f2elint-scan": "f2elint scan",
+    "f2elint-fix": "f2elint fix",
+    "dumi": "cross-env APP_ROOT=docs dumi dev",
+    "dumi:build": "cross-env APP_ROOT=docs dumi build",
     "prepublishOnly": "npm run build && npm run lowcode:build"
   },
+  "directories": {
+    "test": "test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "f2elint commit-file-scan",
+      "commit-msg": "f2elint commit-msg-scan"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,vue}": "f2elint exec eslint",
+    "**/*.{css,scss,less,acss}": "f2elint exec stylelint"
+  },
+  "author": "appthen-team",
+  "keywords": [
+    "Antd"
+  ],
   "files": [
     "es/",
     "lib/",
     "dist/",
-    "build/",
-    "lowcode/",
-    "lowcode_lib/",
-    "lowcode_es/"
+    "build/"
   ],
   "devDependencies": {
-    "@alib/build-scripts": "^0.1.23",
-    "@alifd/build-plugin-lowcode": "^0.4.0",
-    "@ant-design/icons": "^4.7.0",
+    "@alib/build-scripts": "^0.1.3",
+    "@alifd/build-plugin-lowcode": "^0.3.0",
+    "@alilc/lowcode-react-renderer": "^1.2.2",
+    "@alilc/lowcode-utils": "^1.2.2",
+    "@ant-design/icons": "^5.2.6",
     "@types/lodash": "^4.14.181",
-    "@types/react": "^18.0.1",
-    "@types/react-dom": "^18.0.0",
-    "build-plugin-component": "^1.10.0",
+    "@types/react": "^16.9.13",
+    "@types/react-dom": "^16.9.4",
+    "build-plugin-component": "^1.0.0",
+    "build-plugin-fusion": "^0.1.0",
     "build-plugin-moment-locales": "^0.1.0",
+    "f2elint": "^1.2.0",
     "lodash": "^4.17.21",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "style-loader": "^2.0.0",
+    "template-component-demo": "^2.0.3",
     "tsconfig-paths-webpack-plugin": "^3.3.0",
     "typescript": "^3.9.3",
     "yorkie": "^2.0.0"
   },
   "authors": [
     {
-      "name": "莫夭"
-    },
-    {
-      "name": "金禅"
+      "name": "charmtiger"
     }
   ],
   "dependencies": {
-    "@ant-design/icons": "^4.6.2",
-    "antd": "^4.24.7",
-    "moment": "^2.29.1",
-    "@babel/runtime": "^7.0.0"
+    "@ant-design/icons": "^5.2.6",
+    "@babel/runtime": "^7.0.0",
+    "antd": "^5.14.0",
+    "antd-img-crop": "^4.18.0",
+    "antd-style": "^3.6.1",
+    "moment": "^2.29.1"
   },
   "peerDependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "moment": "latest",
+    "react": "^16.x",
+    "react-dom": "^16.x"
   },
   "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@alilc/antd-lowcode-materials@1.2.2/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@appthen/antd@5.14.3/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/@alilc/antd-lowcode-materials@1.2.2/build/index.html",
-  "repository": "https://github.com/alibaba/lowcode-materials.git",
   "exports": {
-    "./prototype": {
-      "require": "./lowcode_lib/meta.js",
-      "import": "./lowcode_es/meta.js"
-    },
-    "./prototypeView": {
-      "require": "./lowcode_lib/view.js",
-      "import": "./lowcode_es/view.js"
-    },
     "./*": "./*",
     ".": {
       "import": "./es/index.js",
@@ -76,5 +90,13 @@
   },
   "lcMeta": {
     "type": "component"
-  }
+  },
+  "typings": "types/index.d.ts",
+  "acceptDependencies": {
+    "webpack": "^4.46.x"
+  },
+  "resolutions": {
+    "webpack": "^4.46.x"
+  },
+  "homepage": "https://unpkg.com/@appthen/antd@5.14.3/build/index.html"
 }

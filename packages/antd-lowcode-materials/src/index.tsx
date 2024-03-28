@@ -2,8 +2,6 @@ export { Affix } from 'antd';
 
 export { Anchor } from 'antd';
 
-// export { AutoComplete } from 'antd';
-
 export { Alert } from 'antd';
 
 export { Avatar } from 'antd';
@@ -20,25 +18,15 @@ export { Collapse } from 'antd';
 
 export { Carousel } from 'antd';
 
-// export { Cascader } from 'antd';
-
-// export { Checkbox } from 'antd';
-
 export { Col } from 'antd';
-
-export { Comment } from 'antd';
 
 export { Descriptions } from 'antd';
 
 export { Divider } from 'antd';
 
-// export { Drawer } from 'antd';
-
 export { Empty } from 'antd';
 
 export { Grid } from 'antd';
-
-// export { Input } from 'antd';
 
 export { Image } from 'antd';
 
@@ -53,12 +41,11 @@ export { Menu } from 'antd';
 export { Mentions } from 'antd';
 
 // export { Modal } from 'antd';
+export { Watermark } from 'antd';
 
 export { Statistic } from 'antd';
 
 export { notification } from 'antd';
-
-export { PageHeader } from 'antd';
 
 export { Pagination } from 'antd';
 
@@ -68,15 +55,11 @@ export { default as Popover } from './components/popover';
 
 export { Progress } from 'antd';
 
-// export { Radio } from 'antd';
-
 export { Rate } from 'antd';
 
 export { Result } from 'antd';
 
 export { Row } from 'antd';
-
-// export { Skeleton } from 'antd';
 
 export { Space } from 'antd';
 
@@ -86,13 +69,12 @@ export { Steps } from 'antd';
 
 export { Switch } from 'antd';
 
+export { ColorPicker } from 'antd';
+export { QRCode } from 'antd';
+
 export { Transfer } from 'antd';
 
 export { Tree } from 'antd';
-
-// export { TreeSelect } from 'antd';
-
-// export { Tabs } from 'antd';
 
 export { Tag } from 'antd';
 
@@ -103,6 +85,11 @@ export { Tooltip } from 'antd';
 export { Typography } from 'antd';
 
 export { version } from 'antd';
+
+export { Tour } from 'antd';
+
+export { Segmented } from 'antd';
+
 
 export { default as Skeleton } from './components/skeleton';
 
@@ -147,3 +134,23 @@ export { default as Select } from './components/select'
 export { default as Cascader } from './components/cascader';
 
 export { default as AutoComplete } from './components/auto-complete';
+
+
+export { default as CustomNav } from './components/custom-nav-menu';
+
+
+export { default as CustomTree } from './components/custom-tree';
+
+
+export { default as CustomTreeSelect } from './components/custom-tree-select';
+
+export type { ImgCropProps } from 'antd-img-crop'
+
+export { default as ImgCrop } from 'antd-img-crop'
+
+export { Layout } from 'antd';
+
+
+// export { default as Layout } from './components/layout';
+
+

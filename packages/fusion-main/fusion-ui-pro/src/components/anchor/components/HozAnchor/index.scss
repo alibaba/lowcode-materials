@@ -1,0 +1,10 @@
+#{$biz-css-prefix}anchor-hoz-affix {
+  z-index: 99;
+}
+
+#{$biz-css-prefix}anchor-hoz {
+  padding: var(--s-4 $s-5, $s-4 $s-5);
+  margin-bottom: var(--s-5, $s-5);
+  background: var(--color-white, $color-white);
+  border-radius: var(--corner-2, $corner-2);
+}

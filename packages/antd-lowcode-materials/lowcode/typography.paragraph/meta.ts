@@ -114,5 +114,12 @@ export default {
       },
     },
   ],
-  configure: { supports: { style: true, events: ['onChange'] } },
+  configure: { supports: { style: true, events: [
+    {
+      name: 'onChange',
+                description:"变更回调函数",
+      template:
+        "onChange(affixed,${extParams}){\n// 固定状态变更回调函数\nconsole.log('onChange', affixed);}",
+    },
+  ] } },
 };

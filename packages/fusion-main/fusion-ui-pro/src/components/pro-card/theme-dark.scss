@@ -1,0 +1,27 @@
+body.dark {
+  .fusion-ui-card {
+    background-color: var(--color-fill1-1, $color-fill1-1);
+    &-header {
+      &__title {
+        color: var(--color-text1-4, $color-text1-4);
+      }
+    }
+    &-body {
+      color: var(--color-text1-3, $color-text1-3);
+    }
+    &-header {
+      &--collapsed {
+        border-color: var(--color-brand1-6, $color-brand1-6);
+        &:hover {
+          background-color: var(--color-fill1-1, $color-fill1-1);
+        }
+      }
+    }
+    .fusion-ui-card-grid > .fusion-ui-card-section {
+      background-color: var(--color-fill1-1, $color-fill1-1);
+    }
+    .fusion-ui-card-section-header__title::before {
+      background: var(--color-brand1-6, $color-brand1-6);
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "lowcode-setter-@Appthen/editorSeter",
+  "author": "limanman",
+  "version": "1.0.0",
+  "description": "@Appthen/editorSeter",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "README": "README.md",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "build-scripts start",
+    "build": "build-scripts build",
+    "prepublishOnly": "npm run build",
+    "beta": "npm publish --tag beta",
+    "pub": "npm publish"
+  },
+  "dependencies": {
+    "@alifd/next": "^1.21.14"
+  },
+  "peerDependencies": {
+    "react": "^16.x"
+  },
+  "devDependencies": {
+    "@alib/build-scripts": "^0.1.32",
+    "@alifd/theme-lowcode-light": "^0.2.1",
+    "@recore/config": "^2.0.6",
+    "@types/react": "^16.14.24",
+    "build-plugin-fusion": "^0.1.19",
+    "@alilc/build-plugin-alt": "^1.0.0"
+  },
+  "license": "MIT"
+}

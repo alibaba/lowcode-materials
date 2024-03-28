@@ -814,16 +814,22 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"表格翻页事件",
+
           template:
             "onChange(pagination,filters,sorter,extra,${extParams}){\n// 表格翻页事件\nconsole.log('onChange', pagination);}",
         },
         {
           name: 'rowSelection.onChange',
+          description:"选中项发生变化时的回调",
+
           template:
             "onRowSelectionChange(selectedRowKeys,selectedRows,${extParams}){\n// 选中项发生变化时的回调\nconsole.log('onRowSelectionChange', selectedRowKeys, selectedRows);}",
         },
         {
           name: 'expandable.onExpand',
+          description:"点击展开图标时触发",
+
           template:
             "onExpandableExpand(expanded,record){\n// 点击展开图标时触发\nconsole.log('onRowSelectionChange', expanded, record);}",
         },

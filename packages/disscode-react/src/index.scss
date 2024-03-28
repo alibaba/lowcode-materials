@@ -1,0 +1,19 @@
+/**
+ * Appthen UI - Default variables
+ */
+
+/* Variables */
+@import './style/variables/default.scss';
+
+/* Mixin */
+@import './style/mixins/index.scss';
+
+/* Components */
+@import './style/components/index.scss';
+
+/* Animate */
+@import './style/components/animate/animate.min.scss';
+@import './style/components/animate/style.scss';
+
+@import './style/_reset.scss';
+@import './style/_layouts.scss';

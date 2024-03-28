@@ -24,7 +24,9 @@ export default {
       name: 'type',
       description: '图标',
       propType: 'string',
-      setter: AntdIconSetter,
+      setter: 'StringSetter',
+      // setter: AntdIconSetter,
+
     },
     {
       name: 'size',

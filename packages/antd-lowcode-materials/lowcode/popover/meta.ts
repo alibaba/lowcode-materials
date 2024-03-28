@@ -21,7 +21,7 @@ export default {
             type: 'oneOfType',
             value: ['string', 'node', 'func'],
           },
-          setter: ['StringSetter', 'SlotSetter', 'FunctionSetter', 'VariableSetter'],
+          setter: ['StringSetter', 'SlotSetter'],
         },
         {
           name: 'content',
@@ -33,7 +33,7 @@ export default {
             type: 'oneOfType',
             value: ['string', 'node', 'func'],
           },
-          setter: ['StringSetter', 'SlotSetter', 'FunctionSetter', 'VariableSetter'],
+          setter: ['StringSetter', 'SlotSetter'],
         },
       ],
     },
@@ -312,6 +312,7 @@ export default {
       events: [
         {
           name: 'onOpenChange',
+          description:"显示隐藏的回调",
           template:
             "onOpenChange(open,${extParams}){\n// 显示隐藏的回调\nconsole.log('onOpenChange',open);}",
         },

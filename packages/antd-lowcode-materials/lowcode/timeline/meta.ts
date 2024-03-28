@@ -11,6 +11,8 @@ export default {
     {
       name: 'steps',
       title: '步骤配置',
+      propType: { type: 'oneOfType', value: ['json', 'node'] },
+
       setter: {
         componentName: 'ArraySetter',
         props: {
@@ -28,12 +30,18 @@ export default {
                   {
                     name: 'color',
                     title: '圆圈颜色',
-                    setter: 'StringSetter',
+                    setter: 'ColorSetter',
                   },
+                  // {
+                  //   name: 'dot',
+                  //   title: '自定义时间轴点',
+                  //   setter: 'node',
+                  // },
+
                   {
-                    name: 'dot',
-                    title: '自定义时间轴点',
-                    setter: 'node',
+                    name: 'children',
+                    title: '设置内容',
+                    setter: ['StringSetter','SlotSetter'],
                   },
                   {
                     name: 'label',
@@ -56,11 +64,11 @@ export default {
                         props: {
                           options: [
                             {
-                              title: 'left',
+                              title: '左',
                               value: 'left',
                             },
                             {
-                              title: 'right',
+                              title: '右',
                               value: 'right',
                             },
                           ],

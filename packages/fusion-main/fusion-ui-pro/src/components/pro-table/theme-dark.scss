@@ -1,0 +1,29 @@
+.dark {
+  .fusion-ui-pro-table.fullscreen {
+    background-color: var(--color-fill1-4, $color-fill1-4);
+    .fusion-ui-pagination {
+      background-color: var(--color-fill1-4, $color-fill1-4);
+    }
+  }
+
+  .fusion-ui-pro-table-column-title-filter-panel {
+    background-color: var(--color-fill1-4, $color-fill1-4);
+    &__ft {
+      border-top-color: var(--color-line1-2, $color-line1-2);
+    }
+  }
+  .fusion-ui-pro-table-setting-panel {
+    background-color: var(--color-fill1-4, $color-fill1-4);
+  }
+  .fusion-ui-pro-table-setting-block {
+    &__title {
+      background-color: var(--color-fill1-4, $color-fill1-4);
+    }
+  }
+  .fusion-ui-table.zebra tr:nth-child(2n + 1) td {
+    background-color: var(--color-fill1-2, $color-fill1-2);
+  }
+  .fusion-ui-pro-table-selection {
+    background-color: var(--color-fill1-4, $color-fill1-4);
+  }
+}

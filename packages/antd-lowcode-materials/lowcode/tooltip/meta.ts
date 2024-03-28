@@ -4,7 +4,7 @@ export default {
   snippets,
   componentName: 'Tooltip',
   title: '文字提示',
-  category: '数据展示',
+  category: '反馈',
   props: [
     {
       title: '内容',
@@ -286,6 +286,8 @@ export default {
       events: [
         {
           name: 'onOpenChange',
+          description:" 显示隐藏的回调",
+
           template:
             "onOpenChange(open,${extParams}){\n// 显示隐藏的回调\nconsole.log('onOpenChange',open);}",
         },

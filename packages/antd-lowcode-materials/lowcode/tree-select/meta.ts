@@ -14,18 +14,21 @@ export default {
     {
       name: 'defaultValue',
       title: { label: '默认值', tip: '默认选中值' },
-      propType: {
-        type: 'oneOfType',
-        value: ['string', { type: 'arrayOf', value: 'string' }],
-      },
+      propType: { type: 'arrayOf', value: 'object' },
+      setter: 'JsonSetter',
     },
     {
       name: 'value',
       title: { label: '当前值', tip: '当前值' },
-      propType: {
-        type: 'oneOfType',
-        value: ['string', { type: 'arrayOf', value: 'string' }],
-      },
+      propType: { type: 'arrayOf', value: 'object' },
+      setter: 'JsonSetter',
+    },
+    {
+      name: 'treeCheckStrictly',
+      title: { label: '完全受控', tip: 'checkable 状态下节点选择完全受控（父子节点选中状态不再关联），会使得 labelInValue 强制为 true' },
+      propType: 'bool',
+      defaultValue: false,
+      setter: 'BoolSetter'
     },
     {
       name: 'allowClear',
@@ -279,21 +282,28 @@ export default {
       events: [
         {
           name: 'onChange',
+          description:"选中树节点时调用此函数",
           template:
             "onChange(value,label,extra,${extParams}){\n// 选中树节点时调用此函数\nconsole.log('onChange',value,label,extra);}",
         },
         {
           name: 'onSearch',
+          description:"文本框值变化时回调",
+
           template:
             "onSearch(value,${extParams}){\n// 文本框值变化时回调\nconsole.log('onSearch',value);}",
         },
         {
           name: 'onSelect',
+          description:"被选中时调用",
+
           template:
             "onSelect(value,node,extra,${extParams}){\n// 被选中时调用\nconsole.log('onSelect',value,node,extra);}",
         },
         {
           name: 'onTreeExpand',
+          description:"展示节点时调用",
+
           template:
             "onTreeExpand(expandedKeys,${extParams}){\n// 展示节点时调用\nconsole.log('onTreeExpand',expandedKeys);}",
         },

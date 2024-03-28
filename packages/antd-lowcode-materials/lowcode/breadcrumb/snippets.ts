@@ -5,39 +5,35 @@ export default [
     schema: {
       componentName: 'Breadcrumb',
       props: {
-        routes: [
+        items: [
           {
-            path: 'a',
-            breadcrumbName: 'Home',
+            path: '/index',
+            title: 'home',
           },
           {
-            path: 'center',
-            breadcrumbName: 'Application Center',
-          },
-          {
-            path: 'app',
-            breadcrumbName: 'An Application',
-          },
-        ],
-        itemRender: {
-          type: 'JSSlot',
-          params: ['route', 'params', 'routes', 'paths'],
-          value: [
-            {
-              componentName: 'Typography.Link',
-              props: {
-                href: {
-                  type: 'JSExpression',
-                  value: 'this.route.path',
-                },
-                children: {
-                  type: 'JSExpression',
-                  value: 'this.route.breadcrumbName',
-                },
+            path: '/first',
+            title: 'first',
+            children: [
+              {
+                path: '/general',
+                title: 'General',
               },
-            },
-          ],
-        },
+              {
+                path: '/layout',
+                title: 'Layout',
+              },
+              {
+                path: '/navigation',
+                title: 'Navigation',
+              },
+            ],
+          },
+          {
+            path: '/second',
+            title: 'second',
+          },
+        ]
+
       },
     },
   },

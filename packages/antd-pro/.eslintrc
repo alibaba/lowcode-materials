@@ -1,0 +1,20 @@
+{
+  "env": {
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "react", "prettier"],
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": 1,
+    "react/prop-types": 0,
+    "react/display-name": 0,
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": ["off"],
+    "@typescript-eslint/ban-ts-comment": ["off"]
+  }
+}

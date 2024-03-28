@@ -1,0 +1,7 @@
+.dark {
+  .fusion-ui-toggle-icon {
+    &:hover {
+      background-color: var(--color-fill1-4, $color-fill1-4);
+    }
+  }
+}

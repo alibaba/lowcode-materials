@@ -1,0 +1,92 @@
+@import './theme-dark.scss';
+
+.fusion-ui-segment {
+  position: relative;
+  border-radius: var(--corner-2, $corner-2);
+  background-color: var(--color-fill1-2, $color-fill1-2);
+  display: inline-flex;
+  padding: 2px;
+  &-primary {
+    .fusion-ui-segment-item {
+      &:hover {
+        color: var(--color-brand1-6, $color-brand1-6);
+      }
+      &.item-selected {
+        color: var(--color-brand1-6, $color-brand1-6);
+      }
+    }
+  }
+  &-secondary {
+    background-color: var(--color-brand1-1, $color-brand1-1);
+    .fusion-ui-segment-item {
+      color: var(--color-brand1-6, $color-brand1-6);
+      &:hover {
+        color: var(--color-brand1-9, $color-brand1-9);
+      }
+      &.item-selected {
+        color: var(--color-white, $color-white);
+      }
+    }
+    .fusion-ui-segment-handler {
+      background-color: var(--color-brand1-6, $color-brand1-6);
+    }
+  }
+  &-small {
+    height: var(--s-6, $s-6);
+    .fusion-ui-segment-item {
+      padding: 0 var(--s-2, $s-2);
+      line-height: var(--s-5, $s-5);
+      height: var(--s-5, $s-5);
+    }
+  }
+  &-medium {
+    height: var(--s-7, $s-7);
+    .fusion-ui-segment-item {
+      padding: 0 var(--s-3, $s-3);
+      line-height: var(--s-6, $s-6);
+      height: var(--s-6, $s-6);
+    }
+  }
+  &-large {
+    height: var(--s-8, $s-8);
+    padding: var(--s-1, $size-base);
+    .fusion-ui-segment-item {
+      padding: 0 var(--s-4, $s-4);
+      line-height: var(--s-6, $s-6);
+      height: var(--s-6, $s-6);
+    }
+  }
+  &-item {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+    cursor: pointer;
+    transition: color 0.3s;
+    color: var(--color-text1-3, $color-text1-3);
+    &:hover {
+      color: var(--color-text1-4, $color-text1-4);
+    }
+    &.item-selected {
+      color: var(--color-text1-4, $color-text1-4);
+      // font-weight: 500;
+    }
+  }
+  &-handler {
+    position: absolute;
+    border-radius: var(--corner-2, $corner-2);
+    background-color: var(--color-white, $color-white);
+    z-index: 1;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  &-full {
+    width: 100%;
+    .fusion-ui-box {
+      width: 100%;
+      .fusion-ui-segment-item {
+        flex: 1;
+      }
+    }
+  }
+}

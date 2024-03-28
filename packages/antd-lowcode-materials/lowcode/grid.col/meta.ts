@@ -53,7 +53,7 @@ export default {
   ],
   configure: {
     component: { isContainer: true, nestingRule: { parentWhitelist: ['Row'] } },
-    supports: { style: true },
+    supports: { style: true ,      className: true    },
     advanced: {
       getResizingHandlers: () => {
         return ['e'];

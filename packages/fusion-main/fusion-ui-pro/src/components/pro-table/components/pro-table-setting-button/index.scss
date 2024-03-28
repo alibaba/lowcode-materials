@@ -1,0 +1,107 @@
+@import '../../../../variables.scss';
+
+.fusion-ui-pro-table-setting-panel {
+  background: var(--color-white, $color-white);
+  padding: 0 $s-2;
+
+  border-radius: var(--corner-1, $corner-1);
+  box-shadow: var(--shadow-2-down, $shadow-2-down);
+
+  max-height: 400px;
+  overflow-y: auto;
+  width: 240px;
+  box-sizing: border-box;
+}
+
+.fusion-ui-pro-table-setting-block {
+  display: flex;
+  flex-direction: column;
+  &:first-child {
+    margin-top: var(--s-4, $s-4);
+  }
+  &:last-child {
+    margin-bottom: var(--s-4, $s-4);
+  }
+  &__title {
+    font-size: var(--font-size-body-1, $font-size-body-1);
+    color: var(--color-text1-1, $color-text1-1);
+    margin-left: var(--s-2, $s-2);
+    padding: var(--s-2 0, $s-2 0);
+    position: sticky;
+    background-color: var(--color-white, $color-white);
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+}
+.fusion-ui-pro-table-setting-item {
+  display: flex;
+  flex-direction: column;
+
+  .fusion-ui-checkbox-label {
+    margin-left: var(--s-2, $s-2);
+  }
+  &__bd {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+    padding: var(--s-2, $s-2);
+    font-size: var(--font-size-body-1, $font-size-body-1);
+    border-radius: var(--corner-2, $corner-2);
+    &:hover {
+      background-color: var(--color-fill1-1, $color-fill1-1);
+    }
+  }
+  &__icons {
+    display: flex;
+    gap: var(--s-3, $s-3);
+    flex-direction: row;
+    align-items: center;
+  }
+  &__drag,
+  &__icon {
+    color: var(--color-text1-2, $color-text1-2);
+    cursor: pointer;
+    &:hover {
+      color: var(--color-brand1-6, $color-brand1-6);
+    }
+  }
+  &__icon {
+    display: none;
+  }
+  &__drag {
+    cursor: move;
+  }
+
+  &:hover {
+    .fusion-ui-pro-table-setting-item__icon {
+      display: block;
+    }
+  }
+  .fusion-ui-pro-table-setting-item {
+    padding-left: var(--s-4, $s-4);
+  }
+}
+
+// .sort-item {
+//   margin-bottom: 11px;
+//   .fusion-ui-checkbox-wrapper.sort-checkbox {
+//     white-space: nowrap;
+//     max-width: calc(100% - 16px - 20px);
+
+//     .fusion-ui-checkbox-label {
+//       white-space: nowrap;
+//       text-overflow: ellipsis;
+//       overflow: hidden;
+//     }
+//   }
+
+//   .column-drag-handle {
+//     display: block;
+//     cursor: move;
+//     color: var(--color-text1-2, $color-text1-2);
+//   }
+// }
