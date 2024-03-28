@@ -49,3 +49,4 @@ export {  ProSkeleton } from '@ant-design/pro-components'
 
 // export {  ProField } from '@ant-design/pro-components'
 
+export { ProConfigProvider } from '@ant-design/pro-provider';
