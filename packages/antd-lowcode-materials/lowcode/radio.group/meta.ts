@@ -31,7 +31,7 @@ export default {
       name: 'name',
       title: {
         label: 'name 属性',
-        tip: 'RadioGroup 下所有 input[type="radio"] 的 name 属性',
+        tip: 'RadioGroup 下所有 input[type="radio"] 的 name 属性。为组合内的 input 元素赋予相同的 name 属性，使浏览器把 Radio.Group 下的 Radio 真正看作是一组（例如可以通过方向键始终在同一组内更改选项）。',
       },
       propType: 'string',
       setter: 'StringSetter',
