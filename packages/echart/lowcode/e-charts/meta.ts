@@ -901,7 +901,7 @@ const EChartsMeta: IPublicTypeComponentMetadata = {
 const snippets: IPublicTypeSnippet[] = [
   {
     "title": "图表",
-    "screenshot": "https://cdn.disscode.com/FvRQ-vh132wSuT4XOyTOCpifKYmV",
+    "screenshot": "https://cdn.appthen.com/FvRQ-vh132wSuT4XOyTOCpifKYmV",
     "schema": {
       "componentName": "ECharts",
       "props": {
