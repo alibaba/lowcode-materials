@@ -562,6 +562,7 @@ const EChartsMeta: IPublicTypeComponentMetadata = {
           "JsonSetter"
         ]
       },
+
       {
         name: 'series',
         supportVariable: true,
@@ -769,6 +770,19 @@ const EChartsMeta: IPublicTypeComponentMetadata = {
                           'VariableSetter',
                         ],
                       },
+                      {
+                        "title": {
+                          "label": {
+                            "type": "i18n",
+                            "en-US": "areaStyle.color",
+                            "zh-CN": "面积图颜色"
+                          }
+                        },
+                        "name": "areaStyle.color",
+                        "setter": [
+                          "ColorSetter",
+                        ]
+                      },
                       'VariableSetter',
                     ],
                   },
@@ -811,6 +825,28 @@ const EChartsMeta: IPublicTypeComponentMetadata = {
         setter: {
           componentName: 'ColorSetter',
         },
+      },
+      {
+        name: 'dataZoom',
+        supportVariable: true,
+        "condition": {
+          "type": 'JSFunction',
+         "value": 'target => !target.getProps().getPropValue("advanced")',
+        },
+        title: { label: '区域缩放', tip: 'dataZoom 组件 用于区域缩放，从而能自由关注细节的数据信息，或者概览数据整体，或者去除离群点的影响。        ' },
+        setter: [
+          // {
+          //   componentName: 'ObjectSetter',
+          //   props: {
+          //     config: {
+          //       items: [
+          //         ...xyData,
+          //       ]
+          //     },
+          //   },
+          // },
+          "JsonSetter"
+        ]
       },
       {
         "condition": {
