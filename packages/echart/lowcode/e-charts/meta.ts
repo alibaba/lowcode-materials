@@ -256,6 +256,32 @@ const EChartsMeta: IPublicTypeComponentMetadata = {
         "title": {
           "label": {
             "type": "i18n",
+            "en-US": "theme",
+            "zh-CN": "主题模式"
+          }
+        },
+        "name": "theme",
+        "setter": {
+          "componentName": "SelectSetter",
+               
+          props: {
+            options: [
+              {
+                title: '无主题',
+                value: 'null',
+              },
+              {
+                title: '深色主题',
+                value: 'dark',
+              }
+            ]
+          }
+        }
+      },
+      {
+        "title": {
+          "label": {
+            "type": "i18n",
             "en-US": "option",
             "zh-CN": "图表配置"
           }

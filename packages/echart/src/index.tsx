@@ -3,6 +3,7 @@ import React, { createElement } from 'react';
 import * as echarts from 'echarts';
 
 import EChart from 'echarts-for-react';
+import 'echarts/theme/dark';
 
 interface EChartsProps {
   option?: Record<string, any>;
@@ -60,6 +61,7 @@ export class ECharts extends React.Component<
       />
     ) : (
       <EChart
+
         // ref={(echart) => {
         //   this.chart = echart;
         // }}
