@@ -305,48 +305,57 @@ const EChartsMeta: IPublicTypeComponentMetadata = {
           },
         ],
       },
-      // {
-      //   name: 'tooltip',
-      //   title: { label: '数据集', tip: '数据集' },
-      //   supportVariable: true,
-      //   "condition": {
-      //     "type": 'JSFunction',
-      //    "value": 'target => !target.getProps().getPropValue("advanced")',
-      //   },
-      //   setter: [
-      //     {
-      //       componentName: 'ObjectSetter',
-      //       props: {
-      //         config: {
-      //           items: [
-      //             {
-      //               name: ' source',
-      //               title: { label: '二维表', tip: '二维数组，其中第一行/列可以给出 维度名，也可以不给出，直接就是数据：' },
-      //               setter: [
-      //                 'JsonSetter',
-      //                 'FunctionSetter',
-      //                 'VariableSetter'
-      //               ],
-      //             },
-      //             {
-      //               name: ' dimensions',
-      //               title: { label: '维度信息', tip: '定义 series.data 或者 dataset.source 的每个维度的信息。' },
-      //               setter: [
-      //                 'JsonSetter',
-      //                 'FunctionSetter',
-      //                 'VariableSetter'
-      //               ],
-      //             },
+      {
+        name: 'dataset',
+        title: { label: '数据集', tip: '数据集' },
+        supportVariable: true,
+        "condition": {
+          "type": 'JSFunction',
+         "value": 'target => !target.getProps().getPropValue("advanced")',
+        },
+        setter: [
+          // {
+          //   componentName: 'ObjectSetter',
+          //   props: {
+          //     config: {
+          //       items: [
+          //         {
+          //           name: ' source',
+          //           title: { label: '二维表', tip: '二维数组，其中第一行/列可以给出 维度名，也可以不给出，直接就是数据：' },
+          //           setter: [
+          //             'JsonSetter',
+          //             'VariableSetter'
+          //           ],
+          //         },
+          //         {
+          //           name: ' dimensions',
+          //           title: { label: '维度信息', tip: '定义 series.data 或者 dataset.source 的每个维度的信息。' },
+          //           setter: [
+          //             'JsonSetter',
+          //             'VariableSetter'
+          //           ],
+          //         },
                 
                 
-      //           ],
-      //         },
-      //       },
-      //     },
-      //     "JsonSetter"
-      //   ]
-      // },
-
+          //       ],
+          //     },
+          //   },
+          // },
+          "JsonSetter"
+        ]
+      },
+      {
+        name: 'dataZoom',
+        supportVariable: true,
+        "condition": {
+          "type": 'JSFunction',
+         "value": 'target => !target.getProps().getPropValue("advanced")',
+        },
+        title: { label: '区域缩放', tip: 'dataZoom 组件 用于区域缩放，从而能自由关注细节的数据信息，或者概览数据整体，或者去除离群点的影响。        ' },
+        setter: [
+          "JsonSetter"
+        ]
+      },
 
       {
         name: 'tooltip',
@@ -826,28 +835,7 @@ const EChartsMeta: IPublicTypeComponentMetadata = {
           componentName: 'ColorSetter',
         },
       },
-      {
-        name: 'dataZoom',
-        supportVariable: true,
-        "condition": {
-          "type": 'JSFunction',
-         "value": 'target => !target.getProps().getPropValue("advanced")',
-        },
-        title: { label: '区域缩放', tip: 'dataZoom 组件 用于区域缩放，从而能自由关注细节的数据信息，或者概览数据整体，或者去除离群点的影响。        ' },
-        setter: [
-          // {
-          //   componentName: 'ObjectSetter',
-          //   props: {
-          //     config: {
-          //       items: [
-          //         ...xyData,
-          //       ]
-          //     },
-          //   },
-          // },
-          "JsonSetter"
-        ]
-      },
+
       {
         "condition": {
           "type": 'JSFunction',
