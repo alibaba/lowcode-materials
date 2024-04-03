@@ -3,13 +3,15 @@ import React, { createElement } from 'react';
 import * as echarts from 'echarts';
 
 import EChart from 'echarts-for-react';
-import 'echarts/theme/dark';
 
 interface EChartsProps {
   option?: Record<string, any>;
   className?: string;
   style?: React.CSSProperties;
   advanced?: boolean;
+  themeConfig?:object,
+  mapName?:string,
+  madData?:any
 }
 
 export class ECharts extends React.Component<
@@ -39,7 +41,9 @@ export class ECharts extends React.Component<
 
   render(): React.ReactNode {
     const { init } = this.state;
-    const { advanced, option, mapName, mapData, ...props } = this.props;
+    const { advanced, option, mapName, mapData,themeConfig, ...props } = this.props;
+    echarts.registerTheme(props?.theme||'default', themeConfig||{})
+
     if (!init) return null;
 
     if (mapName && mapData) {

@@ -257,27 +257,40 @@ const EChartsMeta: IPublicTypeComponentMetadata = {
           "label": {
             "type": "i18n",
             "en-US": "theme",
-            "zh-CN": "主题模式"
+            "zh-CN": "主题名称"
           }
         },
         "name": "theme",
         "setter": {
-          "componentName": "SelectSetter",
+          "componentName": "StringSetter",
                
-          props: {
-            options: [
-              {
-                title: '无主题',
-                value: 'null',
-              },
-              {
-                title: '深色主题',
-                value: 'dark',
-              }
-            ]
-          }
+          // props: {
+          //   options: [
+          //     {
+          //       title: '无主题',
+          //       value: 'null',
+          //     },
+          //     {
+          //       title: '深色主题',
+          //       value: 'dark',
+          //     }
+          //   ]
+          // }
         }
       },
+      {
+        "title": {
+          "label": {
+            "type": "i18n",
+            "en-US": "themeConfig",
+            "zh-CN": "自定义主题配置"
+          }
+        },
+        "name": "themeConfig",
+        "setter": [
+          "JsonSetter","VariableSetter"
+        ]
+    },
       {
         "title": {
           "label": {
