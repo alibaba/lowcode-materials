@@ -19,7 +19,7 @@ export interface monacoProps {
   onChange?: (string) => void;
 }
 
-const monacoapi: React.FC<monacoProps> = function monacoProps(props) {
+const MonacoApi: React.FC<monacoProps> = function monacoProps(props) {
   return (
     <SingleMonacoEditorComponent
       height={props.height}
@@ -35,4 +35,4 @@ const monacoapi: React.FC<monacoProps> = function monacoProps(props) {
   );
 };
 
-export default monacoapi;
+export default MonacoApi;

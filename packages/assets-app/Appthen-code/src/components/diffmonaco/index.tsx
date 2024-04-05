@@ -1,5 +1,5 @@
-import diffmonacoapi from './monaco';
+import DiffMonacoApi from './monaco';
 
 export type { diffmonacoProps } from './monaco';
 
-export default diffmonacoapi;
+export default DiffMonacoApi;

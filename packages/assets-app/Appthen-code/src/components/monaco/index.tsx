@@ -1,5 +1,5 @@
-import monacoapi from './monaco';
+import MonacoApi from './monaco';
 
 export type { monacoProps } from './monaco';
 
-export default monacoapi;
+export default MonacoApi;

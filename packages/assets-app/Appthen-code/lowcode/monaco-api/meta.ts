@@ -1,16 +1,16 @@
 
 import { IPublicTypeComponentMetadata, IPublicTypeSnippet } from '@alilc/lowcode-types';
 
-const diffmonacoapiMeta: IPublicTypeComponentMetadata = {
-  "componentName": "diffmonacoapi",
-  title: 'code编辑器比对',
+const MonacoApiMeta: IPublicTypeComponentMetadata = {
+  "componentName": "MonacoApi",
+  title: 'code编辑器',
   group: '高级组件',
   category: '编辑器',
   "devMode": "proCode",
   "npm": {
     "package": "@appthen/code",
     "version": "0.1.0",
-    "exportName": "diffmonacoapi",
+    "exportName": "MonacoApi",
     "main": "src/index.tsx",
     "destructuring": true,
     "subName": ""
@@ -18,25 +18,24 @@ const diffmonacoapiMeta: IPublicTypeComponentMetadata = {
   "configure": {
     props: [
       {
-        title: '比对数据',
-        name: 'original',
+        title: '标题',
+        name: 'editorId',
         supportVariable: true,
-        defaultValue: '',
-        setter: ['StringSetter'],
-      },
-      {
-        title: '默认数据',
-        name: 'value',
-        supportVariable: true,
-        defaultValue: '',
         setter: ['StringSetter'],
       },
       {
         title: '全屏支持',
         name: 'supportFullScreen',
         supportVariable: true,
-        defaultValue:false,
+        defaultValue: false,
         setter: ['BoolSetter'],
+      },
+      {
+        title: '数据源',
+        name: 'data',
+        supportVariable: true,
+        defaultValue: '',
+        setter: ['StringSetter'],
       },
       {
         title: '宽度',
@@ -129,6 +128,13 @@ const diffmonacoapiMeta: IPublicTypeComponentMetadata = {
         setter: ['StringSetter'],
       },
       {
+        title: '大纲',
+        name: 'enableOutline',
+        supportVariable: true,
+        defaultValue: '',
+        setter: ['BoolSetter'],
+      },
+      {
         title: '风格',
         name: 'theme',
         supportVariable: true,
@@ -160,33 +166,28 @@ const diffmonacoapiMeta: IPublicTypeComponentMetadata = {
     ],
     supports: {
       style: true,
-      className: true,
-
       events: ['editorDidMount', 'editorWillMount', 'onChange'],
+      className: true,
     },
     component: {},
   },
-  
 };
-const a = JSON.stringify({ a: 'appthen' }, null, 2);
-const b = JSON.stringify({ b: 'appthen平台' }, null, 2);
-const snippets: Snippet[] = [
+const snippets: IPublicTypeSnippet[] = [
   {
-    title: 'code比对',
-    screenshot: 'https://cdn.appthen.cn/editor/assets/appthen-code.svg',
+    title: 'code编辑器',
+    screenshot: 'https://cdn.appthen.cn/editor/assets/appthen-difference.svg',
     schema: {
-      componentName: 'diffmonacoapi',
+      componentName: 'MonacoApi',
       props: {
         width: '100%',
         height: '400px',
-        original: a,
-        value: b,
+        data: 'select * from abc',
       },
     },
   },
 ];
 
 export default {
-  ...diffmonacoapiMeta,
+  ...MonacoApiMeta,
   snippets
 };

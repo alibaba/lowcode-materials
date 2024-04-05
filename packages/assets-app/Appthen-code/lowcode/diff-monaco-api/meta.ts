@@ -1,16 +1,16 @@
 
 import { IPublicTypeComponentMetadata, IPublicTypeSnippet } from '@alilc/lowcode-types';
 
-const monacoapiMeta: IPublicTypeComponentMetadata = {
-  "componentName": "monacoapi",
-  title: 'code编辑器',
+const DiffMonacoApiMeta: IPublicTypeComponentMetadata = {
+  "componentName": "DiffMonacoApi",
+  title: 'code编辑器比对',
   group: '高级组件',
   category: '编辑器',
   "devMode": "proCode",
   "npm": {
     "package": "@appthen/code",
     "version": "0.1.0",
-    "exportName": "monacoapi",
+    "exportName": "DiffMonacoApi",
     "main": "src/index.tsx",
     "destructuring": true,
     "subName": ""
@@ -18,18 +18,25 @@ const monacoapiMeta: IPublicTypeComponentMetadata = {
   "configure": {
     props: [
       {
-        title: '全屏支持',
-        name: 'supportFullScreen',
-        supportVariable: true,
-        defaultValue: false,
-        setter: ['BoolSetter'],
-      },
-      {
-        title: '数据源',
-        name: 'data',
+        title: '比对数据',
+        name: 'original',
         supportVariable: true,
         defaultValue: '',
         setter: ['StringSetter'],
+      },
+      {
+        title: '默认数据',
+        name: 'value',
+        supportVariable: true,
+        defaultValue: '',
+        setter: ['StringSetter'],
+      },
+      {
+        title: '全屏支持',
+        name: 'supportFullScreen',
+        supportVariable: true,
+        defaultValue:false,
+        setter: ['BoolSetter'],
       },
       {
         title: '宽度',
@@ -153,28 +160,33 @@ const monacoapiMeta: IPublicTypeComponentMetadata = {
     ],
     supports: {
       style: true,
-      events: ['editorDidMount', 'editorWillMount', 'onChange'],
       className: true,
+
+      events: ['editorDidMount', 'editorWillMount', 'onChange'],
     },
     component: {},
   },
+  
 };
-const snippets: IPublicTypeSnippet[] = [
+const a = JSON.stringify({ a: 'appthen' }, null, 2);
+const b = JSON.stringify({ b: 'appthen平台' }, null, 2);
+const snippets: Snippet[] = [
   {
-    title: 'code编辑器',
-    screenshot: 'https://cdn.appthen.cn/editor/assets/appthen-difference.svg',
+    title: 'code比对',
+    screenshot: 'https://cdn.appthen.cn/editor/assets/appthen-code.svg',
     schema: {
-      componentName: 'monacoapi',
+      componentName: 'DiffMonacoApi',
       props: {
         width: '100%',
         height: '400px',
-        data: 'select * from abc',
+        original: a,
+        value: b,
       },
     },
   },
 ];
 
 export default {
-  ...monacoapiMeta,
+  ...DiffMonacoApiMeta,
   snippets
 };

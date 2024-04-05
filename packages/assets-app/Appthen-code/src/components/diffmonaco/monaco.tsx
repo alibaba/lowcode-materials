@@ -21,7 +21,7 @@ export interface diffmonacoProps {
   onChange?: (string) => void;
 }
 
-const diffmonacoapi: React.FC<diffmonacoProps> = function diffmonacoProps(props) {
+const DiffMonacoApi: React.FC<diffmonacoProps> = function diffmonacoProps(props) {
   // const [files, setFiles] = React.useState({
   //   'a.json': {
   //     name: 'a.json',
@@ -61,4 +61,4 @@ const diffmonacoapi: React.FC<diffmonacoProps> = function diffmonacoProps(props)
   );
 };
 
-export default diffmonacoapi;
+export default DiffMonacoApi;
