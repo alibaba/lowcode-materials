@@ -1,5 +1,5 @@
 import React, { ComponentType, forwardRef, Ref } from 'react';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { get, set, has } from 'lodash';
 
 function convertProps(
@@ -79,12 +79,12 @@ export function withMomentProps(
   needsConvert = ['value', 'defaultValue'],
 ) {
   return (props: any) => {
-    const convertedProps = convertProps(props, needsConvert, prop => {
+    const convertedProps = convertProps(props, needsConvert, (prop: any) => {
       if (prop) {
         if (Array.isArray(prop)) {
-          return prop.map(v => (moment.isMoment(v) ? v : moment(v)));
+          return prop.map(v => (v?.format ? v : dayjs(v)));
         }
-        return moment.isMoment(prop) ? prop : moment(prop);
+        return prop?.format ? prop : dayjs(prop);
       }
     });
 

@@ -1,5 +1,5 @@
 import React, { ComponentType, ReactNode, useState } from 'react';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { get, set, has } from './utils';
 
 function convertProps(
@@ -82,9 +82,9 @@ export function withMomentProps(
     const convertedProps = convertProps(props, needsConvert, prop => {
       if (prop) {
         if (Array.isArray(prop)) {
-          return prop.map(v => (moment.isMoment(v) ? v : moment(v)));
+          return prop.map(v => (v instanceof dayjs ? v : dayjs(v)));
         }
-        return moment.isMoment(prop) ? prop : moment(prop);
+        return prop instanceof dayjs ? prop : dayjs(prop);
       }
     });
 

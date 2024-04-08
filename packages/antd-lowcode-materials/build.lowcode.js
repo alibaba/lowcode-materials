@@ -40,10 +40,12 @@ module.exports = {
           {
             packages: [
               {
-                package: 'moment',
+                package: 'dayjs',
                 version: '2.24.0',
-                urls: ['https://g.alicdn.com/mylib/moment/2.24.0/min/moment.min.js'],
-                library: 'moment',
+                urls: [
+                  'https://cdn.appthen.cn/editor/npm/antd/5.9.0/dayjs.min.js'
+                ],
+                library: 'dayjs'
               },
               {
                 package: 'lodash',

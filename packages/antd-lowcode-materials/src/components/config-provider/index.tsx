@@ -1,7 +1,7 @@
 import React from 'react';
 import { ConfigProvider as OriginalConfigProvider, theme as AntdTheme } from 'antd';
-import moment from 'moment';
-import 'moment/locale/zh-cn';
+import dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn';
 import zhCN from 'antd/es/locale/zh_CN';
 
 const ConfigProvider = (props: any) => {
@@ -10,10 +10,10 @@ const ConfigProvider = (props: any) => {
   let localeData = locale;
   if (typeof locale === 'string') {
     if (locale.toLowerCase() === 'zh-cn') {
-      moment.locale('zh-cn');
+      dayjs.locale('zh-cn');
       localeData = zhCN;
-    } else if (locale.toLowerCase() === 'en-us') {
-      moment.locale('en');
+    } else if (locale.toLowerCase() === 'en-us') {;
+      dayjs.locale('en');
       // 默认为英文
       localeData = undefined;
     }
