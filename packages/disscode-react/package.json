@@ -1,6 +1,6 @@
 {
   "name": "@appthen/react",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "Appthen Base UI KIT for React",
   "main": "lib/index.js",
   "sideEffects": [
@@ -21,7 +21,7 @@
     "types"
   ],
   "author": "appthen",
-  "homepage": "https://unpkg.com/@appthen/react@1.0.5/build/index.html",
+  "homepage": "https://unpkg.com/@appthen/react@1.0.7/build/index.html",
   "license": "MIT",
   "publishConfig": {
     "tag": "next"
@@ -98,7 +98,7 @@
   },
   "componentConfig": {
     "isComponentLibrary": true,
-    "materialSchema": "https://unpkg.com/@appthen/react@1.0.5/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@appthen/react@1.0.8/build/lowcode/assets-prod.json"
   },
   "gitHead": "536691349f62f978d99a1318690690246cc584fa"
 }

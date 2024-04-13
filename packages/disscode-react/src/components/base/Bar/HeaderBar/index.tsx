@@ -36,7 +36,6 @@ class HeaderBar extends React.Component<HeaderBarProps> {
     leftContent: PropTypes.element,
     rightContent: PropTypes.element,
     bottomContentHeight: PropTypes.number,
-    loginIcon: PropTypes.bool,
     onBack: PropTypes.func,
   };
 
@@ -80,7 +79,9 @@ class HeaderBar extends React.Component<HeaderBarProps> {
 
     return (
       <PageContext.Consumer>
-        {({}) => {
+        {({
+          _id
+        }) => {
           const isWeapp = Taro.getEnv() !== Taro.ENV_TYPE.RN && Taro.getEnv() !== Taro.ENV_TYPE.WEB;
           return (
             <View className='header_bar__view'>
