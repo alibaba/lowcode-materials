@@ -16,6 +16,15 @@ export default {
       setter: 'JsonSetter',
     },
     {
+      name: 'fieldNames',
+      title: {
+        label: '自定义字段',
+        tip: '自定义节点 title、key、children 的字段	',
+      },
+      propType: { type: 'arrayOf', value: 'object' },
+      setter: 'JsonSetter',
+    },
+    {
       name: 'autoExpandParent',
       title: { label: '是否自动展开父节点', tip: '是否自动展开父节点' },
       propType: 'bool',
@@ -68,7 +77,7 @@ export default {
     },
     {
       name: 'defaultCheckedKeys',
-      title: { label: '默认选中值', tip: '默认选中值' },
+      title: { label: '默认选中值', tip: '默认选中复选框的树节点	' },
       propType: { type: 'arrayOf', value: 'string' },
       setter: {
         componentName: 'JsonSetter',
@@ -98,7 +107,7 @@ export default {
     },
     {
       name: 'defaultSelectedKeys',
-      title: { label: '默认选中值', tip: '默认选中值' },
+      title: { label: '默认选中的树节点', tip: '默认选中的树节点	' },
       propType: { type: 'arrayOf', value: 'string' },
       setter: {
         componentName: 'JsonSetter',
@@ -200,9 +209,14 @@ export default {
     //   propType: 'node',
     // },
     {
-      name: 'showLine',
-      title: { label: '是否展示连接线', tip: '是否展示连接线' },
-      propType: { type: 'oneOfType', value: ['bool'] },
+      name: 'onDragEnd',
+      title: { label: 'dragend 触发时调用', tip: 'dragend 触发时调用' },
+      propType: 'func',
+    },
+    {
+      name: 'titleRender',
+      title: { label: '自定义渲染节点', tip: '自定义渲染节点	' },
+      propType: 'func',
     },
     {
       name: 'virtual',

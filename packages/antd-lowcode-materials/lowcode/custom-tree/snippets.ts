@@ -3,7 +3,7 @@ export default [
     title: '高级树形控件',
     screenshot: 'https://alifd.alicdn.com/fusion-cool/icons/icon-antd/tree-1.jpg',
     schema: {
-      componentName: 'customTree',
+      componentName: 'CustomTree',
       props: {
         treeData: [
           {

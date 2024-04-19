@@ -68,7 +68,7 @@ export default {
     },
     {
       name: 'defaultCheckedKeys',
-      title: { label: '默认选中值', tip: '默认选中值' },
+      title: { label: '默认选中值', tip: '默认选中复选框的树节点' },
       propType: { type: 'arrayOf', value: 'string' },
       setter: {
         componentName: 'JsonSetter',
@@ -98,7 +98,7 @@ export default {
     },
     {
       name: 'defaultSelectedKeys',
-      title: { label: '默认选中值', tip: '默认选中值' },
+      title: { label: '默认选中的树节点', tip: '默认选中的树节点' },
       propType: { type: 'arrayOf', value: 'string' },
       setter: {
         componentName: 'JsonSetter',
