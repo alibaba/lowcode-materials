@@ -1,6 +1,6 @@
 {
   "name": "@appthen/wangeditor",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "@appthen/wangeditor",
   "files": [
     "demo/",
@@ -79,11 +79,11 @@
     "name": "ExampleComponent",
     "title": "demo component",
     "category": "Information",
-    "materialSchema": "https://unpkg.com/@appthen/wangeditor@0.1.4/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@appthen/wangeditor@0.1.5/build/lowcode/assets-prod.json"
   },
   "lcMeta": {
     "type": "component"
   },
   "license": "MIT",
-  "homepage": "https://unpkg.com/@appthen/wangeditor@0.1.4/build/index.html"
+  "homepage": "https://unpkg.com/@appthen/wangeditor@0.1.5/build/index.html"
 }

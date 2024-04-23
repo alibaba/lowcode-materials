@@ -25,10 +25,9 @@ const editorComponentMeta: IPublicTypeComponentMetadata = {
         supportVariable: true,
 
         setter: {
-          componentName: 'StringSetter',
+          componentName: 'TextAreaSetter',
         },
       },
-
       {
         title: '模式',
         name: 'mode',
@@ -97,6 +96,26 @@ const editorComponentMeta: IPublicTypeComponentMetadata = {
         "title": {
           "label": {
             "type": "i18n",
+            "en-US": "leftcontent",
+            "zh-CN": "左内容"
+          },
+          "tip": "左边内容"
+        },
+        "name": "leftcontent",
+        "setter": {
+          "componentName": "SlotSetter",
+          title: '展开行插槽',
+          initialValue: {
+            type: 'JSSlot',
+            value: []
+          }
+        },
+        
+      },
+      {
+        "title": {
+          "label": {
+            "type": "i18n",
             "en-US": "content",
             "zh-CN": "中间内容"
           },
@@ -113,7 +132,26 @@ const editorComponentMeta: IPublicTypeComponentMetadata = {
         },
         
       },
-
+      {
+        "title": {
+          "label": {
+            "type": "i18n",
+            "en-US": "rightcontent",
+            "zh-CN": "右内容"
+          },
+          "tip": "右内容"
+        },
+        "name": "rightcontent",
+        "setter": {
+          "componentName": "SlotSetter",
+          title: '展开行插槽',
+          initialValue: {
+            type: 'JSSlot',
+            value: []
+          }
+        },
+        
+      },
 
       {
         name: 'toolbarConfig',
@@ -396,6 +434,7 @@ const snippets: IPublicTypeSnippet[] = [
     schema: {
       componentName: 'editorComponent',
       props: {
+        "type":"html",
         "ToolBarStyle": {
           "borderWidth": "1px",
           "borderColor": "#e7e7e7",
