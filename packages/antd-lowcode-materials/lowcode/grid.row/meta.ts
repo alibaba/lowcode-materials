@@ -32,6 +32,9 @@ export default {
           if (typeof gutter === 'number') {
             return gutter;
           } else if (Array.isArray(gutter)) {
+            if (gutter[0] === undefined) {
+              return 0;
+            }
             return gutter[0];
           }
           return 0;
@@ -69,6 +72,9 @@ export default {
           if (typeof gutter === 'number') {
             return 0;
           } else if (Array.isArray(gutter)) {
+            if (gutter[1] === undefined){
+              return 0;
+            }
             return gutter[1];
           }
           return 0;
