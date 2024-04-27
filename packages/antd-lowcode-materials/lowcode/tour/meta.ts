@@ -540,7 +540,7 @@ const TourMeta: IPublicTypeComponentMetadata = {
 const snippets: IPublicTypeSnippet[] = [
   {
     "title": "漫游引导",
-    "screenshot": "https://cdn.disscode.com/assets/Appthen-tour.svg",
+    "screenshot": "https://cdn.appthen.com/assets/Appthen-tour.svg",
     "schema": {
       "componentName": "Tour",
       "props": {

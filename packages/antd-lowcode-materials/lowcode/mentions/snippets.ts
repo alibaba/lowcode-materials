@@ -1,7 +1,7 @@
 export default [
   {
     title: '提及',
-    screenshot: 'https://cdn.disscode.com/assets/appthen-Mentions.svg',
+    screenshot: 'https://cdn.appthen.com/assets/appthen-Mentions.svg',
     schema: {
       componentName: 'Mentions',
       props: {

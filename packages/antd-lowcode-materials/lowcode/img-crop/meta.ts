@@ -412,7 +412,7 @@ const ImgCropMeta: ComponentMetadata = {
 const snippets: Snippet[] = [
   {
     "title": "裁剪上传",
-    "screenshot": "https://cdn.disscode.com/assets/appthen-imgcrop.svg",
+    "screenshot": "https://cdn.appthen.com/assets/appthen-imgcrop.svg",
     "schema": {
       "componentName": "ImgCrop",
       "props": {

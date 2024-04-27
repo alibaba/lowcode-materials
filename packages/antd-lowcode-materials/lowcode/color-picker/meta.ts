@@ -2,7 +2,7 @@
 const snippets= [
   {
     "title": "颜色选择器",
-    "screenshot": "https://cdn.disscode.com/assets/Appthen-color.svg",
+    "screenshot": "https://cdn.appthen.com/assets/Appthen-color.svg",
     "schema": {
       "componentName": "ColorPicker",
       "props": {}
@@ -15,7 +15,7 @@ snippets,
   "title": "颜色选择器",
   category: '反馈',
   "docUrl": "",
-  "screenshot": "https://cdn.disscode.com/assets/Appthen-color.svg",
+  "screenshot": "https://cdn.appthen.com/assets/Appthen-color.svg",
   "configure": {
     "props": [
       {
