@@ -127,7 +127,7 @@ export { default as Drawer } from './components/drawer';
 
 export { default as TreeSelect } from './components/tree-select';
 
-export { default as Input } from './components/input';
+// export { default as Input } from './components/input';
 
 export { default as Select } from './components/select'
 
@@ -138,9 +138,7 @@ export { default as AutoComplete } from './components/auto-complete';
 
 export { default as CustomNav } from './components/custom-nav-menu';
 
-
 export { default as CustomTree } from './components/custom-tree';
-
 
 export { default as CustomTreeSelect } from './components/custom-tree-select';
 
@@ -148,9 +146,4 @@ export type { ImgCropProps } from 'antd-img-crop'
 
 export { default as ImgCrop } from 'antd-img-crop'
 
-export { Layout } from 'antd';
-
-
-// export { default as Layout } from './components/layout';
-
-
+export { Layout, Input } from 'antd';

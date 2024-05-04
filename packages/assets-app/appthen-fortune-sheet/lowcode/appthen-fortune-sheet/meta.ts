@@ -308,7 +308,7 @@ const AppthenFortuneSheetMeta: IPublicTypeComponentMetadata = {
 const snippets: IPublicTypeSnippet[] = [
   {
     "title": "excel表格",
-    "screenshot": "https://cdn.disscode.com/assets/appthen-Excel2.svg",
+    "screenshot": "https://cdn.appthen.com/assets/appthen-Excel2.svg",
     "schema": {
       "componentName": "AppthenFortuneSheet",
       "props": {

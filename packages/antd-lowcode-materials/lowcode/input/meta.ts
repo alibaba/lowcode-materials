@@ -184,33 +184,33 @@ export default {
           name: 'onFocus',
           description:"获取焦点回调",
 
-          template: "onFocus(event,${extParams}){\n// 获取焦点回调\nconsole.log('onFocus',event);}",
+          template: "onFocus(e,${extParams}){\n// 获取焦点回调\nconsole.log('onFocus',e);}",
         },
         {
           name: 'onKeyDown',
           description:"按键按下时的回调",
 
           template:
-            "onKeyDown(event,${extParams}){\n// 按键按下时的回调\nconsole.log('onKeyDown',event);}",
+            "onKeyDown(e,${extParams}){\n// 按键按下时的回调\nconsole.log('onKeyDown',e);}",
         },
         {
           name: 'onKeyPress',
           description:"按键按下后的回调",
 
           template:
-            "onKeyPress(event,${extParams}){\n// 按键按下后的回调\nconsole.log('onKeyPress',event);}",
+            "onKeyPress(e,${extParams}){\n// 按键按下后的回调\nconsole.log('onKeyPress',e);}",
         },
         {
           name: 'onKeyUp',
           description:"按键释放回调",
 
-          template: "onKeyUp(event,${extParams}){\n// 按键释放回调\nconsole.log('onKeyUp',event);}",
+          template: "onKeyUp(e,${extParams}){\n// 按键释放回调\nconsole.log('onKeyUp',e);}",
         },
         {
           name: 'onBlur',
           description:"按键释放回调",
 
-          template: "onBlur(event,${extParams}){\n// 按键释放回调\nconsole.log('onBlur',event);}",
+          template: "onBlur(e,${extParams}){\n// 按键释放回调\nconsole.log('onBlur',e);}",
         },
       ],
     },
