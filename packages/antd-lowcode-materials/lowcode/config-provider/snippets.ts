@@ -5,6 +5,11 @@ export default [
     schema: {
       componentName: 'ConfigProvider',
       props: {
+        "componentSize": "middle",
+        "locale": "zh-CN",
+        "autoInsertSpaceInButton": true,
+
+        "dropdownMatchSelectWidth": true,
         theme:{}
       },
     },

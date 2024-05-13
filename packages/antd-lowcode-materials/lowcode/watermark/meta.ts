@@ -205,7 +205,7 @@ const WatermarkMeta: IPublicTypeComponentMetadata = {
 const snippets: IPublicTypeSnippet[] = [
   {
     "title": "水印",
-    "screenshot": "https://cdn.appthen.com/assets/Appthen-shuiyin.svg",
+    "screenshot": "https://cdn.appthen.com/editor/antd/img/Watermark.svg",
     "schema": {
       "componentName": "Watermark",
       "props": {
