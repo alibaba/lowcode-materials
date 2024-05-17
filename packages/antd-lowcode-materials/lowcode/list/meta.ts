@@ -412,20 +412,22 @@ export default {
             tip: 'header | 列表头部',
           },
           propType: 'node',
-          setter: {
-            componentName: 'SlotSetter',
-            initialValue: {
-              type: 'JSSlot',
-              value: [
-                {
-                  componentName: 'Typography.Text',
-                  props: {
-                    children: '列表头部',
+          setter: [
+            {
+              componentName: 'SlotSetter',
+              initialValue: {
+                type: 'JSSlot',
+                value: [
+                  {
+                    componentName: 'Typography.Text',
+                    props: {
+                      children: '列表头部',
+                    },
                   },
-                },
-              ],
-            },
-          },
+                ],
+              },
+            },'BoolSetter'
+          ]
         },
         {
           name: 'footer',
@@ -434,20 +436,22 @@ export default {
             tip: 'footer | 列表底部',
           },
           propType: 'node',
-          setter: {
-            componentName: 'SlotSetter',
-            initialValue: {
-              type: 'JSSlot',
-              value: [
-                {
-                  componentName: 'Typography.Text',
-                  props: {
-                    children: '列表底部',
+          setter: [
+            {
+              componentName: 'SlotSetter',
+              initialValue: {
+                type: 'JSSlot',
+                value: [
+                  {
+                    componentName: 'Typography.Text',
+                    props: {
+                      children: '列表底部',
+                    },
                   },
-                },
-              ],
-            },
-          },
+                ],
+              },
+            },'BoolSetter'
+          ]
         },
         {
           name: 'loadMore',
@@ -456,20 +460,22 @@ export default {
             tip: 'loadMore | 加载更多',
           },
           propType: 'node',
-          setter: {
-            componentName: 'SlotSetter',
-            initialValue: {
-              type: 'JSSlot',
-              value: [
-                {
-                  componentName: 'Button',
-                  props: {
-                    children: 'loading more',
+          setter: [
+            {
+              componentName: 'SlotSetter',
+              initialValue: {
+                type: 'JSSlot',
+                value: [
+                  {
+                    componentName: 'Button',
+                    props: {
+                      children: 'loading more',
+                    },
                   },
-                },
-              ],
-            },
-          },
+                ],
+              },
+            },"BoolSetter"
+          ],
         },
       ],
     },
