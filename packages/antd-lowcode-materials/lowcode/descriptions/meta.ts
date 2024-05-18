@@ -46,6 +46,7 @@ export default {
                     setter: 'StringSetter',
                     initialValue: '列表项',
                   },
+
                   {
                     name: 'span',
                     title: '所占列数',
@@ -55,14 +56,17 @@ export default {
                   {
                     name: 'children',
                     title: '内容',
-                    setter: {
-                      componentName: 'SlotSetter',
-                      initialValue: {
-                        type: 'JSSlot',
-                        value: [],
+                    setter: [
+                      "StringSetter",
+                      {
+                        componentName: 'SlotSetter',
+                        initialValue: {
+                          type: 'JSSlot',
+                          value: [],
+                        },
                       },
-                    },
-                  },
+                    ]
+                  }
                 ],
               },
             },
@@ -80,97 +84,97 @@ export default {
           },
         },
       },
-      extraProps: {
-        getValue(target, fieldValue) {
-          const map = target.node.children.map((child) => {
-            const key = child.getPropValue('key') ? String(child.getPropValue('key')) : child.id;
-            return {
-              key,
-              label: child.getPropValue('label'),
-              span: child.getPropValue('span'),
-              children: child.getPropValue('children'),
-            };
-          });
-          return map;
-        },
-        setValue(target, value) {
-          const { node } = target;
-          const map = {};
+      // extraProps: {
+      //   getValue(target, fieldValue) {
+      //     const map = target.node.children.map((child) => {
+      //       const key = child.getPropValue('key') ? String(child.getPropValue('key')) : child.id;
+      //       return {
+      //         key,
+      //         label: child.getPropValue('label'),
+      //         span: child.getPropValue('span'),
+      //         children: child.getPropValue('children'),
+      //       };
+      //     });
+      //     return map;
+      //   },
+      //   setValue(target, value) {
+      //     const { node } = target;
+      //     const map = {};
 
-          if (!Array.isArray(value)) {
-            value = [];
-          }
-          value.forEach((item) => {
-            const tabItem = Object.assign({}, item);
-            map[item.key] = tabItem;
-          });
+      //     if (!Array.isArray(value)) {
+      //       value = [];
+      //     }
+      //     value.forEach((item) => {
+      //       const tabItem = Object.assign({}, item);
+      //       map[item.key] = tabItem;
+      //     });
 
-          node.children.mergeChildren(
-            (child) => {
-              const key = String(child.getPropValue('key'));
-              if (Object.hasOwnProperty.call(map, key)) {
-                child.setPropValue('label', map[key].label);
-                child.setPropValue('span', map[key].span);
-                child.setPropValue('children', map[key].children);
-                delete map[key];
-                return false;
-              }
-              return true;
-            },
-            () => {
-              const items = [];
-              for (const key in map) {
-                if (Object.hasOwnProperty.call(map, key)) {
-                  items.push({
-                    componentName: 'Descriptions.Item',
-                    props: map[key],
-                  });
-                }
-              }
-              return items;
-            },
-            (child1, child2) => {
-              const a = value.findIndex(
-                (item) => String(item.key) === String(child1.getPropValue('key')),
-              );
-              const b = value.findIndex(
-                (item) => String(item.key) === String(child2.getPropValue('key')),
-              );
-              return a - b;
-            },
-          );
-        },
-        // getValue(target, fieldValue) {
-        //   // const node = target.nodes[0];
-        //   // const children = node.getChildren();
-        //   const map = target.node.children.map(child => {
-        //     return {
-        //       key: child.getPropValue('key') || uuid(),
-        //       label: child.getPropValue('label'),
-        //       span: child.getPropValue('span'),
-        //       children: child.getPropValue('children'),
-        //     };
-        //   });
-        //   return map;
-        // },
-        // setValue(target, value) {
-        //   const node = target.node;
+      //     node.children.mergeChildren(
+      //       (child) => {
+      //         const key = String(child.getPropValue('key'));
+      //         if (Object.hasOwnProperty.call(map, key)) {
+      //           child.setPropValue('label', map[key].label);
+      //           child.setPropValue('span', map[key].span);
+      //           child.setPropValue('children', map[key].children);
+      //           delete map[key];
+      //           return false;
+      //         }
+      //         return true;
+      //       },
+      //       () => {
+      //         const items = [];
+      //         for (const key in map) {
+      //           if (Object.hasOwnProperty.call(map, key)) {
+      //             items.push({
+      //               componentName: 'Descriptions.Item',
+      //               props: map[key],
+      //             });
+      //           }
+      //         }
+      //         return items;
+      //       },
+      //       (child1, child2) => {
+      //         const a = value.findIndex(
+      //           (item) => String(item.key) === String(child1.getPropValue('key')),
+      //         );
+      //         const b = value.findIndex(
+      //           (item) => String(item.key) === String(child2.getPropValue('key')),
+      //         );
+      //         return a - b;
+      //       },
+      //     );
+      //   },
+      //   // getValue(target, fieldValue) {
+      //   //   // const node = target.nodes[0];
+      //   //   // const children = node.getChildren();
+      //   //   const map = target.node.children.map(child => {
+      //   //     return {
+      //   //       key: child.getPropValue('key') || uuid(),
+      //   //       label: child.getPropValue('label'),
+      //   //       span: child.getPropValue('span'),
+      //   //       children: child.getPropValue('children'),
+      //   //     };
+      //   //   });
+      //   //   return map;
+      //   // },
+      //   // setValue(target, value) {
+      //   //   const node = target.node;
 
-        //   if (!Array.isArray(value)) {
-        //     value = [];
-        //   }
+      //   //   if (!Array.isArray(value)) {
+      //   //     value = [];
+      //   //   }
 
-        //   node.children.mergeChildren(
-        //     () => true,
-        //     () => {
-        //       return value.map(item => ({
-        //         componentName: 'Descriptions.Item',
-        //         props: Object.assign({}, item),
-        //       }));
-        //     }
-        //   );
-        // },
-      },
+      //   //   node.children.mergeChildren(
+      //   //     () => true,
+      //   //     () => {
+      //   //       return value.map(item => ({
+      //   //         componentName: 'Descriptions.Item',
+      //   //         props: Object.assign({}, item),
+      //   //       }));
+      //   //     }
+      //   //   );
+      //   // },
+      // },
     },
     {
       name: 'bordered',
