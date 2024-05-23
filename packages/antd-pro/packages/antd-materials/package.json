@@ -1,6 +1,6 @@
 {
   "name": "@appthen/antd-pro",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
@@ -48,7 +48,7 @@
     "@babel/runtime": "^7.0.0"
   },
   "componentConfig": {
-    "materialSchema": "https://unpkg.com/@appthen/antd-pro@1.0.4/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@appthen/antd-pro@1.0.6/build/lowcode/assets-prod.json"
   },
   "publishConfig": {
     "access": "public"

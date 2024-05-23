@@ -120,7 +120,7 @@ const QueryFilterMeta = {
 const snippets = [
   {
     "title": "搜索查询",
-    "screenshot": "https://cdn.itq168.com/img/disscode-search.svg",
+    "screenshot": "https://cdn.appthen.com/editor/antd/img/appthen-search.svg",
     "schema": {
       "componentName": "QueryFilter",
       "props": {

@@ -948,7 +948,7 @@ const ProLayoutMeta: ComponentMetadata = {
 const snippets: Snippet[] = [
   {
     "title": "中台布局",
-    "screenshot": "https://cdn.appthen.com/assets/Appthen_layout.svg",
+    "screenshot": "https://cdn.appthen.com/editor/antd/img/original%20(1).svg",
     "schema": {
       "componentName": "ProLayout",
       "props": {
