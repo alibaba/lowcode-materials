@@ -1,5 +1,5 @@
 {
-  "library": "fortuneSheet",
+  "library": "FortuneSheet",
   "plugins": [
     "build-plugin-component",
     "build-plugin-fusion",

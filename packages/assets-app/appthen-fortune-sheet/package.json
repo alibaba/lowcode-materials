@@ -1,7 +1,7 @@
 {
-  "name": "@appthen/fortuneSheet",
+  "name": "@appthen/fortune-sheet",
   "version": "0.1.0",
-  "description": "@appthen/fortuneSheet",
+  "description": "@appthen/fortune-sheet",
   "files": [
     "demo/",
     "es/",
@@ -77,10 +77,11 @@
     "name": "ExampleComponent",
     "title": "demo component",
     "category": "Information",
-    "materialSchema": "https://unpkg.com/@appthen/fortuneSheet@0.1.0/build/lowcode/assets-prod.json"
+    "materialSchema": "https://unpkg.com/@appthen/fortune-sheet@0.1.0/build/lowcode/assets-prod.json"
   },
   "lcMeta": {
     "type": "component"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://unpkg.com/@appthen/fortune-sheet@0.1.0/build/index.html"
 }

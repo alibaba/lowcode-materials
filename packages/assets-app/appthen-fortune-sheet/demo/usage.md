@@ -8,7 +8,7 @@ order: 1
 ```jsx
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import ExampleComponent from '@appthen/fortuneSheet';
+import ExampleComponent from '@appthen/fortune-sheet';
 
 class App extends Component {
   render() {
