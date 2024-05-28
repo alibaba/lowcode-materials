@@ -16,6 +16,7 @@ export interface monacoProps {
   path?: string;
   data?: string;
   theme?: string;
+  enableOutline?: boolean;
   onChange?: (string) => void;
 }
 
@@ -24,6 +25,7 @@ const MonacoApi: React.FC<monacoProps> = function monacoProps(props) {
     <SingleMonacoEditorComponent
       height={props.height}
       width={props.width}
+      enableOutline={props.enableOutline}
       path={props.path}
       language={props.language}
       defaultValue={props.data}
