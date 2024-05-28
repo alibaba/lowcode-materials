@@ -3,7 +3,6 @@ import '@wangeditor/editor/dist/css/style.css';
 import { Editor, Toolbar } from '@wangeditor/editor-for-react';
 import { Boot } from '@wangeditor/editor';
 import markdownModule from '@wangeditor/plugin-md';
-
 Boot.registerModule(markdownModule);
 
 export interface editorProps {
@@ -23,6 +22,8 @@ const editorComponent = (props: editorProps, ref: any) => {
 
 
   function createEditor(editor: any){
+
+
     setEditor(editor)
     if (_otherProps.saveField) {
       _otherProps.saveField(editor);      
