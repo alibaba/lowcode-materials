@@ -1,0 +1,30 @@
+@import '../function/px_function.scss';
+
+.cs-scroll-view {
+  position: relative;
+
+  &__box {
+    position: absolute;
+    width: 100%;
+    height: 80PX;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    // transform: translate3d(0px, -40PX, 0);
+    z-index: 1;
+
+    &__image {
+      width: px(60);
+      height: px(44);
+    }
+  }
+
+  &__scroll {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+}

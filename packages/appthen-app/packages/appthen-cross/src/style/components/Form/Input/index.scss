@@ -1,0 +1,51 @@
+@import '../../../function/px_function.scss';
+
+.text-input {
+  width: 100%;
+
+  &__input {
+    font-size: 14PX;
+    padding-top: px(5);
+    padding-bottom: px(5);
+    // flex: 1;
+    /*  #ifndef rn */
+    background: none;
+    outline: none;
+    border-width: 0;
+    /*  #endif  */
+    border-width: 0;
+    width: 100%;
+  }
+}
+
+textarea, .taro-textarea {
+  width: 100%;
+  border-width: 0;
+  background-color: inherit;
+  font-weight: inherit;
+  height: inherit;
+  color: inherit;
+
+  font-size: inherit;
+  line-height: inherit;
+  min-height: inherit;
+  max-height: inherit;
+  overflow-y: inherit;
+  white-space: inherit;
+  word-break: inherit;
+  vertical-align: inherit;
+  resize: inherit;
+}
+
+taro-textarea-core {
+  width: 100%!important;
+  font-weight: inherit;
+  height: inherit;
+  color: inherit;
+}
+
+.taro_page  {
+  .taro-textarea {
+    line-height: inherit;
+  }
+}

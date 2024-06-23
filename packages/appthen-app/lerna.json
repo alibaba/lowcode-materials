@@ -1,0 +1,17 @@
+{
+  "packages": [
+    "packages/disscode-lib",
+    "packages/disscode-lib-demo",
+    "packages/disscode-lib-demo-rn"
+  ],
+  "command": {
+    "publish": {
+      "message": "chore(release): publish %s"
+    },
+    "create": {
+      "license": "MIT"
+    }
+  },
+  "version": "4.0.5",
+  "npmClient": "yarn"
+}

@@ -1,0 +1,37 @@
+.cross-page {
+  &__wxapp {
+    min-height: 100%;
+    background-color: #f6f7f9;
+  }
+
+  &__web {
+    width: 100%;
+    height: 100%;
+    // position: absolute;
+  }
+
+  &__native {
+    height: 100%;
+    flex: 1;
+  }
+
+  &__absolute {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  view {
+    // line-height: 1;
+    box-sizing: border-box;
+    // display: flex;
+    // flex-direction: column;
+  }
+
+  div {
+    // line-height: 1;
+    box-sizing: border-box;
+    // display: flex;
+    // flex-direction: column;
+  }
+}

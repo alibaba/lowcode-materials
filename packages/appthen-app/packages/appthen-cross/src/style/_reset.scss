@@ -1,0 +1,131 @@
+@import './function/px_function.scss';
+
+body {
+  line-height: 1 !important;
+}
+
+page {
+  height: 100%;
+  min-height: 100%;
+  line-height: 1.5;
+  background-color: #f6f7f9;
+  color: #333;
+	font-size: px(28);
+}
+
+div {
+  box-sizing: border-box;
+  // font-size: 0;
+}
+
+span,
+text {
+  // font-size: px(28);
+  // color: #666;
+}
+
+taro-view-core {
+  box-sizing: border-box;
+  font-size: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+view {
+  box-sizing: border-box;
+  font-size: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+taro-scroll-view-core {
+  box-sizing: border-box;
+}
+
+// fix font-size 0
+.at-button__text, .at-noticebar__content-inner {
+  font-size: inherit;
+}
+
+
+.taro-model__btn {
+  font-size: px(28);
+}
+.weui-picker__action {
+  font-size: px(28);
+}
+.weui-picker__item {
+  font-size: px(28);
+}
+
+button {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  border-width: 0;
+  box-sizing: border-box;
+  padding: 0;
+  line-height: 1;
+  background-color: none !important;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+button::after {
+  border: 0;
+}
+
+.container {
+  // height: 100%;
+  min-height: 100%;
+}
+
+input {
+  height: auto;
+  min-height: auto;
+}
+
+.taro_page {
+  min-height: calc(100vh);
+  height: calc(100vh);
+}
+
+.M-f-c-0 {
+  color: #000 !important;
+}
+
+// 处理PC版和H5版本的样式差异
+
+.weui-input, input {
+  font-weight: inherit;
+}
+
+.taro_page {
+  &::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #999;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: #666;
+  }
+  &::-webkit-scrollbar-thumb:vertical:active {
+    background-color: #333;
+  }
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+}
+
+taro-rich-text-core {
+  line-height: normal;
+  font-size: initial;
+}
+
+.selector {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}

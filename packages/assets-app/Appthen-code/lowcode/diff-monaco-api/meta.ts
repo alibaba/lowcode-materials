@@ -173,7 +173,7 @@ const b = JSON.stringify({ b: 'appthen平台' }, null, 2);
 const snippets: Snippet[] = [
   {
     title: 'code比对',
-    screenshot: 'https://cdn.appthen.cn/editor/assets/appthen-code.svg',
+    screenshot: 'https://cdn.appthen.com/editor/assets/appthen-code.svg',
     schema: {
       componentName: 'DiffMonacoApi',
       props: {

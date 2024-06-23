@@ -175,7 +175,7 @@ const MonacoApiMeta: IPublicTypeComponentMetadata = {
 const snippets: IPublicTypeSnippet[] = [
   {
     title: 'code编辑器',
-    screenshot: 'https://cdn.appthen.cn/editor/assets/appthen-difference.svg',
+    screenshot: 'https://cdn.appthen.com/editor/assets/appthen-difference.svg',
     schema: {
       componentName: 'MonacoApi',
       props: {

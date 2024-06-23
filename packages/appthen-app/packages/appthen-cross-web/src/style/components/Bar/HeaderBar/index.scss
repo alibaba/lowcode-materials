@@ -1,0 +1,71 @@
+@import '../../../function/px_function.scss';
+
+.header_bar {
+  // box-shadow: 0 px(1) px(8) rgba(0, 21, 41, 0.08);
+  position: relative;
+  z-index: 10;
+
+  &__view {
+
+  }
+
+  &__fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  &__body {
+    position: relative;
+    min-height: px(88);
+  }
+  &__left {
+    height: px(88);
+  
+    &__absolute {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+    }
+  
+    &__relative {
+      position: relative;
+    }
+  }
+  &__right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+  &__title {
+    height: px(88);
+  }
+  &__back_button {
+    padding-left: px(32);
+    padding-right: px(32);
+    height: 100%;
+  
+    &__image {
+      width: px(20);
+      height: px(36);
+    }
+    &__login {
+      padding-left: px(50);
+      padding-right: px(50);
+    }
+  }
+
+  &--capsule-padding-right {
+    .header_bar {
+      &__right {
+        right: px(186);
+      }
+    }
+  }
+  
+}

@@ -1,0 +1,19 @@
+/**
+ * Taro UI - Default variables
+ */
+
+/* Variables */
+@import './variables/default.scss';
+
+/* Mixin */
+@import './mixins/index.scss';
+
+/* Components */
+@import './components/index.scss';
+
+/* Animate */
+@import './components/animate/animate.min.scss';
+@import './components/animate/style.scss';
+
+@import './_reset.scss';
+@import './_layouts.scss';

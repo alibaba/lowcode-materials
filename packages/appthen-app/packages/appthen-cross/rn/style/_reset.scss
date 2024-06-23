@@ -1,0 +1,92 @@
+body {
+  line-height: 1 !important;
+}
+
+page {
+  height: 100%;
+  min-height: 100%;
+  line-height: 1.5;
+  background-color: #f6f7f9;
+  color: #333;
+	font-size: 28px;
+}
+
+div {
+  box-sizing: border-box;
+  // font-size: 0;
+}
+
+span,
+text {
+  font-size: 28px;
+  color: #666;
+}
+
+taro-view-core {
+  box-sizing: border-box;
+}
+
+view {
+  box-sizing: border-box;
+  // line-height: 1;
+}
+
+taro-scroll-view-core {
+  box-sizing: border-box;
+}
+
+.taro-model__btn {
+  font-size: 28px;
+}
+.weui-picker__action {
+  font-size: 28px;
+}
+.weui-picker__item {
+  font-size: 28px;
+}
+
+button {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  border-width: 0;
+  box-sizing: border-box;
+  padding: 0;
+  line-height: 1;
+  background-color: none !important;
+}
+
+button::after {
+  border: 0;
+}
+
+.container {
+  // height: 100%;
+  min-height: 100%;
+}
+
+input {
+  height: auto;
+  min-height: auto;
+}
+
+.taro_page {
+  min-height: calc(100vh);
+  height: calc(100vh);
+}
+
+.M-f-c-0 {
+  color: #000 !important;
+}
+
+// 处理PC版和H5版本的样式差异
+
+textarea {
+  width: 100%;
+  border-width: 0;
+  background-color: none;
+}
+
+taro-textarea-core {
+  width: 100%!important;
+}

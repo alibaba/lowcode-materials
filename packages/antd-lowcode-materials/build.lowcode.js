@@ -43,7 +43,7 @@ module.exports = {
                 package: 'dayjs',
                 version: '2.24.0',
                 urls: [
-                  'https://cdn.appthen.cn/editor/npm/antd/5.9.0/dayjs.min.js'
+                  'https://cdn.appthen.com/editor/npm/antd/5.9.0/dayjs.min.js'
                 ],
                 library: 'dayjs'
               },

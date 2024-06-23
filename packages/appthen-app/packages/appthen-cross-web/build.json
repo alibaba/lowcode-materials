@@ -1,0 +1,10 @@
+{
+  "sourceMap": false,
+  "alias": {
+    "@": "./src",
+    "@tarojs": "./src/libs/tarojs"
+  },
+  "plugins": [
+    ["build-plugin-component"]
+  ]
+}

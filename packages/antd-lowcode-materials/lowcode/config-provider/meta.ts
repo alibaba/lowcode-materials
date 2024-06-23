@@ -53,9 +53,8 @@ export default {
       title: { label: '自定义组件空状态', tip: '自定义组件空状态' },
       propType: 'func',
       props: {
-        template:
-          'renderEmpty(componentName}){\n// 展开行渲染\nreturn `空状态`\n}'
-      }
+        template: 'renderEmpty(componentName}){\n// 展开行渲染\nreturn `空状态`\n}',
+      },
     },
     {
       name: 'getPopupContainer',
@@ -128,15 +127,26 @@ export default {
         tip: '主题',
       },
       setter: {
-        componentName: 'JsonSetter',
-
-      },        },
+        componentName: 'MixedSetter',
+        props: {
+          setters: [
+            {
+              componentName: 'AntdThemeSetter',
+            },
+            {
+              componentName: 'JsonSetter',
+            },
+          ],
+        },
+      },
+    },
     {
       name: 'dropdownMatchSelectWidth',
       title: { label: '下拉菜单和选择器同宽', tip: '下拉菜单和选择器同宽' },
       propType: { type: 'oneOfType', value: ['bool', 'number'] },
     },
   ],
-  configure: { 
-    component: { isContainer: true } },
+  configure: {
+    component: { isContainer: true },
+  },
 };

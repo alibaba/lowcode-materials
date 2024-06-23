@@ -1,0 +1,14 @@
+{
+  "library": "BizComps",
+  "libraryTarget": "umd",
+  "sourceMap": true,
+  "alias": {
+    "@": "./src",
+    "@tarojs": "./src/libs/tarojs"
+  },
+  "plugins": [
+    ["build-plugin-component-multiple", {
+      "themePackage": "@alifd/theme-2"
+    }]
+  ]
+}

@@ -1,0 +1,19 @@
+@import '../../../function/px_function.scss';
+
+.text-input {
+  width: 100%;
+
+  &__input {
+    font-size: 14PX;
+    padding-top: px(5);
+    padding-bottom: px(5);
+    // flex: 1;
+    /*  #ifndef rn */
+    background: none;
+    outline: none;
+    border-width: 0;
+    /*  #endif  */
+    border-width: 0;
+    width: 100%;
+  }
+}

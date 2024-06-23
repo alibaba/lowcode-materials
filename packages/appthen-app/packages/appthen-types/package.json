@@ -1,0 +1,19 @@
+{
+  "name": "disscode-types",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@alilc/lowcode-engine": "^1.1.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  }
+}

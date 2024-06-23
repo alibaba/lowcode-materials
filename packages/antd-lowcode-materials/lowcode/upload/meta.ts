@@ -369,7 +369,12 @@ export default {
             tip: 'customRequest | 通过覆盖默认的上传行为，可以自定义自己的上传实现',
           },
           propType: 'func',
-          setter: 'FunctionSetter',
+          setter: {
+            componentName: 'FunctionSetter',
+            props: {
+              template: 'customRequest(e,${extParams}){\n\n}',
+            },
+          },
         },
         {
           name: 'isImageUrl',

@@ -430,7 +430,7 @@ const editorComponentMeta: IPublicTypeComponentMetadata = {
 const snippets: IPublicTypeSnippet[] = [
   {
     title: '富文本编辑器',
-    screenshot: 'https://cdn.appthen.cn/editor/assets/appthen-wangeditor.svg',
+    screenshot: 'https://cdn.appthen.com/editor/assets/appthen-wangeditor.svg',
     schema: {
       componentName: 'editorComponent',
       props: {

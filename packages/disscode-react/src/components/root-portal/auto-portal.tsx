@@ -10,7 +10,7 @@ const AutoPortal = () => {
     // @ts-ignore
     window.AutoPortalCount = (window.AutoPortalCount || 0) + 1;
     const eid = $event.$on('PORTAL_CONTROL', (params) => {
-      // console.log('on PORTAL_CONTROL: ', params);
+      console.log('on PORTAL_CONTROL: ', params);
       const { action, id, element } = params;
       if (action === 'add') {
         addElement(id, element);

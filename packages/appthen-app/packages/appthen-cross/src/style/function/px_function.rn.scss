@@ -1,0 +1,6 @@
+@use 'sass:math';
+
+@function px($px) {
+  // @return #{$px}px;
+  @return #{$px}px;
+}

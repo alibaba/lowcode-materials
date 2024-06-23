@@ -11,3 +11,4 @@ export { default as Textarea } from './Textarea';
 export { default as Video } from './Video';
 export { default as View } from './View';
 export { default as Canvas } from './canvas';
+export { OpenData } from './open-data';

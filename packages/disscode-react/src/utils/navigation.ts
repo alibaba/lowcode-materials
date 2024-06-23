@@ -1,8 +1,9 @@
 import { objectToQuery, queryToObject } from './data';
 import { NavigationOption } from './navigation.type';
 import { $preload } from './storage';
-import { history } from 'react-router-dom';
 
+import { createHashHistory } from "history";
+export const history = createHashHistory();
 
 let router = {
   baseUrl: '/pages/app',
@@ -25,18 +26,21 @@ export const createRoute = (fileName: string) => {
     };
   };
 };
-export const navigateBack = () => history.go(-1);
-export const navigateTo = (pageName: string, { query = {}, params }: NavigationOption = {}) => {
-  if (params) $preload('PAGE_PARAMS_' + pageName, params);
-  history.push(`${pageName}${Object.keys(query).length > 0 ? '?' : ''}${objectToQuery(query, false)}`);
-  // Taro.navigateTo({
-  //   url: router.syncMap.pages.includes(pageName) ? `${router.baseUrl}/${pageName}/index${Object.keys(query).length > 0 ? '?' : ''}${objectToQuery(query, false)}` : pageName,
-  // });
+
+export const navigateBack = history.back;
+export const navigateTo = (pageName, { query = {}, params }: NavigationOption = {}) => {
+  if (params) $preload("PAGE_PARAMS_" + pageName, params);
+  history.push(
+    `/${pageName}${
+      Object.keys(query).length > 0 ? "?" : ""
+    }${objectToQuery(query, false)}`
+  );
 };
-export const redirectTo = (pageName: string, { query = {}, params }: NavigationOption = {}) => {
-  if (params) $preload('PAGE_PARAMS_' + pageName, params);
-  history.replace(`${pageName}${Object.keys(query).length > 0 ? '?' : ''}${objectToQuery(query, false)}`);
-  // Taro.redirectTo({
-  //   url: router.syncMap.pages.includes(pageName) ? `${router.baseUrl}/${pageName}/index${Object.keys(query).length > 0 ? '?' : ''}${objectToQuery(query, false)}` : pageName,
-  // });
+export const redirectTo = (pageName, { query = {}, params }: NavigationOption = {}) => {
+  if (params) $preload("PAGE_PARAMS_" + pageName, params);
+  history.replace(
+    `/${pageName}${
+      Object.keys(query).length > 0 ? "?" : ""
+    }${objectToQuery(query, false)}`
+  );
 };

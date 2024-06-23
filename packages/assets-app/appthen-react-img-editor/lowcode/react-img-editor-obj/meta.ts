@@ -73,11 +73,11 @@ const snippets: IPublicTypeSnippet[] = [
   {
     title: '简易图片编辑器',
 
-    "screenshot": "https://cdn.appthen.cn/editor/assets/20240209130728.png?imageView2/0/format/webp/q/50",
+    "screenshot": "https://cdn.appthen.com/editor/assets/20240209130728.png?imageView2/0/format/webp/q/50",
     "schema": {
       "componentName": "ReactImgEditorObj",
       "props": {
-        src:"https://cdn.appthen.cn/editor/assets/20240209130728.png?imageView2/0/format/webp/q/50",
+        src:"https://cdn.appthen.com/editor/assets/20240209130728.png?imageView2/0/format/webp/q/50",
         plugins:[],
         crossOrigin:'anonymous',
         style:{

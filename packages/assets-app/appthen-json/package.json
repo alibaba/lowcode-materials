@@ -82,5 +82,6 @@
   "lcMeta": {
     "type": "component"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://unpkg.com/@appthen/json@0.1.0/build/index.html"
 }

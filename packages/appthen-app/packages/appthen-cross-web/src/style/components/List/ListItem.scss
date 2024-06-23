@@ -1,0 +1,43 @@
+@import '../../function/px_function.scss';
+
+.mt-list-item {
+  background-color: #fff;
+  border-top-left-radius: px(30);
+  border-top-right-radius: px(30);
+  border-bottom-left-radius: px(30);
+  border-bottom-right-radius: px(30);
+  border-width: px(4);
+  border-color: rgba(0, 0, 0, 0);
+  border-style: solid;
+
+  &_active {
+    border-color: #4883ff;
+  }
+
+  &__left {
+    padding-right: px(20);
+  }
+
+  &__avatar {
+    width: px(100);
+    height: px(100);
+    background-color: #eee;
+  }
+
+  &__text {
+    &-main {
+      font-weight: bold;
+    }
+  }
+
+  &__main {
+  }
+  &__sub {
+  }
+  &__right {
+    &__arrow {
+      width: px(30);
+      height: px(30);
+    }
+  }
+}

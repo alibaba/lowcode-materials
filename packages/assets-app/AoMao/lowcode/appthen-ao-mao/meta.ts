@@ -229,7 +229,7 @@ const AoMaoMeta: IPublicTypeComponentMetadata = {
 const snippets: IPublicTypeSnippet[] = [
   {
     "title": "AoMao编辑器",
-    screenshot: 'https://cdn.appthen.cn/editor/assets/appthen-aomao.svg',
+    screenshot: 'https://cdn.appthen.com/editor/assets/appthen-aomao.svg',
     "schema": {
       "componentName": "AoMao",
       "props": {

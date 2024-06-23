@@ -10,13 +10,13 @@ import React from 'react';
 
 import { portalRef } from './components/root-portal/auto-portal';
 
-export { default as AtAvatar } from './components/avatar'
-export { default as AtBadge } from './components/badge'
+export { default as AtAvatar } from './components/avatar';
+export { default as AtBadge } from './components/badge';
 // export { default as AtDrawer } from './components/drawer'
 // export { default as AtFloatLayout } from './components/float-layout'
 // export { default as AtForm } from './components/form'
 // export { default as AtGrid } from './components/grid'
-export { default as AtIcon } from './components/icon'
+export { default as AtIcon } from './components/icon';
 // export { default as AtInput } from './components/input'
 // export { default as AtList } from './components/list'
 // export { default as AtListItem } from './components/list/item'
@@ -25,14 +25,14 @@ export { default as AtIcon } from './components/icon'
 // export { default as AtModalContent } from './components/modal/content'
 // export { default as AtModalAction } from './components/modal/action'
 // export { default as AtNavBar } from './components/nav-bar'
-export { default as AtNoticebar } from './components/noticebar'
+export { default as AtNoticebar } from './components/noticebar';
 // export { default as AtPagination } from './components/pagination'
 // export { default as AtProgress } from './components/progress'
 // export { default as AtSegmentedControl } from './components/segmented-control'
 // export { default as AtTabBar } from './components/tab-bar'
 // export { default as AtTabs } from './components/tabs'
 // export { default as AtTabsPane } from './components/tabs-pane'
-export { default as AtTag } from './components/tag'
+export { default as AtTag } from './components/tag';
 // export { default as AtTextarea } from './components/textarea'
 // export { default as AtTimeline } from './components/timeline'
 // export { default as AtToast } from './components/toast'
@@ -72,7 +72,14 @@ export const WebView = TWebView;
 export const Canvas = TCanvas;
 export const RichText = TRichText;
 
-export { addPortal, removePortal, registerPartalComponent, showComponentModal, renderComponentPortal, renderComponent } from './components/root-portal/auto-portal';
+export {
+  addPortal,
+  removePortal,
+  registerPartalComponent,
+  showComponentModal,
+  renderComponentPortal,
+  renderComponent,
+} from './components/root-portal/auto-portal';
 
 export const getComponent = (componentName: string) => {
   const PartalComponent = portalRef.componentMap[componentName];
@@ -80,6 +87,8 @@ export const getComponent = (componentName: string) => {
   return PartalComponent;
 };
 
-export { event } from './utils/event';
+// export { event } from './utils/event';
+
+export { default as withRouter } from './components/react-router/withRouter';
 
 configure({ isolateGlobalState: true });
