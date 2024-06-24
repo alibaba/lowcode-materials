@@ -103,16 +103,19 @@ export default {
       events: [
         {
           name: 'onPanelChange',
+          description: '日期面板变化回调',
           template:
             "onPanelChange(date,mode,${extParams}){\n// 日期面板变化回调\nconsole.log('onPanelChange', date, mode);}",
         },
         {
           name: 'onSelect',
+          description: '点击选择日期回调',
           template:
-            "onSelect(date,${extParams}){\n// 点击选择日期回调\nconsole.log('onSelect', date);}",
+            "onSelect(date,info,${extParams}){\n// 选择日期回调，包含来源信息\nconsole.log('onSelect', date,info);}",
         },
         {
           name: 'onChange',
+          description: '日期变化回调',
           template:
             "onChange(date,${extParams}){\n// 日期变化回调\nconsole.log('onChange', date);}",
         },
