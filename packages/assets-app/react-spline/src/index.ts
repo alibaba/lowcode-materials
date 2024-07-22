@@ -1,0 +1,1 @@
+export * from '@splinetool/react-spline';
