@@ -66,9 +66,9 @@ module.exports = {
                 package: 'antd',
                 version: '5.14.0',
                 urls: [
-                  '//cdn.bootcdn.net/ajax/libs/dayjs/1.11.9/dayjs.min.js',
-                  `//cdn.bootcdn.net/ajax/libs/antd/5.15.0/antd.js`,
-                  `//cdn.bootcdn.net/ajax/libs/antd/5.15.0/reset.css`,
+                  'https://cdn.appthen.com/editor/antd/5.14.0/dayjs.min.js',
+                  `https://cdn.appthen.com/editor/antd/5.14.0/antd5.20/antd.min.js`,
+                  `https://cdn.appthen.com/editor/antd/5.14.0/antd5.20/reset.min.css`,
                 ],
                 library: 'antd',
               },

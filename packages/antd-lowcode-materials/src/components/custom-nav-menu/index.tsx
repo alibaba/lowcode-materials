@@ -8,7 +8,7 @@ const CustomNav: any = (props: any, ref: Ref<any>) => {
 
   const data = [...otherProps?.items];
 
-  function processMenuItems(menuItems) {
+  function processMenuItems(menuItems:any) {
     return menuItems?.map((item: any) => {
       const menuItem = { ...item };
       // 处理当前菜单项
@@ -27,8 +27,7 @@ const CustomNav: any = (props: any, ref: Ref<any>) => {
       return menuItem;
     });
   }
-  const newdata = processMenuItems(data);
-  otherProps.items = newdata;
+  otherProps.items = processMenuItems(data);
 
   return <Menu {...otherProps} />;
 };

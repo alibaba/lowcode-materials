@@ -50,6 +50,16 @@ export default {
       setter: {
         componentName: 'JsonSetter',
       },
+      extraProps: {
+        getValue(target) {
+          const { node } = target;
+          const gutter = node.getPropValue('items');
+          if (typeof gutter === undefined || gutter =='' || gutter === null) {
+            return [];
+          } 
+          return gutter;
+        }
+      },
     },
     {
       name: 'defaultOpenKeys',

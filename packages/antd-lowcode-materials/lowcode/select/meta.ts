@@ -35,6 +35,18 @@ export default {
       },
     },
     {
+      name: 'fieldNames',
+      title: { label: '自定义字段', tip: '自定义labelvalue字段' },
+      propType: { type: 'arrayOf', value: 'object' },
+      setter: 'JsonSetter',
+      defaultValue: {
+        label: 'label',
+        value: 'value',
+        options: 'options',
+        groupLabel:'label'
+      }
+    },
+    {
       name: 'options',
       title: { label: '可选项', tip: '可选项' },
       propType: {
@@ -109,6 +121,7 @@ export default {
       defaultValue: false,
       setter: 'BoolSetter'
     },
+    
     {
       name: 'autoFocus',
       title: { label: '自动聚焦', tip: '默认获取焦点' },
@@ -243,6 +256,21 @@ export default {
       propType: 'bool',
       defaultValue: true,
       setter: 'BoolSetter'
+    },
+    {
+      name: 'dropdownRender',
+      title: { label: '自定义下拉', tip: '自定义下拉' },
+      propType: 'func',
+      setter: [
+        {
+          componentName: 'FunctionSetter',
+          props: {
+            template:
+              'function(originNode,${extParams}){\n  return "组件";\n}',
+          },
+        },
+      ],
+      
     },
     {
       name: 'filterOption',

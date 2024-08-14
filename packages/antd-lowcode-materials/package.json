@@ -1,6 +1,6 @@
 {
   "name": "@appthen/antd",
-  "version": "5.14.7",
+  "version": "5.14.8",
   "description": "Antd for AppThen",
   "main": "lib/index.js",
   "scripts": {
@@ -67,10 +67,10 @@
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "@babel/runtime": "^7.0.0",
-    "antd": "^5.14.0",
-    "antd-img-crop": "^4.18.0",
-    "antd-style": "^3.6.1",
-    "dayjs": "^1.11.10"
+    "antd": "^5.20.0",
+    "antd-img-crop": "4.22.0",
+    "antd-style": "3.6.2",
+    "dayjs": "1.11.12"
   },
   "peerDependencies": {
     "dayjs": "^1.11.10",
@@ -78,7 +78,7 @@
     "react-dom": "^16.x"
   },
   "componentConfig": {
-    "materialSchema": "https://alifd.alicdn.com/npm/@appthen/antd@5.14.6/build/lowcode/assets-prod.json"
+    "materialSchema": "https://alifd.alicdn.com/npm/@appthen/antd@5.14.8/build/lowcode/assets-prod.json"
   },
   "license": "MIT",
   "exports": {
@@ -98,5 +98,5 @@
   "resolutions": {
     "webpack": "^4.46.x"
   },
-  "homepage": "https://unpkg.com/@appthen/antd@5.14.6/build/index.html"
+  "homepage": "https://unpkg.com/@appthen/antd@5.14.8/build/index.html"
 }

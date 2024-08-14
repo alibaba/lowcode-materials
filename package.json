@@ -56,5 +56,8 @@
       "pre-commit": "f2elint commit-file-scan",
       "commit-msg": "f2elint commit-msg-scan"
     }
+  },
+  "dependencies": {
+    "@ant-design/pro-chat": "^1.15.2"
   }
 }

@@ -5,9 +5,6 @@ export default [
     schema: {
       componentName: 'Menu',
       props: {
-        mode: 'inline',
-        SelectedKeys: ['1'],
-        theme: 'dark',
         items:  [
           {
             key: '1',

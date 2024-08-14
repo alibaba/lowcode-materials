@@ -14,9 +14,17 @@ export default {
       title: '菜单项',
       setter: {
         componentName: 'JsonSetter',
-
       },
-      extraProps: itemsExtraProps,
+      extraProps: {
+        getValue(target) {
+          const { node } = target;
+          const gutter = node.getPropValue('items');
+          if (typeof gutter === undefined || gutter =='' || gutter === null) {
+            return [];
+          } 
+          return gutter;
+        }
+      },
     },
     {
       name: 'defaultOpenKeys',
@@ -62,11 +70,10 @@ export default {
         label: '菜单类型',
         tip: '菜单类型，现在支持垂直、水平、和内嵌模式三种',
       },
-      defaultValue:'inline',
-
+      defaultValue: 'inline',
       propType: { type: 'oneOf', value: ['vertical', 'horizontal', 'inline'] },
       setter: {
-        componentName: 'SelectSetter',
+        componentName: 'RadioGroupSetter',
         props: {
           options: [
             {
@@ -142,8 +149,9 @@ export default {
       name: 'theme',
       title: { label: '主题颜色', tip: '主题颜色' },
       propType: { type: 'oneOf', value: ['light', 'dark'] },
+      defaultValue: 'light',
       setter: {
-        componentName: 'SelectSetter',
+        componentName: 'RadioGroupSetter',
         props: {
           options: [
             {
@@ -179,7 +187,7 @@ export default {
       },
       propType: { type: 'oneOf', value: ['hover', 'click'] },
       setter: {
-        componentName: 'SelectSetter',
+        componentName: 'RadioGroupSetter',
         props: {
           options: [
             {
