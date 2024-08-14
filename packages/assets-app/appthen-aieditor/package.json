@@ -46,7 +46,7 @@
     "@alifd/next": "^1.25.27",
     "react": "^16.x",
     "react-dom": "^16.x",
-    "aieditor":"1.0.0-rc.7"
+    "aieditor":"^1.0.0"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.3",
