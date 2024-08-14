@@ -1,0 +1,1 @@
+export {default as ReactJson} from 'react-json-view'
