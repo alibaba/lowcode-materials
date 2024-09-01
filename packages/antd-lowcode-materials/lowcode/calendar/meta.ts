@@ -33,7 +33,7 @@ export default {
           componentName: 'FunctionSetter',
           props: {
             template:
-              'function(date,${extParams}){\n// 设置不可选择的日期\nreturn "日期"\n}',
+              'dateCellRender(date,${extParams}){\n// 设置不可选择的日期\nreturn "日期"\n}',
           },
         },
         'VariableSetter',

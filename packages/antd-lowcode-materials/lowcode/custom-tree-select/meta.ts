@@ -23,17 +23,17 @@ export default {
       propType: { type: 'arrayOf', value: 'object' },
       setter: 'JsonSetter',
     },
-    // {
-    //   name: 'fieldNames',
-    //   title: { label: '自定义字段', tip: '当前值' },
-    //   propType: { type: 'arrayOf', value: 'object' },
-    //   setter: 'JsonSetter',
-    //   defaultValue: {
-    //     title: 'title',
-    //     key: 'key',
-    //     children: 'children'
-    //   }
-    // },
+    {
+      name: 'fieldNames',
+      title: { label: '自定义字段', tip: '当前值' },
+      propType: { type: 'arrayOf', value: 'object' },
+      setter: 'JsonSetter',
+      defaultValue: {
+        title: 'title',
+        key: 'key',
+        children: 'children'
+      }
+    },
     {
       name: 'treeCheckStrictly',
       title: { label: '完全受控', tip: 'checkable 状态下节点选择完全受控（父子节点选中状态不再关联），会使得 labelInValue 强制为 true' },

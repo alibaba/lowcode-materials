@@ -2,7 +2,7 @@ import snippets from './snippets';
 
 export default {
   snippets,
-  componentName: 'Statistic',
+  componentName: 'Statistic.Countdown',
   title: '统计数值',
   category: '数据展示',
   props: [
@@ -12,20 +12,11 @@ export default {
       propType: 'string',
     },
     {
-      name: 'formatter',
-      title: { label: '自定义数值展示', tip: '自定义数值展示' },
-      propType: 'func',
-    },
-    {
-      name: 'groupSeparator',
-      title: { label: '设置千分位标识符', tip: '设置千分位标识符' },
+      name: 'format',
+      title: { label: '格式化时间', tip: '格式化倒计时展示' },
       propType: 'string',
     },
-    {
-      name: 'precision',
-      title: { label: '数值精度', tip: '数值精度' },
-      propType: 'number',
-    },
+
     {
       name: 'prefix',
       title: { label: '设置数值的前缀', tip: '设置数值的前缀' },
@@ -58,7 +49,7 @@ export default {
             name: 'valueStyle',
             title: {
               label: '数字样式',
-              tip: '样式',
+              tip: 'icon.style | 用于设置 Drawer 头部的样式',
             },
             setter: 'StyleSetter',
             extraProps: {
@@ -68,6 +59,26 @@ export default {
         ],
     
     },
+
   ],
-  configure: { supports: { style: true } },
+  configure: { supports: { style: true,
+
+    events:[
+
+      {
+        name: 'onFinish',
+        description:"完成的回调",
+
+        template: "onFinish(${extParams}){\n// 完成的回调\n;}",
+      },
+      {
+        name: 'onChange',
+        description:"倒计时时间变化时触发	",
+
+        template: "onChange(value,${extParams}){\n// 倒计时时间变化时触发	\nconsole.log('value');}",
+      },
+    ]
+
+   },
+ },
 };

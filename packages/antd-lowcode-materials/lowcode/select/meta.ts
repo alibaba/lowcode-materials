@@ -266,7 +266,7 @@ export default {
           componentName: 'FunctionSetter',
           props: {
             template:
-              'function(originNode,${extParams}){\n  return "组件";\n}',
+              'dropdownRender(originNode,${extParams}){\n  return "组件";\n}',
           },
         },
       ],

@@ -115,5 +115,6 @@ export default {
       },
     },
   ],
-  configure: { supports: { style: true  } },
+  configure: { supports: {       style: true,
+    className: true,  } },
 };

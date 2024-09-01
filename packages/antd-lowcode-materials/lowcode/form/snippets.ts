@@ -61,7 +61,6 @@ export default [
                 "placeholder": "请输入",
                 "bordered": true,
                 "disabled": false,
-                "size": "middle"
               }
             }
           ]
@@ -103,7 +102,6 @@ export default [
                 "disabled": false,
                 "controls": true,
                 "bordered": true,
-                "size": "middle"
               }
             }
           ]
@@ -144,7 +142,6 @@ export default [
                 "disabled": false,
                 "visibilityToggle": true,
                 "placeholder": "请输入",
-                "size": "middle"
               }
             }
           ]
@@ -189,7 +186,6 @@ export default [
                 "bordered": true,
                 "disabled": false,
                 "showCount": false,
-                "size": "middle"
               }
             }
           ]
@@ -249,7 +245,6 @@ export default [
                 "disabled": false,
                 "labelInValue": false,
                 "showSearch": false,
-                "size": "middle",
                 "loading": false,
                 "bordered": true,
                 "filterOption": true,
@@ -387,7 +382,6 @@ export default [
                 "autoFocus": false,
                 "disabled": false,
                 "loading": false,
-                "size": "default"
               }
             }
           ]

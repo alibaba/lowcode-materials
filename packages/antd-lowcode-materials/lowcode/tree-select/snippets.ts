@@ -26,7 +26,6 @@ export default [
         treeDefaultExpandAll: true,
         placeholder: '请选择',
         style: {
-          width: '300px',
         },
       },
     },

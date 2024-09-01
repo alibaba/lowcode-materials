@@ -23,17 +23,17 @@ export default {
       propType: { type: 'arrayOf', value: 'object' },
       setter: 'JsonSetter',
     },
-    // {
-    //   name: 'fieldNames',
-    //   title: { label: '自定义字段', tip: '当前值' },
-    //   propType: { type: 'arrayOf', value: 'object' },
-    //   setter: 'JsonSetter',
-    //   defaultValue: {
-    //     title: 'title',
-    //     key: 'key',
-    //     children: 'children'
-    //   }
-    // },
+    {
+      name: 'fieldNames',
+      title: { label: '自定义字段', tip: '当前值' },
+      propType: { type: 'arrayOf', value: 'object' },
+      setter: 'JsonSetter',
+      defaultValue: {
+        title: 'title',
+        key: 'key',
+        children: 'children'
+      }
+    },
     // {
     //   name: 'treeNodeFilterProp',
     //   title: { label: 'value', tip: 'value' },

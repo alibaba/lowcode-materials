@@ -335,7 +335,7 @@ const SiderMeta: IPublicTypeComponentMetadata = {
 };
 const snippets: IPublicTypeSnippet[] = [
   {
-    "title": "菜单控制",
+    "title": "收缩组件",
     "screenshot": "https://cdn.appthen.com/editor/antd/img/Menu.svg",
     "schema": {
       "componentName": "Layout.Sider",

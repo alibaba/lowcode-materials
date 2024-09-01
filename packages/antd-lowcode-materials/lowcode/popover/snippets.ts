@@ -22,7 +22,6 @@ export default [
             "type": "primary",
             "children": "气泡卡片",
             "htmlType": "button",
-            "size": "middle",
             "shape": "default",
             "block": false,
             "danger": false,

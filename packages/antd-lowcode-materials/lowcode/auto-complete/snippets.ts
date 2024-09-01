@@ -18,7 +18,6 @@ export default [
         ],
         filterOption: true,
         style: {
-          width: '200px',
         },
       },
     },
